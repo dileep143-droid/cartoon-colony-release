@@ -1,44 +1,83 @@
 name: release
 # One episode, many languages in parallel: Kaggle 1440p -> music -> YouTube (+thumbnail, search packaging) -> Google Drive.
+# Daily: 07:00 IST the timer uploads the episode listed for today in data/schedule.json to all 12 channels, set to go public at 11:45 IST.
 on:
+  schedule:
+    - cron: "30 1 * * *"
   workflow_dispatch:
     inputs:
       ep:        { description: "episode id (cg01, ep02 ... ep12)", required: true }
       langs:     { description: 'JSON list, e.g. ["te","hi"]', required: true, default: '["te"]' }
       privacy:   { description: "private | unlisted | public", required: true, default: "private" }
-      publish_at: { description: "optional ISO time to go public, e.g. 2026-10-26T12:30:00Z", required: false, default: "" }
+      publish_at: { description: "optional ISO time to go public, e.g. 2026-10-26T06:15:00Z", required: false, default: "" }
 jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      ep: ${{ steps.p.outputs.ep }}
+      langs: ${{ steps.p.outputs.langs }}
+      privacy: ${{ steps.p.outputs.privacy }}
+      publish_at: ${{ steps.p.outputs.publish_at }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: p
+        env:
+          IN_EP: ${{ inputs.ep }}
+          IN_LANGS: ${{ inputs.langs }}
+          IN_PRIVACY: ${{ inputs.privacy }}
+          IN_PUBLISH: ${{ inputs.publish_at }}
+        run: |
+          python - <<'PY'
+          import json, os, datetime
+          out = open(os.environ["GITHUB_OUTPUT"], "a")
+          if os.environ.get("IN_EP"):
+              ep, langs, privacy, pub = os.environ["IN_EP"], os.environ["IN_LANGS"], os.environ["IN_PRIVACY"], os.environ.get("IN_PUBLISH", "")
+          else:
+              s = json.load(open("data/schedule.json")); today = str((datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)).date())
+              ep = s["days"].get(today, ""); langs = json.dumps(s["langs"]); privacy = "private"; pub = f"{today}T{s['publish_time_utc']}Z" if ep else ""
+          print(f"ep={ep}", file=out); print(f"langs={langs}", file=out); print(f"privacy={privacy}", file=out); print(f"publish_at={pub}", file=out)
+          print("planned:", ep or "(nothing scheduled today)", pub)
+          PY
   release:
+    needs: plan
+    if: needs.plan.outputs.ep != ''
     runs-on: ubuntu-latest
     timeout-minutes: 60
     strategy:
       fail-fast: false
       max-parallel: 6
       matrix:
-        lang: ${{ fromJSON(inputs.langs) }}
+        lang: ${{ fromJSON(needs.plan.outputs.langs) }}
     steps:
       - uses: actions/checkout@v4
       - name: tools
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
           pip install -q kaggle google-api-python-client google-auth numpy
-      - name: release ${{ inputs.ep }} ${{ matrix.lang }}
+      - name: release ${{ needs.plan.outputs.ep }} ${{ matrix.lang }}
         env:
           YT_TOKEN: ${{ secrets[format('YT_{0}', matrix.lang)] }}
           DRIVE_TOKEN: ${{ secrets.DRIVE_TOKEN }}
           KAGGLE_KEY1: ${{ secrets.KAGGLE_KEY1 }}
+          KAGGLE_KEY2: ${{ secrets.KAGGLE_KEY2 }}
           KAGGLE_KEY3: ${{ secrets.KAGGLE_KEY3 }}
+          KAGGLE_KEY4: ${{ secrets.KAGGLE_KEY4 }}
           KAGGLE_KEY5: ${{ secrets.KAGGLE_KEY5 }}
           KAGGLE_KEY6: ${{ secrets.KAGGLE_KEY6 }}
           KAGGLE_KEY7: ${{ secrets.KAGGLE_KEY7 }}
+          KAGGLE_KEY8: ${{ secrets.KAGGLE_KEY8 }}
           KAGGLE_KEY9: ${{ secrets.KAGGLE_KEY9 }}
           KAGGLE_KEY10: ${{ secrets.KAGGLE_KEY10 }}
+          KAGGLE_KEY11: ${{ secrets.KAGGLE_KEY11 }}
           KAGGLE_KEY12: ${{ secrets.KAGGLE_KEY12 }}
           KAGGLE_KEY13: ${{ secrets.KAGGLE_KEY13 }}
           KAGGLE_KEY14: ${{ secrets.KAGGLE_KEY14 }}
           KAGGLE_KEY15: ${{ secrets.KAGGLE_KEY15 }}
           KAGGLE_KEY17: ${{ secrets.KAGGLE_KEY17 }}
-        run: python release_one.py "${{ inputs.ep }}" "${{ matrix.lang }}" "${{ inputs.privacy }}" "${{ inputs.publish_at }}"
+          KAGGLE_KEY19: ${{ secrets.KAGGLE_KEY19 }}
+          KAGGLE_KEY20: ${{ secrets.KAGGLE_KEY20 }}
+          KAGGLE_KEY21: ${{ secrets.KAGGLE_KEY21 }}
+        run: python release_one.py "${{ needs.plan.outputs.ep }}" "${{ matrix.lang }}" "${{ needs.plan.outputs.privacy }}" "${{ needs.plan.outputs.publish_at }}"
       - uses: actions/upload-artifact@v4
         if: always()
-        with: { name: "result_${{ inputs.ep }}_${{ matrix.lang }}", path: "result_*.json", if-no-files-found: ignore }
+        with: { name: "result_${{ needs.plan.outputs.ep }}_${{ matrix.lang }}", path: "result_*.json", if-no-files-found: ignore, retention-days: 1 }

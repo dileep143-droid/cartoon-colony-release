@@ -2,5 +2,49 @@
  "cg01": {
   "key": 1,
   "kernel": "mani7673/s2asm-cg01-1-1"
+ },
+ "ep02": {
+  "key": 3,
+  "kernel": "wheeler123/s2asm-ep02-3-1"
+ },
+ "ep03": {
+  "key": 5,
+  "kernel": "will00byers/s2asm-ep03-5-2"
+ },
+ "ep04": {
+  "key": 6,
+  "kernel": "jampandu2003/s2asm-ep04-6-1"
+ },
+ "ep05": {
+  "key": 7,
+  "kernel": "tejatarun8352/s2asm-ep05-7-3"
+ },
+ "ep06": {
+  "key": 9,
+  "kernel": "bennypaulkunapamula/s2asm-ep06-9-3"
+ },
+ "ep07": {
+  "key": 10,
+  "kernel": "tejaupma43/s2asm-ep07-10-2"
+ },
+ "ep08": {
+  "key": 12,
+  "kernel": "gorlebharathi/s2asm-ep08-12-2"
+ },
+ "ep09": {
+  "key": 13,
+  "kernel": "musthafadudekula/s2asm-ep09-13-3"
+ },
+ "ep10": {
+  "key": 14,
+  "kernel": "ramu24/s2asm-ep10-14-2"
+ },
+ "ep11": {
+  "key": 15,
+  "kernel": "reddy60/s2asm-ep11-15-1"
+ },
+ "ep12": {
+  "key": 17,
+  "kernel": "gopalaganeshk/s2asm-ep12-17-2"
  }
 }

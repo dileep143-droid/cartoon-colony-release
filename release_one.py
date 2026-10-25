@@ -11,6 +11,7 @@ from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 ep, lang, privacy = sys.argv[1:4]; publish_at = sys.argv[4] if len(sys.argv) > 4 and sys.argv[4] else None
+DRIVE_ONLY = privacy == "drive"          # archive mode: Kaggle -> music -> Google Drive, no YouTube
 D = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data"); SR = 48000
 src = json.load(open(os.path.join(D, "sources.json")))[ep]
 # 1) Kaggle -> runner
@@ -59,24 +60,26 @@ def creds(js):
     return c
 
 
-# 3) YouTube
-m = json.load(open(os.path.join(D, "meta", f"{ep}_{lang}.json"), encoding="utf-8"))
-yt = build("youtube", "v3", credentials=creds(os.environ["YT_TOKEN"]), cache_discovery=False)
-status = {"privacyStatus": "private" if publish_at else privacy, "selfDeclaredMadeForKids": False, "embeddable": True}
-if publish_at: status["publishAt"] = publish_at
-body = {"snippet": {"title": m["title"][:100], "description": m["description"][:4900], "tags": m["tags"], "categoryId": "24", "defaultLanguage": lang,
-                    "defaultAudioLanguage": lang}, "status": status}
-if m.get("localizations"): body["localizations"] = m["localizations"]
-req = yt.videos().insert(part="snippet,status" + (",localizations" if m.get("localizations") else ""), body=body,
-                         media_body=MediaFileUpload(final, chunksize=32 * 1024 * 1024, resumable=True, mimetype="video/mp4"))
-resp = None
-while resp is None: st, resp = req.next_chunk()
-vid = resp["id"]; print("uploaded https://youtu.be/" + vid, flush=True)
-try: yt.thumbnails().set(videoId=vid, media_body=MediaFileUpload(os.path.join(D, "thumbs", lang, f"{ep}.jpg"), mimetype="image/jpeg")).execute(); print("thumbnail set")
-except Exception as ex: print("thumbnail NOT set:", str(ex)[-160:])
-rb = yt.videos().list(part="snippet,status", id=vid).execute()["items"][0]
-res = {"ep": ep, "lang": lang, "video_id": vid, "privacy": rb["status"]["privacyStatus"], "publishAt": rb["status"].get("publishAt"),
-       "madeForKids": rb["status"].get("madeForKids"), "category": rb["snippet"]["categoryId"], "tags": len(rb["snippet"].get("tags", []))}
+res = {"ep": ep, "lang": lang}
+if not DRIVE_ONLY:
+    # 3) YouTube
+    m = json.load(open(os.path.join(D, "meta", f"{ep}_{lang}.json"), encoding="utf-8"))
+    yt = build("youtube", "v3", credentials=creds(os.environ["YT_TOKEN"]), cache_discovery=False)
+    status = {"privacyStatus": "private" if publish_at else privacy, "selfDeclaredMadeForKids": False, "embeddable": True}
+    if publish_at: status["publishAt"] = publish_at
+    body = {"snippet": {"title": m["title"][:100], "description": m["description"][:4900], "tags": m["tags"], "categoryId": "24", "defaultLanguage": lang,
+                        "defaultAudioLanguage": lang}, "status": status}
+    if m.get("localizations"): body["localizations"] = m["localizations"]
+    req = yt.videos().insert(part="snippet,status" + (",localizations" if m.get("localizations") else ""), body=body,
+                             media_body=MediaFileUpload(final, chunksize=32 * 1024 * 1024, resumable=True, mimetype="video/mp4"))
+    resp = None
+    while resp is None: st, resp = req.next_chunk()
+    vid = resp["id"]; print("uploaded https://youtu.be/" + vid, flush=True)
+    try: yt.thumbnails().set(videoId=vid, media_body=MediaFileUpload(os.path.join(D, "thumbs", lang, f"{ep}.jpg"), mimetype="image/jpeg")).execute(); print("thumbnail set")
+    except Exception as ex: print("thumbnail NOT set:", str(ex)[-160:])
+    rb = yt.videos().list(part="snippet,status", id=vid).execute()["items"][0]
+    res = {"ep": ep, "lang": lang, "video_id": vid, "privacy": rb["status"]["privacyStatus"], "publishAt": rb["status"].get("publishAt"),
+           "madeForKids": rb["status"].get("madeForKids"), "category": rb["snippet"]["categoryId"], "tags": len(rb["snippet"].get("tags", []))}
 # 4) Google Drive copy (drive.file scope: only files this app creates)
 if os.environ.get("DRIVE_TOKEN"):
     try:
@@ -86,9 +89,14 @@ if os.environ.get("DRIVE_TOKEN"):
             f = dr.files().list(q=q, fields="files(id)").execute().get("files", [])
             return f[0]["id"] if f else dr.files().create(body={"name": nm, "mimeType": "application/vnd.google-apps.folder", **({"parents": [parent]} if parent else {})}, fields="id").execute()["id"]
         pid = folder(lang, folder("Cartoon Colony Episodes"))
+        if dr.files().list(q=f"name='{final}' and '{pid}' in parents and trashed=false", fields="files(id)").execute().get("files"):
+            raise SystemExit  # already archived
         up = dr.files().create(body={"name": final, "parents": [pid]}, media_body=MediaFileUpload(final, chunksize=64 * 1024 * 1024, resumable=True, mimetype="video/mp4"), fields="id")
         resp = None
         while resp is None: st, resp = up.next_chunk()
         res["drive_file"] = resp["id"]; print("saved to Google Drive", flush=True)
+    except SystemExit: res["drive"] = "already there"; print("already in Google Drive", flush=True)
     except Exception as ex: res["drive_error"] = str(ex)[-200:]; print("Drive copy FAILED (YouTube upload is fine):", str(ex)[-200:], flush=True)
 json.dump(res, open(f"result_{ep}_{lang}.json", "w"), ensure_ascii=False); print(json.dumps(res))
+for f in (final, "mix.wav"):                                   # nothing kept on the runner
+    if os.path.exists(f): os.remove(f)
