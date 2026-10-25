@@ -79,14 +79,16 @@ res = {"ep": ep, "lang": lang, "video_id": vid, "privacy": rb["status"]["privacy
        "madeForKids": rb["status"].get("madeForKids"), "category": rb["snippet"]["categoryId"], "tags": len(rb["snippet"].get("tags", []))}
 # 4) Google Drive copy (drive.file scope: only files this app creates)
 if os.environ.get("DRIVE_TOKEN"):
-    dr = build("drive", "v3", credentials=creds(os.environ["DRIVE_TOKEN"]), cache_discovery=False)
-    def folder(nm, parent=None):
-        q = f"name='{nm}' and mimeType='application/vnd.google-apps.folder' and trashed=false" + (f" and '{parent}' in parents" if parent else "")
-        f = dr.files().list(q=q, fields="files(id)").execute().get("files", [])
-        return f[0]["id"] if f else dr.files().create(body={"name": nm, "mimeType": "application/vnd.google-apps.folder", **({"parents": [parent]} if parent else {})}, fields="id").execute()["id"]
-    pid = folder(lang, folder("Cartoon Colony Episodes"))
-    up = dr.files().create(body={"name": final, "parents": [pid]}, media_body=MediaFileUpload(final, chunksize=64 * 1024 * 1024, resumable=True, mimetype="video/mp4"), fields="id")
-    resp = None
-    while resp is None: st, resp = up.next_chunk()
-    res["drive_file"] = resp["id"]; print("saved to Google Drive", flush=True)
+    try:
+        dr = build("drive", "v3", credentials=creds(os.environ["DRIVE_TOKEN"]), cache_discovery=False)
+        def folder(nm, parent=None):
+            q = f"name='{nm}' and mimeType='application/vnd.google-apps.folder' and trashed=false" + (f" and '{parent}' in parents" if parent else "")
+            f = dr.files().list(q=q, fields="files(id)").execute().get("files", [])
+            return f[0]["id"] if f else dr.files().create(body={"name": nm, "mimeType": "application/vnd.google-apps.folder", **({"parents": [parent]} if parent else {})}, fields="id").execute()["id"]
+        pid = folder(lang, folder("Cartoon Colony Episodes"))
+        up = dr.files().create(body={"name": final, "parents": [pid]}, media_body=MediaFileUpload(final, chunksize=64 * 1024 * 1024, resumable=True, mimetype="video/mp4"), fields="id")
+        resp = None
+        while resp is None: st, resp = up.next_chunk()
+        res["drive_file"] = resp["id"]; print("saved to Google Drive", flush=True)
+    except Exception as ex: res["drive_error"] = str(ex)[-200:]; print("Drive copy FAILED (YouTube upload is fine):", str(ex)[-200:], flush=True)
 json.dump(res, open(f"result_{ep}_{lang}.json", "w"), ensure_ascii=False); print(json.dumps(res))
