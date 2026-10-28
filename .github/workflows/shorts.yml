@@ -1,0 +1,79 @@
+name: Shorts (comedy moments, public)
+# Owner approved 28 Oct 2026: vertical comedy Shorts from the 4 episodes already on the channels, published publicly.
+# YouTube upload quota: each Google project serves 4 channels and allows ~6 uploads/day; the long-episode release uses 4.
+# So until the long releases end (6 Nov) half the channels get a Short each day (2 per project); after that all 12 daily.
+on:
+  workflow_dispatch:
+    inputs:
+      langs:
+        description: "comma list of languages (empty = today's normal group)"
+        default: ""
+      dry_run:
+        description: "1 = make the Short but do not upload (test)"
+        default: ""
+  schedule:
+    - cron: "30 8 * * *"
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      langs: ${{ steps.p.outputs.langs }}
+    steps:
+      - id: p
+        run: |
+          python3 - <<'EOF' >> "$GITHUB_OUTPUT"
+          import datetime, json
+          manual = "${{ github.event.inputs.langs }}".strip()
+          A = ["hi", "te", "ml", "mr", "pa", "or"]; B = ["ta", "kn", "bn", "gu", "as", "en"]
+          d = datetime.date.today()
+          langs = manual.split(",") if manual else (A + B if d >= datetime.date(2026, 11, 6) else (A if d.toordinal() % 2 == 0 else B))
+          print("langs=" + json.dumps([l.strip() for l in langs if l.strip()]))
+          EOF
+  short:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        lang: ${{ fromJSON(needs.plan.outputs.langs) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-core libraqm0 ffmpeg >/dev/null
+      - run: pip install -q kaggle google-api-python-client google-auth pillow
+      - name: Make and upload one Short
+        env:
+          YT_TOKEN: ${{ secrets[format('YT_{0}', matrix.lang)] }}
+          KAGGLE_KEY1: ${{ secrets.KAGGLE_KEY1 }}
+          KAGGLE_KEY2: ${{ secrets.KAGGLE_KEY2 }}
+          KAGGLE_KEY3: ${{ secrets.KAGGLE_KEY3 }}
+          KAGGLE_KEY4: ${{ secrets.KAGGLE_KEY4 }}
+          KAGGLE_KEY5: ${{ secrets.KAGGLE_KEY5 }}
+          KAGGLE_KEY6: ${{ secrets.KAGGLE_KEY6 }}
+          KAGGLE_KEY7: ${{ secrets.KAGGLE_KEY7 }}
+          KAGGLE_KEY8: ${{ secrets.KAGGLE_KEY8 }}
+          KAGGLE_KEY9: ${{ secrets.KAGGLE_KEY9 }}
+          KAGGLE_KEY10: ${{ secrets.KAGGLE_KEY10 }}
+          KAGGLE_KEY11: ${{ secrets.KAGGLE_KEY11 }}
+          KAGGLE_KEY12: ${{ secrets.KAGGLE_KEY12 }}
+          KAGGLE_KEY13: ${{ secrets.KAGGLE_KEY13 }}
+          KAGGLE_KEY14: ${{ secrets.KAGGLE_KEY14 }}
+          KAGGLE_KEY15: ${{ secrets.KAGGLE_KEY15 }}
+          KAGGLE_KEY16: ${{ secrets.KAGGLE_KEY16 }}
+          KAGGLE_KEY17: ${{ secrets.KAGGLE_KEY17 }}
+          KAGGLE_KEY18: ${{ secrets.KAGGLE_KEY18 }}
+          KAGGLE_KEY19: ${{ secrets.KAGGLE_KEY19 }}
+          KAGGLE_KEY20: ${{ secrets.KAGGLE_KEY20 }}
+          KAGGLE_KEY21: ${{ secrets.KAGGLE_KEY21 }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: python shorts_one.py ${{ matrix.lang }}
+      - if: ${{ github.event.inputs.dry_run == '1' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-short-${{ matrix.lang }}
+          path: short.mp4
+          retention-days: 2
