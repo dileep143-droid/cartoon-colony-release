@@ -1,7 +1,8 @@
 """Collect free/open sound-effect libraries and save them to the owner's PRIVATE Google Drive ("Kulfi Sound Library/<source>/").
 Nothing is kept on GitHub. Before every upload the Drive free space is checked; when it runs out the job stops cleanly.
 Files already on Drive (same name and size) are skipped, so re-running only fills the gaps.
-Usage: python sound_lib.py quota | zenodo <record_id> <name> | url <name> <url> | bbc <category> | mixkit"""
+Usage: python sound_lib.py quota | zenodo <record_id> <name> | url <name> <url> | bbc <category> | mixkit
+       python sound_lib.py archive <archive_org_id> <name> | pixabay | mendeley <dataset_id> <name>"""
 import concurrent.futures as cf, gzip, json, os, re, shutil, sys, time, urllib.request, zipfile
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
@@ -139,3 +140,86 @@ elif mode == "mixkit":   # Mixkit free sound effects (Mixkit licence: free, comm
     replace("mixkit_metadata.jsonl.gz", pid)
     items = [(f"{r['category']}/{i}.mp3", f"https://assets.mixkit.co/active_storage/sfx/{i}/{i}-preview.mp3") for i, r in sorted(rows.items(), key=lambda x: int(x[0]))]
     print("mixkit mp3 saved", zip_parts("mixkit", items, pid), flush=True)
+elif mode == "archive":   # archive.org items (Sonniss GDC bundles etc.)
+    aid, name = sys.argv[2], sys.argv[3]
+    pid = folder(name, folder(ROOT)); have = on_drive(pid)
+    meta = json.loads(get(f"https://archive.org/metadata/{aid}"))
+    files = [f for f in meta.get("files", []) if f["name"].endswith((".wav", ".flac", ".mp3", ".ogg", ".aif", ".aiff"))]
+    print(name, len(files), "audio files", round(sum(int(f.get("size", 0)) for f in files) / 1e9, 2), "GB", flush=True)
+    # Group by top-level directory (each contributor's pack) and upload as zip parts
+    groups = {}
+    for f in files:
+        top = f["name"].split("/")[0] if "/" in f["name"] else "_root"
+        groups.setdefault(top, []).append(f)
+    done, total = 0, len(files)
+    for gname in sorted(groups):
+        items = [(f["name"], f"https://archive.org/download/{aid}/{urllib.request.quote(f['name'])}") for f in groups[gname]]
+        tag = re.sub(r"[^a-zA-Z0-9_-]", "_", gname)[:60]
+        n = zip_parts(f"{name}_{tag}", items, pid)
+        done += n; print(f"  {gname}: {n} files  ({done}/{total})", flush=True)
+    print(name, "done", done, "of", total, "files", flush=True)
+elif mode == "pixabay":   # Pixabay sound effects via API (Pixabay licence: free, commercial use, no attribution required)
+    key = os.environ["PIXABAY_API_KEY"]
+    pid = folder("pixabay", folder(ROOT))
+    if any(n.startswith("pixabay_part") for n in on_drive(pid)): print("already on Drive"); sys.exit(0)
+    # Pixabay audio search API - collect all pages
+    rows, page = [], 1
+    while True:
+        d = json.loads(get(f"https://pixabay.com/api/?key={key}&per_page=200&page={page}&safesearch=true&editors_choice=false&order=latest&audio_type=sfx", tries=3))
+        hits = d.get("hits", [])
+        if not hits: break
+        for h in hits:
+            audio_url = h.get("audio", {}).get("mp3", {}).get("url") or h.get("audio", {}).get("128kbps", {}).get("url") or h.get("previewURL", "")
+            if audio_url:
+                rows.append({"id": h["id"], "tags": h.get("tags", ""), "url": audio_url, "duration": h.get("duration")})
+        page += 1
+        if page * 200 >= d.get("totalHits", d.get("total", 0)): break
+        time.sleep(0.3)
+    # Fallback: scrape categories if API returns nothing (API may not support audio yet)
+    if not rows:
+        print("API returned 0 audio hits, trying web scrape", flush=True)
+        html = get("https://pixabay.com/sound-effects/").decode("utf-8", "ignore")
+        cats = sorted(set(re.findall(r'/sound-effects/([a-z0-9-]+)/', html)))
+        for ct in cats:
+            for pg in range(1, 40):
+                try: h = get(f"https://pixabay.com/sound-effects/search/{ct}/?pagi={pg}", tries=2).decode("utf-8", "ignore")
+                except Exception: break
+                ids = re.findall(r'/sound-effects/[^/]+-(\d+)/', h); new = [i for i in ids if i not in {str(r["id"]) for r in rows}]
+                if not new: break
+                for i in new: rows.append({"id": int(i), "tags": ct, "url": f"https://pixabay.com/sound-effects/download/sound-effect-{i}.mp3", "duration": None})
+                time.sleep(0.5)
+    print("pixabay sounds", len(rows), flush=True)
+    with gzip.open("pixabay_metadata.jsonl.gz", "wt", encoding="utf-8") as g:
+        for r in rows: g.write(json.dumps(r) + "\n")
+    replace("pixabay_metadata.jsonl.gz", pid)
+    items = [(f"{r['tags'].split(',')[0].strip()}/{r['id']}.mp3", r["url"]) for r in rows if r["url"]]
+    print("pixabay mp3 saved", zip_parts("pixabay", items, pid), flush=True)
+elif mode == "mendeley":   # Mendeley Data datasets (zip download)
+    did, name = sys.argv[2], sys.argv[3]
+    pid = folder(name, folder(ROOT)); have = on_drive(pid)
+    fn = f"{did}.zip"
+    if fn in have: print("already on Drive", fn); sys.exit(0)
+    # Mendeley provides a zip download for entire datasets
+    fetch_to(f"https://data.mendeley.com/datasets/{did}/1/files/download", fn)
+    upload(fn, pid); os.remove(fn)
+    print(name, "saved", flush=True)
+elif mode == "freesound_search":   # Freesound via API (needs FREESOUND_API_KEY env)
+    key = os.environ["FREESOUND_API_KEY"]
+    query = sys.argv[2] if len(sys.argv) > 2 else ""
+    pid = folder("freesound", folder(ROOT)); have = on_drive(pid)
+    # Search and download CC0 sounds
+    page, rows = 1, []
+    while True:
+        d = json.loads(get(f"https://freesound.org/apiv2/search/text/?query={urllib.request.quote(query)}&filter=license:%22Creative+Commons+0%22&fields=id,name,tags,previews,duration,license&page_size=150&page={page}&token={key}"))
+        for r in d.get("results", []):
+            mp3 = r.get("previews", {}).get("preview-hq-mp3", r.get("previews", {}).get("preview-lq-mp3", ""))
+            if mp3: rows.append({"id": r["id"], "name": r["name"], "tags": r.get("tags", []), "url": mp3, "license": r.get("license"), "duration": r.get("duration")})
+        if not d.get("next"): break
+        page += 1; time.sleep(0.5)
+    print(f"freesound CC0 '{query}'", len(rows), "sounds", flush=True)
+    tag = re.sub(r"[^a-z0-9]", "_", query.lower())[:30] or "all"
+    with gzip.open(f"freesound_{tag}_metadata.jsonl.gz", "wt", encoding="utf-8") as g:
+        for r in rows: g.write(json.dumps(r, ensure_ascii=False) + "\n")
+    replace(f"freesound_{tag}_metadata.jsonl.gz", pid)
+    items = [(f"{r['id']}_{r['name'][:40]}.mp3", r["url"]) for r in rows]
+    print("freesound saved", zip_parts(f"freesound_{tag}", items, pid), flush=True)
