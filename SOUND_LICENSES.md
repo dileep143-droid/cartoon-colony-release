@@ -4,6 +4,8 @@
 |---|---|---|---|
 | mixkit | mixkit.co | Mixkit Sound Effects Free License | Yes |
 | pixabay | pixabay.com | Pixabay Content License (free, commercial, no attribution) | Yes |
+| bigsoundbank | bigsoundbank.com | CC0 1.0 Universal | Yes (no credit needed) |
+| sfx_kit_cc0 | github.com/wyzowl/sfx-kit | CC0 1.0 Universal | Yes (no credit needed) |
 | sonniss_gdc_2018 | archive.org (Sonniss GDC 2018) | Sonniss royalty-free (NO AI training) | Yes |
 | sonniss_gdc_2019 | archive.org (Sonniss GDC 2019) | Sonniss royalty-free (NO AI training) | Yes |
 | sonniss_gdc_2020 | archive.org (Sonniss GDC 2020) | Sonniss royalty-free (NO AI training) | Yes |
