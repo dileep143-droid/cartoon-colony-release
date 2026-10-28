@@ -22,8 +22,20 @@ jobs:
       max-parallel: 8
       matrix:
         include:
+          # --- Free for commercial use ---
           - {mode: mixkit, a: "", b: ""}
-          - {mode: url, a: esc50, b: "https://github.com/karolpiczak/ESC-50/archive/master.zip"}
+          - {mode: pixabay, a: "", b: ""}
+          # Sonniss GDC bundles from archive.org (royalty-free, ~180 GB total)
+          - {mode: archive, a: sonniss-gdc-2018-game-audio-bundle-normalized, b: sonniss_gdc_2018}
+          - {mode: archive, a: sonniss-gdc-2019-game-audio-bundle-normalized, b: sonniss_gdc_2019}
+          - {mode: archive, a: sonniss-gdc-2020-game-audio-bundle-normalized, b: sonniss_gdc_2020}
+          - {mode: archive, a: sonniss-gdc-2024-game-audio-bundle-normalized, b: sonniss_gdc_2024}
+          - {mode: archive, a: gameaudiogdc-part1through7, b: sonniss_gdc_all}
+          # FoleySet (CC BY 4.0, 2.2 GB)
+          - {mode: zenodo, a: "20735877", b: foleyset}
+          # Indian urban sounds (Mendeley, CC BY 4.0)
+          - {mode: mendeley, a: 4553jk9dvz, b: indian_urban_audio}
+          # --- Research / reference (CC BY or similar) ---
           - {mode: zenodo, a: "14517916", b: 6ksfx}
           - {mode: zenodo, a: "14286414", b: sfx_variations}
           - {mode: zenodo, a: "3668503", b: knocking_emotions}
@@ -37,8 +49,11 @@ jobs:
           - {mode: zenodo, a: "4783391", b: clotho}
           - {mode: zenodo, a: "2552860", b: fsdkaggle2018}
           - {mode: zenodo, a: "3685832", b: freesound_loops_4k}
+          - {mode: url, a: esc50, b: "https://github.com/karolpiczak/ESC-50/archive/master.zip"}
+          # --- Non-commercial ---
           - {mode: zenodo, a: "1203745", b: urbansound8k}
           - {mode: zenodo, a: "2529934", b: fsdnoisy18k}
+          # BBC Sound Effects (all 23 categories)
           - {mode: bbc, a: Daily_Life, b: ""}
           - {mode: bbc, a: Footsteps, b: ""}
           - {mode: bbc, a: Animals, b: ""}
@@ -71,4 +86,5 @@ jobs:
       - name: Collect and save to private Drive
         env:
           DRIVE_TOKEN: ${{ secrets.DRIVE_TOKEN }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
         run: python sound_lib.py ${{ matrix.mode }} ${{ matrix.a }} "${{ matrix.b }}"
