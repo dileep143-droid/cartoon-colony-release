@@ -22,9 +22,11 @@ jobs:
       max-parallel: 8
       matrix:
         include:
-          # --- Free for commercial use ---
+          # --- Free for commercial use (CC0 or equivalent) ---
           - {mode: mixkit, a: "", b: ""}
           - {mode: pixabay, a: "", b: ""}
+          - {mode: bigsoundbank, a: "", b: ""}
+          - {mode: url, a: sfx_kit_cc0, b: "https://codeload.github.com/wyzowl/sfx-kit/zip/refs/heads/main"}
           # Sonniss GDC bundles from archive.org (royalty-free, ~180 GB total)
           - {mode: archive, a: sonniss-gdc-2018-game-audio-bundle-normalized, b: sonniss_gdc_2018}
           - {mode: archive, a: sonniss-gdc-2019-game-audio-bundle-normalized, b: sonniss_gdc_2019}
