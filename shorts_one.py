@@ -109,8 +109,9 @@ if os.environ.get("DRY_RUN"):
     print("DRY RUN - not uploaded", lang, ep, seg + 1, f"{end - start:.1f}s", flush=True); sys.exit(0)
 long_id = links[ep][lang]
 title = (hook + " #shorts")[:100]
-desc = f"{hook}\n\nFull episode / పూర్తి ఎపిసోడ్ ▶ https://youtu.be/{long_id}\n\n#shorts #cartoon #comedy\n[s:{ep}-{seg}]"
-if lang != "te": desc = desc.replace(" / పూర్తి ఎపిసోడ్", "")
+FULL = {"te": "పూర్తి ఎపిసోడ్", "hi": "पूरा एपिसोड", "ta": "முழு எபிசோட்", "kn": "ಪೂರ್ತಿ ಎಪಿಸೋಡ್", "ml": "മുഴുവൻ എപ്പിസോഡ്", "mr": "पूर्ण भाग",
+        "bn": "পুরো পর্ব", "gu": "આખો એપિસોડ", "pa": "ਪੂਰਾ ਐਪੀਸੋਡ", "or": "ପୂରା ଏପିସୋଡ୍", "as": "সম্পূৰ্ণ পৰ্ব", "en": "Full episode"}
+desc = f"{hook}\n\n{FULL.get(lang, 'Full episode')} ▶ https://youtu.be/{long_id}\n\n#shorts #cartoon #comedy\n[s:{ep}-{seg}]"
 body = {"snippet": {"title": title, "description": desc, "tags": (meta.get("tags") or [])[:10] + ["shorts"], "categoryId": "24",
                     "defaultLanguage": lang, "defaultAudioLanguage": lang},
         "status": {"privacyStatus": "public", "selfDeclaredMadeForKids": False}}
