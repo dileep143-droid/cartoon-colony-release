@@ -146,16 +146,48 @@ elif mode == "archive":   # archive.org items (Sonniss GDC bundles etc.)
     meta = json.loads(get(f"https://archive.org/metadata/{aid}"))
     files = [f for f in meta.get("files", []) if f["name"].endswith((".wav", ".flac", ".mp3", ".ogg", ".aif", ".aiff"))]
     print(name, len(files), "audio files", round(sum(int(f.get("size", 0)) for f in files) / 1e9, 2), "GB", flush=True)
-    # Group by top-level directory (each contributor's pack) and upload as zip parts
+    # Group by top-level directory (each contributor's pack) and upload individually
     groups = {}
     for f in files:
         top = f["name"].split("/")[0] if "/" in f["name"] else "_root"
         groups.setdefault(top, []).append(f)
     done, total = 0, len(files)
+    DISK_LIMIT = 10 * (1 << 30)    # keep 10 GB free on the runner
     for gname in sorted(groups):
-        items = [(f["name"], f"https://archive.org/download/{aid}/{urllib.request.quote(f['name'])}") for f in groups[gname]]
         tag = re.sub(r"[^a-zA-Z0-9_-]", "_", gname)[:60]
-        n = zip_parts(f"{name}_{tag}", items, pid)
+        # Skip this group if its zip already exists on Drive
+        if any(n.startswith(f"{name}_{tag}_part") for n in have):
+            done += len(groups[gname])
+            print(f"  {gname}: already on Drive  ({done}/{total})", flush=True); continue
+        # Stream-download each file to disk, zip in parts, upload, delete local
+        part, z, cur, n = 0, None, 0, 0
+        for af in groups[gname]:
+            u = f"https://archive.org/download/{aid}/{urllib.request.quote(af['name'])}"
+            fsize = int(af.get("size", 0))
+            # For very large files (>2GB), upload individually instead of zipping
+            if fsize > 2 * (1 << 30):
+                if z: z.close(); upload(z.filename, pid); os.remove(z.filename); z = None; cur = 0
+                local = os.path.basename(af["name"])
+                try:
+                    fetch_to(u, local); upload(local, pid); os.remove(local); n += 1
+                except Exception as e: print(f"  SKIP {af['name']}: {e}", flush=True)
+                continue
+            # Download to temp file
+            local = "tmp_" + os.path.basename(af["name"])
+            try: fetch_to(u, local)
+            except Exception as e: print(f"  SKIP {af['name']}: {e}", flush=True); continue
+            if z is None:
+                part += 1; zn = f"{name}_{tag}_part{part:02d}.zip"
+                z = zipfile.ZipFile(zn, "w", zipfile.ZIP_STORED); cur = 0
+            z.write(local, af["name"]); cur += os.path.getsize(local); os.remove(local); n += 1
+            if cur >= 1500 << 20:  # 1.5 GB per zip part
+                z.close(); upload(z.filename, pid); os.remove(z.filename); z = None; cur = 0
+            # Check disk space
+            disk = shutil.disk_usage(".").free
+            if disk < 3 * (1 << 30):
+                print(f"  LOW DISK ({disk/(1<<30):.1f} GB) - flushing zip", flush=True)
+                if z: z.close(); upload(z.filename, pid); os.remove(z.filename); z = None; cur = 0
+        if z: z.close(); upload(z.filename, pid); os.remove(z.filename)
         done += n; print(f"  {gname}: {n} files  ({done}/{total})", flush=True)
     print(name, "done", done, "of", total, "files", flush=True)
 elif mode == "pixabay":   # Pixabay sound effects via API (Pixabay licence: free, commercial use, no attribution required)
