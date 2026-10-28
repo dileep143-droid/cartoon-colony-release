@@ -1,0 +1,52 @@
+name: Social text (open sources, all languages -> private Drive)
+on:
+  workflow_dispatch:
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        include:
+          - {mode: cv, a: "", b: ""}
+          - {mode: tatoeba, a: "", b: ""}
+          - {mode: hf, a: community-datasets/offenseval_dravidian, b: ""}
+          - {mode: hf, a: IsaacRodgz/DravidianCodeMix-Dataset, b: ""}
+          - {mode: hf, a: mounikaiiith/Telugu-Sarcasm, b: ""}
+          - {mode: hf, a: mounikaiiith/Telugu-Hatespeech, b: ""}
+          - {mode: hf, a: naruttamboruah/assamese-idioms-proverbs, b: ""}
+          - {mode: reddit, a: telugu, b: te}
+          - {mode: reddit, a: tollywood, b: te}
+          - {mode: reddit, a: hyderabad, b: te}
+          - {mode: reddit, a: hindi, b: hi}
+          - {mode: reddit, a: IndianDankMemes, b: hi}
+          - {mode: reddit, a: tamil, b: ta}
+          - {mode: reddit, a: kollywood, b: ta}
+          - {mode: reddit, a: Chennai, b: ta}
+          - {mode: reddit, a: kannada, b: kn}
+          - {mode: reddit, a: bangalore, b: kn}
+          - {mode: reddit, a: malayalam, b: ml}
+          - {mode: reddit, a: kerala, b: ml}
+          - {mode: reddit, a: marathi, b: mr}
+          - {mode: reddit, a: pune, b: mr}
+          - {mode: reddit, a: punjabi, b: pa}
+          - {mode: reddit, a: urdu, b: ur}
+          - {mode: reddit, a: pakistan, b: ur}
+          - {mode: reddit, a: assam, b: as}
+          - {mode: reddit, a: Gujarati, b: gu}
+          - {mode: reddit, a: Odia, b: or}
+          - {mode: reddit, a: odisha, b: or}
+          - {mode: reddit, a: kolkata, b: bn}
+          - {mode: reddit, a: bangladesh, b: bn}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q pyarrow huggingface_hub fsspec google-api-python-client google-auth
+      - name: Collect and save to private Drive
+        env:
+          DRIVE_TOKEN: ${{ secrets.DRIVE_TOKEN }}
+        run: python social_text.py ${{ matrix.mode }} ${{ matrix.a }} ${{ matrix.b }}
