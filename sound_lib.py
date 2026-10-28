@@ -255,3 +255,12 @@ elif mode == "freesound_search":   # Freesound via API (needs FREESOUND_API_KEY 
     replace(f"freesound_{tag}_metadata.jsonl.gz", pid)
     items = [(f"{r['id']}_{r['name'][:40]}.mp3", r["url"]) for r in rows]
     print("freesound saved", zip_parts(f"freesound_{tag}", items, pid), flush=True)
+elif mode == "bigsoundbank":   # BigSoundBank (CC0, ~3,600 sounds)
+    pid = folder("bigsoundbank", folder(ROOT))
+    if any(n.startswith("bigsoundbank_part") for n in on_drive(pid)): print("already on Drive"); sys.exit(0)
+    # Get all sound IDs from sitemap
+    sitemap = get("https://bigsoundbank.com/sitemap_bsb.xml").decode("utf-8", "ignore")
+    ids = sorted(set(re.findall(r's(\d+)\.html', sitemap)), key=int)
+    print("bigsoundbank", len(ids), "sounds", flush=True)
+    items = [(f"{i}.mp3", f"https://bigsoundbank.com/UPLOAD/mp3/{i}.mp3") for i in ids]
+    print("bigsoundbank mp3 saved", zip_parts("bigsoundbank", items, pid), flush=True)
