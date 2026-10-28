@@ -1,0 +1,39 @@
+name: Phrase text (speech datasets, text only -> private Drive)
+on:
+  workflow_dispatch:
+jobs:
+  text:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix:
+        include:
+          - {ds: SPRINGLab/SPRING_INX_Odia_R1, lang: or}
+          - {ds: SPRINGLab/SPRING_INX_Assamese_R1, lang: as}
+          - {ds: SPRINGLab/SPRING_INX_Assamese_R2, lang: as}
+          - {ds: SPRINGLab/SPRING_INX_Bengali_R1, lang: bn}
+          - {ds: SPRINGLab/SPRING_INX_Bengali_R2, lang: bn}
+          - {ds: SPRINGLab/SPRING_INX_Gujarati_R1, lang: gu}
+          - {ds: SPRINGLab/SPRING_INX_Gujarati_R2, lang: gu}
+          - {ds: SPRINGLab/SPRING_INX_Kannada_R1, lang: kn}
+          - {ds: SPRINGLab/SPRING_INX_Malayalam_R1, lang: ml}
+          - {ds: SPRINGLab/SPRING_INX_Malayalam_R2, lang: ml}
+          - {ds: SPRINGLab/SPRING_INX_Marathi_R1, lang: mr}
+          - {ds: SPRINGLab/SPRING_INX_Marathi_R2, lang: mr}
+          - {ds: SPRINGLab/SPRING_INX_Punjabi_R1, lang: pa}
+          - {ds: SPRINGLab/SPRING_INX_Punjabi_R2, lang: pa}
+          - {ds: SPRINGLab/SPRING_INX_Tamil_R1, lang: ta}
+          - {ds: SPRINGLab/SPRING_INX_Tamil_R2, lang: ta}
+          - {ds: naruttamboruah/assamese-idioms-proverbs, lang: as}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q pyarrow huggingface_hub fsspec google-api-python-client google-auth
+      - name: Read text column and save to private Drive
+        env:
+          DRIVE_TOKEN: ${{ secrets.DRIVE_TOKEN }}
+        run: python phrase_text.py "${{ matrix.ds }}" "${{ matrix.lang }}"
