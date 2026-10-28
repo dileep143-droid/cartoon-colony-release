@@ -1,0 +1,35 @@
+name: AI4Bharat Rasa text (text only -> private Drive)
+on:
+  workflow_dispatch:
+jobs:
+  text:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        include:
+          - {ds: Rasa, f: Telugu}
+          - {ds: Rasa, f: Hindi}
+          - {ds: Rasa, f: Tamil}
+          - {ds: Rasa, f: Kannada}
+          - {ds: Rasa, f: Malayalam}
+          - {ds: Rasa, f: Bengali}
+          - {ds: Rasa, f: Marathi}
+          - {ds: Rasa, f: Gujarati}
+          - {ds: Rasa, f: Punjabi}
+          - {ds: Rasa, f: Odia}
+          - {ds: Rasa, f: Assamese}
+          - {ds: Rasa, f: Urdu}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q pyarrow huggingface_hub fsspec google-api-python-client google-auth
+      - name: Read text columns and save to private Drive
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          DRIVE_TOKEN: ${{ secrets.DRIVE_TOKEN }}
+        run: python ai4b_text.py "${{ matrix.ds }}" "${{ matrix.f }}"
