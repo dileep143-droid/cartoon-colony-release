@@ -17,23 +17,31 @@ def get(u, data=None, tries=5, headers=None):
         except Exception as e:
             last = e; time.sleep(5 * (i + 1))
     raise last
-def fetch_to(u, path, timeout=1800):
-    for i in range(5):
+def fetch_to(u, path, timeout=300, tries=40):
+    """Resumable download: on a dropped connection, continue from the bytes already on disk (HTTP Range)."""
+    if os.path.exists(path): os.remove(path)
+    total = None
+    for i in range(tries):
+        have = os.path.getsize(path) if os.path.exists(path) else 0
+        if total is not None and have >= total: return
         try:
-            req = urllib.request.Request(u, headers=UA)
-            with urllib.request.urlopen(req, timeout=timeout) as r, open(path, "wb") as f:
-                while True:
-                    chunk = r.read(8 << 20)
-                    if not chunk: break
-                    f.write(chunk)
-            return
+            h = dict(UA)
+            if have: h["Range"] = f"bytes={have}-"
+            with urllib.request.urlopen(urllib.request.Request(u, headers=h), timeout=timeout) as r:
+                if have and r.status != 206: have = 0
+                cr = r.headers.get("Content-Range")
+                if cr and "/" in cr: total = int(cr.split("/")[-1])
+                elif r.headers.get("Content-Length"): total = have + int(r.headers["Content-Length"])
+                with open(path, "ab" if have else "wb") as f:
+                    while True:
+                        chunk = r.read(8 << 20)
+                        if not chunk: break
+                        f.write(chunk)
+            if total is None or os.path.getsize(path) >= total: return
         except Exception as e:
-            last = e
-            if os.path.exists(path): os.remove(path)
-            wait = 30 * (i + 1)
-            print(f"  retry {i+1}/5 in {wait}s: {e}", flush=True)
-            time.sleep(wait)
-    raise last
+            print(f"  resume {i+1}/{tries} at {os.path.getsize(path) if os.path.exists(path) else 0} bytes: {e}", flush=True)
+            time.sleep(min(60, 10 * (i + 1)))
+    raise RuntimeError(f"download incomplete after {tries} tries: {u}")
 c = Credentials.from_authorized_user_info(json.loads(os.environ["DRIVE_TOKEN"]))
 if not c.valid: c.refresh(Request())
 dr = build("drive", "v3", credentials=c, cache_discovery=False)
