@@ -1,0 +1,49 @@
+name: Sound library retry (10 failed jobs)
+on:
+  workflow_dispatch:
+jobs:
+  quota:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q google-api-python-client google-auth
+      - env:
+          DRIVE_TOKEN: ${{ secrets.DRIVE_TOKEN }}
+        run: python sound_lib.py quota
+  retry:
+    needs: quota
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        include:
+          # Zenodo medium (2-2.5 GB) — failed on timeout, now fixed with 1800s timeout
+          - {mode: zenodo, a: "20735877", b: foleyset}
+          - {mode: zenodo, a: "13862", b: vocalsketch}
+          - {mode: zenodo, a: "1213793", b: isolated_urban}
+          # Zenodo large (6-25 GB) — need long timeout
+          - {mode: zenodo, a: "1203745", b: urbansound8k}
+          - {mode: zenodo, a: "2529934", b: fsdnoisy18k}
+          - {mode: zenodo, a: "4060432", b: fsd50k}
+          # Mixkit (scraping — added longer delays)
+          - {mode: mixkit, a: "", b: ""}
+          # Archive.org Sonniss (large — skip the 178GB all-in-one, keep individual years)
+          - {mode: archive, a: sonniss-gdc-2020-game-audio-bundle-normalized, b: sonniss_gdc_2020}
+          - {mode: archive, a: sonniss-gdc-2024-game-audio-bundle-normalized, b: sonniss_gdc_2024}
+          # SKIP: sonniss_gdc_all (178 GB, redundant — 2018+2019 already on Drive)
+          # SKIP: pixabay (needs PIXABAY_API_KEY secret set first)
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q google-api-python-client google-auth
+      - name: Retry failed collection
+        env:
+          DRIVE_TOKEN: ${{ secrets.DRIVE_TOKEN }}
+        run: python sound_lib.py ${{ matrix.mode }} ${{ matrix.a }} "${{ matrix.b }}"
