@@ -1,4 +1,4 @@
-name: Sound library retry (10 failed jobs)
+name: Sound library retry
 on:
   workflow_dispatch:
 jobs:
@@ -22,21 +22,11 @@ jobs:
       max-parallel: 5
       matrix:
         include:
-          # Zenodo medium (2-2.5 GB) — failed on timeout, now fixed with 1800s timeout
+          # Round 2 (resumable downloads): the 4 that failed in round 1
           - {mode: zenodo, a: "20735877", b: foleyset}
-          - {mode: zenodo, a: "13862", b: vocalsketch}
-          - {mode: zenodo, a: "1213793", b: isolated_urban}
-          # Zenodo large (6-25 GB) — need long timeout
           - {mode: zenodo, a: "1203745", b: urbansound8k}
-          - {mode: zenodo, a: "2529934", b: fsdnoisy18k}
           - {mode: zenodo, a: "4060432", b: fsd50k}
-          # Mixkit (scraping — added longer delays)
-          - {mode: mixkit, a: "", b: ""}
-          # Archive.org Sonniss (large — skip the 178GB all-in-one, keep individual years)
-          - {mode: archive, a: sonniss-gdc-2020-game-audio-bundle-normalized, b: sonniss_gdc_2020}
           - {mode: archive, a: sonniss-gdc-2024-game-audio-bundle-normalized, b: sonniss_gdc_2024}
-          # SKIP: sonniss_gdc_all (178 GB, redundant — 2018+2019 already on Drive)
-          # SKIP: pixabay (needs PIXABAY_API_KEY secret set first)
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
