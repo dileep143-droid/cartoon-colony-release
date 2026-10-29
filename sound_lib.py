@@ -17,14 +17,22 @@ def get(u, data=None, tries=5, headers=None):
         except Exception as e:
             last = e; time.sleep(5 * (i + 1))
     raise last
-def fetch_to(u, path):
+def fetch_to(u, path, timeout=1800):
     for i in range(5):
         try:
-            with urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=600) as r, open(path, "wb") as f:
-                shutil.copyfileobj(r, f, 8 << 20)
+            req = urllib.request.Request(u, headers=UA)
+            with urllib.request.urlopen(req, timeout=timeout) as r, open(path, "wb") as f:
+                while True:
+                    chunk = r.read(8 << 20)
+                    if not chunk: break
+                    f.write(chunk)
             return
         except Exception as e:
-            last = e; time.sleep(15 * (i + 1))
+            last = e
+            if os.path.exists(path): os.remove(path)
+            wait = 30 * (i + 1)
+            print(f"  retry {i+1}/5 in {wait}s: {e}", flush=True)
+            time.sleep(wait)
     raise last
 c = Credentials.from_authorized_user_info(json.loads(os.environ["DRIVE_TOKEN"]))
 if not c.valid: c.refresh(Request())
@@ -123,17 +131,17 @@ elif mode == "bbc":   # BBC Sound Effects (RemArc licence: personal, educational
 elif mode == "mixkit":   # Mixkit free sound effects (Mixkit licence: free, commercial use allowed)
     pid = folder("mixkit", folder(ROOT))
     if any(n.startswith("mixkit_part") for n in on_drive(pid)): print("already on Drive"); sys.exit(0)
-    html = get("https://mixkit.co/free-sound-effects/").decode("utf-8", "ignore")
+    html = get("https://mixkit.co/free-sound-effects/", tries=8).decode("utf-8", "ignore")
     cats = sorted(set(re.findall(r'/free-sound-effects/([a-z0-9-]+)/', html)))
     rows = {}
     for ct in cats:
         for page in range(1, 60):
-            try: h = get(f"https://mixkit.co/free-sound-effects/{ct}/?page={page}", tries=2).decode("utf-8", "ignore")
+            try: h = get(f"https://mixkit.co/free-sound-effects/{ct}/?page={page}", tries=4).decode("utf-8", "ignore")
             except Exception: break
             new = [i for i in re.findall(r'sfx/(\d+)/\1-preview\.mp3', h) if i not in rows]
             for i in new: rows[i] = {"id": i, "category": ct}
             if not new: break
-            time.sleep(0.5)
+            time.sleep(2)
     print("mixkit sounds", len(rows), "in", len(cats), "categories", flush=True)
     with gzip.open("mixkit_metadata.jsonl.gz", "wt", encoding="utf-8") as g:
         for r in rows.values(): g.write(json.dumps(r) + "\n")
