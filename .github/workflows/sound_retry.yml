@@ -22,12 +22,8 @@ jobs:
       max-parallel: 5
       matrix:
         include:
-          # Round 3: downloads finished before but the Drive connection had gone stale; now reconnects
-          - {mode: zenodo, a: "20735877", b: foleyset}
-          - {mode: zenodo, a: "1203745", b: urbansound8k}
-          - {mode: zenodo, a: "2529934", b: fsdnoisy18k}
-          - {mode: zenodo, a: "4060432", b: fsd50k}
-          - {mode: archive, a: sonniss-gdc-2024-game-audio-bundle-normalized, b: sonniss_gdc_2024}
+          # Round 4: Sonniss 2020 (round-1 run had the old Drive code)
+          - {mode: archive, a: sonniss-gdc-2020-game-audio-bundle-normalized, b: sonniss_gdc_2020}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
