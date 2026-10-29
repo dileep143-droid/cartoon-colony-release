@@ -45,6 +45,22 @@ def fetch_to(u, path, timeout=300, tries=40):
 c = Credentials.from_authorized_user_info(json.loads(os.environ["DRIVE_TOKEN"]))
 if not c.valid: c.refresh(Request())
 dr = build("drive", "v3", credentials=c, cache_discovery=False)
+# After a long download the Drive keep-alive connection is dead (SSLEOFError on the next call).
+# Every Drive request now retries on a FRESH connection; a resumable upload keeps its upload session.
+import ssl, socket, httplib2, google_auth_httplib2
+from googleapiclient.http import HttpRequest
+_orig_execute = HttpRequest.execute
+def _execute(self, http=None, num_retries=0):
+    for i in range(8):
+        try:
+            return _orig_execute(self, http=http, num_retries=max(num_retries, 3))
+        except (ssl.SSLError, ConnectionError, TimeoutError, socket.timeout, httplib2.HttpLib2Error, OSError) as e:
+            print(f"  drive reconnect {i+1}/8: {e!r}"[:200], flush=True)
+            time.sleep(min(60, 5 * (i + 1)))
+            if not c.valid: c.refresh(Request())
+            self.http = google_auth_httplib2.AuthorizedHttp(c, http=httplib2.Http(timeout=300)); http = None
+    return _orig_execute(self, http=http, num_retries=3)
+HttpRequest.execute = _execute
 def folder(nm, parent=None):
     q = f"name='{nm}' and mimeType='application/vnd.google-apps.folder' and trashed=false" + (f" and '{parent}' in parents" if parent else "")
     f = dr.files().list(q=q, fields="files(id)").execute().get("files", [])
