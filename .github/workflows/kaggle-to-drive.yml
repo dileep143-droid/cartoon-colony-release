@@ -1,0 +1,22 @@
+name: kaggle-to-drive
+# Kaggle kernel output -> Google Drive folder (waits for the kernel, skips files already in Drive). Nothing is kept on GitHub.
+on:
+  workflow_dispatch:
+    inputs:
+      kernel:  { description: 'Kaggle kernel id (user/slug)', required: true }
+      key:     { description: 'which KAGGLE_KEYn secret owns it', required: true, default: '3' }
+      folder:  { description: 'Drive folder path', required: true, default: 'BuBu TV Songs' }
+      pattern: { description: 'file regex', required: false, default: '\.mp4$' }
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - name: tools
+        run: pip install -q kaggle google-api-python-client google-auth
+      - name: wait + copy to Drive
+        env:
+          DRIVE_TOKEN: ${{ secrets.DRIVE_TOKEN }}
+          KAGGLE_ONE: ${{ secrets[format('KAGGLE_KEY{0}', inputs.key)] }}
+        run: python kaggle_to_drive.py "${{ inputs.kernel }}" "${{ inputs.key }}" "${{ inputs.folder }}" "${{ inputs.pattern }}"
