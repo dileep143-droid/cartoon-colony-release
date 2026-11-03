@@ -23,7 +23,13 @@ if not c.valid: c.refresh(Request())
 yt = build("youtube", "v3", credentials=c, cache_discovery=False)
 title = meta["title"][:100]
 up = yt.channels().list(part="contentDetails", mine=True).execute()["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
-for it in yt.playlistItems().list(part="snippet", playlistId=up, maxResults=50).execute()["items"]:
+import time
+for k in range(5):                            # 3 Nov: YouTube sometimes answers "backendError" -> retry; never upload without this duplicate check
+    try: items = yt.playlistItems().list(part="snippet", playlistId=up, maxResults=50).execute()["items"]; break
+    except Exception as e:
+        print("duplicate check retry", k + 1, str(e)[-120:]); time.sleep(20 * (k + 1))
+else: sys.exit("duplicate check failed 5 times - not uploading")
+for it in items:
     if it["snippet"]["title"].strip() == title.strip():
         print(f"RESULT {slug} {code} ALREADY {it['snippet']['resourceId']['videoId']}"); sys.exit(0)
 sn = {"title": title, "description": meta["description"][:5000], "tags": meta["tags"][:30], "categoryId": "27"}
