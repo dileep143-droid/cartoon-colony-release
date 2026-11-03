@@ -1,0 +1,38 @@
+name: song-release
+# BuBu TV kids songs: Kaggle output -> YouTube (made for kids). One job per language, in parallel. Results: lines starting "RESULT" in each job log.
+on:
+  workflow_dispatch:
+    inputs:
+      slug:    { description: "song folder, e.g. S04_monkey_mangoes", required: true }
+      langs:   { description: 'JSON list of language codes, e.g. ["te","hi"]', required: true }
+      privacy: { description: "private | unlisted | public", required: true, default: "public" }
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        lang: ${{ fromJSON(inputs.langs) }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: tools
+        run: pip install -q kaggle google-api-python-client google-auth
+      - name: release ${{ inputs.slug }} ${{ matrix.lang }}
+        env:
+          YT_TOKEN: ${{ secrets[format('YT_{0}', matrix.lang)] }}
+          KAGGLE_KEY1: ${{ secrets.KAGGLE_KEY1 }}
+          KAGGLE_KEY3: ${{ secrets.KAGGLE_KEY3 }}
+          KAGGLE_KEY10: ${{ secrets.KAGGLE_KEY10 }}
+          KAGGLE_KEY12: ${{ secrets.KAGGLE_KEY12 }}
+          KAGGLE_KEY13: ${{ secrets.KAGGLE_KEY13 }}
+          KAGGLE_KEY14: ${{ secrets.KAGGLE_KEY14 }}
+          KAGGLE_KEY15: ${{ secrets.KAGGLE_KEY15 }}
+          KAGGLE_KEY17: ${{ secrets.KAGGLE_KEY17 }}
+          KAGGLE_KEY19: ${{ secrets.KAGGLE_KEY19 }}
+          KAGGLE_KEY20: ${{ secrets.KAGGLE_KEY20 }}
+          KAGGLE_KEY21: ${{ secrets.KAGGLE_KEY21 }}
+        run: |
+          if [ -z "$YT_TOKEN" ]; then echo "RESULT ${{ inputs.slug }} ${{ matrix.lang }} NO_SECRET (owner: run C:\1st\put_yt_secrets.py once)"; exit 1; fi
+          python song_release_one.py "${{ inputs.slug }}" "${{ matrix.lang }}" "${{ inputs.privacy }}"
