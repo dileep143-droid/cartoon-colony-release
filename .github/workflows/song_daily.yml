@@ -1,0 +1,29 @@
+name: song-daily
+# BuBu TV timer (owner 3 Nov 2026): every day 5 new songs per language channel from Google Drive, public at 07/10/13/16/19 IST.
+# Starts 00:30 UTC (06:00 IST); GitHub timers can be late - the script never schedules in the past.
+on:
+  schedule:
+    - cron: "30 0 * * *"
+  workflow_dispatch:
+    inputs:
+      langs: { description: 'JSON list of channel codes (default all 20)', required: false, default: '' }
+jobs:
+  daily:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        lang: ${{ fromJSON(inputs.langs != '' && inputs.langs || '["te","hi","ta","kn","ml","mr","bn","gu","pa","or","as","en","ne","ur","sd","mai","hry","ks","mni","bho"]') }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: tools
+        run: pip install -q google-api-python-client google-auth
+      - name: daily songs ${{ matrix.lang }}
+        env:
+          YT_TOKEN: ${{ secrets[format('YT_{0}', matrix.lang)] }}
+          DRIVE_TOKEN: ${{ secrets.DRIVE_TOKEN }}
+        run: |
+          if [ -z "$YT_TOKEN" ]; then echo "RESULT ${{ matrix.lang }} NO_SECRET (owner: run C:\1st\put_yt_secrets.py once)"; exit 0; fi
+          python song_daily.py "${{ matrix.lang }}"
