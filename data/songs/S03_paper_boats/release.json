@@ -1,0 +1,105 @@
+{
+ "slug": "S03_paper_boats",
+ "files": {
+  "te": {
+   "kernel": "musthafadudekula/s03-song-1",
+   "key": 13,
+   "file": "S03_telugu.mp4"
+  },
+  "hi": {
+   "kernel": "musthafadudekula/s03-song-1",
+   "key": 13,
+   "file": "S03_hindi.mp4"
+  },
+  "ta": {
+   "kernel": "musthafadudekula/s03-song-1",
+   "key": 13,
+   "file": "S03_tamil.mp4"
+  },
+  "kn": {
+   "kernel": "musthafadudekula/s03-song-1",
+   "key": 13,
+   "file": "S03_kannada.mp4"
+  },
+  "ml": {
+   "kernel": "musthafadudekula/s03-song-1",
+   "key": 13,
+   "file": "S03_malayalam.mp4"
+  },
+  "mr": {
+   "kernel": "musthafadudekula/s03-song-1",
+   "key": 13,
+   "file": "S03_marathi.mp4"
+  },
+  "bn": {
+   "kernel": "musthafadudekula/s03-song-1",
+   "key": 13,
+   "file": "S03_bengali.mp4"
+  },
+  "gu": {
+   "kernel": "musthafadudekula/s03-song-1",
+   "key": 13,
+   "file": "S03_gujarati.mp4"
+  },
+  "pa": {
+   "kernel": "musthafadudekula/s03-song-1",
+   "key": 13,
+   "file": "S03_punjabi.mp4"
+  },
+  "or": {
+   "kernel": "musthafadudekula/s03-song-1",
+   "key": 13,
+   "file": "S03_odia.mp4"
+  },
+  "as": {
+   "kernel": "musthafadudekula/s03-song-1",
+   "key": 13,
+   "file": "S03_assamese.mp4"
+  },
+  "en": {
+   "kernel": "musthafadudekula/s03-song-1",
+   "key": 13,
+   "file": "S03_english.mp4"
+  },
+  "ne": {
+   "kernel": "musthafadudekula/s03-song-1",
+   "key": 13,
+   "file": "S03_nepali.mp4"
+  },
+  "ur": {
+   "kernel": "musthafadudekula/s03-song-1",
+   "key": 13,
+   "file": "S03_urdu.mp4"
+  },
+  "sd": {
+   "kernel": "musthafadudekula/s03-song-1",
+   "key": 13,
+   "file": "S03_sindhi.mp4"
+  },
+  "mai": {
+   "kernel": "musthafadudekula/s03-song-1",
+   "key": 13,
+   "file": "S03_maithili.mp4"
+  },
+  "hry": {
+   "kernel": "musthafadudekula/s03-song-1",
+   "key": 13,
+   "file": "S03_haryanvi.mp4"
+  },
+  "ks": {
+   "kernel": "musthafadudekula/s03-song-1",
+   "key": 13,
+   "file": "S03_kashmiri.mp4"
+  },
+  "mni": {
+   "kernel": "musthafadudekula/s03-song-1",
+   "key": 13,
+   "file": "S03_manipuri.mp4"
+  },
+  "bho": {
+   "kernel": "musthafadudekula/s03-song-1",
+   "key": 13,
+   "file": "S03_bhojpuri.mp4"
+  }
+ }
+}
