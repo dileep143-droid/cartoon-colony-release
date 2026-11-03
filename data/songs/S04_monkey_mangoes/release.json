@@ -1,0 +1,105 @@
+{
+ "slug": "S04_monkey_mangoes",
+ "files": {
+  "te": {
+   "kernel": "ramu24/s04-song-1",
+   "key": 14,
+   "file": "S04_telugu.mp4"
+  },
+  "hi": {
+   "kernel": "ramu24/s04-song-1",
+   "key": 14,
+   "file": "S04_hindi.mp4"
+  },
+  "ta": {
+   "kernel": "ramu24/s04-song-1",
+   "key": 14,
+   "file": "S04_tamil.mp4"
+  },
+  "kn": {
+   "kernel": "ramu24/s04-song-1",
+   "key": 14,
+   "file": "S04_kannada.mp4"
+  },
+  "ml": {
+   "kernel": "ramu24/s04-song-1",
+   "key": 14,
+   "file": "S04_malayalam.mp4"
+  },
+  "mr": {
+   "kernel": "ramu24/s04-song-1",
+   "key": 14,
+   "file": "S04_marathi.mp4"
+  },
+  "bn": {
+   "kernel": "ramu24/s04-song-1",
+   "key": 14,
+   "file": "S04_bengali.mp4"
+  },
+  "gu": {
+   "kernel": "ramu24/s04-song-1",
+   "key": 14,
+   "file": "S04_gujarati.mp4"
+  },
+  "pa": {
+   "kernel": "ramu24/s04-song-1",
+   "key": 14,
+   "file": "S04_punjabi.mp4"
+  },
+  "or": {
+   "kernel": "ramu24/s04-song-1",
+   "key": 14,
+   "file": "S04_odia.mp4"
+  },
+  "as": {
+   "kernel": "ramu24/s04-song-1",
+   "key": 14,
+   "file": "S04_assamese.mp4"
+  },
+  "en": {
+   "kernel": "ramu24/s04-song-1",
+   "key": 14,
+   "file": "S04_english.mp4"
+  },
+  "ne": {
+   "kernel": "ramu24/s04-song-1",
+   "key": 14,
+   "file": "S04_nepali.mp4"
+  },
+  "ur": {
+   "kernel": "ramu24/s04-song-1",
+   "key": 14,
+   "file": "S04_urdu.mp4"
+  },
+  "sd": {
+   "kernel": "ramu24/s04-song-1",
+   "key": 14,
+   "file": "S04_sindhi.mp4"
+  },
+  "mai": {
+   "kernel": "ramu24/s04-song-1",
+   "key": 14,
+   "file": "S04_maithili.mp4"
+  },
+  "hry": {
+   "kernel": "ramu24/s04-song-1",
+   "key": 14,
+   "file": "S04_haryanvi.mp4"
+  },
+  "ks": {
+   "kernel": "ramu24/s04-song-1",
+   "key": 14,
+   "file": "S04_kashmiri.mp4"
+  },
+  "mni": {
+   "kernel": "ramu24/s04-song-1",
+   "key": 14,
+   "file": "S04_manipuri.mp4"
+  },
+  "bho": {
+   "kernel": "ramu24/s04-song-1",
+   "key": 14,
+   "file": "S04_bhojpuri.mp4"
+  }
+ }
+}
