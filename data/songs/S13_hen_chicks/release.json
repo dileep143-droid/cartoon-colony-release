@@ -1,0 +1,105 @@
+{
+ "slug": "S13_hen_chicks",
+ "files": {
+  "te": {
+   "kernel": "gorlebharathi/s13-song-1",
+   "key": 12,
+   "file": "S13_telugu.mp4"
+  },
+  "hi": {
+   "kernel": "gorlebharathi/s13-song-1",
+   "key": 12,
+   "file": "S13_hindi.mp4"
+  },
+  "ta": {
+   "kernel": "gorlebharathi/s13-song-1",
+   "key": 12,
+   "file": "S13_tamil.mp4"
+  },
+  "kn": {
+   "kernel": "gorlebharathi/s13-song-1",
+   "key": 12,
+   "file": "S13_kannada.mp4"
+  },
+  "ml": {
+   "kernel": "gorlebharathi/s13-song-1",
+   "key": 12,
+   "file": "S13_malayalam.mp4"
+  },
+  "mr": {
+   "kernel": "gorlebharathi/s13-song-1",
+   "key": 12,
+   "file": "S13_marathi.mp4"
+  },
+  "bn": {
+   "kernel": "gorlebharathi/s13-song-1",
+   "key": 12,
+   "file": "S13_bengali.mp4"
+  },
+  "gu": {
+   "kernel": "gorlebharathi/s13-song-1",
+   "key": 12,
+   "file": "S13_gujarati.mp4"
+  },
+  "pa": {
+   "kernel": "gorlebharathi/s13-song-1",
+   "key": 12,
+   "file": "S13_punjabi.mp4"
+  },
+  "or": {
+   "kernel": "gorlebharathi/s13-song-1",
+   "key": 12,
+   "file": "S13_odia.mp4"
+  },
+  "as": {
+   "kernel": "gorlebharathi/s13-song-1",
+   "key": 12,
+   "file": "S13_assamese.mp4"
+  },
+  "en": {
+   "kernel": "gorlebharathi/s13-song-1",
+   "key": 12,
+   "file": "S13_english.mp4"
+  },
+  "ne": {
+   "kernel": "gorlebharathi/s13-song-1",
+   "key": 12,
+   "file": "S13_nepali.mp4"
+  },
+  "ur": {
+   "kernel": "gorlebharathi/s13-song-1",
+   "key": 12,
+   "file": "S13_urdu.mp4"
+  },
+  "sd": {
+   "kernel": "gorlebharathi/s13-song-1",
+   "key": 12,
+   "file": "S13_sindhi.mp4"
+  },
+  "mai": {
+   "kernel": "gorlebharathi/s13-song-1",
+   "key": 12,
+   "file": "S13_maithili.mp4"
+  },
+  "hry": {
+   "kernel": "gorlebharathi/s13-song-1",
+   "key": 12,
+   "file": "S13_haryanvi.mp4"
+  },
+  "ks": {
+   "kernel": "gorlebharathi/s13-song-1",
+   "key": 12,
+   "file": "S13_kashmiri.mp4"
+  },
+  "mni": {
+   "kernel": "gorlebharathi/s13-song-1",
+   "key": 12,
+   "file": "S13_manipuri.mp4"
+  },
+  "bho": {
+   "kernel": "gorlebharathi/s13-song-1",
+   "key": 12,
+   "file": "S13_bhojpuri.mp4"
+  }
+ }
+}
