@@ -1,0 +1,105 @@
+{
+ "slug": "S08_goat_market",
+ "files": {
+  "te": {
+   "kernel": "wheeler123/s08-song-1",
+   "key": 3,
+   "file": "S08_telugu.mp4"
+  },
+  "hi": {
+   "kernel": "wheeler123/s08-song-1",
+   "key": 3,
+   "file": "S08_hindi.mp4"
+  },
+  "ta": {
+   "kernel": "wheeler123/s08-song-1",
+   "key": 3,
+   "file": "S08_tamil.mp4"
+  },
+  "kn": {
+   "kernel": "wheeler123/s08-song-1",
+   "key": 3,
+   "file": "S08_kannada.mp4"
+  },
+  "ml": {
+   "kernel": "wheeler123/s08-song-1",
+   "key": 3,
+   "file": "S08_malayalam.mp4"
+  },
+  "mr": {
+   "kernel": "wheeler123/s08-song-1",
+   "key": 3,
+   "file": "S08_marathi.mp4"
+  },
+  "bn": {
+   "kernel": "wheeler123/s08-song-1",
+   "key": 3,
+   "file": "S08_bengali.mp4"
+  },
+  "gu": {
+   "kernel": "wheeler123/s08-song-1",
+   "key": 3,
+   "file": "S08_gujarati.mp4"
+  },
+  "pa": {
+   "kernel": "wheeler123/s08-song-1",
+   "key": 3,
+   "file": "S08_punjabi.mp4"
+  },
+  "or": {
+   "kernel": "wheeler123/s08-song-1",
+   "key": 3,
+   "file": "S08_odia.mp4"
+  },
+  "as": {
+   "kernel": "wheeler123/s08-song-1",
+   "key": 3,
+   "file": "S08_assamese.mp4"
+  },
+  "en": {
+   "kernel": "wheeler123/s08-song-1",
+   "key": 3,
+   "file": "S08_english.mp4"
+  },
+  "ne": {
+   "kernel": "wheeler123/s08-song-1",
+   "key": 3,
+   "file": "S08_nepali.mp4"
+  },
+  "ur": {
+   "kernel": "wheeler123/s08-song-1",
+   "key": 3,
+   "file": "S08_urdu.mp4"
+  },
+  "sd": {
+   "kernel": "wheeler123/s08-song-1",
+   "key": 3,
+   "file": "S08_sindhi.mp4"
+  },
+  "mai": {
+   "kernel": "wheeler123/s08-song-1",
+   "key": 3,
+   "file": "S08_maithili.mp4"
+  },
+  "hry": {
+   "kernel": "wheeler123/s08-song-1",
+   "key": 3,
+   "file": "S08_haryanvi.mp4"
+  },
+  "ks": {
+   "kernel": "wheeler123/s08-song-1",
+   "key": 3,
+   "file": "S08_kashmiri.mp4"
+  },
+  "mni": {
+   "kernel": "wheeler123/s08-song-1",
+   "key": 3,
+   "file": "S08_manipuri.mp4"
+  },
+  "bho": {
+   "kernel": "wheeler123/s08-song-1",
+   "key": 3,
+   "file": "S08_bhojpuri.mp4"
+  }
+ }
+}
