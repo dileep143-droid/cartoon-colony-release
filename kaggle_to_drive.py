@@ -32,6 +32,12 @@ for f in files:
         res[f] = "already there"; print(f, "already in Drive", flush=True); continue
     up = dr.files().create(body={"name": f, "parents": [pid]}, media_body=MediaFileUpload(os.path.join("dl", f), chunksize=64 * 1024 * 1024, resumable=True), fields="id,size")
     resp = None
-    while resp is None: _, resp = up.next_chunk()
+    tries = 0   # 4 Nov: GitHub runners sometimes get SSL EOF during big Drive uploads -> resume the same upload (resumable) up to 8 times
+    while resp is None:
+        try: _, resp = up.next_chunk()
+        except Exception as e:
+            tries += 1
+            if tries > 8: raise
+            print('upload retry', tries, str(e)[-80:], flush=True); import time as _t; _t.sleep(10 * tries)
     res[f] = resp["id"]; print(f, "saved to Drive", resp.get("size"), flush=True)
 print(json.dumps({"kernel": kernel, "folder": path, "files": res}))
