@@ -37,5 +37,11 @@ cmd = ["ffmpeg", "-y", "-v", "error", "-ss", str(cut["start"]), "-t", f"{dur:.2f
        "-af", f"afade=t=in:d=0.3,afade=t=out:st={max(0, dur - 0.8):.2f}:d=0.8", "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-c:a", "aac", "-b:a", "160k", name]
 subprocess.run(cmd, check=True)
 up = dr.files().create(body={"name": name, "parents": [pid]}, media_body=MediaFileUpload(name, chunksize=32 * 2**20, resumable=True), fields="id,size"); resp = None
-while resp is None: _, resp = up.next_chunk()
+tries = 0   # 4 Nov: GitHub runners sometimes get SSL EOF during big Drive uploads -> resume the same upload (resumable) up to 8 times
+while resp is None:
+    try: _, resp = up.next_chunk()
+    except Exception as e:
+        tries += 1
+        if tries > 8: raise
+        print('upload retry', tries, str(e)[-80:], flush=True); import time as _t; _t.sleep(10 * tries)
 print(f"RESULT {slug} {code} SHORT_IN_DRIVE {round(dur,1)}s {int(resp['size'])//1_000_000}MB")
