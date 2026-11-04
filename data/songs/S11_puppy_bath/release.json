@@ -1,0 +1,105 @@
+{
+ "slug": "S11_puppy_bath",
+ "files": {
+  "te": {
+   "kernel": "mani7673/s11-song-1",
+   "key": 1,
+   "file": "S11_telugu.mp4"
+  },
+  "hi": {
+   "kernel": "mani7673/s11-song-1",
+   "key": 1,
+   "file": "S11_hindi.mp4"
+  },
+  "ta": {
+   "kernel": "mani7673/s11-song-1",
+   "key": 1,
+   "file": "S11_tamil.mp4"
+  },
+  "kn": {
+   "kernel": "mani7673/s11-song-1",
+   "key": 1,
+   "file": "S11_kannada.mp4"
+  },
+  "ml": {
+   "kernel": "mani7673/s11-song-1",
+   "key": 1,
+   "file": "S11_malayalam.mp4"
+  },
+  "mr": {
+   "kernel": "mani7673/s11-song-1",
+   "key": 1,
+   "file": "S11_marathi.mp4"
+  },
+  "bn": {
+   "kernel": "mani7673/s11-song-1",
+   "key": 1,
+   "file": "S11_bengali.mp4"
+  },
+  "gu": {
+   "kernel": "mani7673/s11-song-1",
+   "key": 1,
+   "file": "S11_gujarati.mp4"
+  },
+  "pa": {
+   "kernel": "mani7673/s11-song-1",
+   "key": 1,
+   "file": "S11_punjabi.mp4"
+  },
+  "or": {
+   "kernel": "mani7673/s11-song-1",
+   "key": 1,
+   "file": "S11_odia.mp4"
+  },
+  "as": {
+   "kernel": "mani7673/s11-song-1",
+   "key": 1,
+   "file": "S11_assamese.mp4"
+  },
+  "en": {
+   "kernel": "mani7673/s11-song-1",
+   "key": 1,
+   "file": "S11_english.mp4"
+  },
+  "ne": {
+   "kernel": "mani7673/s11-song-1",
+   "key": 1,
+   "file": "S11_nepali.mp4"
+  },
+  "ur": {
+   "kernel": "mani7673/s11-song-1",
+   "key": 1,
+   "file": "S11_urdu.mp4"
+  },
+  "sd": {
+   "kernel": "mani7673/s11-song-1",
+   "key": 1,
+   "file": "S11_sindhi.mp4"
+  },
+  "mai": {
+   "kernel": "mani7673/s11-song-1",
+   "key": 1,
+   "file": "S11_maithili.mp4"
+  },
+  "hry": {
+   "kernel": "mani7673/s11-song-1",
+   "key": 1,
+   "file": "S11_haryanvi.mp4"
+  },
+  "ks": {
+   "kernel": "mani7673/s11-song-1",
+   "key": 1,
+   "file": "S11_kashmiri.mp4"
+  },
+  "mni": {
+   "kernel": "mani7673/s11-song-1",
+   "key": 1,
+   "file": "S11_manipuri.mp4"
+  },
+  "bho": {
+   "kernel": "mani7673/s11-song-1",
+   "key": 1,
+   "file": "S11_bhojpuri.mp4"
+  }
+ }
+}
