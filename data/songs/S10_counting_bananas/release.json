@@ -1,0 +1,105 @@
+{
+ "slug": "S10_counting_bananas",
+ "files": {
+  "te": {
+   "kernel": "luffy9110/s10-song-1",
+   "key": 21,
+   "file": "S10_telugu.mp4"
+  },
+  "hi": {
+   "kernel": "luffy9110/s10-song-1",
+   "key": 21,
+   "file": "S10_hindi.mp4"
+  },
+  "ta": {
+   "kernel": "luffy9110/s10-song-1",
+   "key": 21,
+   "file": "S10_tamil.mp4"
+  },
+  "kn": {
+   "kernel": "luffy9110/s10-song-1",
+   "key": 21,
+   "file": "S10_kannada.mp4"
+  },
+  "ml": {
+   "kernel": "luffy9110/s10-song-1",
+   "key": 21,
+   "file": "S10_malayalam.mp4"
+  },
+  "mr": {
+   "kernel": "luffy9110/s10-song-1",
+   "key": 21,
+   "file": "S10_marathi.mp4"
+  },
+  "bn": {
+   "kernel": "luffy9110/s10-song-1",
+   "key": 21,
+   "file": "S10_bengali.mp4"
+  },
+  "gu": {
+   "kernel": "luffy9110/s10-song-1",
+   "key": 21,
+   "file": "S10_gujarati.mp4"
+  },
+  "pa": {
+   "kernel": "luffy9110/s10-song-1",
+   "key": 21,
+   "file": "S10_punjabi.mp4"
+  },
+  "or": {
+   "kernel": "luffy9110/s10-song-1",
+   "key": 21,
+   "file": "S10_odia.mp4"
+  },
+  "as": {
+   "kernel": "luffy9110/s10-song-1",
+   "key": 21,
+   "file": "S10_assamese.mp4"
+  },
+  "en": {
+   "kernel": "luffy9110/s10-song-1",
+   "key": 21,
+   "file": "S10_english.mp4"
+  },
+  "ne": {
+   "kernel": "luffy9110/s10-song-1",
+   "key": 21,
+   "file": "S10_nepali.mp4"
+  },
+  "ur": {
+   "kernel": "luffy9110/s10-song-1",
+   "key": 21,
+   "file": "S10_urdu.mp4"
+  },
+  "sd": {
+   "kernel": "luffy9110/s10-song-1",
+   "key": 21,
+   "file": "S10_sindhi.mp4"
+  },
+  "mai": {
+   "kernel": "luffy9110/s10-song-1",
+   "key": 21,
+   "file": "S10_maithili.mp4"
+  },
+  "hry": {
+   "kernel": "luffy9110/s10-song-1",
+   "key": 21,
+   "file": "S10_haryanvi.mp4"
+  },
+  "ks": {
+   "kernel": "luffy9110/s10-song-1",
+   "key": 21,
+   "file": "S10_kashmiri.mp4"
+  },
+  "mni": {
+   "kernel": "luffy9110/s10-song-1",
+   "key": 21,
+   "file": "S10_manipuri.mp4"
+  },
+  "bho": {
+   "kernel": "luffy9110/s10-song-1",
+   "key": 21,
+   "file": "S10_bhojpuri.mp4"
+  }
+ }
+}
