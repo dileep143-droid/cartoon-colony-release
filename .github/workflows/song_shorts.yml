@@ -1,0 +1,37 @@
+name: song-shorts
+# BuBu TV: make the 9:16 Short of one song in all 20 languages (Kaggle full video -> ffmpeg on GitHub -> Drive "BuBu TV Shorts/<slug>"). No YouTube upload here.
+on:
+  workflow_dispatch:
+    inputs:
+      slug:  { description: "song folder, e.g. S04_monkey_mangoes", required: true }
+      langs: { description: 'JSON list (default all 20)', required: false, default: '' }
+jobs:
+  short:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix:
+        lang: ${{ fromJSON(inputs.langs != '' && inputs.langs || '["te","hi","ta","kn","ml","mr","bn","gu","pa","or","as","en","ne","ur","sd","mai","hry","ks","mni","bho"]') }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: tools
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          pip install -q kaggle google-api-python-client google-auth
+      - name: short ${{ inputs.slug }} ${{ matrix.lang }}
+        env:
+          DRIVE_TOKEN: ${{ secrets.DRIVE_TOKEN }}
+          KAGGLE_KEY1: ${{ secrets.KAGGLE_KEY1 }}
+          KAGGLE_KEY3: ${{ secrets.KAGGLE_KEY3 }}
+          KAGGLE_KEY10: ${{ secrets.KAGGLE_KEY10 }}
+          KAGGLE_KEY12: ${{ secrets.KAGGLE_KEY12 }}
+          KAGGLE_KEY13: ${{ secrets.KAGGLE_KEY13 }}
+          KAGGLE_KEY14: ${{ secrets.KAGGLE_KEY14 }}
+          KAGGLE_KEY15: ${{ secrets.KAGGLE_KEY15 }}
+          KAGGLE_KEY17: ${{ secrets.KAGGLE_KEY17 }}
+          KAGGLE_KEY19: ${{ secrets.KAGGLE_KEY19 }}
+          KAGGLE_KEY20: ${{ secrets.KAGGLE_KEY20 }}
+          KAGGLE_KEY21: ${{ secrets.KAGGLE_KEY21 }}
+        run: python song_short.py "${{ inputs.slug }}" "${{ matrix.lang }}"
