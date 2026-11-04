@@ -1,0 +1,102 @@
+{
+ "te": {
+  "start": 40.77,
+  "end": 78.35,
+  "file": "S05_telugu.mp4"
+ },
+ "hi": {
+  "start": 40.65,
+  "end": 73.41,
+  "file": "S05_hindi.mp4"
+ },
+ "ta": {
+  "start": 40.77,
+  "end": 78.35,
+  "file": "S05_tamil.mp4"
+ },
+ "kn": {
+  "start": 40.77,
+  "end": 79.13,
+  "file": "S05_kannada.mp4"
+ },
+ "ml": {
+  "start": 40.77,
+  "end": 78.35,
+  "file": "S05_malayalam.mp4"
+ },
+ "mr": {
+  "start": 40.32,
+  "end": 78.81,
+  "file": "S05_marathi.mp4"
+ },
+ "bn": {
+  "start": 40.77,
+  "end": 78.84,
+  "file": "S05_bengali.mp4"
+ },
+ "gu": {
+  "start": 41.06,
+  "end": 78.74,
+  "file": "S05_gujarati.mp4"
+ },
+ "pa": {
+  "start": 40.16,
+  "end": 78.61,
+  "file": "S05_punjabi.mp4"
+ },
+ "or": {
+  "start": 40.77,
+  "end": 78.76,
+  "file": "S05_odia.mp4"
+ },
+ "as": {
+  "start": 40.62,
+  "end": 78.98,
+  "file": "S05_assamese.mp4"
+ },
+ "en": {
+  "start": 40.46,
+  "end": 80.28,
+  "file": "S05_english.mp4"
+ },
+ "ne": {
+  "start": 40.77,
+  "end": 78.81,
+  "file": "S05_nepali.mp4"
+ },
+ "ur": {
+  "start": 40.74,
+  "end": 78.35,
+  "file": "S05_urdu.mp4"
+ },
+ "sd": {
+  "start": 40.77,
+  "end": 78.81,
+  "file": "S05_sindhi.mp4"
+ },
+ "mai": {
+  "start": 40.19,
+  "end": 78.35,
+  "file": "S05_maithili.mp4"
+ },
+ "hry": {
+  "start": 40.88,
+  "end": 78.65,
+  "file": "S05_haryanvi.mp4"
+ },
+ "ks": {
+  "start": 40.77,
+  "end": 78.35,
+  "file": "S05_kashmiri.mp4"
+ },
+ "mni": {
+  "start": 40.74,
+  "end": 78.98,
+  "file": "S05_manipuri.mp4"
+ },
+ "bho": {
+  "start": 40.77,
+  "end": 78.35,
+  "file": "S05_bhojpuri.mp4"
+ }
+}
