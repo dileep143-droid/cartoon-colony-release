@@ -1,0 +1,105 @@
+{
+ "slug": "S07_bedtime_owl",
+ "files": {
+  "te": {
+   "kernel": "chinthaharini/s07-song-1",
+   "key": 20,
+   "file": "S07_telugu.mp4"
+  },
+  "hi": {
+   "kernel": "chinthaharini/s07-song-1",
+   "key": 20,
+   "file": "S07_hindi.mp4"
+  },
+  "ta": {
+   "kernel": "chinthaharini/s07-song-1",
+   "key": 20,
+   "file": "S07_tamil.mp4"
+  },
+  "kn": {
+   "kernel": "chinthaharini/s07-song-1",
+   "key": 20,
+   "file": "S07_kannada.mp4"
+  },
+  "ml": {
+   "kernel": "chinthaharini/s07-song-1",
+   "key": 20,
+   "file": "S07_malayalam.mp4"
+  },
+  "mr": {
+   "kernel": "chinthaharini/s07-song-1",
+   "key": 20,
+   "file": "S07_marathi.mp4"
+  },
+  "bn": {
+   "kernel": "chinthaharini/s07-song-1",
+   "key": 20,
+   "file": "S07_bengali.mp4"
+  },
+  "gu": {
+   "kernel": "chinthaharini/s07-song-1",
+   "key": 20,
+   "file": "S07_gujarati.mp4"
+  },
+  "pa": {
+   "kernel": "chinthaharini/s07-song-1",
+   "key": 20,
+   "file": "S07_punjabi.mp4"
+  },
+  "or": {
+   "kernel": "chinthaharini/s07-song-1",
+   "key": 20,
+   "file": "S07_odia.mp4"
+  },
+  "as": {
+   "kernel": "chinthaharini/s07-song-1",
+   "key": 20,
+   "file": "S07_assamese.mp4"
+  },
+  "en": {
+   "kernel": "chinthaharini/s07-song-1",
+   "key": 20,
+   "file": "S07_english.mp4"
+  },
+  "ne": {
+   "kernel": "chinthaharini/s07-song-1",
+   "key": 20,
+   "file": "S07_nepali.mp4"
+  },
+  "ur": {
+   "kernel": "chinthaharini/s07-song-1",
+   "key": 20,
+   "file": "S07_urdu.mp4"
+  },
+  "sd": {
+   "kernel": "chinthaharini/s07-song-1",
+   "key": 20,
+   "file": "S07_sindhi.mp4"
+  },
+  "mai": {
+   "kernel": "chinthaharini/s07-song-1",
+   "key": 20,
+   "file": "S07_maithili.mp4"
+  },
+  "hry": {
+   "kernel": "chinthaharini/s07-song-1",
+   "key": 20,
+   "file": "S07_haryanvi.mp4"
+  },
+  "ks": {
+   "kernel": "chinthaharini/s07-song-1",
+   "key": 20,
+   "file": "S07_kashmiri.mp4"
+  },
+  "mni": {
+   "kernel": "chinthaharini/s07-song-1",
+   "key": 20,
+   "file": "S07_manipuri.mp4"
+  },
+  "bho": {
+   "kernel": "chinthaharini/s07-song-1",
+   "key": 20,
+   "file": "S07_bhojpuri.mp4"
+  }
+ }
+}
