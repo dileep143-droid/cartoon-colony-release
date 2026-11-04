@@ -48,11 +48,20 @@ for slug in queue:
     if not os.path.exists(mp): continue
     meta = json.load(open(mp, encoding="utf-8")); title = meta["title"][:100].strip()
     if title in have: continue
-    fid = drive_file(slug, f"{slug[:3]}_{NAME[code]}.mp4")
-    if not fid: print(f"RESULT {code} {slug} NOT_IN_DRIVE"); continue
-    path = f"{slug}_{code}.mp4"; fh = io.FileIO(path, "wb"); dl = MediaIoBaseDownload(fh, dr.files().get_media(fileId=fid), chunksize=64 * 2**20); ok = False
-    while not ok: _, ok = dl.next_chunk()
-    fh.close()
+    fname = f"{slug[:3]}_{NAME[code]}.mp4"; path = f"{slug}_{code}.mp4"
+    fid = drive_file(slug, fname)
+    if fid:
+        fh = io.FileIO(path, "wb"); dl = MediaIoBaseDownload(fh, dr.files().get_media(fileId=fid), chunksize=64 * 2**20); ok = False
+        while not ok: _, ok = dl.next_chunk()
+        fh.close()
+    else:   # 4 Nov: owner's Drive is full (15 GB) -> fall back to the song's Kaggle output (release.json says which kernel/key)
+        import subprocess, re as _re
+        src = json.load(open(os.path.join(D, slug, "release.json"), encoding="utf-8"))["files"].get(code)
+        if not src: print(f"RESULT {code} {slug} NO_SOURCE"); continue
+        env = dict(os.environ, KAGGLE_API_TOKEN=os.environ.get(f"KAGGLE_KEY{src['key']}", ""), PYTHONUTF8="1"); os.makedirs("dl", exist_ok=True)
+        subprocess.run(["kaggle", "kernels", "output", src["kernel"], "-p", "dl", "--file-pattern", "^" + _re.escape(src["file"]) + "$"], env=env, capture_output=True, text=True)
+        if not os.path.exists(os.path.join("dl", src["file"])): print(f"RESULT {code} {slug} NOT_IN_DRIVE_OR_KAGGLE"); continue
+        os.replace(os.path.join("dl", src["file"]), path); print(f"{slug} {code} taken from Kaggle (Drive copy missing)", flush=True)
     pub = slots[done].astimezone(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     sn = {"title": title, "description": meta["description"][:5000], "tags": meta["tags"][:30], "categoryId": "27"}
     yl = code if code not in NEW else YT_LANG.get(code)
