@@ -80,3 +80,37 @@ for slug in queue:
     except Exception as e: t = "thumb FAILED"
     print(f"RESULT {code} {slug} SCHEDULED {vid} public {pub} | {t}", flush=True)
 print(f"RESULT {code} done today: {done}")
+
+# ---- Shorts (owner 4 Nov): 5 per channel per day from Drive "BuBu TV Shorts/<slug>", public 08:30 11:30 14:30 17:30 20:30 IST ----
+SHORT_SLOTS = [datetime.datetime(today.year, today.month, today.day, h, 30, tzinfo=ist) for h in (8, 11, 14, 17, 20)]
+SHORT_SLOTS = [max(s, now + datetime.timedelta(minutes=40)) for s in SHORT_SLOTS]
+sdone = 0
+for slug in queue:
+    if sdone >= PER_DAY: break
+    mp = os.path.join(D, slug, f"meta_{code}.json")
+    if not os.path.exists(mp): continue
+    meta = json.load(open(mp, encoding="utf-8"))
+    hook = str(meta.get("thumb_text", "")).strip(); song = meta["title"].split("|")[0].strip()
+    title = (f"{hook} | {song} #shorts" if hook else f"{song} #shorts")[:100].strip()
+    if title in have: continue
+    fid = drive_file(slug, f"{slug[:3]}_{NAME[code]}_short.mp4")
+    if not fid: print(f"RESULT {code} {slug} SHORT_NOT_IN_DRIVE"); continue
+    path = f"{slug}_{code}_short.mp4"; fh = io.FileIO(path, "wb"); dl = MediaIoBaseDownload(fh, dr.files().get_media(fileId=fid), chunksize=32 * 2**20); ok = False
+    while not ok: _, ok = dl.next_chunk()
+    fh.close()
+    if os.environ.get("DRY") == "1":
+        print(f"RESULT {code} {slug} SHORT DRY '{title}' at {SHORT_SLOTS[sdone].astimezone(ist):%H:%M} IST", flush=True); sdone += 1; have.add(title); os.remove(path); continue
+    desc = (meta["description"].split("\n\n")[0] + "\n\nFull song on our channel - BuBu TV.\n#shorts #kidssongs #rhymes")[:5000]
+    sn = {"title": title, "description": desc, "tags": meta["tags"][:20] + ["shorts"], "categoryId": "27"}
+    yl = code if code not in NEW else YT_LANG.get(code)
+    if yl: sn.update({"defaultLanguage": yl, "defaultAudioLanguage": yl})
+    pub = SHORT_SLOTS[sdone].astimezone(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    body = {"snippet": sn, "status": {"privacyStatus": "private", "publishAt": pub, "selfDeclaredMadeForKids": True, "embeddable": True, "containsSyntheticMedia": True}}
+    try:
+        req = yt.videos().insert(part="snippet,status", body=body, media_body=MediaFileUpload(path, chunksize=16 * 2**20, resumable=True)); res = None
+        while res is None: _, res = req.next_chunk()
+    except Exception as e:
+        print(f"RESULT {code} {slug} SHORT STOPPED {str(e)[-200:]}"); break
+    sdone += 1; have.add(title); os.remove(path)
+    print(f"RESULT {code} {slug} SHORT SCHEDULED {res['id']} public {pub}", flush=True)
+print(f"RESULT {code} shorts today: {sdone}")
