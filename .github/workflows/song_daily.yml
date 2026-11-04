@@ -19,11 +19,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: tools
-        run: pip install -q google-api-python-client google-auth
+        run: pip install -q google-api-python-client google-auth kaggle
       - name: daily songs ${{ matrix.lang }}
         env:
           YT_TOKEN: ${{ secrets[format('YT_{0}', matrix.lang)] }}
           DRIVE_TOKEN: ${{ secrets.DRIVE_TOKEN }}
+          KAGGLE_KEY1: ${{ secrets.KAGGLE_KEY1 }}
+          KAGGLE_KEY3: ${{ secrets.KAGGLE_KEY3 }}
+          KAGGLE_KEY10: ${{ secrets.KAGGLE_KEY10 }}
+          KAGGLE_KEY12: ${{ secrets.KAGGLE_KEY12 }}
+          KAGGLE_KEY13: ${{ secrets.KAGGLE_KEY13 }}
+          KAGGLE_KEY14: ${{ secrets.KAGGLE_KEY14 }}
+          KAGGLE_KEY15: ${{ secrets.KAGGLE_KEY15 }}
+          KAGGLE_KEY17: ${{ secrets.KAGGLE_KEY17 }}
+          KAGGLE_KEY19: ${{ secrets.KAGGLE_KEY19 }}
+          KAGGLE_KEY20: ${{ secrets.KAGGLE_KEY20 }}
+          KAGGLE_KEY21: ${{ secrets.KAGGLE_KEY21 }}
         run: |
           if [ -z "$YT_TOKEN" ]; then echo "RESULT ${{ matrix.lang }} NO_SECRET (owner: run C:\1st\put_yt_secrets.py once)"; exit 0; fi
           python song_daily.py "${{ matrix.lang }}"
