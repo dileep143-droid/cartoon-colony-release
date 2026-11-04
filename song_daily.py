@@ -62,6 +62,8 @@ for slug in queue:
         subprocess.run(["kaggle", "kernels", "output", src["kernel"], "-p", "dl", "--file-pattern", "^" + _re.escape(src["file"]) + "$"], env=env, capture_output=True, text=True)
         if not os.path.exists(os.path.join("dl", src["file"])): print(f"RESULT {code} {slug} NOT_IN_DRIVE_OR_KAGGLE"); continue
         os.replace(os.path.join("dl", src["file"]), path); print(f"{slug} {code} taken from Kaggle (Drive copy missing)", flush=True)
+    if os.environ.get("DRY") == "1":   # test mode: everything except the upload
+        print(f"RESULT {code} {slug} DRY would schedule at {slots[done]:%H:%M} IST, file {os.path.getsize(path)//1_000_000} MB", flush=True); done += 1; have.add(title); os.remove(path); continue
     pub = slots[done].astimezone(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     sn = {"title": title, "description": meta["description"][:5000], "tags": meta["tags"][:30], "categoryId": "27"}
     yl = code if code not in NEW else YT_LANG.get(code)
