@@ -1,0 +1,105 @@
+{
+ "slug": "S06_kite_crow",
+ "files": {
+  "te": {
+   "kernel": "svpawan/s06-song-1",
+   "key": 19,
+   "file": "S06_telugu.mp4"
+  },
+  "hi": {
+   "kernel": "svpawan/s06-song-1",
+   "key": 19,
+   "file": "S06_hindi.mp4"
+  },
+  "ta": {
+   "kernel": "svpawan/s06-song-1",
+   "key": 19,
+   "file": "S06_tamil.mp4"
+  },
+  "kn": {
+   "kernel": "svpawan/s06-song-1",
+   "key": 19,
+   "file": "S06_kannada.mp4"
+  },
+  "ml": {
+   "kernel": "svpawan/s06-song-1",
+   "key": 19,
+   "file": "S06_malayalam.mp4"
+  },
+  "mr": {
+   "kernel": "svpawan/s06-song-1",
+   "key": 19,
+   "file": "S06_marathi.mp4"
+  },
+  "bn": {
+   "kernel": "svpawan/s06-song-1",
+   "key": 19,
+   "file": "S06_bengali.mp4"
+  },
+  "gu": {
+   "kernel": "svpawan/s06-song-1",
+   "key": 19,
+   "file": "S06_gujarati.mp4"
+  },
+  "pa": {
+   "kernel": "svpawan/s06-song-1",
+   "key": 19,
+   "file": "S06_punjabi.mp4"
+  },
+  "or": {
+   "kernel": "svpawan/s06-song-1",
+   "key": 19,
+   "file": "S06_odia.mp4"
+  },
+  "as": {
+   "kernel": "svpawan/s06-song-1",
+   "key": 19,
+   "file": "S06_assamese.mp4"
+  },
+  "en": {
+   "kernel": "svpawan/s06-song-1",
+   "key": 19,
+   "file": "S06_english.mp4"
+  },
+  "ne": {
+   "kernel": "svpawan/s06-song-1",
+   "key": 19,
+   "file": "S06_nepali.mp4"
+  },
+  "ur": {
+   "kernel": "svpawan/s06-song-1",
+   "key": 19,
+   "file": "S06_urdu.mp4"
+  },
+  "sd": {
+   "kernel": "svpawan/s06-song-1",
+   "key": 19,
+   "file": "S06_sindhi.mp4"
+  },
+  "mai": {
+   "kernel": "svpawan/s06-song-1",
+   "key": 19,
+   "file": "S06_maithili.mp4"
+  },
+  "hry": {
+   "kernel": "svpawan/s06-song-1",
+   "key": 19,
+   "file": "S06_haryanvi.mp4"
+  },
+  "ks": {
+   "kernel": "svpawan/s06-song-1",
+   "key": 19,
+   "file": "S06_kashmiri.mp4"
+  },
+  "mni": {
+   "kernel": "svpawan/s06-song-1",
+   "key": 19,
+   "file": "S06_manipuri.mp4"
+  },
+  "bho": {
+   "kernel": "svpawan/s06-song-1",
+   "key": 19,
+   "file": "S06_bhojpuri.mp4"
+  }
+ }
+}
