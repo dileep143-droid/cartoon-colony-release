@@ -1,42 +1,88 @@
 name: song-daily
+
 # BuBu TV timer (owner 3 Nov 2026): every day 5 new songs per language channel from Google Drive, public at 07/10/13/16/19 IST.
+
 # Starts 00:30 UTC (06:00 IST); GitHub timers can be late - the script never schedules in the past.
+
 on:
+
   schedule:
+
     - cron: "30 0 * * *"
+
   workflow_dispatch:
+
     inputs:
+
       langs: { description: 'JSON list of channel codes (default all 20)', required: false, default: '' }
+
       dry:   { description: '1 = test, no upload', required: false, default: '0' }
+      songs: { description: 'songs per channel (default 5)', required: false, default: '5' }
+      shorts: { description: 'shorts per channel (default 5; 0 = none - saves the shared upload quota)', required: false, default: '5' }
+
 jobs:
+
   daily:
+
     runs-on: ubuntu-latest
+
     timeout-minutes: 120
+
     strategy:
+
       fail-fast: false
+
       max-parallel: 5
+
       matrix:
+
         lang: ${{ fromJSON(inputs.langs != '' && inputs.langs || '["te","hi","ta","kn","ml","mr","bn","gu","pa","or","as","en","ne","ur","sd","mai","hry","ks","mni","bho"]') }}
+
     steps:
+
       - uses: actions/checkout@v4
+
       - name: tools
+
         run: pip install -q google-api-python-client google-auth kaggle
+
       - name: daily songs ${{ matrix.lang }}
+
         env:
+
           YT_TOKEN: ${{ secrets[format('YT_{0}', matrix.lang)] }}
+
           DRIVE_TOKEN: ${{ secrets.DRIVE_TOKEN }}
+
           DRY: ${{ inputs.dry }}
+          SONGS_PER_DAY: ${{ inputs.songs }}
+          SHORTS_PER_DAY: ${{ inputs.shorts }}
+
           KAGGLE_KEY1: ${{ secrets.KAGGLE_KEY1 }}
+
           KAGGLE_KEY3: ${{ secrets.KAGGLE_KEY3 }}
+
           KAGGLE_KEY10: ${{ secrets.KAGGLE_KEY10 }}
+
           KAGGLE_KEY12: ${{ secrets.KAGGLE_KEY12 }}
+
           KAGGLE_KEY13: ${{ secrets.KAGGLE_KEY13 }}
+
           KAGGLE_KEY14: ${{ secrets.KAGGLE_KEY14 }}
+
           KAGGLE_KEY15: ${{ secrets.KAGGLE_KEY15 }}
+
           KAGGLE_KEY17: ${{ secrets.KAGGLE_KEY17 }}
+
           KAGGLE_KEY19: ${{ secrets.KAGGLE_KEY19 }}
+
           KAGGLE_KEY20: ${{ secrets.KAGGLE_KEY20 }}
+
           KAGGLE_KEY21: ${{ secrets.KAGGLE_KEY21 }}
+
         run: |
+
           if [ -z "$YT_TOKEN" ]; then echo "RESULT ${{ matrix.lang }} NO_SECRET (owner: run C:\1st\put_yt_secrets.py once)"; exit 0; fi
+
           python song_daily.py "${{ matrix.lang }}"
+
