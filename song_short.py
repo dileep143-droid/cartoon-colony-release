@@ -26,7 +26,7 @@ r = subprocess.run(["kaggle", "kernels", "output", src["kernel"], "-p", "dl", "-
 full = os.path.join("dl", src["file"])
 if not os.path.exists(full): sys.exit("download failed: " + (r.stdout + r.stderr)[-300:])
 vf = ("[0:v]split[a][b];[a]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=30:3,eq=brightness=-0.08[bg];"
-      "[b]scale=1080:-2[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2,fps=30,format=yuv420p[v]")
+      "[b]scale=1350:-2,crop=1080:ih[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2,fps=30,format=yuv420p[v]")
 dur = cut["end"] - cut["start"]
 cmd = ["ffmpeg", "-y", "-v", "error", "-ss", str(cut["start"]), "-t", f"{dur:.2f}", "-i", full, "-filter_complex", vf, "-map", "[v]", "-map", "0:a",
        "-af", f"afade=t=in:d=0.3,afade=t=out:st={max(0, dur - 0.8):.2f}:d=0.8", "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-c:a", "aac", "-b:a", "160k", name]
