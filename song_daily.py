@@ -7,7 +7,7 @@ from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload, MediaIoBaseDownload
-code = sys.argv[1]; PER_DAY = 5; SLOTS_IST = [7, 10, 13, 16, 19]
+code = sys.argv[1]; PER_DAY = int(os.environ.get("SONGS_PER_DAY") or 5); SHORTS_PER_DAY = int(os.environ.get("SHORTS_PER_DAY") or 5); SLOTS_IST = [7, 10, 13, 16, 19]   # 4 Nov: catch-up runs can set songs/shorts (upload quota is shared by all 20 channels)
 NAME = {"hi": "hindi", "te": "telugu", "ta": "tamil", "kn": "kannada", "ml": "malayalam", "mr": "marathi", "bn": "bengali", "gu": "gujarati", "pa": "punjabi", "or": "odia",
         "as": "assamese", "en": "english", "ne": "nepali", "ur": "urdu", "sd": "sindhi", "mai": "maithili", "hry": "haryanvi", "ks": "kashmiri", "mni": "manipuri", "bho": "bhojpuri"}
 NEW = {"ne", "ur", "sd", "mai", "hry", "ks", "mni", "bho"}; YT_LANG = {"ne": "ne", "ur": "ur"}
@@ -86,7 +86,7 @@ SHORT_SLOTS = [datetime.datetime(today.year, today.month, today.day, h, 30, tzin
 SHORT_SLOTS = [max(s, now + datetime.timedelta(minutes=40)) for s in SHORT_SLOTS]
 sdone = 0
 for slug in queue:
-    if sdone >= PER_DAY: break
+    if sdone >= SHORTS_PER_DAY: break
     mp = os.path.join(D, slug, f"meta_{code}.json")
     if not os.path.exists(mp): continue
     meta = json.load(open(mp, encoding="utf-8"))
