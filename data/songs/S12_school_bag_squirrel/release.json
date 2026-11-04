@@ -1,0 +1,105 @@
+{
+ "slug": "S12_school_bag_squirrel",
+ "files": {
+  "te": {
+   "kernel": "gopalaganeshk/s12-song-1",
+   "key": 17,
+   "file": "S12_telugu.mp4"
+  },
+  "hi": {
+   "kernel": "gopalaganeshk/s12-song-1",
+   "key": 17,
+   "file": "S12_hindi.mp4"
+  },
+  "ta": {
+   "kernel": "gopalaganeshk/s12-song-1",
+   "key": 17,
+   "file": "S12_tamil.mp4"
+  },
+  "kn": {
+   "kernel": "gopalaganeshk/s12-song-1",
+   "key": 17,
+   "file": "S12_kannada.mp4"
+  },
+  "ml": {
+   "kernel": "gopalaganeshk/s12-song-1",
+   "key": 17,
+   "file": "S12_malayalam.mp4"
+  },
+  "mr": {
+   "kernel": "gopalaganeshk/s12-song-1",
+   "key": 17,
+   "file": "S12_marathi.mp4"
+  },
+  "bn": {
+   "kernel": "gopalaganeshk/s12-song-1",
+   "key": 17,
+   "file": "S12_bengali.mp4"
+  },
+  "gu": {
+   "kernel": "gopalaganeshk/s12-song-1",
+   "key": 17,
+   "file": "S12_gujarati.mp4"
+  },
+  "pa": {
+   "kernel": "gopalaganeshk/s12-song-1",
+   "key": 17,
+   "file": "S12_punjabi.mp4"
+  },
+  "or": {
+   "kernel": "gopalaganeshk/s12-song-1",
+   "key": 17,
+   "file": "S12_odia.mp4"
+  },
+  "as": {
+   "kernel": "gopalaganeshk/s12-song-1",
+   "key": 17,
+   "file": "S12_assamese.mp4"
+  },
+  "en": {
+   "kernel": "gopalaganeshk/s12-song-1",
+   "key": 17,
+   "file": "S12_english.mp4"
+  },
+  "ne": {
+   "kernel": "gopalaganeshk/s12-song-1",
+   "key": 17,
+   "file": "S12_nepali.mp4"
+  },
+  "ur": {
+   "kernel": "gopalaganeshk/s12-song-1",
+   "key": 17,
+   "file": "S12_urdu.mp4"
+  },
+  "sd": {
+   "kernel": "gopalaganeshk/s12-song-1",
+   "key": 17,
+   "file": "S12_sindhi.mp4"
+  },
+  "mai": {
+   "kernel": "gopalaganeshk/s12-song-1",
+   "key": 17,
+   "file": "S12_maithili.mp4"
+  },
+  "hry": {
+   "kernel": "gopalaganeshk/s12-song-1",
+   "key": 17,
+   "file": "S12_haryanvi.mp4"
+  },
+  "ks": {
+   "kernel": "gopalaganeshk/s12-song-1",
+   "key": 17,
+   "file": "S12_kashmiri.mp4"
+  },
+  "mni": {
+   "kernel": "gopalaganeshk/s12-song-1",
+   "key": 17,
+   "file": "S12_manipuri.mp4"
+  },
+  "bho": {
+   "kernel": "gopalaganeshk/s12-song-1",
+   "key": 17,
+   "file": "S12_bhojpuri.mp4"
+  }
+ }
+}
