@@ -1,0 +1,62 @@
+name: long-video
+
+# BuBu TV long non-stop videos (owner 6 Nov 2026): Kaggle/GitHub song files -> 30-60 min zigzag compilation per language -> YouTube PRIVATE (owner checks first).
+
+on:
+  workflow_dispatch:
+    inputs:
+      langs: { description: 'JSON list of channel codes (default all 20)', required: false, default: '' }
+      ep:    { description: 'episode number (0,1,2...: lead song, length 30/45/60/40 min, order)', required: false, default: '0' }
+      dry:   { description: '1 = build only, no upload', required: false, default: '0' }
+
+jobs:
+  long:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix:
+        lang: ${{ fromJSON(inputs.langs != '' && inputs.langs || '["hi","te","ta","kn","ml","mr","bn","gu","pa","or","as","en","ne","ur","sd","mai","hry","ks","mni","bho"]') }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: tools
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core > /dev/null
+          pip install -q google-api-python-client google-auth kaggle pillow
+      - name: long video ${{ matrix.lang }}
+        env:
+          YT_TOKEN: ${{ secrets[format('YT_{0}', matrix.lang)] }}
+          EP: ${{ inputs.ep }}
+          DRY: ${{ inputs.dry }}
+          KAGGLE_KEY1: ${{ secrets.KAGGLE_KEY1 }}
+          KAGGLE_KEY2: ${{ secrets.KAGGLE_KEY2 }}
+          KAGGLE_KEY3: ${{ secrets.KAGGLE_KEY3 }}
+          KAGGLE_KEY4: ${{ secrets.KAGGLE_KEY4 }}
+          KAGGLE_KEY5: ${{ secrets.KAGGLE_KEY5 }}
+          KAGGLE_KEY6: ${{ secrets.KAGGLE_KEY6 }}
+          KAGGLE_KEY7: ${{ secrets.KAGGLE_KEY7 }}
+          KAGGLE_KEY8: ${{ secrets.KAGGLE_KEY8 }}
+          KAGGLE_KEY9: ${{ secrets.KAGGLE_KEY9 }}
+          KAGGLE_KEY10: ${{ secrets.KAGGLE_KEY10 }}
+          KAGGLE_KEY11: ${{ secrets.KAGGLE_KEY11 }}
+          KAGGLE_KEY12: ${{ secrets.KAGGLE_KEY12 }}
+          KAGGLE_KEY13: ${{ secrets.KAGGLE_KEY13 }}
+          KAGGLE_KEY14: ${{ secrets.KAGGLE_KEY14 }}
+          KAGGLE_KEY15: ${{ secrets.KAGGLE_KEY15 }}
+          KAGGLE_KEY16: ${{ secrets.KAGGLE_KEY16 }}
+          KAGGLE_KEY17: ${{ secrets.KAGGLE_KEY17 }}
+          KAGGLE_KEY18: ${{ secrets.KAGGLE_KEY18 }}
+          KAGGLE_KEY19: ${{ secrets.KAGGLE_KEY19 }}
+          KAGGLE_KEY20: ${{ secrets.KAGGLE_KEY20 }}
+          KAGGLE_KEY21: ${{ secrets.KAGGLE_KEY21 }}
+        run: |
+          if [ -z "$YT_TOKEN" ] && [ "$DRY" != "1" ]; then echo "RESULT ${{ matrix.lang }} NO_SECRET"; exit 0; fi
+          python long_video.py "${{ matrix.lang }}"
+      - name: thumbnail
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thumb-${{ matrix.lang }}-ep${{ inputs.ep }}
+          path: thumb_*.jpg
+          if-no-files-found: ignore
