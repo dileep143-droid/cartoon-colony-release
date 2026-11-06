@@ -7,7 +7,7 @@ from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload, MediaIoBaseDownload
-code = sys.argv[1]; PER_DAY = int(os.environ.get("SONGS_PER_DAY") or 5); SHORTS_PER_DAY = int(os.environ.get("SHORTS_PER_DAY") or 5); SLOTS_IST = [7, 10, 13, 16, 19]   # 4 Nov: catch-up runs can set songs/shorts (upload quota is shared by all 20 channels)
+code = sys.argv[1]; PER_DAY = int(os.environ.get("SONGS_PER_DAY") or 5); SHORTS_PER_DAY = 0; SLOTS_IST = [7, 10, 13, 16, 19]   # owner 6 Nov 2026: Shorts STOPPED (long videos only). 4 Nov: catch-up runs can set songs/shorts (upload quota is shared by all 20 channels)
 NAME = {"hi": "hindi", "te": "telugu", "ta": "tamil", "kn": "kannada", "ml": "malayalam", "mr": "marathi", "bn": "bengali", "gu": "gujarati", "pa": "punjabi", "or": "odia",
         "as": "assamese", "en": "english", "ne": "nepali", "ur": "urdu", "sd": "sindhi", "mai": "maithili", "hry": "haryanvi", "ks": "kashmiri", "mni": "manipuri", "bho": "bhojpuri"}
 NEW = {"ne", "ur", "sd", "mai", "hry", "ks", "mni", "bho"}; YT_LANG = {"ne": "ne", "ur": "ur"}
