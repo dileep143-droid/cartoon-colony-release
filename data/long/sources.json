@@ -1,0 +1,2227 @@
+{
+ "name": {
+  "hi": "hindi",
+  "te": "telugu",
+  "ta": "tamil",
+  "kn": "kannada",
+  "ml": "malayalam",
+  "mr": "marathi",
+  "bn": "bengali",
+  "gu": "gujarati",
+  "pa": "punjabi",
+  "or": "odia",
+  "as": "assamese",
+  "en": "english",
+  "ne": "nepali",
+  "ur": "urdu",
+  "sd": "sindhi",
+  "mai": "maithili",
+  "hry": "haryanvi",
+  "ks": "kashmiri",
+  "mni": "manipuri",
+  "bho": "bhojpuri"
+ },
+ "leads": [
+  "S11_puppy_bath",
+  "S09_rainbow_puppy",
+  "S10_counting_bananas",
+  "S13_hen_chicks",
+  "S04_monkey_mangoes",
+  "S12_school_bag_squirrel",
+  "S05_brush_teeth",
+  "S06_kite_crow",
+  "S07_bedtime_owl",
+  "S08_goat_market",
+  "S03_paper_boats"
+ ],
+ "songs": {
+  "S03_paper_boats": {
+   "src": {
+    "hi": {
+     "kernel": "musthafadudekula/s03-song-1",
+     "key": 13,
+     "file": "S03_hindi.mp4"
+    },
+    "te": {
+     "kernel": "musthafadudekula/s03-song-1",
+     "key": 13,
+     "file": "S03_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "musthafadudekula/s03-song-1",
+     "key": 13,
+     "file": "S03_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "musthafadudekula/s03-song-1",
+     "key": 13,
+     "file": "S03_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "musthafadudekula/s03-song-1",
+     "key": 13,
+     "file": "S03_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "musthafadudekula/s03-song-1",
+     "key": 13,
+     "file": "S03_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "musthafadudekula/s03-song-1",
+     "key": 13,
+     "file": "S03_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "musthafadudekula/s03-song-1",
+     "key": 13,
+     "file": "S03_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "musthafadudekula/s03-song-1",
+     "key": 13,
+     "file": "S03_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "musthafadudekula/s03-song-1",
+     "key": 13,
+     "file": "S03_odia.mp4"
+    },
+    "as": {
+     "kernel": "musthafadudekula/s03-song-1",
+     "key": 13,
+     "file": "S03_assamese.mp4"
+    },
+    "en": {
+     "kernel": "musthafadudekula/s03-song-1",
+     "key": 13,
+     "file": "S03_english.mp4"
+    },
+    "ne": {
+     "kernel": "musthafadudekula/s03-song-1",
+     "key": 13,
+     "file": "S03_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "musthafadudekula/s03-song-1",
+     "key": 13,
+     "file": "S03_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "musthafadudekula/s03-song-1",
+     "key": 13,
+     "file": "S03_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "musthafadudekula/s03-song-1",
+     "key": 13,
+     "file": "S03_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "musthafadudekula/s03-song-1",
+     "key": 13,
+     "file": "S03_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "musthafadudekula/s03-song-1",
+     "key": 13,
+     "file": "S03_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "musthafadudekula/s03-song-1",
+     "key": 13,
+     "file": "S03_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "musthafadudekula/s03-song-1",
+     "key": 13,
+     "file": "S03_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "काग़ज़ की नाव",
+    "te": "వాన నీటిలో కాగితపు పడవ",
+    "ta": "மழை காகிதப் படகு பாடல்",
+    "kn": "ಕಾಗದದ ದೋಣಿ ಹಾಡು",
+    "ml": "മഴയിൽ കടലാസ് തോണി",
+    "mr": "पावसातली कागदी होडी",
+    "bn": "বৃষ্টির দিনে কাগজের নৌকা",
+    "gu": "વરસાદી તળાવમાં કાગળની હોડી",
+    "pa": "ਕਾਗਜ਼ੀ ਬੇੜੀ ਤੇ ਡੱਡੂ ਦੀ ਛਾਲ",
+    "or": "ବର୍ଷା ଦିନର କାଗଜ ଡଙ୍ଗା",
+    "as": "কাকতৰ নাও",
+    "en": "Paper Boats in the Rain",
+    "ne": "कागजको डुंगा",
+    "ur": "بارش میں کاغذی کشتی",
+    "sd": "ٻيڙي ۽ مينڊڪ",
+    "mai": "कागजक नाव आ छोट बेंग",
+    "hry": "बरखा वाली कागज़ की नाव 🌧️🛶",
+    "ks": "پیپر بوٹس اِن دی رین",
+    "mni": "Paper Boats in the Rain",
+    "bho": "बरखा में कागज के नाव"
+   }
+  },
+  "S04_monkey_mangoes": {
+   "src": {
+    "hi": {
+     "kernel": "devisrishashank/s04-song-3",
+     "key": 8,
+     "file": "S04_hindi.mp4"
+    },
+    "te": {
+     "kernel": "devisrishashank/s04-song-3",
+     "key": 8,
+     "file": "S04_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "devisrishashank/s04-song-3",
+     "key": 8,
+     "file": "S04_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "devisrishashank/s04-song-3",
+     "key": 8,
+     "file": "S04_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "devisrishashank/s04-song-3",
+     "key": 8,
+     "file": "S04_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "devisrishashank/s04-song-3",
+     "key": 8,
+     "file": "S04_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "devisrishashank/s04-song-3",
+     "key": 8,
+     "file": "S04_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "devisrishashank/s04-song-3",
+     "key": 8,
+     "file": "S04_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "devisrishashank/s04-song-3",
+     "key": 8,
+     "file": "S04_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "devisrishashank/s04-song-3",
+     "key": 8,
+     "file": "S04_odia.mp4"
+    },
+    "as": {
+     "kernel": "devisrishashank/s04-song-3",
+     "key": 8,
+     "file": "S04_assamese.mp4"
+    },
+    "en": {
+     "kernel": "devisrishashank/s04-song-3",
+     "key": 8,
+     "file": "S04_english.mp4"
+    },
+    "ne": {
+     "kernel": "devisrishashank/s04-song-3",
+     "key": 8,
+     "file": "S04_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "devisrishashank/s04-song-3",
+     "key": 8,
+     "file": "S04_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "devisrishashank/s04-song-3",
+     "key": 8,
+     "file": "S04_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "devisrishashank/s04-song-3",
+     "key": 8,
+     "file": "S04_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "devisrishashank/s04-song-3",
+     "key": 8,
+     "file": "S04_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "devisrishashank/s04-song-3",
+     "key": 8,
+     "file": "S04_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "devisrishashank/s04-song-3",
+     "key": 8,
+     "file": "S04_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "devisrishashank/s04-song-3",
+     "key": 8,
+     "file": "S04_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "आम वाला बंदर",
+    "te": "మామిడి పండ్లు & కోతి పాట",
+    "ta": "குரங்கும் மாம்பழங்களும்",
+    "kn": "ಮಾವಿನ ಹಣ್ಣು ಕೋತಿ ಹಾಡು",
+    "ml": "മാമ്പഴം മധുരം",
+    "mr": "माकड आणि आंबे",
+    "bn": "আম আম মিষ্টি আম",
+    "gu": "કેરી અને વાંદરો",
+    "pa": "ਅੰਬ ਅੰਬ ਮਿੱਠਾ ਮਿੱਠਾ",
+    "or": "ବାନର ଆଉ ଆମ୍ବ ଛଡ଼ା ଗୀତ",
+    "as": "আম আৰু বান্দৰ",
+    "en": "The Monkey and the Mangoes",
+    "ne": "आँप र बाँदर",
+    "ur": "آم اور بندر",
+    "sd": "آم آم مٺڙا مٺڙا",
+    "mai": "बानर आ आम",
+    "hry": "आम आम मीठे-मीठे",
+    "ks": "مَیمُن تٕہ آم",
+    "mni": "মাঙ্গো মাঙ্গো কিডস সং",
+    "bho": "आम वाला बंदर 🥭 बच्चों का गाना"
+   }
+  },
+  "S05_brush_teeth": {
+   "src": {
+    "hi": {
+     "kernel": "tejaupma43/s05-song-3",
+     "key": 10,
+     "file": "S05_hindi.mp4"
+    },
+    "te": {
+     "kernel": "tejaupma43/s05-song-3",
+     "key": 10,
+     "file": "S05_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "tejaupma43/s05-song-3",
+     "key": 10,
+     "file": "S05_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "tejaupma43/s05-song-3",
+     "key": 10,
+     "file": "S05_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "tejaupma43/s05-song-3",
+     "key": 10,
+     "file": "S05_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "tejaupma43/s05-song-3",
+     "key": 10,
+     "file": "S05_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "tejaupma43/s05-song-3",
+     "key": 10,
+     "file": "S05_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "tejaupma43/s05-song-3",
+     "key": 10,
+     "file": "S05_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "tejaupma43/s05-song-3",
+     "key": 10,
+     "file": "S05_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "tejaupma43/s05-song-3",
+     "key": 10,
+     "file": "S05_odia.mp4"
+    },
+    "as": {
+     "kernel": "tejaupma43/s05-song-3",
+     "key": 10,
+     "file": "S05_assamese.mp4"
+    },
+    "en": {
+     "kernel": "tejaupma43/s05-song-3",
+     "key": 10,
+     "file": "S05_english.mp4"
+    },
+    "ne": {
+     "kernel": "tejaupma43/s05-song-3",
+     "key": 10,
+     "file": "S05_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "tejaupma43/s05-song-3",
+     "key": 10,
+     "file": "S05_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "tejaupma43/s05-song-3",
+     "key": 10,
+     "file": "S05_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "tejaupma43/s05-song-3",
+     "key": 10,
+     "file": "S05_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "tejaupma43/s05-song-3",
+     "key": 10,
+     "file": "S05_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "tejaupma43/s05-song-3",
+     "key": 10,
+     "file": "S05_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "tejaupma43/s05-song-3",
+     "key": 10,
+     "file": "S05_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "tejaupma43/s05-song-3",
+     "key": 10,
+     "file": "S05_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "ब्रश ब्रश चमकते दाँत",
+    "te": "పళ్ళు తోముకుందాం పాట 🪥✨",
+    "ta": "பல் துலக்கும் பாட்டு 🪥✨",
+    "kn": "ಬ್ರಷ್ ಬ್ರಷ್ ಹೊಳೆಯೋ ಹಲ್ಲು",
+    "ml": "പല്ല് തേക്കാം പാട്ട് 🪥✨",
+    "mr": "दात घासूया! ब्रश ब्रश शायनी टीथ",
+    "bn": "দাঁত মাজার গান 🪥✨ ব্রাশ ব্রাশ ঝকঝকে দাঁত",
+    "gu": "દાંત ચમકાવો! બ્રશ બ્રશ શાઇની ટીથ",
+    "pa": "ਬ੍ਰਸ਼ ਬ੍ਰਸ਼ ਚਮਕਣ ਦੰਦ",
+    "or": "ବ୍ରସ୍ ବ୍ରସ୍ ଦାନ୍ତ ଚମକୁ",
+    "as": "ব্ৰাছ ব্ৰাছ উজলি দাঁত",
+    "en": "Brush Brush Shiny Teeth",
+    "ne": "दाँत माझ्ने गीत",
+    "ur": "برش برش چمکیں دانت",
+    "sd": "برش برش چمڪندڙ ڏند",
+    "mai": "ब्रश ब्रश चमकल दाँत",
+    "hry": "ब्रश ब्रश चमके दांत! बच्चों का गाना",
+    "ks": "ٹوٹھ پیسٹ گیت",
+    "mni": "Brush Brush Shiny Teeth",
+    "bho": "दाँत माँजो ब्रश ब्रश"
+   }
+  },
+  "S06_kite_crow": {
+   "src": {
+    "hi": {
+     "kernel": "anvesh20/s06-song-2",
+     "key": 11,
+     "file": "S06_hindi.mp4"
+    },
+    "te": {
+     "kernel": "anvesh20/s06-song-2",
+     "key": 11,
+     "file": "S06_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "anvesh20/s06-song-2",
+     "key": 11,
+     "file": "S06_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "anvesh20/s06-song-2",
+     "key": 11,
+     "file": "S06_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "anvesh20/s06-song-2",
+     "key": 11,
+     "file": "S06_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "anvesh20/s06-song-2",
+     "key": 11,
+     "file": "S06_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "anvesh20/s06-song-2",
+     "key": 11,
+     "file": "S06_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "anvesh20/s06-song-2",
+     "key": 11,
+     "file": "S06_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "anvesh20/s06-song-2",
+     "key": 11,
+     "file": "S06_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "anvesh20/s06-song-2",
+     "key": 11,
+     "file": "S06_odia.mp4"
+    },
+    "as": {
+     "kernel": "anvesh20/s06-song-2",
+     "key": 11,
+     "file": "S06_assamese.mp4"
+    },
+    "en": {
+     "kernel": "anvesh20/s06-song-2",
+     "key": 11,
+     "file": "S06_english.mp4"
+    },
+    "ne": {
+     "kernel": "anvesh20/s06-song-2",
+     "key": 11,
+     "file": "S06_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "anvesh20/s06-song-2",
+     "key": 11,
+     "file": "S06_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "anvesh20/s06-song-2",
+     "key": 11,
+     "file": "S06_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "anvesh20/s06-song-2",
+     "key": 11,
+     "file": "S06_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "anvesh20/s06-song-2",
+     "key": 11,
+     "file": "S06_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "anvesh20/s06-song-2",
+     "key": 11,
+     "file": "S06_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "anvesh20/s06-song-2",
+     "key": 11,
+     "file": "S06_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "anvesh20/s06-song-2",
+     "key": 11,
+     "file": "S06_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "पतंग उड़ो ऊँची ऊँची",
+    "te": "గాలిపటం ఎగరాలి",
+    "ta": "பட்டம் பற! உயரே உயரமா",
+    "kn": "ನನ್ನ ಗಾಳಿಪಟ ಹಾರುತಿದೆ ಎತ್ತರ ಎತ್ತರ",
+    "ml": "പട്ടം പറക്കൂ ഉയരെ ഉയരെ",
+    "mr": "पतंग उड उंच उंच",
+    "bn": "ঘুড়ি উড়ছে উঁচুতে",
+    "gu": "પતંગ ઊડે ઊંચે ઊંચે",
+    "pa": "ਮੇਰੀ ਪਤੰਗ ਉੱਡਦੀ ਜਾਵੇ",
+    "or": "ଘୁଡ଼ି ଉଡ଼େ ଉଚ୍ଚେ ଉଚ୍ଚେ",
+    "as": "ঘূড়ি উৰে ওখ ওখকৈ",
+    "en": "My Kite Flies High",
+    "ne": "चङ्गा उड्यो अग्लो अग्लो",
+    "ur": "پتنگ اڑو اونچا اونچا",
+    "sd": "پتنگ اُڏ اونچي اونچي",
+    "mai": "पतंग उड़ाउ",
+    "hry": "पट्टा उड़ ऊंचा ऊंचा",
+    "ks": "پتنگ نُشآن ژھۄٹُھ",
+    "mni": "My Kite Flies High",
+    "bho": "पतंग उड़ऽ ऊँच ऊँच"
+   }
+  },
+  "S07_bedtime_owl": {
+   "src": {
+    "hi": {
+     "kernel": "musthafadudekula/s07-song-2",
+     "key": 13,
+     "file": "S07_hindi.mp4"
+    },
+    "te": {
+     "kernel": "musthafadudekula/s07-song-2",
+     "key": 13,
+     "file": "S07_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "musthafadudekula/s07-song-2",
+     "key": 13,
+     "file": "S07_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "musthafadudekula/s07-song-2",
+     "key": 13,
+     "file": "S07_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "musthafadudekula/s07-song-2",
+     "key": 13,
+     "file": "S07_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "musthafadudekula/s07-song-2",
+     "key": 13,
+     "file": "S07_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "musthafadudekula/s07-song-2",
+     "key": 13,
+     "file": "S07_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "musthafadudekula/s07-song-2",
+     "key": 13,
+     "file": "S07_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "musthafadudekula/s07-song-2",
+     "key": 13,
+     "file": "S07_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "musthafadudekula/s07-song-2",
+     "key": 13,
+     "file": "S07_odia.mp4"
+    },
+    "as": {
+     "kernel": "musthafadudekula/s07-song-2",
+     "key": 13,
+     "file": "S07_assamese.mp4"
+    },
+    "en": {
+     "kernel": "musthafadudekula/s07-song-2",
+     "key": 13,
+     "file": "S07_english.mp4"
+    },
+    "ne": {
+     "kernel": "musthafadudekula/s07-song-2",
+     "key": 13,
+     "file": "S07_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "musthafadudekula/s07-song-2",
+     "key": 13,
+     "file": "S07_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "musthafadudekula/s07-song-2",
+     "key": 13,
+     "file": "S07_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "musthafadudekula/s07-song-2",
+     "key": 13,
+     "file": "S07_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "musthafadudekula/s07-song-2",
+     "key": 13,
+     "file": "S07_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "musthafadudekula/s07-song-2",
+     "key": 13,
+     "file": "S07_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "musthafadudekula/s07-song-2",
+     "key": 13,
+     "file": "S07_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "musthafadudekula/s07-song-2",
+     "key": 13,
+     "file": "S07_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "चंदा मामा लोरी",
+    "te": "చందమామ లాలి పాట",
+    "ta": "இரவு வணக்கம் நிலவே பாட்டு",
+    "kn": "ಶುಭರಾತ್ರಿ ಚಂದಮಾಮ ನಕ್ಷತ್ರ",
+    "ml": "ശുഭരാത്രി ചന്ദ്രമാമാ",
+    "mr": "चांदोमामा शुभरात्री गाणे",
+    "bn": "শুভরাত্রি চাঁদমামা",
+    "gu": "ચંદામામા શુભ રાત્રિ 🌙",
+    "pa": "ਚੰਦ ਤੇ ਤਾਰਿਆਂ ਦੀ ਲੋਰੀ",
+    "or": "ଶୁଭରାତ୍ରି ଜହ୍ନମାମୁଁ ଓ ତାରାମାନେ",
+    "as": "শুভ ৰাতি জোন মামা",
+    "en": "Goodnight, Moon and Stars",
+    "ne": "सुत्ने बेला गीत",
+    "ur": "چاند ستارے، شب بخیر!",
+    "sd": "ننڊ جو گيت",
+    "mai": "निन्न गीत",
+    "hry": "चाँदनी रात का गाना",
+    "ks": "Goodnight, Moon and Stars",
+    "mni": "Goodnight, Moon and Stars",
+    "bho": "चंदा मामा, शुभ रतिया!"
+   }
+  },
+  "S08_goat_market": {
+   "src": {
+    "hi": {
+     "kernel": "wheeler123/s08-song-1",
+     "key": 3,
+     "file": "S08_hindi.mp4"
+    },
+    "te": {
+     "kernel": "wheeler123/s08-song-1",
+     "key": 3,
+     "file": "S08_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "wheeler123/s08-song-1",
+     "key": 3,
+     "file": "S08_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "wheeler123/s08-song-1",
+     "key": 3,
+     "file": "S08_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "wheeler123/s08-song-1",
+     "key": 3,
+     "file": "S08_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "wheeler123/s08-song-1",
+     "key": 3,
+     "file": "S08_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "wheeler123/s08-song-1",
+     "key": 3,
+     "file": "S08_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "wheeler123/s08-song-1",
+     "key": 3,
+     "file": "S08_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "wheeler123/s08-song-1",
+     "key": 3,
+     "file": "S08_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "wheeler123/s08-song-1",
+     "key": 3,
+     "file": "S08_odia.mp4"
+    },
+    "as": {
+     "kernel": "wheeler123/s08-song-1",
+     "key": 3,
+     "file": "S08_assamese.mp4"
+    },
+    "en": {
+     "kernel": "wheeler123/s08-song-1",
+     "key": 3,
+     "file": "S08_english.mp4"
+    },
+    "ne": {
+     "kernel": "wheeler123/s08-song-1",
+     "key": 3,
+     "file": "S08_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "wheeler123/s08-song-1",
+     "key": 3,
+     "file": "S08_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "wheeler123/s08-song-1",
+     "key": 3,
+     "file": "S08_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "wheeler123/s08-song-1",
+     "key": 3,
+     "file": "S08_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "wheeler123/s08-song-1",
+     "key": 3,
+     "file": "S08_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "wheeler123/s08-song-1",
+     "key": 3,
+     "file": "S08_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "wheeler123/s08-song-1",
+     "key": 3,
+     "file": "S08_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "wheeler123/s08-song-1",
+     "key": 3,
+     "file": "S08_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "सब्ज़ियाँ बाज़ार में",
+    "te": "కూరగాయలు మార్కెట్‌లో",
+    "ta": "காய்கறி சந்தை பாட்டு",
+    "kn": "ತರಕಾರಿ ಸಂತೆ ಹಾಡು",
+    "ml": "പച്ചക്കറി പാട്ട്",
+    "mr": "भाज्या भाज्या ताज्या भाज्या",
+    "bn": "বাজারে সবজি কিনতে যাই",
+    "gu": "શાકભાજી ગીત બજારે",
+    "pa": "ਸਬਜ਼ੀਆਂ ਵਾਲੀ ਮੰਡੀ",
+    "or": "ପନିପରିବା ଗୀତ",
+    "as": "বজাৰলৈ যাওঁ শাক-পাচলি লওঁ",
+    "en": "Vegetables at the Market",
+    "ne": "तरकारी बजार गीत",
+    "ur": "سبزیوں کا گیت",
+    "sd": "ترڪاريون، ترڪاريون",
+    "mai": "बजार में तरकारी गीत",
+    "hry": "बाजार में साग-सब्जी",
+    "ks": "ଓଡ଼ିଆ ଶିଶୁ ଗୀତ",
+    "mni": "Market Vegetables Song for Kids",
+    "bho": "बजार में तरकारी गीत"
+   }
+  },
+  "S09_rainbow_puppy": {
+   "src": {
+    "hi": {
+     "kernel": "ramu24/s09-song-2",
+     "key": 14,
+     "file": "S09_hindi.mp4"
+    },
+    "te": {
+     "kernel": "ramu24/s09-song-2",
+     "key": 14,
+     "file": "S09_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "ramu24/s09-song-2",
+     "key": 14,
+     "file": "S09_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "ramu24/s09-song-2",
+     "key": 14,
+     "file": "S09_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "ramu24/s09-song-2",
+     "key": 14,
+     "file": "S09_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "ramu24/s09-song-2",
+     "key": 14,
+     "file": "S09_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "ramu24/s09-song-2",
+     "key": 14,
+     "file": "S09_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "ramu24/s09-song-2",
+     "key": 14,
+     "file": "S09_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "ramu24/s09-song-2",
+     "key": 14,
+     "file": "S09_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "ramu24/s09-song-2",
+     "key": 14,
+     "file": "S09_odia.mp4"
+    },
+    "as": {
+     "kernel": "ramu24/s09-song-2",
+     "key": 14,
+     "file": "S09_assamese.mp4"
+    },
+    "en": {
+     "kernel": "ramu24/s09-song-2",
+     "key": 14,
+     "file": "S09_english.mp4"
+    },
+    "ne": {
+     "kernel": "ramu24/s09-song-2",
+     "key": 14,
+     "file": "S09_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "ramu24/s09-song-2",
+     "key": 14,
+     "file": "S09_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "ramu24/s09-song-2",
+     "key": 14,
+     "file": "S09_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "ramu24/s09-song-2",
+     "key": 14,
+     "file": "S09_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "ramu24/s09-song-2",
+     "key": 14,
+     "file": "S09_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "ramu24/s09-song-2",
+     "key": 14,
+     "file": "S09_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "ramu24/s09-song-2",
+     "key": 14,
+     "file": "S09_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "ramu24/s09-song-2",
+     "key": 14,
+     "file": "S09_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "इंद्रधनुष के रंग",
+    "te": "ఇంద్రధనుసు రంగులు",
+    "ta": "வானவில் வண்ணங்கள் 🌈 சிறுவர் பாடல்",
+    "kn": "ಕಾಮನಬಿಲ್ಲು ಹಾಡು",
+    "ml": "മഴവില്ലിന്റെ നിറങ്ങൾ 🌈",
+    "mr": "इंद्रधनुष्याचे रंग",
+    "bn": "রংধনুর গান",
+    "gu": "મેઘધનુષી રંગો",
+    "pa": "ਰੰਗਾਂ ਵਾਲਾ ਸਤਰੰਗੀ ਗੀਤ",
+    "or": "ଇନ୍ଦ୍ରଧନୁ ରଙ୍ଗ ଗୀତ",
+    "as": "ৰামধেনুৰ ৰঙ",
+    "en": "Colours of the Rainbow",
+    "ne": "इन्द्रधनुका रङ 🌈 कुकुरको पिल्ला र रङ",
+    "ur": "رنگوں والی قوسِ قزح",
+    "sd": "رنگ ڀريل ڪتي جو گيت",
+    "mai": "इंद्रधनुषक रंग",
+    "hry": "रंग-बिरंगा इंद्रधनुष",
+    "ks": "رنگہِ ریتھُ",
+    "mni": "Colours of the Rainbow – Manipuri Kids Song",
+    "bho": "रंग-बिरंगा इंद्रधनुष गीत"
+   }
+  },
+  "S10_counting_bananas": {
+   "src": {
+    "hi": {
+     "kernel": "reddy60/s10-song-2",
+     "key": 15,
+     "file": "S10_hindi.mp4"
+    },
+    "te": {
+     "kernel": "reddy60/s10-song-2",
+     "key": 15,
+     "file": "S10_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "reddy60/s10-song-2",
+     "key": 15,
+     "file": "S10_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "reddy60/s10-song-2",
+     "key": 15,
+     "file": "S10_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "reddy60/s10-song-2",
+     "key": 15,
+     "file": "S10_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "reddy60/s10-song-2",
+     "key": 15,
+     "file": "S10_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "reddy60/s10-song-2",
+     "key": 15,
+     "file": "S10_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "reddy60/s10-song-2",
+     "key": 15,
+     "file": "S10_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "reddy60/s10-song-2",
+     "key": 15,
+     "file": "S10_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "reddy60/s10-song-2",
+     "key": 15,
+     "file": "S10_odia.mp4"
+    },
+    "as": {
+     "kernel": "reddy60/s10-song-2",
+     "key": 15,
+     "file": "S10_assamese.mp4"
+    },
+    "en": {
+     "kernel": "reddy60/s10-song-2",
+     "key": 15,
+     "file": "S10_english.mp4"
+    },
+    "ne": {
+     "kernel": "reddy60/s10-song-2",
+     "key": 15,
+     "file": "S10_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "reddy60/s10-song-2",
+     "key": 15,
+     "file": "S10_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "reddy60/s10-song-2",
+     "key": 15,
+     "file": "S10_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "reddy60/s10-song-2",
+     "key": 15,
+     "file": "S10_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "reddy60/s10-song-2",
+     "key": 15,
+     "file": "S10_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "reddy60/s10-song-2",
+     "key": 15,
+     "file": "S10_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "reddy60/s10-song-2",
+     "key": 15,
+     "file": "S10_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "reddy60/s10-song-2",
+     "key": 15,
+     "file": "S10_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "दस छोटे केले",
+    "te": "అరటిపండ్లు లెక్కపెడదాం!",
+    "ta": "பத்து வாழைப்பழம்",
+    "kn": "ಹತ್ತು ಪುಟ್ಟ ಬಾಳೆಹಣ್ಣು",
+    "ml": "പത്ത് മഞ്ഞപ്പഴങ്ങൾ എണ്ണാം!",
+    "mr": "दहा पिवळी केळी",
+    "bn": "দশটা হলুদ কলা",
+    "gu": "દસ નાનાં કેળાં ગણીએ!",
+    "pa": "ਦਸ ਪੀਲੇ ਕੇਲੇ ਗਿਣਤੀ ਗੀਤ",
+    "or": "ଦଶ କଦଳୀ ଗୀତ",
+    "as": "দহটা হালধীয়া কল",
+    "en": "Ten Little Bananas",
+    "ne": "केरा गन्ती गीत",
+    "ur": "دس کیلے، ہرے!",
+    "sd": "ڏھ ڪيلا، واھ!",
+    "mai": "दस पीयर केला गीत",
+    "hry": "दस पीले केले - गिलहरी की शरारत",
+    "ks": "ژِٹِ گٔنٛژ ترٛیٚہہ کیلِ",
+    "mni": "ঐগ লেপসি অমদগি তুলা",
+    "bho": "दस पीयर केला गिनती गाना"
+   }
+  },
+  "S11_puppy_bath": {
+   "src": {
+    "hi": {
+     "kernel": "gopalaganeshk/s11-song-2",
+     "key": 17,
+     "file": "S11_hindi.mp4"
+    },
+    "te": {
+     "kernel": "gopalaganeshk/s11-song-2",
+     "key": 17,
+     "file": "S11_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "gopalaganeshk/s11-song-2",
+     "key": 17,
+     "file": "S11_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "gopalaganeshk/s11-song-2",
+     "key": 17,
+     "file": "S11_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "gopalaganeshk/s11-song-2",
+     "key": 17,
+     "file": "S11_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "gopalaganeshk/s11-song-2",
+     "key": 17,
+     "file": "S11_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "gopalaganeshk/s11-song-2",
+     "key": 17,
+     "file": "S11_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "gopalaganeshk/s11-song-2",
+     "key": 17,
+     "file": "S11_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "gopalaganeshk/s11-song-2",
+     "key": 17,
+     "file": "S11_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "gopalaganeshk/s11-song-2",
+     "key": 17,
+     "file": "S11_odia.mp4"
+    },
+    "as": {
+     "kernel": "gopalaganeshk/s11-song-2",
+     "key": 17,
+     "file": "S11_assamese.mp4"
+    },
+    "en": {
+     "kernel": "gopalaganeshk/s11-song-2",
+     "key": 17,
+     "file": "S11_english.mp4"
+    },
+    "ne": {
+     "kernel": "gopalaganeshk/s11-song-2",
+     "key": 17,
+     "file": "S11_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "gopalaganeshk/s11-song-2",
+     "key": 17,
+     "file": "S11_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "gopalaganeshk/s11-song-2",
+     "key": 17,
+     "file": "S11_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "gopalaganeshk/s11-song-2",
+     "key": 17,
+     "file": "S11_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "gopalaganeshk/s11-song-2",
+     "key": 17,
+     "file": "S11_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "gopalaganeshk/s11-song-2",
+     "key": 17,
+     "file": "S11_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "gopalaganeshk/s11-song-2",
+     "key": 17,
+     "file": "S11_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "gopalaganeshk/s11-song-2",
+     "key": 17,
+     "file": "S11_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "पिल्ला नहाता है",
+    "te": "కుక్కపిల్ల స్నానం పాట",
+    "ta": "நாய்க்குட்டி குளியல் நேரம் 🐶🛁",
+    "kn": "ನಾಯಿಮರಿ ಸ್ನಾನ 🐶🛁",
+    "ml": "നായ്ക്കുട്ടിയുടെ കുളി പാട്ട് 🐶🫧",
+    "mr": "पिल्लाची अंघोळ 🐶🫧",
+    "bn": "কুকুরছানার স্নানের গান",
+    "gu": "કૂતરીનું બચ્ચું નહાય છે",
+    "pa": "ਕੁੱਤੀ ਦਾ ਬੱਚਾ ਨਹਾਉਂਦਾ ਹੈ 🐶🫧",
+    "or": "ପୁଅ କୁକୁର ଛୁଆର ସ୍ନାନ ଗୀତ",
+    "as": "কুকুৰাৰ গা ধোৱা গীত",
+    "en": "Bath Time for the Puppy",
+    "ne": "कुकुर बच्चाको नुहाइ गीत",
+    "ur": "کتے کا بچہ نہاتا ہے",
+    "sd": "ڪتي جو ٻچو نهائڻ",
+    "mai": "कुकुरक पिल्ला नहाइ छै!",
+    "hry": "पिल्ले का नहाना",
+    "ks": "پٲنۍ کۆٹھ نہاتۍ",
+    "mni": "Bath Time for the Puppy",
+    "bho": "कुकुरिया नहान"
+   }
+  },
+  "S12_school_bag_squirrel": {
+   "src": {
+    "hi": {
+     "kernel": "svpawan/s12-song-2",
+     "key": 19,
+     "file": "S12_hindi.mp4"
+    },
+    "te": {
+     "kernel": "svpawan/s12-song-2",
+     "key": 19,
+     "file": "S12_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "svpawan/s12-song-2",
+     "key": 19,
+     "file": "S12_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "svpawan/s12-song-2",
+     "key": 19,
+     "file": "S12_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "svpawan/s12-song-2",
+     "key": 19,
+     "file": "S12_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "svpawan/s12-song-2",
+     "key": 19,
+     "file": "S12_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "svpawan/s12-song-2",
+     "key": 19,
+     "file": "S12_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "svpawan/s12-song-2",
+     "key": 19,
+     "file": "S12_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "svpawan/s12-song-2",
+     "key": 19,
+     "file": "S12_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "svpawan/s12-song-2",
+     "key": 19,
+     "file": "S12_odia.mp4"
+    },
+    "as": {
+     "kernel": "svpawan/s12-song-2",
+     "key": 19,
+     "file": "S12_assamese.mp4"
+    },
+    "en": {
+     "kernel": "svpawan/s12-song-2",
+     "key": 19,
+     "file": "S12_english.mp4"
+    },
+    "ne": {
+     "kernel": "svpawan/s12-song-2",
+     "key": 19,
+     "file": "S12_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "svpawan/s12-song-2",
+     "key": 19,
+     "file": "S12_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "svpawan/s12-song-2",
+     "key": 19,
+     "file": "S12_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "svpawan/s12-song-2",
+     "key": 19,
+     "file": "S12_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "svpawan/s12-song-2",
+     "key": 19,
+     "file": "S12_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "svpawan/s12-song-2",
+     "key": 19,
+     "file": "S12_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "svpawan/s12-song-2",
+     "key": 19,
+     "file": "S12_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "svpawan/s12-song-2",
+     "key": 19,
+     "file": "S12_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "स्कूल के लिए तैयार!",
+    "te": "బడికి వెళ్దాం పాట",
+    "ta": "பள்ளிக்கு ரெடி!",
+    "kn": "ಶಾಲೆಗೆ ರೆಡಿ! ಮಕ್ಕಳ ಹಾಡು",
+    "ml": "സ്കൂളിലേക്ക് പോകാം!",
+    "mr": "शाळेची तयारी",
+    "bn": "স্কুলের জন্য প্রস্তুত!",
+    "gu": "શાળાએ જઈએ! 🎒 ઝટપટ તૈયાર",
+    "pa": "ਸਕੂਲ ਲਈ ਤਿਆਰ! 🎒",
+    "or": "ସ୍କୁଲ ଯିବା ଗୀତ",
+    "as": "স্কুললৈ যাওঁ আমি",
+    "en": "Ready for School",
+    "ne": "स्कुल जाने बेला गीत",
+    "ur": "اسکول کا گانا",
+    "sd": "اسڪول لاءِ تيار!",
+    "mai": "स्कूल जाय लेल तैयार! 🎒",
+    "hry": "स्कूल चलां आपां!",
+    "ks": "ژِ ٹیوٗن ٹیوٗن",
+    "mni": "Ready for School",
+    "bho": "स्कूल चलीं जा!"
+   }
+  },
+  "S13_hen_chicks": {
+   "src": {
+    "hi": {
+     "kernel": "chinthaharini/s13-song-2",
+     "key": 20,
+     "file": "S13_hindi.mp4"
+    },
+    "te": {
+     "kernel": "chinthaharini/s13-song-2",
+     "key": 20,
+     "file": "S13_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "chinthaharini/s13-song-2",
+     "key": 20,
+     "file": "S13_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "chinthaharini/s13-song-2",
+     "key": 20,
+     "file": "S13_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "chinthaharini/s13-song-2",
+     "key": 20,
+     "file": "S13_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "chinthaharini/s13-song-2",
+     "key": 20,
+     "file": "S13_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "chinthaharini/s13-song-2",
+     "key": 20,
+     "file": "S13_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "chinthaharini/s13-song-2",
+     "key": 20,
+     "file": "S13_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "chinthaharini/s13-song-2",
+     "key": 20,
+     "file": "S13_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "chinthaharini/s13-song-2",
+     "key": 20,
+     "file": "S13_odia.mp4"
+    },
+    "as": {
+     "kernel": "chinthaharini/s13-song-2",
+     "key": 20,
+     "file": "S13_assamese.mp4"
+    },
+    "en": {
+     "kernel": "chinthaharini/s13-song-2",
+     "key": 20,
+     "file": "S13_english.mp4"
+    },
+    "ne": {
+     "kernel": "chinthaharini/s13-song-2",
+     "key": 20,
+     "file": "S13_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "chinthaharini/s13-song-2",
+     "key": 20,
+     "file": "S13_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "chinthaharini/s13-song-2",
+     "key": 20,
+     "file": "S13_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "chinthaharini/s13-song-2",
+     "key": 20,
+     "file": "S13_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "chinthaharini/s13-song-2",
+     "key": 20,
+     "file": "S13_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "chinthaharini/s13-song-2",
+     "key": 20,
+     "file": "S13_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "chinthaharini/s13-song-2",
+     "key": 20,
+     "file": "S13_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "chinthaharini/s13-song-2",
+     "key": 20,
+     "file": "S13_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "माँ मुर्गी और पाँच नन्हे चूज़े",
+    "te": "ఐదు చిట్టి కోడి పిల్లలు",
+    "ta": "ஐந்து குட்டிக் கோழிக் குஞ்சுகள்",
+    "kn": "ಅಮ್ಮ ಕೋಳಿ ಮತ್ತು ಐದು ಪುಟ್ಟ ಮರಿಗಳು",
+    "ml": "അമ്മക്കോഴിയും അഞ്ചു കുഞ്ഞുങ്ങളും",
+    "mr": "कोंबडीची पाच पिल्ले",
+    "bn": "মা মুরগি আর পাঁচ ছানা",
+    "gu": "મમ્મી મરઘી અને પાંચ બચ્ચાં",
+    "pa": "ਮਾਂ ਕੁੱਕੜੀ ਅਤੇ ਪੰਜ ਨਿੱਕੇ ਚੂਚੇ 🐥",
+    "or": "ମା' କୁକୁଡ଼ୀ ଓ ପାଞ୍ଚ ଛୋଟ ଛୁଆ",
+    "as": "পাঁচটা হালধীয়া ল'ৰা",
+    "en": "Mother Hen and Five Little Chicks",
+    "ne": "पाँच चल्ला",
+    "ur": "مرغی اور پانچ چوزے",
+    "sd": "ماني ڪڪڙي ۽ پنج ننڍڙا ٻچا",
+    "mai": "पाँच छोट मुर्गी बच्चा",
+    "hry": "मां मुर्गी और पांच नन्हे बच्चे",
+    "ks": "پَنٛج پیلءِ مَوج کۄکٕرِ",
+    "mni": "Mother Hen and Five Little Chicks",
+    "bho": "पाँच चूज़ा पीं पीं पीं"
+   }
+  },
+  "S01_brother_sister": {
+   "src": {
+    "hi": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S01_hindi.mp4"
+    },
+    "te": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S01_telugu.mp4"
+    },
+    "ta": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S01_tamil.mp4"
+    },
+    "kn": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S01_kannada.mp4"
+    },
+    "ml": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S01_malayalam.mp4"
+    },
+    "mr": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S01_marathi.mp4"
+    },
+    "bn": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S01_bengali.mp4"
+    },
+    "gu": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S01_gujarati.mp4"
+    },
+    "pa": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S01_punjabi.mp4"
+    },
+    "or": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S01_odia.mp4"
+    },
+    "as": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S01_assamese.mp4"
+    },
+    "en": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S01_english.mp4"
+    },
+    "ne": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S01_nepali.mp4"
+    },
+    "ur": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S01_urdu.mp4"
+    },
+    "sd": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S01_sindhi.mp4"
+    },
+    "mai": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S01_maithili.mp4"
+    },
+    "hry": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S01_haryanvi.mp4"
+    },
+    "ks": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S01_kashmiri.mp4"
+    },
+    "mni": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S01_manipuri.mp4"
+    },
+    "bho": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S01_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "तुम मैं आधा आधा",
+    "te": "నువ్వు నేను సగం సగం",
+    "ta": "நீயும் நானும் பாதி பாதி",
+    "kn": "ನೀನು ನಾನು ಅರ್ಧ ಅರ್ಧ",
+    "ml": "നീയും ഞാനും പകുതി പകുതി",
+    "mr": "तू आणि मी अर्धा अर्धा",
+    "bn": "তুমি আমি অর্ধেক অর্ধেক",
+    "gu": "તું ને હું અડધું અડધું",
+    "pa": "ਤੂੰ ਮੈਂ ਅੱਧਾ ਅੱਧਾ",
+    "or": "ତୁମେ ମୁଁ ଅଧା ଅଧା",
+    "as": "তুমি মই আধা আধা",
+    "en": "You and me, half and half",
+    "ne": "तिमी म आधा आधा",
+    "ur": "تم اور میں، آدھا آدھا",
+    "sd": "تون ۽ مان اڌ اڌ",
+    "mai": "तू हम आधा-आधा",
+    "hry": "तू मैं आधा-आधा",
+    "ks": "تُہ میون سوٗ اَدھ اَدھ",
+    "mni": "নুং ইয়ে শেরেম শেরেম",
+    "bho": "तू हम आधा आधा"
+   }
+  },
+  "S02_amma_rotis": {
+   "src": {
+    "hi": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S02_hindi.mp4"
+    },
+    "te": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S02_telugu.mp4"
+    },
+    "ta": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S02_tamil.mp4"
+    },
+    "kn": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S02_kannada.mp4"
+    },
+    "ml": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S02_malayalam.mp4"
+    },
+    "mr": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S02_marathi.mp4"
+    },
+    "bn": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S02_bengali.mp4"
+    },
+    "gu": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S02_gujarati.mp4"
+    },
+    "pa": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S02_punjabi.mp4"
+    },
+    "or": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S02_odia.mp4"
+    },
+    "as": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S02_assamese.mp4"
+    },
+    "en": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S02_english.mp4"
+    },
+    "ne": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S02_nepali.mp4"
+    },
+    "ur": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S02_urdu.mp4"
+    },
+    "sd": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S02_sindhi.mp4"
+    },
+    "mai": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S02_maithili.mp4"
+    },
+    "hry": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S02_haryanvi.mp4"
+    },
+    "ks": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S02_kashmiri.mp4"
+    },
+    "mni": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S02_manipuri.mp4"
+    },
+    "bho": {
+     "url": "https://github.com/dileep143-droid/cartoon-colony-release/releases/download/long-src/S02_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "गरम गरम रोटी, गोल गोल",
+    "te": "వేడి వేడి రొట్టెలు, గుండ్రంగా గుండ్రంగా",
+    "ta": "சூடான சப்பாத்தி, சுத்தி சுத்தி",
+    "kn": "ಬಿಸಿ ಬಿಸಿ ರೊಟ್ಟಿ, ಸುತ್ತಿ ಸುತ್ತಿ",
+    "ml": "ചൂടു ചൂടു ചപ്പാത്തി, വട്ടത്തിൽ വട്ടത്തിൽ",
+    "mr": "गरम गरम पोळ्या, गोल गोल",
+    "bn": "গরম গরম রুটি, ঘুরে ঘুরে",
+    "gu": "ગરમ ગરમ રોટલી, ગોળ ગોળ ફરતી",
+    "pa": "ਗਰਮ ਗਰਮ ਰੋਟੀਆਂ, ਗੋਲ ਗੋਲ",
+    "or": "ଗରମ ଗରମ ରୋଟି, ଘୂରି ଘୂରି",
+    "as": "গৰম গৰম ৰুটি, ঘূৰি ঘূৰি",
+    "en": "Hot hot rotis, round and round",
+    "ne": "तातातातो रोटी, गोलगोल",
+    "ur": "گرم گرم روٹی، گول گول",
+    "sd": "گرم گرم روٹي، گول گول",
+    "mai": "गरम गरम रोटी, गोल गोल",
+    "hry": "गरम गरम रोटी, गोल गोल",
+    "ks": "گرم گرم تْسوٹ، گۆر گۆرِ",
+    "mni": "অসাবা রোতি, কোয়বা কোয়বা",
+    "bho": "गरम-गरम रोटी, गोल-गोल"
+   }
+  },
+  "S14_moon": {
+   "src": {
+    "hi": {
+     "kernel": "mani7673/rhyme-moon-2",
+     "key": 1,
+     "file": "S14_hindi.mp4"
+    },
+    "te": {
+     "kernel": "mani7673/rhyme-moon-2",
+     "key": 1,
+     "file": "S14_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "mani7673/rhyme-moon-2",
+     "key": 1,
+     "file": "S14_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "mani7673/rhyme-moon-2",
+     "key": 1,
+     "file": "S14_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "mani7673/rhyme-moon-2",
+     "key": 1,
+     "file": "S14_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "mani7673/rhyme-moon-2",
+     "key": 1,
+     "file": "S14_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "mani7673/rhyme-moon-2",
+     "key": 1,
+     "file": "S14_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "mani7673/rhyme-moon-2",
+     "key": 1,
+     "file": "S14_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "mani7673/rhyme-moon-2",
+     "key": 1,
+     "file": "S14_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "mani7673/rhyme-moon-2",
+     "key": 1,
+     "file": "S14_odia.mp4"
+    },
+    "as": {
+     "kernel": "mani7673/rhyme-moon-2",
+     "key": 1,
+     "file": "S14_assamese.mp4"
+    },
+    "en": {
+     "kernel": "mani7673/rhyme-moon-2",
+     "key": 1,
+     "file": "S14_english.mp4"
+    },
+    "ne": {
+     "kernel": "mani7673/rhyme-moon-2",
+     "key": 1,
+     "file": "S14_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "mani7673/rhyme-moon-2",
+     "key": 1,
+     "file": "S14_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "mani7673/rhyme-moon-2",
+     "key": 1,
+     "file": "S14_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "mani7673/rhyme-moon-2",
+     "key": 1,
+     "file": "S14_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "mani7673/rhyme-moon-2",
+     "key": 1,
+     "file": "S14_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "mani7673/rhyme-moon-2",
+     "key": 1,
+     "file": "S14_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "mani7673/rhyme-moon-2",
+     "key": 1,
+     "file": "S14_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "mani7673/rhyme-moon-2",
+     "key": 1,
+     "file": "S14_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "चंदा मामा दूर के",
+    "te": "చందమామ రావే, జాబిల్లి రావే",
+    "ta": "நிலா ! நிலா ! வா வா",
+    "kn": "ಚಂದಕ್ಕಿ ಮಾವ ಚಕ್ಕುಲಿ ಮಾವ",
+    "ml": "ഓമനത്തിങ്കള്‍ക്കിടാവോ",
+    "mr": "चांदोबा चांदोबा भागलास कां?",
+    "bn": "আয় আয় চাঁদ মামা",
+    "gu": "ચાંદા પોળી",
+    "pa": "ਜੰਗਲ ਸੁੱਤੇ ਪਹਾੜ ਸੁੱਤੇ",
+    "or": "ଆ ଜହ୍ନମାମୁଁ ଓହ୍ଲେଇ ଆ'",
+    "as": "জোনবাই এ, বেজী এটি দিয়া",
+    "en": "I see the moon, and the moon sees me",
+    "ne": "चुप लाग नानी, चुप लाग",
+    "ur": "چندہ ماما دور کے کھوئے پکائیں دودھ کے",
+    "sd": "جيجل جهولي، ڏئي پئي لولي، لولي لال جيئين شال",
+    "mai": "चन्ना मामा आ रे आ, पारे आ",
+    "hry": "लाला लाला लोरी दूध भरी कटोरी",
+    "ks": "لاپہٕ لاپہٕ منٛز اَلریوتھ",
+    "mni": "থা-থা থাবুংতোন",
+    "bho": "चन्दा मामा दौड़े आव"
+   }
+  },
+  "S15_rain": {
+   "src": {
+    "hi": {
+     "kernel": "gopalaganeshk/rhyme-rain-2",
+     "key": 17,
+     "file": "S15_hindi.mp4"
+    },
+    "te": {
+     "kernel": "gopalaganeshk/rhyme-rain-2",
+     "key": 17,
+     "file": "S15_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "gopalaganeshk/rhyme-rain-2",
+     "key": 17,
+     "file": "S15_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "gopalaganeshk/rhyme-rain-2",
+     "key": 17,
+     "file": "S15_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "gopalaganeshk/rhyme-rain-2",
+     "key": 17,
+     "file": "S15_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "gopalaganeshk/rhyme-rain-2",
+     "key": 17,
+     "file": "S15_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "gopalaganeshk/rhyme-rain-2",
+     "key": 17,
+     "file": "S15_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "gopalaganeshk/rhyme-rain-2",
+     "key": 17,
+     "file": "S15_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "gopalaganeshk/rhyme-rain-2",
+     "key": 17,
+     "file": "S15_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "gopalaganeshk/rhyme-rain-2",
+     "key": 17,
+     "file": "S15_odia.mp4"
+    },
+    "as": {
+     "kernel": "gopalaganeshk/rhyme-rain-2",
+     "key": 17,
+     "file": "S15_assamese.mp4"
+    },
+    "en": {
+     "kernel": "gopalaganeshk/rhyme-rain-2",
+     "key": 17,
+     "file": "S15_english.mp4"
+    },
+    "ne": {
+     "kernel": "gopalaganeshk/rhyme-rain-2",
+     "key": 17,
+     "file": "S15_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "gopalaganeshk/rhyme-rain-2",
+     "key": 17,
+     "file": "S15_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "gopalaganeshk/rhyme-rain-2",
+     "key": 17,
+     "file": "S15_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "gopalaganeshk/rhyme-rain-2",
+     "key": 17,
+     "file": "S15_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "gopalaganeshk/rhyme-rain-2",
+     "key": 17,
+     "file": "S15_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "gopalaganeshk/rhyme-rain-2",
+     "key": 17,
+     "file": "S15_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "gopalaganeshk/rhyme-rain-2",
+     "key": 17,
+     "file": "S15_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "gopalaganeshk/rhyme-rain-2",
+     "key": 17,
+     "file": "S15_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "काले-काले बादल आए, गड़-गड़ गरजे डमरू बजाए",
+    "te": "వన వన వల్లప్ప, వాకిలి తిరుగు చలప్ప",
+    "ta": "மழை வா மழை வா",
+    "kn": "ಹುಯ್ಯೋ ಹುಯ್ಯೋ ಮಳೆರಾಯ",
+    "ml": "മഴ മഴ വാ, മാനം കറുത്തു",
+    "mr": "ये रे ये रे पावसा",
+    "bn": "বৃষ্টি পড়ে টাপুর্ টুপুর, নদী এল বাণ",
+    "gu": "કાળાં કાળાં વાદળ આવ્યાં, ગડગડ ગડગડ ગાજે",
+    "pa": "ਕਾਲੇ ਬੱਦਲ ਆਏ ਨੇ",
+    "or": "ବେଙ୍ଗୁଲୀ ବେଙ୍ଗୁଲୀ ପାଣି ଦେଉଁ",
+    "as": "ৰদালি এ ৰʼদ দে",
+    "en": "Rain, rain, go away",
+    "ne": "घाम-पानी, घाम-पानी स्यालको बिहे",
+    "ur": "وہ دیکھو اٹھی کالی کالی گھٹا",
+    "sd": "ڪارا ڪڪر ٿيا، گڙ گڙ گرجي وئي",
+    "mai": "घन-घन गरजय बादल, गड़-गड़ बाजय ढोल",
+    "hry": "बादल काले आए, गड़-गड़ ढोल बजाए",
+    "ks": "ابر وٛتھؠ کٲشُر سام",
+    "mni": "মারি মারি মারু লাই লাই",
+    "bho": "आन्ही बूनी आवेले"
+   }
+  },
+  "S16_elephant": {
+   "src": {
+    "hi": {
+     "kernel": "mani7673/rhyme-elephant-2",
+     "key": 1,
+     "file": "S16_hindi.mp4"
+    },
+    "te": {
+     "kernel": "mani7673/rhyme-elephant-2",
+     "key": 1,
+     "file": "S16_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "mani7673/rhyme-elephant-2",
+     "key": 1,
+     "file": "S16_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "mani7673/rhyme-elephant-2",
+     "key": 1,
+     "file": "S16_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "mani7673/rhyme-elephant-2",
+     "key": 1,
+     "file": "S16_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "mani7673/rhyme-elephant-2",
+     "key": 1,
+     "file": "S16_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "mani7673/rhyme-elephant-2",
+     "key": 1,
+     "file": "S16_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "mani7673/rhyme-elephant-2",
+     "key": 1,
+     "file": "S16_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "mani7673/rhyme-elephant-2",
+     "key": 1,
+     "file": "S16_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "mani7673/rhyme-elephant-2",
+     "key": 1,
+     "file": "S16_odia.mp4"
+    },
+    "as": {
+     "kernel": "mani7673/rhyme-elephant-2",
+     "key": 1,
+     "file": "S16_assamese.mp4"
+    },
+    "en": {
+     "kernel": "mani7673/rhyme-elephant-2",
+     "key": 1,
+     "file": "S16_english.mp4"
+    },
+    "ne": {
+     "kernel": "mani7673/rhyme-elephant-2",
+     "key": 1,
+     "file": "S16_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "mani7673/rhyme-elephant-2",
+     "key": 1,
+     "file": "S16_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "mani7673/rhyme-elephant-2",
+     "key": 1,
+     "file": "S16_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "mani7673/rhyme-elephant-2",
+     "key": 1,
+     "file": "S16_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "mani7673/rhyme-elephant-2",
+     "key": 1,
+     "file": "S16_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "mani7673/rhyme-elephant-2",
+     "key": 1,
+     "file": "S16_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "mani7673/rhyme-elephant-2",
+     "key": 1,
+     "file": "S16_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "mani7673/rhyme-elephant-2",
+     "key": 1,
+     "file": "S16_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "हाथी राजा कहाँ चले?",
+    "te": "ఏనుగమ్మ ఏనుగు",
+    "ta": "யானை யானை ஆடு யானை",
+    "kn": "ಆನೆ ಬಂತೊಂದಾನೆ",
+    "ml": "ആനക്കുട്ടൻ വരുന്നേ, ആടിയാടി വരുന്നേ",
+    "mr": "हत्ती हत्ती ये रे ये रे",
+    "bn": "হাতি মামা দোলে দোলে, গ্রামের পথে যায়",
+    "gu": "હાથી રાજા આવે, સૂંઢ ઝૂલાવે",
+    "pa": "ਹਾਥੀ ਆਇਆ ਪਿੰਡ ਵਿੱਚ, ਝੂਮ ਝੂਮ ਕੇ ਚੱਲੇ",
+    "or": "ହାତୀ ଝୁଲୁଥାଏ ରାଜା ବଗିଚାରେ",
+    "as": "অ’ ককা হাতী",
+    "en": "Big grey elephant, come and play",
+    "ne": "हात्ती आयो गाउँमा, ठुलो ठुलो कानले",
+    "ur": "ہاتھی میاں، ہاتھی میاں، جھومتے آئے گاؤں میں",
+    "sd": "هاٿي ماٿي آيو، ٻاهر ٻارن ڏانهن ڏٺو",
+    "mai": "हाथी मामा आबै छथि, झुमि-झुमि चलै छथि",
+    "hry": "हाथी राजा आए, झूमता-झूमता आए",
+    "ks": "بڈھ ہاتھی چھُ پگان",
+    "mni": "ময়েং ময়েং আনা",
+    "bho": "हाथी मामा झूमत आवा, सूँड़ हिलावत आवा"
+   }
+  },
+  "S17_crow": {
+   "src": {
+    "hi": {
+     "kernel": "gorlebharathi/rhyme-crow-2",
+     "key": 12,
+     "file": "S17_hindi.mp4"
+    },
+    "te": {
+     "kernel": "gorlebharathi/rhyme-crow-2",
+     "key": 12,
+     "file": "S17_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "gorlebharathi/rhyme-crow-2",
+     "key": 12,
+     "file": "S17_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "gorlebharathi/rhyme-crow-2",
+     "key": 12,
+     "file": "S17_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "gorlebharathi/rhyme-crow-2",
+     "key": 12,
+     "file": "S17_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "gorlebharathi/rhyme-crow-2",
+     "key": 12,
+     "file": "S17_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "gorlebharathi/rhyme-crow-2",
+     "key": 12,
+     "file": "S17_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "gorlebharathi/rhyme-crow-2",
+     "key": 12,
+     "file": "S17_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "gorlebharathi/rhyme-crow-2",
+     "key": 12,
+     "file": "S17_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "gorlebharathi/rhyme-crow-2",
+     "key": 12,
+     "file": "S17_odia.mp4"
+    },
+    "as": {
+     "kernel": "gorlebharathi/rhyme-crow-2",
+     "key": 12,
+     "file": "S17_assamese.mp4"
+    },
+    "en": {
+     "kernel": "gorlebharathi/rhyme-crow-2",
+     "key": 12,
+     "file": "S17_english.mp4"
+    },
+    "ne": {
+     "kernel": "gorlebharathi/rhyme-crow-2",
+     "key": 12,
+     "file": "S17_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "gorlebharathi/rhyme-crow-2",
+     "key": 12,
+     "file": "S17_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "gorlebharathi/rhyme-crow-2",
+     "key": 12,
+     "file": "S17_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "gorlebharathi/rhyme-crow-2",
+     "key": 12,
+     "file": "S17_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "gorlebharathi/rhyme-crow-2",
+     "key": 12,
+     "file": "S17_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "gorlebharathi/rhyme-crow-2",
+     "key": 12,
+     "file": "S17_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "gorlebharathi/rhyme-crow-2",
+     "key": 12,
+     "file": "S17_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "gorlebharathi/rhyme-crow-2",
+     "key": 12,
+     "file": "S17_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "काला कौआ छत पर बैठा",
+    "te": "నల్లని కాకమ్మ, ఇంటిపైన కూసింది",
+    "ta": "காக்கா காக்கா கூவு, கூரை மேலே ஏறு",
+    "kn": "ಕಾಗೆ ಕಾಗೆ ಕೌವ್ವ",
+    "ml": "കാക്കേ കാക്കേ കൂടെവിടെ",
+    "mr": "इथे इथे बस रे काऊ",
+    "bn": "কাক কাক কালো কাক",
+    "gu": "કાગડા કાગડા, છાપરે બેઠો કાગડો",
+    "pa": "ਕਾਂ ਕਾਂ ਕਾਲਿਆ, ਛੱਤ ਤੇ ਬਹਿ ਜਾ",
+    "or": "କାଉ ଭାଇ କାଉ ଭାଇ, ଛାତ ଉପରେ ଆସ",
+    "as": "কাউৰী কাউৰী, চালত বহি",
+    "en": "Crow, crow, black crow, sitting on the roof",
+    "ne": "काग् दाज्यै काग्",
+    "ur": "دو تین چھوٹے بچے چڑیا کے گھونسلے میں",
+    "sd": "ڪاڪو ڪاڪو ڪري ڇت تي",
+    "mai": "चुप रहु चुप रहु बौआ",
+    "hry": "कागा रे कागा, छत पे बैठा कागा",
+    "ks": "کأو کَرَان تاو تاو",
+    "mni": "কাউয়া কাউয়া ছাদে বোসো",
+    "bho": "कारी कारी कौआ मामा, छत पर आवा"
+   }
+  },
+  "S18_birds": {
+   "src": {
+    "hi": {
+     "kernel": "gopalaganeshk/rhyme-birds-1",
+     "key": 17,
+     "file": "S18_hindi.mp4"
+    },
+    "te": {
+     "kernel": "gopalaganeshk/rhyme-birds-1",
+     "key": 17,
+     "file": "S18_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "gopalaganeshk/rhyme-birds-1",
+     "key": 17,
+     "file": "S18_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "gopalaganeshk/rhyme-birds-1",
+     "key": 17,
+     "file": "S18_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "gopalaganeshk/rhyme-birds-1",
+     "key": 17,
+     "file": "S18_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "gopalaganeshk/rhyme-birds-1",
+     "key": 17,
+     "file": "S18_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "gopalaganeshk/rhyme-birds-1",
+     "key": 17,
+     "file": "S18_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "gopalaganeshk/rhyme-birds-1",
+     "key": 17,
+     "file": "S18_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "gopalaganeshk/rhyme-birds-1",
+     "key": 17,
+     "file": "S18_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "gopalaganeshk/rhyme-birds-1",
+     "key": 17,
+     "file": "S18_odia.mp4"
+    },
+    "as": {
+     "kernel": "gopalaganeshk/rhyme-birds-1",
+     "key": 17,
+     "file": "S18_assamese.mp4"
+    },
+    "en": {
+     "kernel": "gopalaganeshk/rhyme-birds-1",
+     "key": 17,
+     "file": "S18_english.mp4"
+    },
+    "ne": {
+     "kernel": "gopalaganeshk/rhyme-birds-1",
+     "key": 17,
+     "file": "S18_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "gopalaganeshk/rhyme-birds-1",
+     "key": 17,
+     "file": "S18_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "gopalaganeshk/rhyme-birds-1",
+     "key": 17,
+     "file": "S18_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "gopalaganeshk/rhyme-birds-1",
+     "key": 17,
+     "file": "S18_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "gopalaganeshk/rhyme-birds-1",
+     "key": 17,
+     "file": "S18_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "gopalaganeshk/rhyme-birds-1",
+     "key": 17,
+     "file": "S18_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "gopalaganeshk/rhyme-birds-1",
+     "key": 17,
+     "file": "S18_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "gopalaganeshk/rhyme-birds-1",
+     "key": 17,
+     "file": "S18_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "हरा तोता बोले, मीठी-मीठी बोली",
+    "te": "బుర్రుపిట్ట బుర్రుపిట్ట తుర్రుమన్నది",
+    "ta": "பச்சைக் கிளி பறந்து வா",
+    "kn": "ಗಿಣಿ ಗಿಣಿ ಹಸಿರು ಗಿಣಿ, ಮರದ ಮೇಲೆ ಕೂತಿತು",
+    "ml": "ഒന്നാനാം കുന്നിന്മേൽ",
+    "mr": "चिऊताई चिऊताई, झाडावर बस ना",
+    "bn": "আতা গাছে তোতা পাখী",
+    "gu": "ચકી ચોખા ખાંડે છે",
+    "pa": "ਤੋ ਵੋ ਤੋਤੜਿਆ",
+    "or": "ସବୁଜ ତୋତା ଡାଳେ ବସି",
+    "as": "ঘন চিৰিকা ঘন চিৰিকা",
+    "en": "Birds, birds, flying high",
+    "ne": "चरा चरा चिर्चिर, रुखमा बस्यो चरा",
+    "ur": "بلبل کا بچہ",
+    "sd": "ٻوٽي تي طوطو ٿو ڳائي",
+    "mai": "चिड़ै-चुनमुन आउ रे आउ",
+    "hry": "हरा तोता डाली पे बैठा",
+    "ks": "سُبز طوطی پوز گاش",
+    "mni": "চিরৈ চিরৈ চিচিরিনা",
+    "bho": "चिरई चिरई गावे, डाढ़ी पर बइठे"
+   }
+  }
+ }
+}
