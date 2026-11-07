@@ -14,6 +14,7 @@ MINS = [32, 38, 42, 35, 45, 30, 40, 36, 44, 33, 39, 41]
 STYLE = ["& Many More Non-Stop Popular {L} Rhymes For Kids", "& More Non-Stop {L} Rhymes For Kids | Learning Videos", "| Popular {L} Nursery Rhymes For Kids | Non-Stop",
          "& More {L} Kids Songs | Non-Stop {L} Rhymes", "& Many More {L} Rhymes For Children | Non-Stop Collection", "| Non-Stop {L} Rhymes For Kids | Baby Songs",
          "& More Superhit {L} Rhymes For Kids", "| {L} Nursery Rhymes Collection For Kids", "& More Popular {L} Kids Rhymes | Non-Stop"]   # 7 Nov owner: the LANGUAGE word in every title (people search "telugu rhymes")
+TOPIC = json.load(open("data/long/topics.json", encoding="utf-8")) if os.path.exists("data/long/topics.json") else {}
 NATKW = {"hi": ["हिंदी कविता", "बालगीत", "बच्चों के गाने", "हिंदी राइम्स"], "te": ["తెలుగు రైమ్స్", "చిన్నారి పాటలు", "పిల్లల పాటలు"], "ta": ["தமிழ் ரைம்ஸ்", "குழந்தை பாடல்கள்"],
          "kn": ["ಕನ್ನಡ ರೈಮ್ಸ್", "ಮಕ್ಕಳ ಹಾಡುಗಳು"], "mr": ["मराठी बालगीत", "मुलांची गाणी"], "bn": ["বাংলা ছড়া", "ছোটদের গান"], "ur": ["اردو نظمیں", "بچوں کی نظمیں"], "en": []}
 EXTRA = {"hi": ["Hindi Balgeet", "Bacchon Ke Gane"], "te": ["Telugu Rhymes for Children", "Chinnari Patalu"], "ta": ["Tamil Rhymes for Children", "Kuzhandhai Paadalgal"],
@@ -29,14 +30,22 @@ def dur(p):
     return float(sh(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", p]).stdout.strip() or 0)
 
 
+def phrase(t):   # 7 Nov: join comma parts until >= 3 words
+    out = []
+    for part in re.split(r"[,،]", t):
+        out += part.split()
+        if len(out) >= 3: break
+    return " ".join(out)
+
+
 def roman(s):
     t = S["songs"][s].get("roman", {}).get(code) or s[4:].replace("_", " ").title()
-    t = re.split(r"[,،]", t)[0]   # first phrase only: "Vana Vana Vallappa"
+    t = phrase(t)   # first phrase: "Vana Vana Vallappa", but "Rain Rain Go Away" (not just "Rain")
     return unicodedata.normalize("NFKD", t).encode("ascii", "ignore").decode().strip(" ?!.,")
 
 
 def native(s):
-    t = re.split(r"[,،]", S["songs"][s]["title"].get(code) or "")[0]
+    t = phrase(S["songs"][s]["title"].get(code) or "")
     t = "".join(ch for ch in t if not unicodedata.category(ch).startswith(("S", "C")) and ch not in "!?.;:\"()[]{}")   # keep vowel signs; drop emoji/punctuation
     return re.sub(r"\s+", " ", t).strip()
 
@@ -115,11 +124,16 @@ for i, lead in enumerate(leads):
         print(f"RESULT {code} JOIN_FAILED {i} {r.stderr[-150:]}"); continue
     M = round(dur(out) / 60); nat, rom = native(lead), roman(lead); st = STYLE[DAY % len(STYLE)].format(L=L)
     head = rom if code == "en" or not nat or nat.lower() == rom.lower() else f"{nat} | {rom}"
-    title = f"{head} {st}"   # native name ALWAYS first (owner 7 Nov); shorten the English tail instead
-    for short in [f"& More Non-Stop {L} Rhymes For Kids", f"& More {L} Rhymes For Kids", f"{L} Rhymes For Kids", f"{L} Rhymes"]:
-        if len(title) <= 100: break
-        title = f"{head} {short}"
-    if len(title) > 100: title = f"{nat} {short}"[:100]
+    tp = TOPIC.get(lead, {}).get("en", "")   # 7 Nov owner: say what the song is ABOUT, as people search it ("Rain Song", "Bath Song")
+    if tp and tp.split()[0].lower() in rom.lower(): tp = ""
+    tpp = f"| {tp} " if tp else ""
+    title = next((t for t in [f"{head} {tpp}{st}", f"{head} {tpp}& More {L} Rhymes For Kids", f"{head} {tpp}| {L} Rhymes For Kids", f"{head} {st}",
+                              f"{head} & More {L} Rhymes For Kids", f"{head} {L} Rhymes For Kids", f"{head} {L} Rhymes"] if len(t) <= 100), f"{nat} {L} Rhymes"[:100])
+    vt = [x for x in [f"{L} {TOPIC.get(lead, {}).get('en', '')}", TOPIC.get(lead, {}).get("en", ""), TOPIC.get(lead, {}).get(code, "")] if x.strip() and x not in tags]
+    vt = list(dict.fromkeys(vt))
+    vtags, vl = [], 0
+    for t in vt + tags:   # this video's topic words first, then the channel tags (limit ~490 chars)
+        if vl + len(t) + 3 < 490: vtags.append(t); vl += len(t) + 3
     th = f"thumb_{code}_{i}.jpg"   # Zuzu style (7 Nov): a clean close-up of the lead song's characters, no text; same picture for every language
     # owner 7 Nov: the lead song's OWN attractive thumbnail in THIS language (big native text, rainbow frame, logo); rhymes: data/long/lthumbs
     pick = [p for p in (f"data/songs/{lead}/thumb_{code}.jpg", f"data/long/lthumbs/{lead}_{code}.jpg", f"data/long/thumbs/{lead}.jpg") if os.path.exists(p)]
@@ -134,9 +148,9 @@ for i, lead in enumerate(leads):
     if title in have_t:
         print(f"RESULT {code} ALREADY_THERE {title}"); os.remove(out); continue
     yl = code if code in ("hi", "te", "ta", "kn", "mr", "bn", "en", "ur", "ml", "gu", "pa", "or", "as", "ne") else None
-    top = (f"{nat} | {rom}" if nat and nat != rom else rom) + f" & more non-stop {L} rhymes for kids ({M} minutes) - " + " ".join(NATKW.get(code, [])[:2]) + "\n"
+    top = (f"{nat} | {rom}" if nat and nat != rom else rom) + f" & more non-stop {L} rhymes for kids ({M} minutes) - " + (TOPIC.get(lead, {}).get("en", "") + " " + TOPIC.get(lead, {}).get(code, "") + " - " if TOPIC.get(lead) else "") + " ".join(NATKW.get(code, [])[:2]) + "\n"
     top += f"#{L}Rhymes #{re.sub(r'[^A-Za-z0-9]', '', rom)} #{L}RhymesForKids\n\n"   # 7 Nov: first lines show in search; first 3 hashtags show above the title
-    sn = {"title": title, "description": (top + DESC)[:4900], "tags": tags, "categoryId": "22"}
+    sn = {"title": title, "description": (top + DESC)[:4900], "tags": vtags, "categoryId": "22"}
     if yl: sn.update({"defaultLanguage": yl, "defaultAudioLanguage": yl})
     body = {"snippet": sn, "status": {"privacyStatus": "private", "publishAt": pub, "selfDeclaredMadeForKids": True, "embeddable": True, "containsSyntheticMedia": True}}
     try:
