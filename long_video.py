@@ -28,6 +28,7 @@ def dur(p):
 
 def roman(s):
     t = S["songs"][s].get("roman", {}).get(code) or s[4:].replace("_", " ").title()
+    t = re.split(r"[,،]", t)[0]   # first phrase only: "Vana Vana Vallappa"
     return unicodedata.normalize("NFKD", t).encode("ascii", "ignore").decode().strip(" ?!.,")
 
 
@@ -109,8 +110,11 @@ for i, lead in enumerate(leads):
         print(f"RESULT {code} JOIN_FAILED {i} {r.stderr[-150:]}"); continue
     M = round(dur(out) / 60); nat, rom = native(lead), roman(lead); st = STYLE[DAY % len(STYLE)].format(L=L)
     head = rom if code == "en" or not nat or nat.lower() == rom.lower() else f"{nat} | {rom}"
-    title = f"{head} {st}"
-    if len(title) > 100: title = f"{rom} {st}"[:100]
+    title = f"{head} {st}"   # native name ALWAYS first (owner 7 Nov); shorten the English tail instead
+    for short in ["& More Non-Stop Rhymes | Learning Videos", "& More Non-Stop Rhymes", "Non-Stop Rhymes"]:
+        if len(title) <= 100: break
+        title = f"{head} {short}"
+    if len(title) > 100: title = f"{nat} {short}"[:100]
     th = f"thumb_{code}_{i}.jpg"; base = f"data/songs/{lead}/thumb_{code}.jpg"
     if os.path.exists(base):
         im = Image.open(base).convert("RGB").resize((1280, 720))
