@@ -3,10 +3,12 @@ name: long-video
 # BuBu TV long non-stop videos (owner 6 Nov 2026): Kaggle/GitHub song files -> 30-60 min zigzag compilation per language -> YouTube PRIVATE (owner checks first).
 
 on:
+  schedule:
+    - cron: "0 22 * * *"   # 03:30 IST: build 10 per channel, first public 06:00 IST, then hourly (owner 7 Nov)
   workflow_dispatch:
     inputs:
       langs: { description: 'JSON list of channel codes (default all 20)', required: false, default: '' }
-      day:   { description: 'day number (title style + lead rotation)', required: false, default: '0' }
+      day:   { description: 'day number (title style + lead rotation)', required: false, default: '' }
       n:     { description: 'videos per channel, 1 h apart', required: false, default: '10' }
       dry:   { description: '1 = build only, no upload', required: false, default: '0' }
 
@@ -18,7 +20,7 @@ jobs:
       fail-fast: false
       max-parallel: 10
       matrix:
-        lang: ${{ fromJSON(inputs.langs != '' && inputs.langs || '["hi","te","ta","kn","ml","mr","bn","gu","pa","or","as","en","ne","ur","sd","mai","hry","ks","mni","bho"]') }}
+        lang: ${{ fromJSON(inputs.langs != '' && inputs.langs || '["hi","te","ta","kn","mr","bn","en","ur"]') }}
     steps:
       - uses: actions/checkout@v4
       - name: tools
