@@ -5,7 +5,8 @@
 # every video (channel, generic kids words, every song name); same long description listing all songs + hashtags; no timestamps.
 # Each video is uploaded PRIVATE with publishAt (1 h gaps), so it goes public by itself. Re-runs never duplicate (exact title check).
 import datetime, json, os, random, re, subprocess, sys, unicodedata
-code = sys.argv[1]; DAY = int(os.environ.get("DAY") or 0); N = int(os.environ.get("N") or 10); DRY = os.environ.get("DRY") == "1"
+code = sys.argv[1]
+DAY = int(os.environ.get("DAY") or 0) if (os.environ.get("DAY") or "").strip() else (datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=5, minutes=30))).date() - datetime.date(2026, 11, 7)).days; N = int(os.environ.get("N") or 10); DRY = os.environ.get("DRY") == "1"
 S = json.load(open("data/long/sources.json", encoding="utf-8")); NAME = S["name"]; L = NAME[code].capitalize()
 FAMOUS = ["S14_moon", "S11_puppy_bath", "S16_elephant", "S13_hen_chicks", "S15_rain", "S10_counting_bananas", "S17_crow", "S04_monkey_mangoes",
           "S18_birds", "S09_rainbow_puppy", "S07_bedtime_owl", "S12_school_bag_squirrel", "S08_goat_market", "S03_paper_boats"]   # famous rhymes + our most watched (7 Nov views)
@@ -94,6 +95,8 @@ if not DRY:
 
 now = datetime.datetime.now(datetime.timezone.utc); ist = datetime.timezone(datetime.timedelta(hours=5, minutes=30))
 first = (now + datetime.timedelta(minutes=100)).astimezone(ist).replace(minute=0, second=0, microsecond=0) + datetime.timedelta(hours=1)
+six = now.astimezone(ist).replace(hour=int(os.environ.get("START_IST") or 6), minute=0, second=0, microsecond=0)
+if six > now + datetime.timedelta(minutes=40): first = six   # nightly run: first video public at 06:00 IST like Zuzu, then every hour
 from PIL import Image, ImageDraw, ImageFont
 FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 for i, lead in enumerate(leads):
@@ -115,16 +118,11 @@ for i, lead in enumerate(leads):
         if len(title) <= 100: break
         title = f"{head} {short}"
     if len(title) > 100: title = f"{nat} {short}"[:100]
-    th = f"thumb_{code}_{i}.jpg"; base = f"data/songs/{lead}/thumb_{code}.jpg"
-    if os.path.exists(base):
-        im = Image.open(base).convert("RGB").resize((1280, 720))
-    else:   # famous rhymes have no thumbnail file yet -> a bright frame from the song
+    th = f"thumb_{code}_{i}.jpg"   # Zuzu style (7 Nov): a clean close-up of the lead song's characters, no text; same picture for every language
+    if os.path.exists(f"data/long/thumbs/{lead}.jpg"):
+        Image.open(f"data/long/thumbs/{lead}.jpg").convert("RGB").resize((1280, 720)).save(th, quality=92)
+    else:
         sh(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(int(have[lead] * 0.35)), "-i", f"norm/{lead}.mp4", "-frames:v", "1", "-vf", "scale=1280:720", th])
-        im = Image.open(th).convert("RGB")
-    d = ImageDraw.Draw(im); f = ImageFont.truetype(FONT, 60); txt = f"{M} MIN NON-STOP"
-    w = d.textlength(txt, font=f); d.rounded_rectangle([1280 - w - 60, 20, 1260, 106], 24, fill=(230, 30, 60)); d.text((1280 - w - 40, 28), txt, font=f, fill="white")
-    f2 = ImageFont.truetype(FONT, 54); w2 = d.textlength(rom[:28], font=f2)
-    d.rounded_rectangle([20, 720 - 106, 60 + w2, 700], 24, fill=(255, 205, 0)); d.text((40, 720 - 98), rom[:28], font=f2, fill=(40, 20, 80)); im.save(th, quality=90)
     slot = first + datetime.timedelta(hours=i); pub = slot.astimezone(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     print(f"[{i}] {title} | {M} min | {len(seq)} songs | {slot:%H:%M} IST | " + " > ".join(roman(s) for s in seq), flush=True)
     if DRY:
