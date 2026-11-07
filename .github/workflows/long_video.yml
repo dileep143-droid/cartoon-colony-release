@@ -6,13 +6,14 @@ on:
   workflow_dispatch:
     inputs:
       langs: { description: 'JSON list of channel codes (default all 20)', required: false, default: '' }
-      ep:    { description: 'episode number (0,1,2...: lead song, length 30/45/60/40 min, order)', required: false, default: '0' }
+      day:   { description: 'day number (title style + lead rotation)', required: false, default: '0' }
+      n:     { description: 'videos per channel, 1 h apart', required: false, default: '10' }
       dry:   { description: '1 = build only, no upload', required: false, default: '0' }
 
 jobs:
   long:
     runs-on: ubuntu-latest
-    timeout-minutes: 300
+    timeout-minutes: 340
     strategy:
       fail-fast: false
       max-parallel: 10
@@ -27,7 +28,8 @@ jobs:
       - name: long video ${{ matrix.lang }}
         env:
           YT_TOKEN: ${{ secrets[format('YT_{0}', matrix.lang)] }}
-          EP: ${{ inputs.ep }}
+          DAY: ${{ inputs.day }}
+          N: ${{ inputs.n }}
           DRY: ${{ inputs.dry }}
           KAGGLE_KEY1: ${{ secrets.KAGGLE_KEY1 }}
           KAGGLE_KEY2: ${{ secrets.KAGGLE_KEY2 }}
@@ -57,6 +59,6 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: thumb-${{ matrix.lang }}-ep${{ inputs.ep }}
+          name: thumb-${{ matrix.lang }}-day${{ inputs.day }}
           path: thumb_*.jpg
           if-no-files-found: ignore
