@@ -159,6 +159,16 @@
     "ks": "پیپر بوٹس اِن دی رین",
     "mni": "Paper Boats in the Rain",
     "bho": "बरखा में कागज के नाव"
+   },
+   "roman": {
+    "hi": "Kagaz Ki Naav",
+    "te": "Vaana Neetilo Kaagitapu Padava",
+    "ta": "Mazhai Kaagitha Padagu Paadal",
+    "kn": "Kaagadada Doni Haadu",
+    "mr": "Pavsatli Kagadi Hodi",
+    "bn": "Brishtir Dine Kagojer Naouka",
+    "en": "Paper Boats in the Rain",
+    "ur": "Barish Mein Kaghazi Kashti"
    }
   },
   "S04_monkey_mangoes": {
@@ -285,6 +295,16 @@
     "ks": "مَیمُن تٕہ آم",
     "mni": "মাঙ্গো মাঙ্গো কিডস সং",
     "bho": "आम वाला बंदर 🥭 बच्चों का गाना"
+   },
+   "roman": {
+    "hi": "Aam Wala Bandar",
+    "te": "Mamidi Pandlu & Koti Paata",
+    "ta": "Kurangum Maambazhangalum",
+    "kn": "Maavina Hannu Koti Haadu",
+    "mr": "Maakad Ani Aambe",
+    "bn": "Aam Aam Mishti Aam",
+    "en": "The Monkey and the Mangoes",
+    "ur": "Aam Aur Bandar"
    }
   },
   "S05_brush_teeth": {
@@ -411,6 +431,16 @@
     "ks": "ٹوٹھ پیسٹ گیت",
     "mni": "Brush Brush Shiny Teeth",
     "bho": "दाँत माँजो ब्रश ब्रश"
+   },
+   "roman": {
+    "hi": "Brush Brush Chamakte Daant",
+    "te": "Pallu Tomukundam Paata",
+    "ta": "Pal Thulakkum Paattu",
+    "kn": "Brush Brush Holeyo Hallu",
+    "mr": "Daat Ghasuya! Brush Brush Shayni Teeth",
+    "bn": "Daat Majar Gaan Brush Brush Jhakjhake Daant",
+    "en": "Brush Brush Shiny Teeth",
+    "ur": "Brush Brush Chamkein Daant"
    }
   },
   "S06_kite_crow": {
@@ -537,6 +567,16 @@
     "ks": "پتنگ نُشآن ژھۄٹُھ",
     "mni": "My Kite Flies High",
     "bho": "पतंग उड़ऽ ऊँच ऊँच"
+   },
+   "roman": {
+    "hi": "Patang Udo Oonchi Oonchi",
+    "te": "Galipatam Egaraali",
+    "ta": "Pattam Para! Uyare Uyarama",
+    "kn": "Nanna Galipata Haaruthide Ettara Ettara",
+    "mr": "Patang Ud Unch Unch",
+    "bn": "Ghuri Urchhe Uchute",
+    "en": "My Kite Flies High",
+    "ur": "Patang Udo Ooncha Ooncha"
    }
   },
   "S07_bedtime_owl": {
@@ -663,6 +703,16 @@
     "ks": "Goodnight, Moon and Stars",
     "mni": "Goodnight, Moon and Stars",
     "bho": "चंदा मामा, शुभ रतिया!"
+   },
+   "roman": {
+    "hi": "Chanda Mama Lori",
+    "te": "Chandamama Laali Paata",
+    "ta": "Iravu Vanakkam Nilave Paattu",
+    "kn": "Shubharaatri Chandamama Nakshatra",
+    "mr": "Chandomama Shubharatri Gaane",
+    "bn": "Shubharatri Chandamama",
+    "en": "Goodnight, Moon and Stars",
+    "ur": "Chaand Sitaare, Shab Bakhair!"
    }
   },
   "S08_goat_market": {
@@ -789,6 +839,16 @@
     "ks": "ଓଡ଼ିଆ ଶିଶୁ ଗୀତ",
     "mni": "Market Vegetables Song for Kids",
     "bho": "बजार में तरकारी गीत"
+   },
+   "roman": {
+    "hi": "Sabziyan Bazaar Mein",
+    "te": "Kuragayalu Market Lo",
+    "ta": "Kaaikari Santhai Paattu",
+    "kn": "Tarakari Santhe Haadu",
+    "mr": "Bhajya Bhajya Tajya Bhajya",
+    "bn": "Bazare Sabji Kinte Jai",
+    "en": "Vegetables at the Market",
+    "ur": "Sabziyon Ka Geet"
    }
   },
   "S09_rainbow_puppy": {
@@ -915,6 +975,16 @@
     "ks": "رنگہِ ریتھُ",
     "mni": "Colours of the Rainbow – Manipuri Kids Song",
     "bho": "रंग-बिरंगा इंद्रधनुष गीत"
+   },
+   "roman": {
+    "hi": "Indradhanush Ke Rang",
+    "te": "Indradhanassu Rangulu",
+    "ta": "Vaanavil Vannangal Siruvar Paadal",
+    "kn": "Kaamanabillu Haadu",
+    "mr": "Indradhanushyache Range",
+    "bn": "Rongdhonur Gaan",
+    "en": "Colours of the Rainbow",
+    "ur": "Rangon Wali Qaus-e-Quzah"
    }
   },
   "S10_counting_bananas": {
@@ -1041,6 +1111,16 @@
     "ks": "ژِٹِ گٔنٛژ ترٛیٚہہ کیلِ",
     "mni": "ঐগ লেপসি অমদগি তুলা",
     "bho": "दस पीयर केला गिनती गाना"
+   },
+   "roman": {
+    "hi": "Das Chhote Kele",
+    "te": "Aratipandlu Lekkapedadam!",
+    "ta": "Pathu Vaazhaipazham",
+    "kn": "Hattu Putta Balehannu",
+    "mr": "Daha Pivli Kelee",
+    "bn": "Dosta Holud Kola",
+    "en": "Ten Little Bananas",
+    "ur": "Das Kele, Hare!"
    }
   },
   "S11_puppy_bath": {
@@ -1167,6 +1247,16 @@
     "ks": "پٲنۍ کۆٹھ نہاتۍ",
     "mni": "Bath Time for the Puppy",
     "bho": "कुकुरिया नहान"
+   },
+   "roman": {
+    "hi": "Pilla Nahata Hai",
+    "te": "Kukkapilla Snanam Pata",
+    "ta": "Naaikkutti Kuliyal Neram",
+    "kn": "Naayimari Snana",
+    "mr": "Pillachi Anghol",
+    "bn": "Kukurchhanar Snaner Gaan",
+    "en": "Bath Time for the Puppy",
+    "ur": "Kutta Ka Bachcha Nahata Hai"
    }
   },
   "S12_school_bag_squirrel": {
@@ -1293,6 +1383,16 @@
     "ks": "ژِ ٹیوٗن ٹیوٗن",
     "mni": "Ready for School",
     "bho": "स्कूल चलीं जा!"
+   },
+   "roman": {
+    "hi": "School Ke Liye Taiyaar!",
+    "te": "Badiki Vellam Paata",
+    "ta": "Pallikku Ready!",
+    "kn": "Shaalege Ready! Makkala Haadu",
+    "mr": "Shalechi Tayari",
+    "bn": "School Er Jonno Prostut!",
+    "en": "Ready for School",
+    "ur": "School Ka Gaana"
    }
   },
   "S13_hen_chicks": {
@@ -1419,6 +1519,16 @@
     "ks": "پَنٛج پیلءِ مَوج کۄکٕرِ",
     "mni": "Mother Hen and Five Little Chicks",
     "bho": "पाँच चूज़ा पीं पीं पीं"
+   },
+   "roman": {
+    "hi": "Maa Murgi Aur Paanch Nanhe Chooze",
+    "te": "Aidu Chitti Kodi Pillalu",
+    "ta": "Aindhu Kutti Kozhi Kunjugal",
+    "kn": "Amma Koli Mattu Aidu Putta Mariga",
+    "mr": "Kombadichi Paach Pilale",
+    "bn": "Maa Murgi Ar Paanch Chhana",
+    "en": "Mother Hen and Five Little Chicks",
+    "ur": "Murghi Aur Paanch Chooze"
    }
   },
   "S01_brother_sister": {
@@ -1505,6 +1615,16 @@
     "ks": "تُہ میون سوٗ اَدھ اَدھ",
     "mni": "নুং ইয়ে শেরেম শেরেম",
     "bho": "तू हम आधा आधा"
+   },
+   "roman": {
+    "hi": "Tum Main Aadha Aadha",
+    "te": "Nuvvu Nenu Sagam Sagam",
+    "ta": "Neeyum Naanum Paadhi Paadhi",
+    "kn": "Neenu Naanu Ardha Ardha",
+    "mr": "Tu Aani Mi Ardha Ardha",
+    "bn": "Tumi Ami Ardhek Ardhek",
+    "en": "You and Me, Half and Half",
+    "ur": "Tum Aur Main, Aadha Aadha"
    }
   },
   "S02_amma_rotis": {
@@ -1591,6 +1711,16 @@
     "ks": "گرم گرم تْسوٹ، گۆر گۆرِ",
     "mni": "অসাবা রোতি, কোয়বা কোয়বা",
     "bho": "गरम-गरम रोटी, गोल-गोल"
+   },
+   "roman": {
+    "hi": "Garam Garam Roti, Gol Gol",
+    "te": "Vedi Vedi Rottelu, Gundranga Gundranga",
+    "ta": "Soodana Sappathi, Suthi Suthi",
+    "kn": "Bisi Bisi Rotti, Suthi Suthi",
+    "mr": "Garam Garam Polya, Gol Gol",
+    "bn": "Garam Garam Ruti, Ghure Ghure",
+    "en": "Hot Hot Rotis, Round and Round",
+    "ur": "Garam Garam Roti, Gol Gol"
    }
   },
   "S14_moon": {
@@ -1717,6 +1847,16 @@
     "ks": "لاپہٕ لاپہٕ منٛز اَلریوتھ",
     "mni": "থা-থা থাবুংতোন",
     "bho": "चन्दा मामा दौड़े आव"
+   },
+   "roman": {
+    "hi": "Chanda Mama Door Ke",
+    "te": "Chandamama Raave, Jabilli Raave",
+    "ta": "Nila Nila Vaa Vaa",
+    "kn": "Chandakki Maava Chakkuli Maava",
+    "mr": "Chandoba Chandoba Bhagalas Kaa?",
+    "bn": "Aay Aay Chand Mama",
+    "en": "I See the Moon, and the Moon Sees Me",
+    "ur": "Chanda Mama Door Ke Khoye Pakaayein Doodh Ke"
    }
   },
   "S15_rain": {
@@ -1843,6 +1983,16 @@
     "ks": "ابر وٛتھؠ کٲشُر سام",
     "mni": "মারি মারি মারু লাই লাই",
     "bho": "आन्ही बूनी आवेले"
+   },
+   "roman": {
+    "hi": "Kaale Kaale Baadal Aaye, Gad Gad Garje Damru Bajaaye",
+    "te": "Vana Vana Vallappa, Vaakili Tirugu Chalappa",
+    "ta": "Mazhai Vaa Mazhai Vaa",
+    "kn": "Huyyo Huyyo Maleraaya",
+    "mr": "Ye Re Ye Re Pavsa",
+    "bn": "Brishti Pore Tapur Tupur, Nodi Elo Baan",
+    "en": "Rain, Rain, Go Away",
+    "ur": "Woh Dekho Uthi Kaali Kaali Ghata"
    }
   },
   "S16_elephant": {
@@ -1969,6 +2119,16 @@
     "ks": "بڈھ ہاتھی چھُ پگان",
     "mni": "ময়েং ময়েং আনা",
     "bho": "हाथी मामा झूमत आवा, सूँड़ हिलावत आवा"
+   },
+   "roman": {
+    "hi": "Haathi Raja Kahan Chale?",
+    "te": "Enugamma Enugu",
+    "ta": "Yaanai Yaanai Aadu Yaanai",
+    "kn": "Aane Bantondaane",
+    "mr": "Hatti Hatti Ye Re Ye Re",
+    "bn": "Haati Mama Dole Dole, Gramer Pothe Jay",
+    "en": "Big Grey Elephant, Come and Play",
+    "ur": "Haathi Miyaan, Haathi Miyaan, Jhoomte Aaye Gaon Mein"
    }
   },
   "S17_crow": {
@@ -2095,6 +2255,16 @@
     "ks": "کأو کَرَان تاو تاو",
     "mni": "কাউয়া কাউয়া ছাদে বোসো",
     "bho": "कारी कारी कौआ मामा, छत पर आवा"
+   },
+   "roman": {
+    "hi": "Kaala Kauwa Chhat Par Baitha",
+    "te": "Nallani Kaakamma, Intipaina Koosindi",
+    "ta": "Kaakka Kaakka Koovu, Koorai Mele Eru",
+    "kn": "Kaage Kaage Kauvva",
+    "mr": "Ithe Ithe Bas Re Kau",
+    "bn": "Kak Kak Kalo Kak",
+    "en": "Crow, Crow, Black Crow, Sitting on the Roof",
+    "ur": "Do Teen Chhote Bachche Chidiya Ke Ghonsle Mein"
    }
   },
   "S18_birds": {
@@ -2221,6 +2391,16 @@
     "ks": "سُبز طوطی پوز گاش",
     "mni": "চিরৈ চিরৈ চিচিরিনা",
     "bho": "चिरई चिरई गावे, डाढ़ी पर बइठे"
+   },
+   "roman": {
+    "hi": "Hara Tota Bole, Meethi Meethi Boli",
+    "te": "Burrupitta Burrupitta Turrumannadi",
+    "ta": "Pachai Kili Parandhu Vaa",
+    "kn": "Giṇi Giṇi Hasiru Giṇi, Mara Mele Kootitu",
+    "mr": "Chiutai Chiutai, Jhadavar Bas Na",
+    "bn": "Aata Gache Tota Pakhi",
+    "en": "Birds, Birds, Flying High",
+    "ur": "Bulbul Ka Bachcha"
    }
   }
  }
