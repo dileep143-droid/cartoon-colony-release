@@ -119,8 +119,10 @@ for i, lead in enumerate(leads):
         title = f"{head} {short}"
     if len(title) > 100: title = f"{nat} {short}"[:100]
     th = f"thumb_{code}_{i}.jpg"   # Zuzu style (7 Nov): a clean close-up of the lead song's characters, no text; same picture for every language
-    if os.path.exists(f"data/long/thumbs/{lead}.jpg"):
-        Image.open(f"data/long/thumbs/{lead}.jpg").convert("RGB").resize((1280, 720)).save(th, quality=92)
+    # owner 7 Nov: the lead song's OWN attractive thumbnail in THIS language (big native text, rainbow frame, logo); rhymes: data/long/lthumbs
+    pick = [p for p in (f"data/songs/{lead}/thumb_{code}.jpg", f"data/long/lthumbs/{lead}_{code}.jpg", f"data/long/thumbs/{lead}.jpg") if os.path.exists(p)]
+    if pick:
+        Image.open(pick[0]).convert("RGB").resize((1280, 720)).save(th, quality=92)
     else:
         sh(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(int(have[lead] * 0.35)), "-i", f"norm/{lead}.mp4", "-frames:v", "1", "-vf", "scale=1280:720", th])
     slot = first + datetime.timedelta(hours=i); pub = slot.astimezone(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
