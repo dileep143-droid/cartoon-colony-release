@@ -32,8 +32,8 @@ def roman(s):
 
 
 def native(s):
-    t = (S["songs"][s]["title"].get(code) or "").split(",")[0]
-    t = re.sub(r"[^\w\s'&-]", "", t, flags=re.U)
+    t = re.split(r"[,،]", S["songs"][s]["title"].get(code) or "")[0]
+    t = "".join(ch for ch in t if not unicodedata.category(ch).startswith(("S", "C")) and ch not in "!?.;:\"()[]{}")   # keep vowel signs; drop emoji/punctuation
     return re.sub(r"\s+", " ", t).strip()
 
 
