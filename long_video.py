@@ -11,9 +11,11 @@ S = json.load(open("data/long/sources.json", encoding="utf-8")); NAME = S["name"
 FAMOUS = ["S14_moon", "S11_puppy_bath", "S16_elephant", "S13_hen_chicks", "S15_rain", "S10_counting_bananas", "S17_crow", "S04_monkey_mangoes",
           "S18_birds", "S09_rainbow_puppy", "S07_bedtime_owl", "S12_school_bag_squirrel", "S08_goat_market", "S03_paper_boats"]   # famous rhymes + our most watched (7 Nov views)
 MINS = [32, 38, 42, 35, 45, 30, 40, 36, 44, 33, 39, 41]
-STYLE = ["& More Non-Stop Nursery Rhymes | Learning Videos", "Non Stop Rhymes | Popular {L} Kids Songs Collection", "| Popular {L} Nursery Rhymes | Non-Stop Kids Rhymes",
-         "& More {L} Children's Songs | A Collection", "& Non-Stop Rhymes | Preschool Learning Videos", "& More | Non-Stop Nursery Rhymes for Children | Kids Songs",
-         "| {L} Nursery Rhymes Collection", "| Popular Non-Stop {L} Rhymes | Learning Rhymes for Kids", "| Superhit Non-Stop Kids Rhymes | Nursery Rhymes"]
+STYLE = ["& Many More Non-Stop Popular {L} Rhymes For Kids", "& More Non-Stop {L} Rhymes For Kids | Learning Videos", "| Popular {L} Nursery Rhymes For Kids | Non-Stop",
+         "& More {L} Kids Songs | Non-Stop {L} Rhymes", "& Many More {L} Rhymes For Children | Non-Stop Collection", "| Non-Stop {L} Rhymes For Kids | Baby Songs",
+         "& More Superhit {L} Rhymes For Kids", "| {L} Nursery Rhymes Collection For Kids", "& More Popular {L} Kids Rhymes | Non-Stop"]   # 7 Nov owner: the LANGUAGE word in every title (people search "telugu rhymes")
+NATKW = {"hi": ["हिंदी कविता", "बालगीत", "बच्चों के गाने", "हिंदी राइम्स"], "te": ["తెలుగు రైమ్స్", "చిన్నారి పాటలు", "పిల్లల పాటలు"], "ta": ["தமிழ் ரைம்ஸ்", "குழந்தை பாடல்கள்"],
+         "kn": ["ಕನ್ನಡ ರೈಮ್ಸ್", "ಮಕ್ಕಳ ಹಾಡುಗಳು"], "mr": ["मराठी बालगीत", "मुलांची गाणी"], "bn": ["বাংলা ছড়া", "ছোটদের গান"], "ur": ["اردو نظمیں", "بچوں کی نظمیں"], "en": []}
 EXTRA = {"hi": ["Hindi Balgeet", "Bacchon Ke Gane"], "te": ["Telugu Rhymes for Children", "Chinnari Patalu"], "ta": ["Tamil Rhymes for Children", "Kuzhandhai Paadalgal"],
          "kn": ["Kannada Rhymes for Children", "Makkala Haadugalu"], "mr": ["Marathi Balgeet", "Marathi Gani for Kids"], "bn": ["Bangla Chotoder Chora", "Bengali Rhymes for Children"],
          "ur": ["Urdu Nazmein for Kids", "Bachon Ki Nazmein"], "en": ["English Rhymes", "Songs for Toddlers"]}
@@ -66,8 +68,8 @@ ALL = [s for s in FAMOUS if s in have] + [s for s in have if s not in FAMOUS]
 leads = [ALL[(DAY * 3 + i) % len(ALL)] for i in range(min(N, len(ALL)))]
 songs_roman = [roman(s) for s in ALL]
 tags, tl = [], 0
-for t in ["BuBu TV", f"BuBu TV {L}", f"{L} Rhymes", "Kids Rhymes", "Nursery Rhymes", f"{L} Nursery Rhymes", "Kids Songs", f"{L} Kids Songs", "Baby Songs", "Rhymes for Kids",
-          "3D Animation", "Cartoon Rhymes", "Preschool Rhymes", "Toddler Songs", "Children Songs"] + EXTRA.get(code, []) + songs_roman + ["Kids Learning Songs", "Animal Rhymes", "Educational Rhymes"]:
+for t in ["BuBu TV", f"BuBu TV {L}", f"{L} Rhymes", f"{L} Rhymes For Kids"] + NATKW.get(code, []) + [ "Kids Rhymes", "Nursery Rhymes", f"{L} Nursery Rhymes", "Kids Songs", f"{L} Kids Songs", "Baby Songs", "Rhymes for Kids",
+          "3D Animation", "Cartoon Rhymes", "Preschool Rhymes", "Toddler Songs", "Children Songs"] + EXTRA.get(code, []) + songs_roman + [native(x) for x in ALL[:6] if native(x) and native(x) != roman(x)] + ["Kids Learning Songs", "Animal Rhymes", "Educational Rhymes"]:
     if t and t not in tags and tl + len(t) + 3 < 490:
         tags.append(t); tl += len(t) + 3
 DESC = (f"Welcome to BuBu TV {L}, a happy world of colourful songs, cute characters and fun learning for little ones!\n\n"
@@ -114,7 +116,7 @@ for i, lead in enumerate(leads):
     M = round(dur(out) / 60); nat, rom = native(lead), roman(lead); st = STYLE[DAY % len(STYLE)].format(L=L)
     head = rom if code == "en" or not nat or nat.lower() == rom.lower() else f"{nat} | {rom}"
     title = f"{head} {st}"   # native name ALWAYS first (owner 7 Nov); shorten the English tail instead
-    for short in ["& More Non-Stop Rhymes | Learning Videos", "& More Non-Stop Rhymes", "Non-Stop Rhymes"]:
+    for short in [f"& More Non-Stop {L} Rhymes For Kids", f"& More {L} Rhymes For Kids", f"{L} Rhymes For Kids", f"{L} Rhymes"]:
         if len(title) <= 100: break
         title = f"{head} {short}"
     if len(title) > 100: title = f"{nat} {short}"[:100]
@@ -132,7 +134,9 @@ for i, lead in enumerate(leads):
     if title in have_t:
         print(f"RESULT {code} ALREADY_THERE {title}"); os.remove(out); continue
     yl = code if code in ("hi", "te", "ta", "kn", "mr", "bn", "en", "ur", "ml", "gu", "pa", "or", "as", "ne") else None
-    sn = {"title": title, "description": DESC, "tags": tags, "categoryId": "22"}
+    top = (f"{nat} | {rom}" if nat and nat != rom else rom) + f" & more non-stop {L} rhymes for kids ({M} minutes) - " + " ".join(NATKW.get(code, [])[:2]) + "\n"
+    top += f"#{L}Rhymes #{re.sub(r'[^A-Za-z0-9]', '', rom)} #{L}RhymesForKids\n\n"   # 7 Nov: first lines show in search; first 3 hashtags show above the title
+    sn = {"title": title, "description": (top + DESC)[:4900], "tags": tags, "categoryId": "22"}
     if yl: sn.update({"defaultLanguage": yl, "defaultAudioLanguage": yl})
     body = {"snippet": sn, "status": {"privacyStatus": "private", "publishAt": pub, "selfDeclaredMadeForKids": True, "embeddable": True, "containsSyntheticMedia": True}}
     try:
