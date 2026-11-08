@@ -1,13 +1,13 @@
 r"""Kaggle DATASETS -> Google Drive backup (owner 8 Nov: "copy to github and then to Google drive because our laptop is doing work").
 python dataset_to_drive.py <list file> "<Drive folder>"
 list file: one "<key number> <user/dataset>" per line. Each dataset is downloaded as one zip, uploaded as <user>__<dataset>.zip, then deleted
-from the runner (disk stays small). Skips zips already in Drive. Needs env ALL_SECRETS (toJSON(secrets)) with KAGGLE_KEYn + DRIVE_TOKEN."""
+from the runner (disk stays small). Skips zips already in Drive. Needs env KAGGLE_KEYn + DRIVE_TOKEN."""
 import json, os, subprocess, sys, time, glob, shutil
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
-S = json.loads(os.environ["ALL_SECRETS"]); lst, path = sys.argv[1], sys.argv[2]
+S = os.environ; lst, path = sys.argv[1], sys.argv[2]
 c = Credentials.from_authorized_user_info(json.loads(S["DRIVE_TOKEN"]))
 if not c.valid: c.refresh(Request())
 dr = build("drive", "v3", credentials=c, cache_discovery=False)
