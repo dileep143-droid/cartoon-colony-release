@@ -17,7 +17,28 @@ jobs:
         run: sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc || true; df -h .
       - name: copy datasets to Drive
         env:
-          ALL_SECRETS: ${{ toJSON(secrets) }}
+          DRIVE_TOKEN: ${{ secrets.DRIVE_TOKEN }}
+          KAGGLE_KEY1: ${{ secrets.KAGGLE_KEY1 }}
+          KAGGLE_KEY2: ${{ secrets.KAGGLE_KEY2 }}
+          KAGGLE_KEY3: ${{ secrets.KAGGLE_KEY3 }}
+          KAGGLE_KEY4: ${{ secrets.KAGGLE_KEY4 }}
+          KAGGLE_KEY5: ${{ secrets.KAGGLE_KEY5 }}
+          KAGGLE_KEY6: ${{ secrets.KAGGLE_KEY6 }}
+          KAGGLE_KEY7: ${{ secrets.KAGGLE_KEY7 }}
+          KAGGLE_KEY8: ${{ secrets.KAGGLE_KEY8 }}
+          KAGGLE_KEY9: ${{ secrets.KAGGLE_KEY9 }}
+          KAGGLE_KEY10: ${{ secrets.KAGGLE_KEY10 }}
+          KAGGLE_KEY11: ${{ secrets.KAGGLE_KEY11 }}
+          KAGGLE_KEY12: ${{ secrets.KAGGLE_KEY12 }}
+          KAGGLE_KEY13: ${{ secrets.KAGGLE_KEY13 }}
+          KAGGLE_KEY14: ${{ secrets.KAGGLE_KEY14 }}
+          KAGGLE_KEY15: ${{ secrets.KAGGLE_KEY15 }}
+          KAGGLE_KEY16: ${{ secrets.KAGGLE_KEY16 }}
+          KAGGLE_KEY17: ${{ secrets.KAGGLE_KEY17 }}
+          KAGGLE_KEY18: ${{ secrets.KAGGLE_KEY18 }}
+          KAGGLE_KEY19: ${{ secrets.KAGGLE_KEY19 }}
+          KAGGLE_KEY20: ${{ secrets.KAGGLE_KEY20 }}
+          KAGGLE_KEY21: ${{ secrets.KAGGLE_KEY21 }}
         run: python dataset_to_drive.py "${{ inputs.list }}" "${{ inputs.folder }}"
       - uses: actions/upload-artifact@v4
         if: always()
