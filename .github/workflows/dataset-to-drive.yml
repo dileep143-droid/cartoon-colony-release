@@ -1,0 +1,24 @@
+name: dataset-to-drive
+# 8 Nov owner: back up Kaggle datasets to Google Drive (laptop busy). Nothing is kept on GitHub.
+on:
+  workflow_dispatch:
+    inputs:
+      list:   { description: 'list file in repo ("key user/dataset" per line)', required: true, default: 'data/kaggle_ds_backup.txt' }
+      folder: { description: 'Drive folder path', required: true, default: 'Kaggle Datasets Backup' }
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - name: tools
+        run: pip install -q kaggle google-api-python-client google-auth
+      - name: free disk
+        run: sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc || true; df -h .
+      - name: copy datasets to Drive
+        env:
+          ALL_SECRETS: ${{ toJSON(secrets) }}
+        run: python dataset_to_drive.py "${{ inputs.list }}" "${{ inputs.folder }}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: backup_result, path: backup_result.json, if-no-files-found: ignore }
