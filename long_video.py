@@ -51,6 +51,7 @@ def native(s):
 
 
 os.makedirs("lv", exist_ok=True); os.makedirs("norm", exist_ok=True); have = {}
+LOGO = "data/long/logo.png"
 for slug, info in S["songs"].items():
     src = info["src"].get(code)
     if not src: continue
@@ -64,8 +65,12 @@ for slug, info in S["songs"].items():
     if not os.path.exists(raw) or os.path.getsize(raw) < 1_000_000:
         print(f"{slug} {code} MISSING source", flush=True); continue
     n = f"norm/{slug}.mp4"   # same size/fps/codec for every song -> lossless join
-    r = sh(["ffmpeg", "-y", "-loglevel", "error", "-i", raw, "-vf", "scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,fps=24,format=yuv420p,setsar=1",
-            "-c:v", "libx264", "-preset", "veryfast", "-crf", "22", "-c:a", "aac", "-ar", "48000", "-ac", "2", "-b:a", "160k", n])
+    base = "scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,fps=24,setsar=1"
+    if os.path.exists(LOGO):   # 8 Nov owner: our BuBu TV logo in the top-right corner of every long video
+        vf = ["-i", LOGO, "-filter_complex", f"[0:v]{base}[v];[1:v]scale=150:150,format=rgba,colorchannelmixer=aa=0.92[l];[v][l]overlay=W-w-36:32,format=yuv420p[o]", "-map", "[o]", "-map", "0:a?"]
+    else: vf = ["-vf", base + ",format=yuv420p"]
+    r = sh(["ffmpeg", "-y", "-loglevel", "error", "-i", raw] + vf +
+           ["-c:v", "libx264", "-preset", "veryfast", "-crf", "22", "-c:a", "aac", "-ar", "48000", "-ac", "2", "-b:a", "160k", n])
     os.remove(raw)
     if r.returncode:
         print(slug, "encode failed", r.stderr[-200:], flush=True); continue
