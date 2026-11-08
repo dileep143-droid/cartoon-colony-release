@@ -79,7 +79,19 @@ if len(have) < 6:
     print(f"RESULT {code} NOT_ENOUGH_SONGS {len(have)}"); sys.exit(0)
 
 ALL = [s for s in FAMOUS if s in have] + [s for s in have if s not in FAMOUS]
-leads = [ALL[(DAY * 3 + i) % len(ALL)] for i in range(min(N, len(ALL)))]
+# 8 Nov owner: new songs (sources "new") are ADD-ONS - mixed into every video like the others. Lead (starting) songs: first finish the old round
+# (every old song leads at least once: day 0 + 1 used the old window, day 2 = the old songs not led yet), THEN the new songs lead one by one
+# (random order, same for every channel), then everything rotates.
+OLD = [s for s in ALL if not S["songs"][s].get("new")]; NEW = [s for s in ALL if S["songs"][s].get("new")]
+def old_window(d): return [OLD[(d * 3 + i) % len(OLD)] for i in range(min(N, len(OLD)))]
+if DAY < 2 or not NEW:
+    leads = old_window(DAY) if OLD else ALL[:N]
+else:
+    led = set(old_window(0)) | set(old_window(1)); nr = NEW[:]; random.Random("new-songs-2026-11-08").shuffle(nr)
+    Q = [s for s in OLD if s not in led] + nr
+    while len(Q) < (DAY - 1) * N + len(ALL): Q += [ALL[(k * 3) % len(ALL)] for k in range(len(ALL))]
+    leads = Q[(DAY - 2) * N:(DAY - 2) * N + N]
+    leads = list(dict.fromkeys(leads)) + [s for s in ALL if s not in leads][:max(0, N - len(set(leads)))]
 songs_roman = [roman(s) for s in ALL]
 tags, tl = [], 0
 for t in ["BuBu TV", f"BuBu TV {L}", f"{L} Rhymes", f"{L} Rhymes For Kids"] + NATKW.get(code, []) + [ "Kids Rhymes", "Nursery Rhymes", f"{L} Nursery Rhymes", "Kids Songs", f"{L} Kids Songs", "Baby Songs", "Rhymes for Kids",
