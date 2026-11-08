@@ -2402,6 +2402,2469 @@
     "en": "Birds, Birds, Flying High",
     "ur": "Bulbul Ka Bachcha"
    }
+  },
+  "S19_idli_dance": {
+   "src": {
+    "hi": {
+     "kernel": "musthafadudekula/s19-song-1",
+     "key": 13,
+     "file": "S19_hindi.mp4"
+    },
+    "te": {
+     "kernel": "musthafadudekula/s19-song-1",
+     "key": 13,
+     "file": "S19_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "musthafadudekula/s19-song-1",
+     "key": 13,
+     "file": "S19_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "musthafadudekula/s19-song-1",
+     "key": 13,
+     "file": "S19_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "musthafadudekula/s19-song-1",
+     "key": 13,
+     "file": "S19_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "musthafadudekula/s19-song-1",
+     "key": 13,
+     "file": "S19_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "musthafadudekula/s19-song-1",
+     "key": 13,
+     "file": "S19_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "musthafadudekula/s19-song-1",
+     "key": 13,
+     "file": "S19_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "musthafadudekula/s19-song-1",
+     "key": 13,
+     "file": "S19_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "musthafadudekula/s19-song-1",
+     "key": 13,
+     "file": "S19_odia.mp4"
+    },
+    "as": {
+     "kernel": "musthafadudekula/s19-song-1",
+     "key": 13,
+     "file": "S19_assamese.mp4"
+    },
+    "en": {
+     "kernel": "musthafadudekula/s19-song-1",
+     "key": 13,
+     "file": "S19_english.mp4"
+    },
+    "ne": {
+     "kernel": "musthafadudekula/s19-song-1",
+     "key": 13,
+     "file": "S19_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "musthafadudekula/s19-song-1",
+     "key": 13,
+     "file": "S19_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "musthafadudekula/s19-song-1",
+     "key": 13,
+     "file": "S19_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "musthafadudekula/s19-song-1",
+     "key": 13,
+     "file": "S19_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "musthafadudekula/s19-song-1",
+     "key": 13,
+     "file": "S19_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "musthafadudekula/s19-song-1",
+     "key": 13,
+     "file": "S19_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "musthafadudekula/s19-song-1",
+     "key": 13,
+     "file": "S19_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "musthafadudekula/s19-song-1",
+     "key": 13,
+     "file": "S19_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "बोइंग, बोइंग, उछल रही इडली",
+    "te": "బోయింగ్, బోయింగ్, ఎగిరిపోతోంది ఇడ్లీ",
+    "ta": "போயிங், போயிங், பறந்து போகுது இட்லி",
+    "kn": "ಬೋಯಿಂಗ್, ಬೋಯಿಂಗ್, ಹಾರುತಿದೆ ಇಡ್ಲಿ",
+    "ml": "ബോയിങ്, ബോയിങ്, ചാടിപ്പോകുന്നു ഇഡ്ഡലി",
+    "mr": "बोइंग, बोइंग, उडून जाते इडली",
+    "bn": "বয়িং, বয়িং, লাফিয়ে উঠছে ইডলি",
+    "gu": "બોઈંગ, બોઈંગ, ઉડી જાય ઈડલી",
+    "pa": "ਬੋਇੰਗ, ਬੋਇੰਗ, ਉੱਛਲੇ ਇਡਲੀ",
+    "or": "ବୋଇଙ୍ଗ, ବୋଇଙ୍ଗ, ଉଡ଼ିଯାଉଛି ଇଡଲି",
+    "as": "বইং, বইং, ইডলি লাফ মাৰিছে",
+    "en": "Boing, boing, bounce goes the idli",
+    "ne": "बोइङ बोइङ, उफ्रिँदै इडली",
+    "ur": "اچھل، اچھل، اڑتی ہے اِڈلی",
+    "sd": "بوئنگ، بوئنگ، اڏامي ٿي ايڏلي",
+    "mai": "बोइंग, बोइंग, उड़ि जाइत अछि इडली",
+    "hry": "बोइंग, बोइंग, उछले इडली",
+    "ks": "بۆیَنٛگ، بۆیَنٛگ، لۄٹہِ ئیٖڈلیٖ",
+    "mni": "বোইং,বোইং, লানথোক্লে ইদলী",
+    "bho": "बोइंग, बोइंग, उड़ि जाले इडली"
+   },
+   "roman": {
+    "hi": "The Dancing Idli",
+    "te": "The Dancing Idli",
+    "ta": "The Dancing Idli",
+    "kn": "The Dancing Idli",
+    "ml": "The Dancing Idli",
+    "mr": "The Dancing Idli",
+    "bn": "The Dancing Idli",
+    "gu": "The Dancing Idli",
+    "pa": "The Dancing Idli",
+    "or": "The Dancing Idli",
+    "as": "The Dancing Idli",
+    "en": "The Dancing Idli",
+    "ne": "The Dancing Idli",
+    "ur": "The Dancing Idli",
+    "sd": "The Dancing Idli",
+    "mai": "The Dancing Idli",
+    "hry": "The Dancing Idli",
+    "ks": "The Dancing Idli",
+    "mni": "The Dancing Idli",
+    "bho": "The Dancing Idli"
+   },
+   "new": "2026-11-08"
+  },
+  "S20_carrot_crunch": {
+   "src": {
+    "hi": {
+     "kernel": "ramu24/s20-song-2",
+     "key": 14,
+     "file": "S20_hindi.mp4"
+    },
+    "te": {
+     "kernel": "ramu24/s20-song-2",
+     "key": 14,
+     "file": "S20_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "ramu24/s20-song-2",
+     "key": 14,
+     "file": "S20_tamil.mp4"
+    },
+    "ml": {
+     "kernel": "ramu24/s20-song-2",
+     "key": 14,
+     "file": "S20_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "ramu24/s20-song-2",
+     "key": 14,
+     "file": "S20_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "ramu24/s20-song-2",
+     "key": 14,
+     "file": "S20_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "ramu24/s20-song-2",
+     "key": 14,
+     "file": "S20_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "ramu24/s20-song-2",
+     "key": 14,
+     "file": "S20_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "ramu24/s20-song-2",
+     "key": 14,
+     "file": "S20_odia.mp4"
+    },
+    "as": {
+     "kernel": "ramu24/s20-song-2",
+     "key": 14,
+     "file": "S20_assamese.mp4"
+    },
+    "en": {
+     "kernel": "ramu24/s20-song-2",
+     "key": 14,
+     "file": "S20_english.mp4"
+    },
+    "ne": {
+     "kernel": "ramu24/s20-song-2",
+     "key": 14,
+     "file": "S20_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "ramu24/s20-song-2",
+     "key": 14,
+     "file": "S20_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "ramu24/s20-song-2",
+     "key": 14,
+     "file": "S20_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "ramu24/s20-song-2",
+     "key": 14,
+     "file": "S20_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "ramu24/s20-song-2",
+     "key": 14,
+     "file": "S20_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "ramu24/s20-song-2",
+     "key": 14,
+     "file": "S20_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "ramu24/s20-song-2",
+     "key": 14,
+     "file": "S20_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "ramu24/s20-song-2",
+     "key": 14,
+     "file": "S20_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "क्रंच, क्रंच, सब्ज़ियाँ खाओ",
+    "te": "క్రంచ్, క్రంచ్, కూరగాయలు తినండి",
+    "ta": "க்ரன்ச், க்ரன்ச், காய்கறி சாப்பிடுங்க",
+    "ml": "ക്രഞ്ച്, ക്രഞ്ച്, പച്ചക്കറി കഴിക്കൂ",
+    "mr": "क्रंच, क्रंच, भाज्या खा",
+    "bn": "ক্রাঞ্চ, ক্রাঞ্চ, সবজি খাও",
+    "gu": "ક્રન્ચ, ક્રન્ચ, શાકભાજી ખાઓ",
+    "pa": "ਕ੍ਰੰਚ, ਕ੍ਰੰਚ, ਸਬਜ਼ੀਆਂ ਖਾਓ",
+    "or": "କ୍ରଞ୍ଚ୍, କ୍ରଞ୍ଚ୍, ପନିପରିବା ଖାଅ",
+    "as": "ক্ৰাঞ্চ, ক্ৰাঞ্চ, শাক-পাচলি খাওক",
+    "en": "Crunch, crunch, eat your veggies",
+    "ne": "क्रन्च, क्रन्च, तरकारी खाऊ",
+    "ur": "کرنچ، کرنچ، سبزیاں کھاؤ",
+    "sd": "ڪرنچ، ڪرنچ، ڀاڄيون کائو",
+    "mai": "क्रंच, क्रंच, तरकारी खाउ",
+    "hry": "क्रंच, क्रंच, साग-सब्जी खाओ",
+    "ks": "کرنچ، کرنچ، سبزہٕ کھیو",
+    "mni": "ক্রঞ্চ, ক্রঞ্চ, শিং থাব য়াইফু",
+    "bho": "क्रंच, क्रंच, सब्जी खाऽ"
+   },
+   "roman": {
+    "hi": "Carrot Crunch Club",
+    "te": "Carrot Crunch Club",
+    "ta": "Carrot Crunch Club",
+    "ml": "Carrot Crunch Club",
+    "mr": "Carrot Crunch Club",
+    "bn": "Carrot Crunch Club",
+    "gu": "Carrot Crunch Club",
+    "pa": "Carrot Crunch Club",
+    "or": "Carrot Crunch Club",
+    "as": "Carrot Crunch Club",
+    "en": "Carrot Crunch Club",
+    "ne": "Carrot Crunch Club",
+    "ur": "Carrot Crunch Club",
+    "sd": "Carrot Crunch Club",
+    "mai": "Carrot Crunch Club",
+    "hry": "Carrot Crunch Club",
+    "ks": "Carrot Crunch Club",
+    "mni": "Carrot Crunch Club",
+    "bho": "Carrot Crunch Club"
+   },
+   "new": "2026-11-08"
+  },
+  "S21_wash_hands_pop": {
+   "src": {
+    "hi": {
+     "kernel": "tejaupma43/s21-song-1",
+     "key": 10,
+     "file": "S21_hindi.mp4"
+    },
+    "te": {
+     "kernel": "tejaupma43/s21-song-1",
+     "key": 10,
+     "file": "S21_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "tejaupma43/s21-song-1",
+     "key": 10,
+     "file": "S21_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "tejaupma43/s21-song-1",
+     "key": 10,
+     "file": "S21_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "musthafadudekula/s21-song-2",
+     "key": 13,
+     "file": "S21_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "tejaupma43/s21-song-1",
+     "key": 10,
+     "file": "S21_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "tejaupma43/s21-song-1",
+     "key": 10,
+     "file": "S21_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "tejaupma43/s21-song-1",
+     "key": 10,
+     "file": "S21_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "tejaupma43/s21-song-1",
+     "key": 10,
+     "file": "S21_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "tejaupma43/s21-song-1",
+     "key": 10,
+     "file": "S21_odia.mp4"
+    },
+    "as": {
+     "kernel": "tejaupma43/s21-song-1",
+     "key": 10,
+     "file": "S21_assamese.mp4"
+    },
+    "en": {
+     "kernel": "tejaupma43/s21-song-1",
+     "key": 10,
+     "file": "S21_english.mp4"
+    },
+    "ne": {
+     "kernel": "tejaupma43/s21-song-1",
+     "key": 10,
+     "file": "S21_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "tejaupma43/s21-song-1",
+     "key": 10,
+     "file": "S21_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "tejaupma43/s21-song-1",
+     "key": 10,
+     "file": "S21_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "tejaupma43/s21-song-1",
+     "key": 10,
+     "file": "S21_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "tejaupma43/s21-song-1",
+     "key": 10,
+     "file": "S21_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "musthafadudekula/s21-song-2",
+     "key": 13,
+     "file": "S21_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "tejaupma43/s21-song-1",
+     "key": 10,
+     "file": "S21_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "tejaupma43/s21-song-1",
+     "key": 10,
+     "file": "S21_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "पॉप पॉप, हाथ धो लो",
+    "te": "పాప్ పాప్, చేతులు కడుగు",
+    "ta": "பாப் பாப், கையைக் கழுவு",
+    "kn": "ಪಾಪ್ ಪಾಪ್, ಕೈಗಳ ತೊಳಿ",
+    "ml": "പാപ് പാപ്, കൈകൾ കഴുകൂ",
+    "mr": "पॉप पॉप, हात धु",
+    "bn": "পপ পপ, হাত ধোও",
+    "gu": "પોપ પોપ, હાથ ધુઓ",
+    "pa": "ਪਾਪ ਪਾਪ, ਹੱਥ ਧੋਵੋ",
+    "or": "ପପ୍ ପପ୍, ହାତ ଧୁଅ",
+    "as": "পপ পপ, হাত ধোৱা",
+    "en": "Pop pop, wash your hands",
+    "ne": "पाप पाप, हात धुनू",
+    "ur": "پاپ پاپ، ہاتھ دھو لو",
+    "sd": "پاپ پاپ، هٿ ڌوءُ",
+    "mai": "पाप पाप, हाथ धोउ",
+    "hry": "पॉप पॉप, हाथ धो ले",
+    "ks": "ಪಪ್ ಪಪ್, ಚೇತುಲು ಕಡುಗು",
+    "mni": "পাপ পাপ, খুৎ শুংলো",
+    "bho": "पाप पाप, हाथ धोवऽ"
+   },
+   "roman": {
+    "hi": "Pop Pop Wash Your Hands",
+    "te": "Pop Pop Wash Your Hands",
+    "ta": "Pop Pop Wash Your Hands",
+    "kn": "Pop Pop Wash Your Hands",
+    "ml": "Pop Pop Wash Your Hands",
+    "mr": "Pop Pop Wash Your Hands",
+    "bn": "Pop Pop Wash Your Hands",
+    "gu": "Pop Pop Wash Your Hands",
+    "pa": "Pop Pop Wash Your Hands",
+    "or": "Pop Pop Wash Your Hands",
+    "as": "Pop Pop Wash Your Hands",
+    "en": "Pop Pop Wash Your Hands",
+    "ne": "Pop Pop Wash Your Hands",
+    "ur": "Pop Pop Wash Your Hands",
+    "sd": "Pop Pop Wash Your Hands",
+    "mai": "Pop Pop Wash Your Hands",
+    "hry": "Pop Pop Wash Your Hands",
+    "ks": "Pop Pop Wash Your Hands",
+    "mni": "Pop Pop Wash Your Hands",
+    "bho": "Pop Pop Wash Your Hands"
+   },
+   "new": "2026-11-08"
+  },
+  "S22_milk_mustache": {
+   "src": {
+    "hi": {
+     "kernel": "svpawan/s22-song-1",
+     "key": 19,
+     "file": "S22_hindi.mp4"
+    },
+    "te": {
+     "kernel": "svpawan/s22-song-1",
+     "key": 19,
+     "file": "S22_telugu.mp4"
+    },
+    "ml": {
+     "kernel": "svpawan/s22-song-1",
+     "key": 19,
+     "file": "S22_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "svpawan/s22-song-1",
+     "key": 19,
+     "file": "S22_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "svpawan/s22-song-1",
+     "key": 19,
+     "file": "S22_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "svpawan/s22-song-1",
+     "key": 19,
+     "file": "S22_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "svpawan/s22-song-1",
+     "key": 19,
+     "file": "S22_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "svpawan/s22-song-1",
+     "key": 19,
+     "file": "S22_odia.mp4"
+    },
+    "as": {
+     "kernel": "svpawan/s22-song-1",
+     "key": 19,
+     "file": "S22_assamese.mp4"
+    },
+    "en": {
+     "kernel": "svpawan/s22-song-1",
+     "key": 19,
+     "file": "S22_english.mp4"
+    },
+    "ne": {
+     "kernel": "svpawan/s22-song-1",
+     "key": 19,
+     "file": "S22_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "svpawan/s22-song-1",
+     "key": 19,
+     "file": "S22_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "svpawan/s22-song-1",
+     "key": 19,
+     "file": "S22_sindhi.mp4"
+    },
+    "hry": {
+     "kernel": "svpawan/s22-song-1",
+     "key": 19,
+     "file": "S22_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "svpawan/s22-song-1",
+     "key": 19,
+     "file": "S22_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "svpawan/s22-song-1",
+     "key": 19,
+     "file": "S22_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "svpawan/s22-song-1",
+     "key": 19,
+     "file": "S22_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "गटक गटक, दूध की मूँछ",
+    "te": "గుటక గుటక, పాల మీసం",
+    "ml": "ഗടക ഗടക, പാല് മീശ",
+    "mr": "गटक गटक, दुधाची मिशी",
+    "bn": "গুটুক গুটুক, দুধের গোঁফ",
+    "gu": "ગટક ગટક, દૂધની મૂછ",
+    "pa": "ਗਟਕ ਗਟਕ, ਦੁੱਧ ਦੀ ਮੁੱਛ",
+    "or": "ଗୁଟ୍ ଗୁଟ୍, ଦୁଧ ଗୋଫ",
+    "as": "গুটক গুটক, দুধৰ গোঁফ",
+    "en": "Glug glug, milk mustache",
+    "ne": "गट गट, दूधको जुँगा",
+    "ur": "غٹک غٹک، دودھ کی مونچھ",
+    "sd": "غٽ غٽ، کير جي مڇون",
+    "hry": "गटक गटक, दूध की मूँछ",
+    "ks": "گۄٹ گۄٹ، دۄدٕچ مۄچھ",
+    "mni": "হুট হুট, ফোরগী মমিংমি",
+    "bho": "गटक गटक, दूध के मूँछ"
+   },
+   "roman": {
+    "hi": "Milk Mustache",
+    "te": "Milk Mustache",
+    "ml": "Milk Mustache",
+    "mr": "Milk Mustache",
+    "bn": "Milk Mustache",
+    "gu": "Milk Mustache",
+    "pa": "Milk Mustache",
+    "or": "Milk Mustache",
+    "as": "Milk Mustache",
+    "en": "Milk Mustache",
+    "ne": "Milk Mustache",
+    "ur": "Milk Mustache",
+    "sd": "Milk Mustache",
+    "hry": "Milk Mustache",
+    "ks": "Milk Mustache",
+    "mni": "Milk Mustache",
+    "bho": "Milk Mustache"
+   },
+   "new": "2026-11-08"
+  },
+  "S23_lion_soft_roar": {
+   "src": {
+    "hi": {
+     "kernel": "chinthaharini/s23-song-1",
+     "key": 20,
+     "file": "S23_hindi.mp4"
+    },
+    "te": {
+     "kernel": "chinthaharini/s23-song-1",
+     "key": 20,
+     "file": "S23_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "chinthaharini/s23-song-1",
+     "key": 20,
+     "file": "S23_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "chinthaharini/s23-song-1",
+     "key": 20,
+     "file": "S23_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "chinthaharini/s23-song-1",
+     "key": 20,
+     "file": "S23_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "chinthaharini/s23-song-1",
+     "key": 20,
+     "file": "S23_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "chinthaharini/s23-song-1",
+     "key": 20,
+     "file": "S23_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "chinthaharini/s23-song-1",
+     "key": 20,
+     "file": "S23_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "chinthaharini/s23-song-1",
+     "key": 20,
+     "file": "S23_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "chinthaharini/s23-song-1",
+     "key": 20,
+     "file": "S23_odia.mp4"
+    },
+    "as": {
+     "kernel": "chinthaharini/s23-song-1",
+     "key": 20,
+     "file": "S23_assamese.mp4"
+    },
+    "en": {
+     "kernel": "chinthaharini/s23-song-1",
+     "key": 20,
+     "file": "S23_english.mp4"
+    },
+    "ne": {
+     "kernel": "chinthaharini/s23-song-1",
+     "key": 20,
+     "file": "S23_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "chinthaharini/s23-song-1",
+     "key": 20,
+     "file": "S23_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "chinthaharini/s23-song-1",
+     "key": 20,
+     "file": "S23_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "chinthaharini/s23-song-1",
+     "key": 20,
+     "file": "S23_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "chinthaharini/s23-song-1",
+     "key": 20,
+     "file": "S23_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "chinthaharini/s23-song-1",
+     "key": 20,
+     "file": "S23_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "chinthaharini/s23-song-1",
+     "key": 20,
+     "file": "S23_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "chinthaharini/s23-song-1",
+     "key": 20,
+     "file": "S23_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "दहाड़ो ज़ोर से, शश शश धीरे से",
+    "te": "గర్జ గర్జ పెద్దగా, షష్ షష్ మెల్లగా",
+    "ta": "கர்ஜ கர்ஜ பலமாக, ஷஷ் ஷஷ் மெதுவாக",
+    "kn": "ಗರ್ಜ ಗರ್ಜ ದೊಡ್ಡದಾಗಿ, ಶ್ ಶ್ ಮೆಲ್ಲಗೆ",
+    "ml": "ഗർജ ഗർജ വലുതായി, ഷഷ് ഷഷ് മെല്ലെ",
+    "mr": "गर्ज गर्ज मोठ्याने, श श श हळूच",
+    "bn": "গর্জ গর্জ জোরে জোরে, শশ শশ আস্তে করে",
+    "gu": "ગર્જ ગર્જ મોટેથી, શશ શશ ધીમેથી",
+    "pa": "ਗਰਜ ਗਰਜ ਵੱਡਾ, ਸ਼ਸ਼ ਸ਼ਸ਼ ਨਰਮ",
+    "or": "ଗର୍ଜ ଗର୍ଜ ଜୋରରେ, ଶଶ ଶଶ ଧୀରେ",
+    "as": "গৰ্জ গৰ্জ জোৰত, শ্ শ্ শ্ মৃদুকৈ",
+    "en": "Roar roar big, shh shh soft",
+    "ne": "गर्ज गर्ज ठूलो, श श मसिनो",
+    "ur": "دھاڑ دھاڑ زور سے، شش شش آہستہ سے",
+    "sd": "گونج گونج وڏي، ش ش نرم",
+    "mai": "गर्ज गर्ज जोर सँ, शश शश धीरे सँ",
+    "hry": "दहाड़ दहाड़ ज़ोर से, शश शश धीरे से",
+    "ks": "گَرژ گَرژ زوٛر، شَہ شَہ پۆم",
+    "mni": "হুন হুন চাউনা, শ শ নোংমাইননা",
+    "bho": "गरज गरज जोर से, शश शश धीरे से"
+   },
+   "roman": {
+    "hi": "The Little Lion's Roar",
+    "te": "The Little Lion's Roar",
+    "ta": "The Little Lion's Roar",
+    "kn": "The Little Lion's Roar",
+    "ml": "The Little Lion's Roar",
+    "mr": "The Little Lion's Roar",
+    "bn": "The Little Lion's Roar",
+    "gu": "The Little Lion's Roar",
+    "pa": "The Little Lion's Roar",
+    "or": "The Little Lion's Roar",
+    "as": "The Little Lion's Roar",
+    "en": "The Little Lion's Roar",
+    "ne": "The Little Lion's Roar",
+    "ur": "The Little Lion's Roar",
+    "sd": "The Little Lion's Roar",
+    "mai": "The Little Lion's Roar",
+    "hry": "The Little Lion's Roar",
+    "ks": "The Little Lion's Roar",
+    "mni": "The Little Lion's Roar",
+    "bho": "The Little Lion's Roar"
+   },
+   "new": "2026-11-08"
+  },
+  "S25_ant_march": {
+   "src": {
+    "hi": {
+     "kernel": "wheeler123/s25-song-1",
+     "key": 3,
+     "file": "S25_hindi.mp4"
+    },
+    "te": {
+     "kernel": "wheeler123/s25-song-1",
+     "key": 3,
+     "file": "S25_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "wheeler123/s25-song-1",
+     "key": 3,
+     "file": "S25_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "wheeler123/s25-song-1",
+     "key": 3,
+     "file": "S25_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "wheeler123/s25-song-1",
+     "key": 3,
+     "file": "S25_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "wheeler123/s25-song-1",
+     "key": 3,
+     "file": "S25_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "wheeler123/s25-song-1",
+     "key": 3,
+     "file": "S25_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "wheeler123/s25-song-1",
+     "key": 3,
+     "file": "S25_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "wheeler123/s25-song-1",
+     "key": 3,
+     "file": "S25_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "wheeler123/s25-song-1",
+     "key": 3,
+     "file": "S25_odia.mp4"
+    },
+    "as": {
+     "kernel": "wheeler123/s25-song-1",
+     "key": 3,
+     "file": "S25_assamese.mp4"
+    },
+    "en": {
+     "kernel": "wheeler123/s25-song-1",
+     "key": 3,
+     "file": "S25_english.mp4"
+    },
+    "ne": {
+     "kernel": "wheeler123/s25-song-1",
+     "key": 3,
+     "file": "S25_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "wheeler123/s25-song-1",
+     "key": 3,
+     "file": "S25_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "wheeler123/s25-song-1",
+     "key": 3,
+     "file": "S25_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "wheeler123/s25-song-1",
+     "key": 3,
+     "file": "S25_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "wheeler123/s25-song-1",
+     "key": 3,
+     "file": "S25_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "wheeler123/s25-song-1",
+     "key": 3,
+     "file": "S25_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "wheeler123/s25-song-1",
+     "key": 3,
+     "file": "S25_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "wheeler123/s25-song-1",
+     "key": 3,
+     "file": "S25_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "लेफ्ट राइट लेफ्ट राइट, सब मिलकर चलो",
+    "te": "లెఫ్ట్ రైట్ లెఫ్ట్ రైట్, అందరూ నడవండి",
+    "ta": "லெஃப்ட் ரைட் லெஃப்ட் ரைட், எல்லாரும் நடங்க",
+    "kn": "ಲೆಫ್ಟ್ ರೈಟ್ ಲೆಫ್ಟ್ ರೈಟ್, ಎಲ್ಲರೂ ನಡೆಯಿರಿ",
+    "ml": "ലെഫ്റ്റ് റൈറ്റ് ലെഫ്റ്റ് റൈറ്റ്, എല്ലാരും നടക്കൂ",
+    "mr": "लेफ्ट राईट लेफ्ट राईट, सगळ्यांनी चाला",
+    "bn": "লেফট রাইট লেফট রাইট, সবাই চলো সারি দিয়ে",
+    "gu": "લેફ્ટ રાઈટ લેફ્ટ રાઈટ, સૌ ચાલો ચાલો",
+    "pa": "ਖੱਬਾ ਸੱਜਾ ਖੱਬਾ ਸੱਜਾ, ਸਾਰੇ ਤੁਰੋ",
+    "or": "ଲେଫ୍ଟ ରାଇଟ୍ ଲେଫ୍ଟ ରାଇଟ୍, ସମସ୍ତେ ଚାଲ",
+    "as": "লেফ্ট ৰাইট লেফ্ট ৰাইট, সকলো আগবাঢ়ক",
+    "en": "Left right left right, everybody march",
+    "ne": "बायाँ दायाँ बायाँ दायाँ, सबै हिँड्नुहोस्",
+    "ur": "لیفٹ رائٹ لیفٹ رائٹ، سب چلو قطار میں",
+    "sd": "کاٻو ساڄو کاٻو ساڄو، سڀ گڏجي هلو",
+    "mai": "लेफ्ट राइट लेफ्ट राइट, सब मिलि चलू",
+    "hry": "लेफ्ट राइट लेफ्ट राइट, सब मिल चलो",
+    "ks": "لیفٹ رایٹ لیفٹ رایٹ، سٲری سۭتۍ پَکِو",
+    "mni": "লেফট রাইট লেফট রাইট, পুম্নমক চংশিন্নু",
+    "bho": "लेफ्ट राइट लेफ्ट राइट, सब चलऽ सँगे"
+   },
+   "roman": {
+    "hi": "The Ant Line March",
+    "te": "The Ant Line March",
+    "ta": "The Ant Line March",
+    "kn": "The Ant Line March",
+    "ml": "The Ant Line March",
+    "mr": "The Ant Line March",
+    "bn": "The Ant Line March",
+    "gu": "The Ant Line March",
+    "pa": "The Ant Line March",
+    "or": "The Ant Line March",
+    "as": "The Ant Line March",
+    "en": "The Ant Line March",
+    "ne": "The Ant Line March",
+    "ur": "The Ant Line March",
+    "sd": "The Ant Line March",
+    "mai": "The Ant Line March",
+    "hry": "The Ant Line March",
+    "ks": "The Ant Line March",
+    "mni": "The Ant Line March",
+    "bho": "The Ant Line March"
+   },
+   "new": "2026-11-08"
+  },
+  "S26_donkey_helper": {
+   "src": {
+    "hi": {
+     "kernel": "reddy60/s26-song-2",
+     "key": 15,
+     "file": "S26_hindi.mp4"
+    },
+    "te": {
+     "kernel": "reddy60/s26-song-2",
+     "key": 15,
+     "file": "S26_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "reddy60/s26-song-2",
+     "key": 15,
+     "file": "S26_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "reddy60/s26-song-2",
+     "key": 15,
+     "file": "S26_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "reddy60/s26-song-2",
+     "key": 15,
+     "file": "S26_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "reddy60/s26-song-2",
+     "key": 15,
+     "file": "S26_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "reddy60/s26-song-2",
+     "key": 15,
+     "file": "S26_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "reddy60/s26-song-2",
+     "key": 15,
+     "file": "S26_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "reddy60/s26-song-2",
+     "key": 15,
+     "file": "S26_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "reddy60/s26-song-2",
+     "key": 15,
+     "file": "S26_odia.mp4"
+    },
+    "as": {
+     "kernel": "reddy60/s26-song-2",
+     "key": 15,
+     "file": "S26_assamese.mp4"
+    },
+    "en": {
+     "kernel": "reddy60/s26-song-2",
+     "key": 15,
+     "file": "S26_english.mp4"
+    },
+    "ne": {
+     "kernel": "reddy60/s26-song-2",
+     "key": 15,
+     "file": "S26_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "reddy60/s26-song-2",
+     "key": 15,
+     "file": "S26_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "reddy60/s26-song-2",
+     "key": 15,
+     "file": "S26_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "reddy60/s26-song-2",
+     "key": 15,
+     "file": "S26_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "reddy60/s26-song-2",
+     "key": 15,
+     "file": "S26_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "reddy60/s26-song-2",
+     "key": 15,
+     "file": "S26_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "reddy60/s26-song-2",
+     "key": 15,
+     "file": "S26_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "reddy60/s26-song-2",
+     "key": 15,
+     "file": "S26_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "हीं हा, मैं मदद करूँ, हीं हा",
+    "te": "హీ హా, నేను సాయం, హీ హా",
+    "ta": "ஹீ ஹா, நான் உதவி, ஹீ ஹா",
+    "kn": "ಹೀ ಹಾ, ನಾನು ಸಹಾಯ, ಹೀ ಹಾ",
+    "ml": "ഹീ ഹാ, ഞാൻ സഹായിക്കും, ഹീ ഹാ",
+    "mr": "ही हा, मी मदत, ही हा",
+    "bn": "হি হ্যাঁ, আমি সাহায্য, হি হ্যাঁ",
+    "gu": "હી હા, હું મદદ કરું, હી હા",
+    "pa": "ਹੀ ਹਾ, ਮੈਂ ਮਦਦ ਕਰਾਂ, ਹੀ ਹਾ",
+    "or": "ହି ହା, ମୁଁ ସାହାଯ୍ୟ, ହି ହା",
+    "as": "হী হা, মই সহায় কৰোঁ, হী হা",
+    "en": "Hee haw, I help, hee haw",
+    "ne": "ही हा, म सहयोग गर्छु, ही हा",
+    "ur": "ہی ہا، میں مدد کروں، ہی ہا",
+    "sd": "ھي ھا، مان مدد ڪريان، ھي ھا",
+    "mai": "हीं हा, हम मदद करी, हीं हा",
+    "hry": "हीं हाँ, मैं मदद, हीं हाँ",
+    "ks": "ہی ہا، مےٚ مدد، ہی ہا",
+    "mni": "হি হা, ঐ তেংবাং, হি হা",
+    "bho": "ही हा, हम मदद करीं, ही हा"
+   },
+   "roman": {
+    "hi": "The Helpful Donkey",
+    "te": "The Helpful Donkey",
+    "ta": "The Helpful Donkey",
+    "kn": "The Helpful Donkey",
+    "ml": "The Helpful Donkey",
+    "mr": "The Helpful Donkey",
+    "bn": "The Helpful Donkey",
+    "gu": "The Helpful Donkey",
+    "pa": "The Helpful Donkey",
+    "or": "The Helpful Donkey",
+    "as": "The Helpful Donkey",
+    "en": "The Helpful Donkey",
+    "ne": "The Helpful Donkey",
+    "ur": "The Helpful Donkey",
+    "sd": "The Helpful Donkey",
+    "mai": "The Helpful Donkey",
+    "hry": "The Helpful Donkey",
+    "ks": "The Helpful Donkey",
+    "mni": "The Helpful Donkey",
+    "bho": "The Helpful Donkey"
+   },
+   "new": "2026-11-08"
+  },
+  "S29_bundle_of_sticks": {
+   "src": {
+    "hi": {
+     "kernel": "luffy9110/s29-song-1",
+     "key": 21,
+     "file": "S29_hindi.mp4"
+    },
+    "te": {
+     "kernel": "luffy9110/s29-song-1",
+     "key": 21,
+     "file": "S29_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "luffy9110/s29-song-1",
+     "key": 21,
+     "file": "S29_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "luffy9110/s29-song-1",
+     "key": 21,
+     "file": "S29_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "luffy9110/s29-song-1",
+     "key": 21,
+     "file": "S29_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "luffy9110/s29-song-1",
+     "key": 21,
+     "file": "S29_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "luffy9110/s29-song-1",
+     "key": 21,
+     "file": "S29_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "luffy9110/s29-song-1",
+     "key": 21,
+     "file": "S29_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "luffy9110/s29-song-1",
+     "key": 21,
+     "file": "S29_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "luffy9110/s29-song-1",
+     "key": 21,
+     "file": "S29_odia.mp4"
+    },
+    "as": {
+     "kernel": "luffy9110/s29-song-1",
+     "key": 21,
+     "file": "S29_assamese.mp4"
+    },
+    "en": {
+     "kernel": "luffy9110/s29-song-1",
+     "key": 21,
+     "file": "S29_english.mp4"
+    },
+    "ne": {
+     "kernel": "luffy9110/s29-song-1",
+     "key": 21,
+     "file": "S29_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "luffy9110/s29-song-1",
+     "key": 21,
+     "file": "S29_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "luffy9110/s29-song-1",
+     "key": 21,
+     "file": "S29_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "luffy9110/s29-song-1",
+     "key": 21,
+     "file": "S29_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "luffy9110/s29-song-1",
+     "key": 21,
+     "file": "S29_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "luffy9110/s29-song-1",
+     "key": 21,
+     "file": "S29_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "luffy9110/s29-song-1",
+     "key": 21,
+     "file": "S29_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "luffy9110/s29-song-1",
+     "key": 21,
+     "file": "S29_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "एक डंडी, चट्, चट्, चट्",
+    "te": "ఒక కర్ర, చట్, చట్, చట్",
+    "ta": "ஒரு குச்சி, சட், சட், சட்",
+    "kn": "ಒಂದು ಕಡ್ಡಿ, ಚಟ್, ಚಟ್, ಚಟ್",
+    "ml": "ഒരു കോൽ, ചട്ട്, ചട്ട്, ചട്ട്",
+    "mr": "एक काडी, चट्, चट्, चट्",
+    "bn": "এক কাঠি, চট্ চট্ চট্",
+    "gu": "એક લાકડી, ચટ, ચટ, ચટ",
+    "pa": "ਇੱਕ ਡੰਡੀ, ਛੱਟ, ਛੱਟ, ਛੱਟ",
+    "or": "ଗୋଟିଏ କାଠି, ଚଟ୍, ଚଟ୍, ଚଟ୍",
+    "as": "এটা কাঠি, চট্, চট্, চট্",
+    "en": "One stick, snap, snap, snap",
+    "ne": "एउटा सिन्को, चट्, चट्, चट्",
+    "ur": "ایک لکڑی، چَٹ، چَٹ، چَٹ",
+    "sd": "ھڪ ڏانڪ، چٽ، چٽ، چٽ",
+    "mai": "एक लाठी, चट्, चट्, चट्",
+    "hry": "एक लाठी, चट्, चट्, चट्",
+    "ks": "اَکھ کٕٹھ، ژَٹ، ژَٹ، ژَٹ",
+    "mni": "শিং অমম, চৎ, চৎ, চৎ",
+    "bho": "एक लकड़ी, चट, चट, चट"
+   },
+   "roman": {
+    "hi": "Together We Are Strong",
+    "te": "Together We Are Strong",
+    "ta": "Together We Are Strong",
+    "kn": "Together We Are Strong",
+    "ml": "Together We Are Strong",
+    "mr": "Together We Are Strong",
+    "bn": "Together We Are Strong",
+    "gu": "Together We Are Strong",
+    "pa": "Together We Are Strong",
+    "or": "Together We Are Strong",
+    "as": "Together We Are Strong",
+    "en": "Together We Are Strong",
+    "ne": "Together We Are Strong",
+    "ur": "Together We Are Strong",
+    "sd": "Together We Are Strong",
+    "mai": "Together We Are Strong",
+    "hry": "Together We Are Strong",
+    "ks": "Together We Are Strong",
+    "mni": "Together We Are Strong",
+    "bho": "Together We Are Strong"
+   },
+   "new": "2026-11-08"
+  },
+  "S31_auto_tuk_tuk": {
+   "src": {
+    "hi": {
+     "kernel": "mani7673/s31-song-1",
+     "key": 1,
+     "file": "S31_hindi.mp4"
+    },
+    "te": {
+     "kernel": "mani7673/s31-song-1",
+     "key": 1,
+     "file": "S31_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "mani7673/s31-song-1",
+     "key": 1,
+     "file": "S31_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "mani7673/s31-song-1",
+     "key": 1,
+     "file": "S31_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "mani7673/s31-song-1",
+     "key": 1,
+     "file": "S31_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "mani7673/s31-song-1",
+     "key": 1,
+     "file": "S31_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "mani7673/s31-song-1",
+     "key": 1,
+     "file": "S31_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "mani7673/s31-song-1",
+     "key": 1,
+     "file": "S31_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "mani7673/s31-song-1",
+     "key": 1,
+     "file": "S31_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "mani7673/s31-song-1",
+     "key": 1,
+     "file": "S31_odia.mp4"
+    },
+    "as": {
+     "kernel": "mani7673/s31-song-1",
+     "key": 1,
+     "file": "S31_assamese.mp4"
+    },
+    "en": {
+     "kernel": "mani7673/s31-song-1",
+     "key": 1,
+     "file": "S31_english.mp4"
+    },
+    "ne": {
+     "kernel": "mani7673/s31-song-1",
+     "key": 1,
+     "file": "S31_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "mani7673/s31-song-1",
+     "key": 1,
+     "file": "S31_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "mani7673/s31-song-1",
+     "key": 1,
+     "file": "S31_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "mani7673/s31-song-1",
+     "key": 1,
+     "file": "S31_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "mani7673/s31-song-1",
+     "key": 1,
+     "file": "S31_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "mani7673/s31-song-1",
+     "key": 1,
+     "file": "S31_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "mani7673/s31-song-1",
+     "key": 1,
+     "file": "S31_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "mani7673/s31-song-1",
+     "key": 1,
+     "file": "S31_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "टक टक ऑटो, कस के पकड़ो",
+    "te": "టక్ టక్ ఆటో, గట్టిగా పట్టుకో",
+    "ta": "டக் டக் ஆட்டோ, இறுக்கமாப் பிடிச்சுக்கோ",
+    "kn": "ಟಕ್ ಟಕ್ ಆಟೋ, ಗಟ್ಟಿಯಾಗಿ ಹಿಡಿದುಕೋ",
+    "ml": "ടക് ടക് ഓട്ടോ, ഉറപ്പായി പിടിക്കൂ",
+    "mr": "टुक टुक रिक्षा, घट्ट धरून ठेव",
+    "bn": "টুক টুক অটো, শক্ত করে ধরো",
+    "gu": "ટક ટક ઓટો, જોરથી પકડી રાખ",
+    "pa": "ਟਕ ਟਕ ਆਟੋ, ਕੱਸ ਕੇ ਫੜ ਲੈ",
+    "or": "ଟକ୍ ଟକ୍ ଅଟୋ, ଜୋରରେ ଧର",
+    "as": "টক টক অটো, শক্তিকৈ ধৰা",
+    "en": "Tuk tuk auto, hold on tight",
+    "ne": "टक् टक् आटो, बलियो समाति राख",
+    "ur": "ٹک ٹک آٹو، زور سے پکڑو",
+    "sd": "ٽڪ ٽڪ آٽو، مضبوط ڪري ٿامھ",
+    "mai": "टक टक ऑटो, कसि के धरू",
+    "hry": "टक टक ऑटो, कस के पकड़ लो",
+    "ks": "ٹَک ٹَک آٹو، مَضبوٗط کٔرِتھ رَٹ",
+    "mni": "তুক তুক অতো, চেৎনা লিনু",
+    "bho": "टक टक ऑटो, कस के पकड़ो"
+   },
+   "roman": {
+    "hi": "Tuk Tuk Auto",
+    "te": "Tuk Tuk Auto",
+    "ta": "Tuk Tuk Auto",
+    "kn": "Tuk Tuk Auto",
+    "ml": "Tuk Tuk Auto",
+    "mr": "Tuk Tuk Auto",
+    "bn": "Tuk Tuk Auto",
+    "gu": "Tuk Tuk Auto",
+    "pa": "Tuk Tuk Auto",
+    "or": "Tuk Tuk Auto",
+    "as": "Tuk Tuk Auto",
+    "en": "Tuk Tuk Auto",
+    "ne": "Tuk Tuk Auto",
+    "ur": "Tuk Tuk Auto",
+    "sd": "Tuk Tuk Auto",
+    "mai": "Tuk Tuk Auto",
+    "hry": "Tuk Tuk Auto",
+    "ks": "Tuk Tuk Auto",
+    "mni": "Tuk Tuk Auto",
+    "bho": "Tuk Tuk Auto"
+   },
+   "new": "2026-11-08"
+  },
+  "S33_tractor_farm": {
+   "src": {
+    "hi": {
+     "kernel": "gopalaganeshk/s33-song-1",
+     "key": 17,
+     "file": "S33_hindi.mp4"
+    },
+    "te": {
+     "kernel": "gopalaganeshk/s33-song-1",
+     "key": 17,
+     "file": "S33_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "gopalaganeshk/s33-song-1",
+     "key": 17,
+     "file": "S33_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "gopalaganeshk/s33-song-1",
+     "key": 17,
+     "file": "S33_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "gopalaganeshk/s33-song-1",
+     "key": 17,
+     "file": "S33_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "gopalaganeshk/s33-song-1",
+     "key": 17,
+     "file": "S33_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "gopalaganeshk/s33-song-1",
+     "key": 17,
+     "file": "S33_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "gopalaganeshk/s33-song-1",
+     "key": 17,
+     "file": "S33_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "gopalaganeshk/s33-song-1",
+     "key": 17,
+     "file": "S33_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "gopalaganeshk/s33-song-1",
+     "key": 17,
+     "file": "S33_odia.mp4"
+    },
+    "as": {
+     "kernel": "gopalaganeshk/s33-song-1",
+     "key": 17,
+     "file": "S33_assamese.mp4"
+    },
+    "en": {
+     "kernel": "gopalaganeshk/s33-song-1",
+     "key": 17,
+     "file": "S33_english.mp4"
+    },
+    "ne": {
+     "kernel": "gopalaganeshk/s33-song-1",
+     "key": 17,
+     "file": "S33_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "gopalaganeshk/s33-song-1",
+     "key": 17,
+     "file": "S33_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "gopalaganeshk/s33-song-1",
+     "key": 17,
+     "file": "S33_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "gopalaganeshk/s33-song-1",
+     "key": 17,
+     "file": "S33_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "gopalaganeshk/s33-song-1",
+     "key": 17,
+     "file": "S33_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "gopalaganeshk/s33-song-1",
+     "key": 17,
+     "file": "S33_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "gopalaganeshk/s33-song-1",
+     "key": 17,
+     "file": "S33_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "gopalaganeshk/s33-song-1",
+     "key": 17,
+     "file": "S33_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "वूम वूम ट्रैक्टर, खेत जोतेंगे",
+    "te": "వ్రూమ్ వ్రూమ్ ట్రాక్టర్, పొలం దున్నుదాం",
+    "ta": "வ்ரூம் வ்ரூம் டிராக்டர், வயல உழுவோம்",
+    "kn": "ವ್ರೂಮ್ ವ್ರೂಮ್ ಟ್ರ್ಯಾಕ್ಟರ್, ಹೊಲ ಉಳೋಣ",
+    "ml": "വ്രൂം വ്രൂം ട്രാക്ടർ, പാടം ഉഴുതിടാം",
+    "mr": "व्रूम व्रूम ट्रॅक्टर, शेत नांगरू",
+    "bn": "ভ্রুম ভ্রুম ট্র্যাক্টর, মাঠ চষে ফেলি",
+    "gu": "વ્રૂમ વ્રૂમ ટ્રેક્ટર, ખેતર ખેડીએ",
+    "pa": "ਵਰੂਮ ਵਰੂਮ ਟਰੈਕਟਰ, ਖੇਤ ਵਾਹੀਏ",
+    "or": "ଭ୍ରୁମ୍ ଭ୍ରୁମ୍ ଟ୍ରାକ୍ଟର, ଖେତ ଚଷିବା",
+    "as": "ভ্ৰুম ভ্ৰুম ট্ৰেক্টৰ, পথাৰ জোতোঁ আহা",
+    "en": "Vroom vroom, tractor, let's plough the field",
+    "ne": "भ्रुम भ्रुम ट्र्याक्टर, खेत जोतौं",
+    "ur": "وروم وروم ٹریکٹر، کھیت جوتیں گے",
+    "sd": "وروم وروم ٽريڪٽر، کيت ڳهون ٿا",
+    "mai": "वूम वूम ट्रैक्टर, खेत जोतब",
+    "hry": "व्रूम व्रूम ट्रैक्टर, खेत जोतें",
+    "ks": "وُروم وُروم ٹریکٹر، زِمِن کورِو چلوٗ",
+    "mni": "ভ্রুম ভ্রুম ত্রাক্তর, লোইথুম থুন্নসি",
+    "bho": "वूम वूम ट्रैक्टर, खेत जोतल जाई"
+   },
+   "roman": {
+    "hi": "The Tractor on the Farm",
+    "te": "The Tractor on the Farm",
+    "ta": "The Tractor on the Farm",
+    "kn": "The Tractor on the Farm",
+    "ml": "The Tractor on the Farm",
+    "mr": "The Tractor on the Farm",
+    "bn": "The Tractor on the Farm",
+    "gu": "The Tractor on the Farm",
+    "pa": "The Tractor on the Farm",
+    "or": "The Tractor on the Farm",
+    "as": "The Tractor on the Farm",
+    "en": "The Tractor on the Farm",
+    "ne": "The Tractor on the Farm",
+    "ur": "The Tractor on the Farm",
+    "sd": "The Tractor on the Farm",
+    "mai": "The Tractor on the Farm",
+    "hry": "The Tractor on the Farm",
+    "ks": "The Tractor on the Farm",
+    "mni": "The Tractor on the Farm",
+    "bho": "The Tractor on the Farm"
+   },
+   "new": "2026-11-08"
+  },
+  "S34_diwali_diya": {
+   "src": {
+    "hi": {
+     "kernel": "gorlebharathi/s34-song-1",
+     "key": 12,
+     "file": "S34_hindi.mp4"
+    },
+    "te": {
+     "kernel": "gorlebharathi/s34-song-1",
+     "key": 12,
+     "file": "S34_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "gorlebharathi/s34-song-1",
+     "key": 12,
+     "file": "S34_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "gorlebharathi/s34-song-1",
+     "key": 12,
+     "file": "S34_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "gorlebharathi/s34-song-1",
+     "key": 12,
+     "file": "S34_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "gorlebharathi/s34-song-1",
+     "key": 12,
+     "file": "S34_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "gorlebharathi/s34-song-1",
+     "key": 12,
+     "file": "S34_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "gorlebharathi/s34-song-1",
+     "key": 12,
+     "file": "S34_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "gorlebharathi/s34-song-1",
+     "key": 12,
+     "file": "S34_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "gorlebharathi/s34-song-1",
+     "key": 12,
+     "file": "S34_odia.mp4"
+    },
+    "as": {
+     "kernel": "gorlebharathi/s34-song-1",
+     "key": 12,
+     "file": "S34_assamese.mp4"
+    },
+    "en": {
+     "kernel": "gorlebharathi/s34-song-1",
+     "key": 12,
+     "file": "S34_english.mp4"
+    },
+    "ne": {
+     "kernel": "gorlebharathi/s34-song-1",
+     "key": 12,
+     "file": "S34_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "gorlebharathi/s34-song-1",
+     "key": 12,
+     "file": "S34_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "gorlebharathi/s34-song-1",
+     "key": 12,
+     "file": "S34_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "gorlebharathi/s34-song-1",
+     "key": 12,
+     "file": "S34_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "gorlebharathi/s34-song-1",
+     "key": 12,
+     "file": "S34_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "gorlebharathi/s34-song-1",
+     "key": 12,
+     "file": "S34_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "gorlebharathi/s34-song-1",
+     "key": 12,
+     "file": "S34_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "gorlebharathi/s34-song-1",
+     "key": 12,
+     "file": "S34_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "टिंग टिंग, नन्हे दीये",
+    "te": "ఠింగ్ ఠింగ్, చిన్న దీపాలు",
+    "ta": "டிங் டிங், சின்னத் தீபங்கள்",
+    "kn": "ಠಿಂಗ್ ಠಿಂಗ್, ಪುಟ್ಟ ದೀಪಗಳು",
+    "ml": "ഠിങ് ഠിങ്, ചെറു ദീപങ്ങൾ",
+    "mr": "ठिंग ठिंग, छोटे दिवे",
+    "bn": "ঠিং ঠিং, ছোট্ট প্রদীপ",
+    "gu": "ટિંગ ટિંગ, નાના દીવડા",
+    "pa": "ਠਿੰਗ ਠਿੰਗ, ਨਿੱਕੇ ਦੀਵੇ",
+    "or": "ଠିଙ୍ଗ ଠିଙ୍ଗ, ଛୋଟ ଦୀପ ମାନେ",
+    "as": "ঠিং ঠিং, সৰু দীপবোৰ",
+    "en": "Ding ding, little lights",
+    "ne": "टिङ टिङ, साना बत्तीहरू",
+    "ur": "ٹھنگ ٹھنگ، ننھے دیے",
+    "sd": "ٺِنگ ٺِنگ، ننڍا ديوا",
+    "mai": "ठिङ ठिङ, छोट दीया",
+    "hry": "टिंग टिंग, नन्हे दीये",
+    "ks": "ٹِنٛگ ٹِنٛگ، ہَے لۆکٕٹۍ ژۄنٛگہٕ",
+    "mni": "টিং টিং, মৈরা পীকপা",
+    "bho": "ठिंग ठिंग, छोट छोट दियरी"
+   },
+   "roman": {
+    "hi": "Little Diyas Shine",
+    "te": "Little Diyas Shine",
+    "ta": "Little Diyas Shine",
+    "kn": "Little Diyas Shine",
+    "ml": "Little Diyas Shine",
+    "mr": "Little Diyas Shine",
+    "bn": "Little Diyas Shine",
+    "gu": "Little Diyas Shine",
+    "pa": "Little Diyas Shine",
+    "or": "Little Diyas Shine",
+    "as": "Little Diyas Shine",
+    "en": "Little Diyas Shine",
+    "ne": "Little Diyas Shine",
+    "ur": "Little Diyas Shine",
+    "sd": "Little Diyas Shine",
+    "mai": "Little Diyas Shine",
+    "hry": "Little Diyas Shine",
+    "ks": "Little Diyas Shine",
+    "mni": "Little Diyas Shine",
+    "bho": "Little Diyas Shine"
+   },
+   "new": "2026-11-08"
+  },
+  "S35_dadi_glasses": {
+   "src": {
+    "hi": {
+     "kernel": "dileep143/s35-song-1",
+     "key": 2,
+     "file": "S35_hindi.mp4"
+    },
+    "te": {
+     "kernel": "dileep143/s35-song-1",
+     "key": 2,
+     "file": "S35_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "dileep143/s35-song-1",
+     "key": 2,
+     "file": "S35_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "dileep143/s35-song-1",
+     "key": 2,
+     "file": "S35_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "dileep143/s35-song-1",
+     "key": 2,
+     "file": "S35_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "dileep143/s35-song-1",
+     "key": 2,
+     "file": "S35_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "dileep143/s35-song-1",
+     "key": 2,
+     "file": "S35_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "dileep143/s35-song-1",
+     "key": 2,
+     "file": "S35_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "dileep143/s35-song-1",
+     "key": 2,
+     "file": "S35_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "dileep143/s35-song-1",
+     "key": 2,
+     "file": "S35_odia.mp4"
+    },
+    "as": {
+     "kernel": "dileep143/s35-song-1",
+     "key": 2,
+     "file": "S35_assamese.mp4"
+    },
+    "en": {
+     "kernel": "dileep143/s35-song-1",
+     "key": 2,
+     "file": "S35_english.mp4"
+    },
+    "ne": {
+     "kernel": "dileep143/s35-song-1",
+     "key": 2,
+     "file": "S35_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "dileep143/s35-song-1",
+     "key": 2,
+     "file": "S35_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "dileep143/s35-song-1",
+     "key": 2,
+     "file": "S35_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "dileep143/s35-song-1",
+     "key": 2,
+     "file": "S35_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "dileep143/s35-song-1",
+     "key": 2,
+     "file": "S35_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "dileep143/s35-song-1",
+     "key": 2,
+     "file": "S35_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "dileep143/s35-song-1",
+     "key": 2,
+     "file": "S35_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "dileep143/s35-song-1",
+     "key": 2,
+     "file": "S35_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "देखो, देखो, कहाँ, कहाँ",
+    "te": "చూడు, చూడు, ఎక్కడ, ఎక్కడ",
+    "ta": "பாரு, பாரு, எங்கே, எங்கே",
+    "kn": "ನೋಡು, ನೋಡು, ಎಲ್ಲಿ, ಎಲ್ಲಿ",
+    "ml": "നോക്ക്, നോക്ക്, എവിടെ, എവിടെ",
+    "mr": "बघ, बघ, कुठे, कुठे",
+    "bn": "দেখো, দেখো, এখানে, এখানে",
+    "gu": "જો, જો, ક્યાં, ક્યાં",
+    "pa": "ਵੇਖ, ਵੇਖ, ਕਿੱਥੇ, ਕਿੱਥੇ",
+    "or": "ଦେଖ, ଦେଖ, କାହିଁ, କାହିଁ",
+    "as": "চোৱা, চোৱা, ক'ত, ক'ত",
+    "en": "Look, look, where, where",
+    "ne": "हेर, हेर, कहाँ, कहाँ",
+    "ur": "دیکھو، دیکھو، یہاں، یہاں",
+    "sd": "ڏس، ڏس، ڪٿي، ڪٿي",
+    "mai": "देखू, देखू, कतय, कतय",
+    "hry": "देख, देख, कित, कित",
+    "ks": "وُچھِو، وُچھِو، کَتہِ، کَتہِ",
+    "mni": "য়েংমু, য়েংমু, মকাই মকাই",
+    "bho": "देखऽ, देखऽ, कहाँ, कहाँ"
+   },
+   "roman": {
+    "hi": "Where Are Dadi's Glasses",
+    "te": "Where Are Dadi's Glasses",
+    "ta": "Where Are Dadi's Glasses",
+    "kn": "Where Are Dadi's Glasses",
+    "ml": "Where Are Dadi's Glasses",
+    "mr": "Where Are Dadi's Glasses",
+    "bn": "Where Are Dadi's Glasses",
+    "gu": "Where Are Dadi's Glasses",
+    "pa": "Where Are Dadi's Glasses",
+    "or": "Where Are Dadi's Glasses",
+    "as": "Where Are Dadi's Glasses",
+    "en": "Where Are Dadi's Glasses",
+    "ne": "Where Are Dadi's Glasses",
+    "ur": "Where Are Dadi's Glasses",
+    "sd": "Where Are Dadi's Glasses",
+    "mai": "Where Are Dadi's Glasses",
+    "hry": "Where Are Dadi's Glasses",
+    "ks": "Where Are Dadi's Glasses",
+    "mni": "Where Are Dadi's Glasses",
+    "bho": "Where Are Dadi's Glasses"
+   },
+   "new": "2026-11-08"
+  },
+  "S36_papa_snore": {
+   "src": {
+    "hi": {
+     "kernel": "nancy3111wheeler/s36-song-1",
+     "key": 4,
+     "file": "S36_hindi.mp4"
+    },
+    "te": {
+     "kernel": "nancy3111wheeler/s36-song-1",
+     "key": 4,
+     "file": "S36_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "nancy3111wheeler/s36-song-1",
+     "key": 4,
+     "file": "S36_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "nancy3111wheeler/s36-song-1",
+     "key": 4,
+     "file": "S36_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "nancy3111wheeler/s36-song-1",
+     "key": 4,
+     "file": "S36_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "nancy3111wheeler/s36-song-1",
+     "key": 4,
+     "file": "S36_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "nancy3111wheeler/s36-song-1",
+     "key": 4,
+     "file": "S36_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "nancy3111wheeler/s36-song-1",
+     "key": 4,
+     "file": "S36_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "nancy3111wheeler/s36-song-1",
+     "key": 4,
+     "file": "S36_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "nancy3111wheeler/s36-song-1",
+     "key": 4,
+     "file": "S36_odia.mp4"
+    },
+    "as": {
+     "kernel": "nancy3111wheeler/s36-song-1",
+     "key": 4,
+     "file": "S36_assamese.mp4"
+    },
+    "en": {
+     "kernel": "nancy3111wheeler/s36-song-1",
+     "key": 4,
+     "file": "S36_english.mp4"
+    },
+    "ne": {
+     "kernel": "nancy3111wheeler/s36-song-1",
+     "key": 4,
+     "file": "S36_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "nancy3111wheeler/s36-song-1",
+     "key": 4,
+     "file": "S36_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "nancy3111wheeler/s36-song-1",
+     "key": 4,
+     "file": "S36_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "nancy3111wheeler/s36-song-1",
+     "key": 4,
+     "file": "S36_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "nancy3111wheeler/s36-song-1",
+     "key": 4,
+     "file": "S36_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "nancy3111wheeler/s36-song-1",
+     "key": 4,
+     "file": "S36_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "nancy3111wheeler/s36-song-1",
+     "key": 4,
+     "file": "S36_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "nancy3111wheeler/s36-song-1",
+     "key": 4,
+     "file": "S36_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "खर्राटे, खर्राटे, ढोल, ढोल",
+    "te": "గురక, గురక, డ్రమ్, డ్రమ్",
+    "ta": "குறட்டை, குறட்டை, டிரம், டிரம்",
+    "kn": "ಗೊರಕೆ, ಗೊರಕೆ, ಡ್ರಮ್, ಡ್ರಮ್",
+    "ml": "കൂർക്കം, കൂർക്കം, ഡ്രം, ഡ്രം",
+    "mr": "घोरणं, घोरणं, ढोल, ढोल",
+    "bn": "ঘড়ঘড়, ঘড়ঘড়, ড্রাম, ড্রাম",
+    "gu": "ઘુરર, ઘુરર, ઢોલ, ઢોલ",
+    "pa": "ਖੁਰਕ ਖੁਰਕ, ਢੋਲ ਢੋਲ",
+    "or": "ଘୋର, ଘୋର, ଡ୍ରମ୍, ଡ୍ରମ୍",
+    "as": "নাক-ডাকনি, নাক-ডাকনি, ড্রাম, ড্রাম",
+    "en": "Snore, snore, drum, drum",
+    "ne": "घुर्र, घुर्र, ड्रम, ड्रम",
+    "ur": "خراٹے، خراٹے، ڈھول، ڈھول",
+    "sd": "کُرڪ، کُرڪ، ڊرم، ڊرم",
+    "mai": "खर्राटा, खर्राटा, ढोल, ढोल",
+    "hry": "खर्राटा, खर्राटा, ढोल, ढोल",
+    "ks": "گُرٕک، گُرٕک، ڈرم، ڈرم",
+    "mni": "ঙাঙ, ঙাঙ, দ্রুম, দ্রুম",
+    "bho": "खर्राटा, खर्राटा, ढोल, ढोल"
+   },
+   "roman": {
+    "hi": "Papa's Snoring Band",
+    "te": "Papa's Snoring Band",
+    "ta": "Papa's Snoring Band",
+    "kn": "Papa's Snoring Band",
+    "ml": "Papa's Snoring Band",
+    "mr": "Papa's Snoring Band",
+    "bn": "Papa's Snoring Band",
+    "gu": "Papa's Snoring Band",
+    "pa": "Papa's Snoring Band",
+    "or": "Papa's Snoring Band",
+    "as": "Papa's Snoring Band",
+    "en": "Papa's Snoring Band",
+    "ne": "Papa's Snoring Band",
+    "ur": "Papa's Snoring Band",
+    "sd": "Papa's Snoring Band",
+    "mai": "Papa's Snoring Band",
+    "hry": "Papa's Snoring Band",
+    "ks": "Papa's Snoring Band",
+    "mni": "Papa's Snoring Band",
+    "bho": "Papa's Snoring Band"
+   },
+   "new": "2026-11-08"
+  },
+  "S37_school_morning": {
+   "src": {
+    "hi": {
+     "kernel": "will00byers/s37-song-1",
+     "key": 5,
+     "file": "S37_hindi.mp4"
+    },
+    "te": {
+     "kernel": "will00byers/s37-song-1",
+     "key": 5,
+     "file": "S37_telugu.mp4"
+    },
+    "kn": {
+     "kernel": "will00byers/s37-song-1",
+     "key": 5,
+     "file": "S37_kannada.mp4"
+    },
+    "mr": {
+     "kernel": "will00byers/s37-song-1",
+     "key": 5,
+     "file": "S37_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "will00byers/s37-song-1",
+     "key": 5,
+     "file": "S37_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "will00byers/s37-song-1",
+     "key": 5,
+     "file": "S37_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "will00byers/s37-song-1",
+     "key": 5,
+     "file": "S37_punjabi.mp4"
+    },
+    "as": {
+     "kernel": "will00byers/s37-song-1",
+     "key": 5,
+     "file": "S37_assamese.mp4"
+    },
+    "ne": {
+     "kernel": "will00byers/s37-song-1",
+     "key": 5,
+     "file": "S37_nepali.mp4"
+    },
+    "sd": {
+     "kernel": "will00byers/s37-song-1",
+     "key": 5,
+     "file": "S37_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "will00byers/s37-song-1",
+     "key": 5,
+     "file": "S37_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "will00byers/s37-song-1",
+     "key": 5,
+     "file": "S37_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "will00byers/s37-song-1",
+     "key": 5,
+     "file": "S37_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "will00byers/s37-song-1",
+     "key": 5,
+     "file": "S37_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "will00byers/s37-song-1",
+     "key": 5,
+     "file": "S37_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "जल्दी जल्दी, जूते पहन लो",
+    "te": "త్వరగా త్వరగా, షూస్ వేసుకో",
+    "kn": "ಬೇಗ ಬೇಗ, ಶೂಸ್ ಹಾಕ್ಕೋ",
+    "mr": "लवकर लवकर, बूट घाल",
+    "bn": "তাড়াতাড়ি, তাড়াতাড়ি, জুতো পরে নাও",
+    "gu": "જલ્દી જલ્દી, શૂઝ પહેરી લે",
+    "pa": "ਜਲਦੀ ਜਲਦੀ, ਬੂਟ ਪਾ ਲਓ",
+    "as": "সোনকালে সোনকালে, জোতা পিন্ধ",
+    "ne": "चाँडो चाँडो, जुत्ता लगाऊ",
+    "sd": "جلدي جلدي، شوز پاءِ",
+    "mai": "जल्दी जल्दी, जूता पहिर लाय",
+    "hry": "जल्दी जल्दी, जूते पहन ले",
+    "ks": "تھٔرؠ تھٔرؠ، شۆز گژِھ ژۆٹ",
+    "mni": "থুনা থুনা, খুৎশাব থোংলো",
+    "bho": "जल्दी जल्दी, जूता पहिन ला"
+   },
+   "roman": {
+    "hi": "Hurry Hurry School Morning",
+    "te": "Hurry Hurry School Morning",
+    "kn": "Hurry Hurry School Morning",
+    "mr": "Hurry Hurry School Morning",
+    "bn": "Hurry Hurry School Morning",
+    "gu": "Hurry Hurry School Morning",
+    "pa": "Hurry Hurry School Morning",
+    "as": "Hurry Hurry School Morning",
+    "ne": "Hurry Hurry School Morning",
+    "sd": "Hurry Hurry School Morning",
+    "mai": "Hurry Hurry School Morning",
+    "hry": "Hurry Hurry School Morning",
+    "ks": "Hurry Hurry School Morning",
+    "mni": "Hurry Hurry School Morning",
+    "bho": "Hurry Hurry School Morning"
+   },
+   "new": "2026-11-08"
+  },
+  "S38_shapes_dance": {
+   "src": {
+    "hi": {
+     "kernel": "jampandu2003/s38-song-1",
+     "key": 6,
+     "file": "S38_hindi.mp4"
+    },
+    "te": {
+     "kernel": "jampandu2003/s38-song-1",
+     "key": 6,
+     "file": "S38_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "jampandu2003/s38-song-1",
+     "key": 6,
+     "file": "S38_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "jampandu2003/s38-song-1",
+     "key": 6,
+     "file": "S38_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "jampandu2003/s38-song-1",
+     "key": 6,
+     "file": "S38_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "jampandu2003/s38-song-1",
+     "key": 6,
+     "file": "S38_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "jampandu2003/s38-song-1",
+     "key": 6,
+     "file": "S38_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "jampandu2003/s38-song-1",
+     "key": 6,
+     "file": "S38_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "jampandu2003/s38-song-1",
+     "key": 6,
+     "file": "S38_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "jampandu2003/s38-song-1",
+     "key": 6,
+     "file": "S38_odia.mp4"
+    },
+    "as": {
+     "kernel": "jampandu2003/s38-song-1",
+     "key": 6,
+     "file": "S38_assamese.mp4"
+    },
+    "en": {
+     "kernel": "jampandu2003/s38-song-1",
+     "key": 6,
+     "file": "S38_english.mp4"
+    },
+    "ne": {
+     "kernel": "jampandu2003/s38-song-1",
+     "key": 6,
+     "file": "S38_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "jampandu2003/s38-song-1",
+     "key": 6,
+     "file": "S38_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "jampandu2003/s38-song-1",
+     "key": 6,
+     "file": "S38_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "jampandu2003/s38-song-1",
+     "key": 6,
+     "file": "S38_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "jampandu2003/s38-song-1",
+     "key": 6,
+     "file": "S38_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "jampandu2003/s38-song-1",
+     "key": 6,
+     "file": "S38_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "jampandu2003/s38-song-1",
+     "key": 6,
+     "file": "S38_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "jampandu2003/s38-song-1",
+     "key": 6,
+     "file": "S38_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "गोल गोल गेंद",
+    "te": "గుండ్రని వృత్తం",
+    "ta": "உருண்ட வட்டம்",
+    "kn": "ಗುಂಡಗಿನ ವೃತ್ತ",
+    "ml": "ഉരുണ്ട വൃത്തം",
+    "mr": "गोल गोल वर्तुळ",
+    "bn": "গোল গোল বৃত্ত",
+    "gu": "ગોળ ગોળ વર્તુળ",
+    "pa": "ਗੋਲ ਗੋਲ ਗੋਲਾ",
+    "or": "ଗୋଲ ଗୋଲ ବୃତ୍ତ",
+    "as": "ডাঙৰ গোল বৃত্ত",
+    "en": "Round round circle",
+    "ne": "गोलो गोलो गोला",
+    "ur": "گول گول دائرہ",
+    "sd": "گول گول گھیرو",
+    "mai": "गोल-गोल वृत्त",
+    "hry": "गोल-गोल गोला",
+    "ks": "گول گول دایرٕ",
+    "mni": "কোইবা মচিং কোইবা",
+    "bho": "गोल-मटोल गोला"
+   },
+   "roman": {
+    "hi": "The Shapes Dance",
+    "te": "The Shapes Dance",
+    "ta": "The Shapes Dance",
+    "kn": "The Shapes Dance",
+    "ml": "The Shapes Dance",
+    "mr": "The Shapes Dance",
+    "bn": "The Shapes Dance",
+    "gu": "The Shapes Dance",
+    "pa": "The Shapes Dance",
+    "or": "The Shapes Dance",
+    "as": "The Shapes Dance",
+    "en": "The Shapes Dance",
+    "ne": "The Shapes Dance",
+    "ur": "The Shapes Dance",
+    "sd": "The Shapes Dance",
+    "mai": "The Shapes Dance",
+    "hry": "The Shapes Dance",
+    "ks": "The Shapes Dance",
+    "mni": "The Shapes Dance",
+    "bho": "The Shapes Dance"
+   },
+   "new": "2026-11-08"
+  },
+  "S27_tortoise_hare": {
+   "src": {
+    "hi": {
+     "kernel": "ramu24/s27-song-1",
+     "key": 14,
+     "file": "S27_hindi.mp4"
+    },
+    "te": {
+     "kernel": "ramu24/s27-song-1",
+     "key": 14,
+     "file": "S27_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "ramu24/s27-song-1",
+     "key": 14,
+     "file": "S27_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "ramu24/s27-song-1",
+     "key": 14,
+     "file": "S27_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "ramu24/s27-song-1",
+     "key": 14,
+     "file": "S27_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "ramu24/s27-song-1",
+     "key": 14,
+     "file": "S27_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "ramu24/s27-song-1",
+     "key": 14,
+     "file": "S27_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "ramu24/s27-song-1",
+     "key": 14,
+     "file": "S27_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "ramu24/s27-song-1",
+     "key": 14,
+     "file": "S27_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "ramu24/s27-song-1",
+     "key": 14,
+     "file": "S27_odia.mp4"
+    },
+    "as": {
+     "kernel": "ramu24/s27-song-1",
+     "key": 14,
+     "file": "S27_assamese.mp4"
+    },
+    "en": {
+     "kernel": "ramu24/s27-song-1",
+     "key": 14,
+     "file": "S27_english.mp4"
+    },
+    "ne": {
+     "kernel": "ramu24/s27-song-1",
+     "key": 14,
+     "file": "S27_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "ramu24/s27-song-1",
+     "key": 14,
+     "file": "S27_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "ramu24/s27-song-1",
+     "key": 14,
+     "file": "S27_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "ramu24/s27-song-1",
+     "key": 14,
+     "file": "S27_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "ramu24/s27-song-1",
+     "key": 14,
+     "file": "S27_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "ramu24/s27-song-1",
+     "key": 14,
+     "file": "S27_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "ramu24/s27-song-1",
+     "key": 14,
+     "file": "S27_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "ramu24/s27-song-1",
+     "key": 14,
+     "file": "S27_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "धीरे धीरे, चलते रहो",
+    "te": "అడుగు అడుగు, నెమ్మదిగా",
+    "ta": "அடி அடி, மெதுவாக",
+    "kn": "ಹೆಜ್ಜೆ ಹೆಜ್ಜೆ, ನಿಧಾನವಾಗಿ",
+    "ml": "അടി അടി, പതുക്കെ പതുക്കെ",
+    "mr": "पाऊल पाऊल, हळूहळू",
+    "bn": "ধীরে ধীরে, পা ফেলে ফেলে",
+    "gu": "ચાલ ચાલ, ધીમે ધીમે",
+    "pa": "ਪੈਰ ਪੈਰ, ਹੌਲੀ ਹੌਲੀ",
+    "or": "ପାଦ ପାଦ, ଧୀରେ ଧୀରେ",
+    "as": "খোজ খোজ, ধীৰে ধীৰে",
+    "en": "Step step, slow and steady",
+    "ne": "पाइला पाइला, बिस्तारै",
+    "ur": "قدم قدم، آہستہ آہستہ",
+    "sd": "قدم قدم، آهستي آهستي",
+    "mai": "डेग डेग, धीरेसँ",
+    "hry": "चाल चाल, धीरे धीरे",
+    "ks": "پٔر پٔر دِلَس، آہِستہِ آہِستہِ",
+    "mni": "খোঙ থাংলো, নুংঙাইনা",
+    "bho": "धीरे धीरे, धीरे धीरे"
+   },
+   "roman": {
+    "hi": "Slow and Steady",
+    "te": "Slow and Steady",
+    "ta": "Slow and Steady",
+    "kn": "Slow and Steady",
+    "ml": "Slow and Steady",
+    "mr": "Slow and Steady",
+    "bn": "Slow and Steady",
+    "gu": "Slow and Steady",
+    "pa": "Slow and Steady",
+    "or": "Slow and Steady",
+    "as": "Slow and Steady",
+    "en": "Slow and Steady",
+    "ne": "Slow and Steady",
+    "ur": "Slow and Steady",
+    "sd": "Slow and Steady",
+    "mai": "Slow and Steady",
+    "hry": "Slow and Steady",
+    "ks": "Slow and Steady",
+    "mni": "Slow and Steady",
+    "bho": "Slow and Steady"
+   },
+   "new": "2026-11-08"
+  },
+  "S32_train_chuk_chuk": {
+   "src": {
+    "hi": {
+     "kernel": "tejaupma43/s32-song-1",
+     "key": 10,
+     "file": "S32_hindi.mp4"
+    },
+    "te": {
+     "kernel": "tejaupma43/s32-song-1",
+     "key": 10,
+     "file": "S32_telugu.mp4"
+    },
+    "ta": {
+     "kernel": "tejaupma43/s32-song-1",
+     "key": 10,
+     "file": "S32_tamil.mp4"
+    },
+    "kn": {
+     "kernel": "tejaupma43/s32-song-1",
+     "key": 10,
+     "file": "S32_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "tejaupma43/s32-song-1",
+     "key": 10,
+     "file": "S32_malayalam.mp4"
+    },
+    "mr": {
+     "kernel": "tejaupma43/s32-song-1",
+     "key": 10,
+     "file": "S32_marathi.mp4"
+    },
+    "bn": {
+     "kernel": "tejaupma43/s32-song-1",
+     "key": 10,
+     "file": "S32_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "tejaupma43/s32-song-1",
+     "key": 10,
+     "file": "S32_gujarati.mp4"
+    },
+    "pa": {
+     "kernel": "tejaupma43/s32-song-1",
+     "key": 10,
+     "file": "S32_punjabi.mp4"
+    },
+    "or": {
+     "kernel": "tejaupma43/s32-song-1",
+     "key": 10,
+     "file": "S32_odia.mp4"
+    },
+    "as": {
+     "kernel": "tejaupma43/s32-song-1",
+     "key": 10,
+     "file": "S32_assamese.mp4"
+    },
+    "ne": {
+     "kernel": "tejaupma43/s32-song-1",
+     "key": 10,
+     "file": "S32_nepali.mp4"
+    },
+    "ur": {
+     "kernel": "tejaupma43/s32-song-1",
+     "key": 10,
+     "file": "S32_urdu.mp4"
+    },
+    "sd": {
+     "kernel": "tejaupma43/s32-song-1",
+     "key": 10,
+     "file": "S32_sindhi.mp4"
+    },
+    "mai": {
+     "kernel": "tejaupma43/s32-song-1",
+     "key": 10,
+     "file": "S32_maithili.mp4"
+    },
+    "hry": {
+     "kernel": "tejaupma43/s32-song-1",
+     "key": 10,
+     "file": "S32_haryanvi.mp4"
+    },
+    "ks": {
+     "kernel": "tejaupma43/s32-song-1",
+     "key": 10,
+     "file": "S32_kashmiri.mp4"
+    },
+    "mni": {
+     "kernel": "tejaupma43/s32-song-1",
+     "key": 10,
+     "file": "S32_manipuri.mp4"
+    },
+    "bho": {
+     "kernel": "tejaupma43/s32-song-1",
+     "key": 10,
+     "file": "S32_bhojpuri.mp4"
+    }
+   },
+   "title": {
+    "hi": "छुक छुक गाड़ी चलती है",
+    "te": "చుక్ చుక్ రైలు వెళ్తుంది",
+    "ta": "சுக் சுக் ரயில் போகுது",
+    "kn": "ಚುಕ್ ಚುಕ್ ರೈಲು ಹೋಗುತ್ತೆ",
+    "ml": "ചുക് ചുക് തീവണ്ടി പോകുന്നു",
+    "mr": "छुक छुक गाडी जाते",
+    "bn": "চুক চুক রেলগাড়ি যায়",
+    "gu": "છુક છુક ગાડી ચાલી જાય",
+    "pa": "ਛੁੱਕ ਛੁੱਕ ਗੱਡੀ ਜਾਂਦੀ ਏ",
+    "or": "ଚୁକ୍ ଚୁକ୍ ରେଳ ଚାଲିଯାଏ",
+    "as": "চুক চুক ৰেল গৈ আছে",
+    "ne": "चुक चुक रेल जान्छ",
+    "ur": "چھک چھک گاڑی جاتی ہے",
+    "sd": "ڇُڪ ڇُڪ ريل وڃي ٿي",
+    "mai": "चुक चुक रेल चलल जाए",
+    "hry": "चुक चुक गाड़ी जावै सै",
+    "ks": "چُک چُک ریل گاڑی چھےٚ گژھان",
+    "mni": "চুক চুক রেলগারি চতলি",
+    "bho": "छुक छुक रेलिया जाला"
+   },
+   "roman": {
+    "hi": "Chuk Chuk Train",
+    "te": "Chuk Chuk Train",
+    "ta": "Chuk Chuk Train",
+    "kn": "Chuk Chuk Train",
+    "ml": "Chuk Chuk Train",
+    "mr": "Chuk Chuk Train",
+    "bn": "Chuk Chuk Train",
+    "gu": "Chuk Chuk Train",
+    "pa": "Chuk Chuk Train",
+    "or": "Chuk Chuk Train",
+    "as": "Chuk Chuk Train",
+    "ne": "Chuk Chuk Train",
+    "ur": "Chuk Chuk Train",
+    "sd": "Chuk Chuk Train",
+    "mai": "Chuk Chuk Train",
+    "hry": "Chuk Chuk Train",
+    "ks": "Chuk Chuk Train",
+    "mni": "Chuk Chuk Train",
+    "bho": "Chuk Chuk Train"
+   },
+   "new": "2026-11-08"
   }
  }
 }
