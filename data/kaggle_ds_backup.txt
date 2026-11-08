@@ -1,0 +1,26 @@
+# 8 Nov: Kaggle datasets with no clear local copy -> Drive 'Kaggle Datasets Backup'
+7 tejatarun8352/p2d-charassets
+1 mani7673/p2d-charassets
+1 mani7673/sonpur-2d-ep02
+1 mani7673/sonpur-2d-ep01-patch
+2 dileep143/p2d-charassets
+3 wheeler123/p2d-charassets
+4 nancy3111wheeler/p2d-charassets
+5 will00byers/p2d-charassets
+6 jampandu2003/p2d-charassets
+8 devisrishashank/p2d-charassets
+10 tejaupma43/p2d-charassets
+13 musthafadudekula/p2d-charassets
+15 reddy60/p2d-charassets
+17 gopalaganeshk/p2d-charassets
+19 svpawan/p2d-charassets
+20 chinthaharini/p2d-charassets
+1 mani7673/sonpur-2d-ep01
+1 mani7673/sonpur-renders
+1 mani7673/kulfi-lora-weights-chhotu
+2 dileep143/kulfi-lora-weights-all
+6 jampandu2003/kulfi-tiny-test
+10 tejaupma43/kulfi-fc03-mouths
+6 jampandu2003/char-clips-inputs
+6 jampandu2003/char-clips-inputs4
+2 dileep143/s2-probe-k2
