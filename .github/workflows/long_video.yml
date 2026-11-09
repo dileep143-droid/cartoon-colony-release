@@ -9,7 +9,7 @@ on:
     inputs:
       langs: { description: 'JSON list of channel codes (default all 20)', required: false, default: '' }
       day:   { description: 'day number (title style + lead rotation)', required: false, default: '' }
-      n:     { description: 'videos per channel, 1 h apart', required: false, default: '10' }
+      n:     { description: 'videos per channel, 1 h apart', required: false, default: '3' }
       dry:   { description: '1 = build only, no upload', required: false, default: '0' }
 
 jobs:
