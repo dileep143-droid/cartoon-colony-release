@@ -162,6 +162,39 @@ first = (now + datetime.timedelta(minutes=100)).astimezone(ist).replace(minute=0
 six = now.astimezone(ist).replace(hour=int(os.environ.get("START_IST") or 6), minute=0, second=0, microsecond=0)
 if six > now + datetime.timedelta(minutes=40): first = six   # nightly run: first video public at 06:00 IST like Zuzu, then every hour
 from PIL import Image, ImageDraw, ImageFont
+import math
+from PIL import ImageFilter as _IF
+
+
+def minutes_badge(im, M, font="data/long/fonts/LilitaOne-Regular.ttf"):
+    """BuBu TV long-video thumbnail badge (owner 9 Nov): sunburst '<M> MIN' + 'NON-STOP' ribbon, bottom-left (title is top, logo bottom-right)."""
+    S = 2; W = 360 * S; B = Image.new("RGBA", (W, W), (0, 0, 0, 0)); d = ImageDraw.Draw(B); c = W / 2
+    def star(r1, r2, n=18, rot=0):
+        return [(c + (r1 if i % 2 == 0 else r2) * math.cos(math.pi * i / n + rot), c + (r1 if i % 2 == 0 else r2) * math.sin(math.pi * i / n + rot)) for i in range(2 * n)]
+    d.polygon(star(160 * S, 140 * S), fill=(255, 255, 255, 255))                 # white outer rim
+    d.polygon(star(150 * S, 130 * S), fill=(58, 13, 74, 255))                    # dark purple edge (same as the title text stroke)
+    d.polygon(star(142 * S, 123 * S), fill=(255, 196, 0, 255))                   # orange-yellow burst
+    d.ellipse([c - 112 * S, c - 112 * S, c + 112 * S, c + 112 * S], fill=(255, 230, 40, 255))   # bright yellow centre
+    for a in range(18):                                                          # soft rays
+        t = math.pi * 2 * a / 18; d.line([(c + 40 * S * math.cos(t), c + 40 * S * math.sin(t)), (c + 108 * S * math.cos(t), c + 108 * S * math.sin(t))], fill=(255, 245, 140, 255), width=10 * S)
+    num = str(M); fs = 150 if len(num) <= 2 else 120
+    f1 = ImageFont.truetype(font, fs * S); f2 = ImageFont.truetype(font, 46 * S); f3 = ImageFont.truetype(font, 50 * S)
+    d.text((c, c - 22 * S), num, font=f1, anchor="mm", fill=(232, 25, 60, 255), stroke_width=9 * S, stroke_fill=(255, 255, 255, 255))
+    d.text((c, c + 58 * S), "MIN", font=f2, anchor="mm", fill=(58, 13, 74, 255), stroke_width=5 * S, stroke_fill=(255, 255, 255, 255))
+    R = Image.new("RGBA", (W, W), (0, 0, 0, 0)); r = ImageDraw.Draw(R)          # ribbon
+    y0, y1 = c + 92 * S, c + 160 * S; x0, x1 = c - 150 * S, c + 150 * S
+    r.polygon([(x0 - 26 * S, y0 + 10 * S), (x0 + 6 * S, y0 + 10 * S), (x0 + 6 * S, y1 + 10 * S), (x0 - 26 * S, y1 + 10 * S), (x0 - 10 * S, (y0 + y1) / 2 + 10 * S)], fill=(150, 10, 60, 255))
+    r.polygon([(x1 + 26 * S, y0 + 10 * S), (x1 - 6 * S, y0 + 10 * S), (x1 - 6 * S, y1 + 10 * S), (x1 + 26 * S, y1 + 10 * S), (x1 + 10 * S, (y0 + y1) / 2 + 10 * S)], fill=(150, 10, 60, 255))
+    r.rounded_rectangle([x0, y0, x1, y1], 14 * S, fill=(240, 40, 122, 255), outline=(255, 255, 255, 255), width=5 * S)
+    r.text((c, (y0 + y1) / 2), "NON-STOP", font=f3, anchor="mm", fill=(255, 255, 255, 255), stroke_width=5 * S, stroke_fill=(58, 13, 74, 255))
+    B = Image.alpha_composite(B, R).rotate(8, resample=Image.BICUBIC)
+    B = B.resize((W // S, W // S), Image.LANCZOS)
+    sh = Image.new("RGBA", B.size, (0, 0, 0, 0)); sh.putalpha(B.getchannel("A").point(lambda v: v * 0.55)); sh = sh.filter(_IF.GaussianBlur(9))
+    im = im.convert("RGBA"); x, y = 24, im.height - B.height - 16
+    im.alpha_composite(sh, (x + 6, y + 10)); im.alpha_composite(B, (x, y))
+    return im.convert("RGB")
+
+
 FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 for i, lead in enumerate(leads):
     rnd = random.Random(f"{DAY}-{i}-{code}"); T = MINS[(DAY * 5 + i) % len(MINS)] * 60; seq = [lead]; tot = have[lead]
@@ -194,6 +227,10 @@ for i, lead in enumerate(leads):
         Image.open(pick[0]).convert("RGB").resize((1280, 720)).save(th, quality=92)
     else:
         sh(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(int(have[lead] * 0.35)), "-i", f"norm/{lead}.mp4", "-frames:v", "1", "-vf", "scale=1280:720", th])
+    try:   # 9 Nov owner: every long-video thumbnail shows the real length ("<M> MIN NON-STOP" sunburst, bottom-left; title top, logo bottom-right)
+        if os.path.exists(th): minutes_badge(Image.open(th).convert("RGB").resize((1280, 720)), M).save(th, quality=92)
+    except Exception as e:
+        print("badge failed", str(e)[-120:], flush=True)
     slot = first + datetime.timedelta(hours=i); pub = slot.astimezone(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     print(f"[{i}] {title} | {M} min | {len(seq)} songs | {slot:%H:%M} IST | " + " > ".join(roman(s) for s in seq), flush=True)
     if DRY:
