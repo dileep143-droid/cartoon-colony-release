@@ -6,7 +6,7 @@
 # Each video is uploaded PRIVATE with publishAt (1 h gaps), so it goes public by itself. Re-runs never duplicate (exact title check).
 import datetime, json, os, random, re, subprocess, sys, unicodedata, zlib
 code = sys.argv[1]
-DAY = int(os.environ.get("DAY") or 0) if (os.environ.get("DAY") or "").strip() else (datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=5, minutes=30))).date() - datetime.date(2026, 11, 7)).days; N = int(os.environ.get("N") or 10); DRY = os.environ.get("DRY") == "1"
+DAY = int(os.environ.get("DAY") or 0) if (os.environ.get("DAY") or "").strip() else (datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=5, minutes=30))).date() - datetime.date(2026, 11, 7)).days; N = int(os.environ.get("N") or 3); DRY = os.environ.get("DRY") == "1"
 S = json.load(open("data/long/sources.json", encoding="utf-8")); NAME = S["name"]; L = NAME[code].capitalize()
 FAMOUS = ["S14_moon", "S11_puppy_bath", "S16_elephant", "S13_hen_chicks", "S15_rain", "S10_counting_bananas", "S17_crow", "S04_monkey_mangoes",
           "S18_birds", "S09_rainbow_puppy", "S07_bedtime_owl", "S12_school_bag_squirrel", "S08_goat_market", "S03_paper_boats"]   # famous rhymes + our most watched (7 Nov views)
@@ -120,7 +120,10 @@ ALL = [s for s in FAMOUS if s in have] + [s for s in have if s not in FAMOUS]
 # (random order, same for every channel), then everything rotates.
 OLD = [s for s in ALL if not S["songs"][s].get("new")]; NEW = [s for s in ALL if S["songs"][s].get("new")]
 LASTP = {}; PREV = {}   # how many times each of today's lead songs already led on this channel (picks a different title pattern each time)
-def old_window(d): return [OLD[(d * 3 + i) % len(OLD)] for i in range(min(N, len(OLD)))]
+H10 = 10   # 6-9 Nov runs uploaded 10 long videos per channel per day; from 10 Nov N per day (owner 9 Nov: 3 long + 2 two-minute songs)
+def old_window(d): return [OLD[(d * 3 + i) % len(OLD)] for i in range(min(H10, len(OLD)))]
+def day_start(d): return 0 if d <= 2 else H10 + (d - 3) * N          # where day d starts in the lead queue Q (day 2 = 9 Nov = first 10)
+def day_end(d): return day_start(d) + (H10 if d == 2 else N)
 if DAY < 2 or not NEW:
     leads = old_window(DAY) if OLD else ALL[:N]
 else:
@@ -128,23 +131,27 @@ else:
     Q = [s for s in OLD if s not in led] + nr
     Q += [s for s in ALL if s not in Q and s not in led and s != 'S11_puppy_bath']   # 9 Nov owner: EVERY song leads once before any song repeats
     cyc = 0   # 9 Nov owner: no song may lead again on the next day -> after the first round, every song leads once per shuffled cycle
-    while len(Q) < (DAY - 1) * N + len(ALL) + 3 * N:
+    while len(Q) < day_end(DAY) + len(ALL) + 4 * N:
         c = sorted(ALL); random.Random(f"cycle-{cyc}-{code}").shuffle(c); cyc += 1
-        tail = set(Q[-N:]); c = [x for x in c if x not in tail] + [x for x in c if x in tail]   # songs that just led go to the end of the cycle
+        tail = set(Q[-max(N, 10):]); c = [x for x in c if x not in tail] + [x for x in c if x in tail]   # songs that just led go to the end of the cycle
         Q += c
     LOOK = [{"S03_paper_boats", "S09_rainbow_puppy", "S11_puppy_bath"}, {"S04_monkey_mangoes", "S18_birds"}]   # same courtyard / same mango tree
     mate = lambda a, b: a == b or any(a in g and b in g for g in LOOK)
-    def clash(x, d0, j): return x in Q[d0 - N:d0] or any(mate(x, y) for y in Q[d0:j])
-    for d0 in range(N, len(Q) - N, N):   # repair: a song from yesterday, twice today, or a look-alike today is swapped with a later free song
-        for j in range(d0, d0 + N):
-            if clash(Q[j], d0, j):
-                for m in range(d0 + N, len(Q)):
-                    if not clash(Q[m], d0, j) and (m >= len(Q) - N or Q[j] not in Q[(m // N) * N - N:(m // N) * N + N]):
+    days = [(day_start(d), day_end(d)) for d in range(2, 10**6) if day_end(d) <= len(Q)]
+    for k in range(1, len(days)):   # repair: a song from yesterday, twice today, or a look-alike today is swapped with a later free song
+        (p0, p1), (b0, b1) = days[k - 1], days[k]
+        for j in range(b0, b1):
+            bad = lambda x: x in Q[p0:p1] or any(mate(x, y) for y in Q[b0:j])
+            if bad(Q[j]):
+                for m in range(b1, len(Q)):
+                    md = next((i for i, (x0, x1) in enumerate(days) if x0 <= m < x1), None)
+                    near = Q[days[md - 1][0]:days[min(md + 1, len(days) - 1)][1]] if md else []
+                    if not bad(Q[m]) and Q[j] not in near:
                         Q[j], Q[m] = Q[m], Q[j]; break
-    leads = Q[(DAY - 2) * N:(DAY - 2) * N + N]
-    leads = list(dict.fromkeys(leads)) + [s for s in ALL if s not in leads][:max(0, N - len(set(leads)))]
+    leads = Q[day_start(DAY):day_start(DAY) + (H10 if DAY == 2 else N)]
+    leads = list(dict.fromkeys(leads)) + [s for s in ALL if s not in leads][:max(0, len(leads) - len(set(leads)))]
     HIST = old_window(0) + old_window(1) + (['S11_puppy_bath'] if 'S11_puppy_bath' in ALL else [])   # 6-8 Nov leads (ep0 + day 0 + day 1)
-    PREV.update({s: Q[:(DAY - 2) * N].count(s) + HIST.count(s) for s in leads})
+    PREV.update({s: Q[:day_start(DAY)].count(s) + HIST.count(s) for s in leads})
 HOOKS = json.load(open("data/long/hooks.json", encoding="utf-8")) if os.path.exists("data/long/hooks.json") else {}
 
 
