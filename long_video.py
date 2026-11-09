@@ -52,16 +52,52 @@ def native(s):
 
 os.makedirs("lv", exist_ok=True); os.makedirs("norm", exist_ok=True); have = {}
 LOGO = "data/long/logo.png"
+DRV = DROOT = None; DFOLD = {}   # 9 Nov owner: songs come from Google Drive 'BuBu TV Songs/<slug>/<file>' (same names as the Kaggle output); Kaggle only as fallback
+if os.environ.get("DRIVE_TOKEN"):
+    try:
+        from google.oauth2.credentials import Credentials
+        from google.auth.transport.requests import Request
+        from googleapiclient.discovery import build as _dbuild
+        _c = Credentials.from_authorized_user_info(json.loads(os.environ["DRIVE_TOKEN"]))
+        if not _c.valid: _c.refresh(Request())
+        DRV = _dbuild("drive", "v3", credentials=_c, cache_discovery=False)
+        _r = DRV.files().list(q="name='BuBu TV Songs' and mimeType='application/vnd.google-apps.folder' and trashed=false", fields="files(id)").execute()["files"]
+        DROOT = _r[0]["id"] if _r else None
+    except Exception as e:
+        print("DRIVE NOT AVAILABLE", str(e)[-150:], flush=True); DRV = None
+
+
+def drive_get(slug, fname, out):
+    if not DRV or not DROOT or not fname: return False
+    try:
+        if slug not in DFOLD:
+            f = DRV.files().list(q=f"name='{slug}' and '{DROOT}' in parents and mimeType='application/vnd.google-apps.folder' and trashed=false", fields="files(id)").execute()["files"]
+            DFOLD[slug] = {x["name"]: x["id"] for x in DRV.files().list(q=f"'{f[0]['id']}' in parents and trashed=false", fields="files(id,name)", pageSize=1000).execute()["files"]} if f else {}
+        fid = DFOLD[slug].get(fname)
+        if not fid: return False
+        from googleapiclient.http import MediaIoBaseDownload
+        with open(out, "wb") as fh:
+            d = MediaIoBaseDownload(fh, DRV.files().get_media(fileId=fid), chunksize=64 * 2**20); done = False
+            while not done: _, done = d.next_chunk(num_retries=5)
+        return os.path.getsize(out) > 1_000_000
+    except Exception as e:
+        print(slug, fname, "drive failed", str(e)[-150:], flush=True)
+        if os.path.exists(out): os.remove(out)
+        return False
+
+
 for slug, info in S["songs"].items():
     src = info["src"].get(code)
     if not src: continue
     raw = f"lv/{slug}.mp4"
     if "url" in src:
         sh(["curl", "-sSLf", "--retry", "3", "-o", raw, src["url"]])
+    elif drive_get(slug, src.get("file"), raw):
+        print(f"SOURCE {slug} {code} drive", flush=True)
     else:
         env = dict(os.environ, KAGGLE_API_TOKEN=os.environ.get(f"KAGGLE_KEY{src['key']}", ""), PYTHONUTF8="1"); d = f"lv/k_{slug}"
         subprocess.run(["kaggle", "kernels", "output", src["kernel"], "-p", d, "--file-pattern", "^" + re.escape(src["file"]) + "$"], env=env, capture_output=True, text=True)
-        if os.path.exists(f"{d}/{src['file']}"): os.replace(f"{d}/{src['file']}", raw)
+        if os.path.exists(f"{d}/{src['file']}"): os.replace(f"{d}/{src['file']}", raw); print(f"SOURCE {slug} {code} kaggle fallback", flush=True)
     if not os.path.exists(raw) or os.path.getsize(raw) < 1_000_000:
         print(f"{slug} {code} MISSING source", flush=True); continue
     n = f"norm/{slug}.mp4"   # same size/fps/codec for every song -> lossless join
