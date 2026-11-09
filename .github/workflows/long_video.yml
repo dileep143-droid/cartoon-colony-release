@@ -33,6 +33,7 @@ jobs:
           DAY: ${{ inputs.day }}
           N: ${{ inputs.n }}
           DRY: ${{ inputs.dry }}
+          DRIVE_TOKEN: ${{ secrets.DRIVE_TOKEN }}
           KAGGLE_KEY1: ${{ secrets.KAGGLE_KEY1 }}
           KAGGLE_KEY2: ${{ secrets.KAGGLE_KEY2 }}
           KAGGLE_KEY3: ${{ secrets.KAGGLE_KEY3 }}
