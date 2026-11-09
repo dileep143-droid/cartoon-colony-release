@@ -7,6 +7,7 @@ on:
       key:     { description: 'which KAGGLE_KEYn secret owns it', required: true, default: '3' }
       folder:  { description: 'Drive folder path', required: true, default: 'BuBu TV Songs' }
       pattern: { description: 'file regex', required: false, default: '\.mp4$' }
+      replace: { description: '1 = replace files already in Drive (newer build)', required: false, default: '0' }
 jobs:
   copy:
     runs-on: ubuntu-latest
@@ -19,4 +20,5 @@ jobs:
         env:
           DRIVE_TOKEN: ${{ secrets.DRIVE_TOKEN }}
           KAGGLE_ONE: ${{ secrets[format('KAGGLE_KEY{0}', inputs.key)] }}
+          REPLACE: ${{ inputs.replace }}
         run: python kaggle_to_drive.py "${{ inputs.kernel }}" "${{ inputs.key }}" "${{ inputs.folder }}" "${{ inputs.pattern }}"
