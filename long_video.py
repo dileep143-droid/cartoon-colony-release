@@ -102,6 +102,8 @@ for slug, info in S["songs"].items():
         print(f"{slug} {code} MISSING source", flush=True); continue
     n = f"norm/{slug}.mp4"   # same size/fps/codec for every song -> lossless join
     base = "scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,fps=24,setsar=1"
+    if os.path.exists("data/long/fonts/LilitaOne-Regular.ttf"):   # 9 Nov owner: channel name like Zuzu - see-through white "BUBU TV", bottom-right, every frame
+        base += ",drawtext=fontfile=data/long/fonts/LilitaOne-Regular.ttf:text='BUBU TV':fontcolor=white@0.5:fontsize=54:x=w-tw-56:y=h-th-44:shadowcolor=black@0.3:shadowx=2:shadowy=2"
     if os.path.exists(LOGO):   # 8 Nov owner: our BuBu TV logo in the top-right corner of every long video
         vf = ["-i", LOGO, "-filter_complex", f"[0:v]{base}[v];[1:v]scale=150:150,format=rgba,colorchannelmixer=aa=0.92[l];[v][l]overlay=W-w-36:32,format=yuv420p[o]", "-map", "[o]", "-map", "0:a?"]
     else: vf = ["-vf", base + ",format=yuv420p"]
