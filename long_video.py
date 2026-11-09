@@ -102,8 +102,9 @@ for slug, info in S["songs"].items():
         print(f"{slug} {code} MISSING source", flush=True); continue
     n = f"norm/{slug}.mp4"   # same size/fps/codec for every song -> lossless join
     base = "scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,fps=24,setsar=1"
-    if os.path.exists("data/long/fonts/LilitaOne-Regular.ttf"):   # 9 Nov owner: channel name like Zuzu - see-through white "BUBU TV", bottom-right, every frame
-        base += ",drawtext=fontfile=data/long/fonts/LilitaOne-Regular.ttf:text='BUBU TV':fontcolor=white@0.5:fontsize=54:x=w-tw-56:y=h-th-44:shadowcolor=black@0.3:shadowx=2:shadowy=2"
+    if os.path.exists("data/long/fonts/LilitaOne-Regular.ttf"):   # 9 Nov owner: channel name like Zuzu - see-through white "BUBU TV", every frame
+        ph = sum(map(ord, slug)) * 97 % 3000; ph2 = sum(map(ord, slug)) * 53 % 1800   # 9 Nov owner: name TRAVELS slowly across the screen (bounces off edges), different start per song
+        base += f",drawtext=fontfile=data/long/fonts/LilitaOne-Regular.ttf:text='BUBU TV':fontcolor=white@0.5:fontsize=54:x='abs(mod(t*61+{ph}\\,2*(w-tw-40))-(w-tw-40))+20':y='abs(mod(t*37+{ph2}\\,2*(h-th-40))-(h-th-40))+20':shadowcolor=black@0.3:shadowx=2:shadowy=2"
     if os.path.exists(LOGO):   # 8 Nov owner: our BuBu TV logo in the top-right corner of every long video
         vf = ["-i", LOGO, "-filter_complex", f"[0:v]{base}[v];[1:v]scale=150:150,format=rgba,colorchannelmixer=aa=0.92[l];[v][l]overlay=W-w-36:32,format=yuv420p[o]", "-map", "[o]", "-map", "0:a?"]
     else: vf = ["-vf", base + ",format=yuv420p"]
