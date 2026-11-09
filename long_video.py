@@ -166,7 +166,7 @@ def make_title(lead, M, nat, rom, head, tpp, st):
         return re.sub(r"\s+", " ", t).strip()
     n = PREV.get(lead, 0); h = zlib.crc32(lead.encode())
     for oi in range(len(opens)):              # the opening is fixed by how often the song led; only if every ending fails, try the next one
-        op = opens[(n + h + oi) % len(opens)]
+        op = opens[(n + oi) % len(opens)]   # 1st time a song leads: its famous line (Zuzu), then name, topic, keyword
         parts = [op] + ([nm] if nz(nm) not in nz(op) and (op in (tpc, kw) or code != "en") else [])
         for ei in range(len(ends)):
             end = ends[(n * 3 + h + ei) % len(ends)]
