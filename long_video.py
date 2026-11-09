@@ -126,20 +126,25 @@ if DAY < 2 or not NEW:
 else:
     led = set(old_window(0)) | set(old_window(1)); nr = NEW[:]; random.Random("new-songs-2026-11-08").shuffle(nr)
     Q = [s for s in OLD if s not in led] + nr
+    Q += [s for s in ALL if s not in Q and s not in led and s != 'S11_puppy_bath']   # 9 Nov owner: EVERY song leads once before any song repeats
     cyc = 0   # 9 Nov owner: no song may lead again on the next day -> after the first round, every song leads once per shuffled cycle
-    while len(Q) < (DAY - 1) * N + len(ALL):
+    while len(Q) < (DAY - 1) * N + len(ALL) + 3 * N:
         c = sorted(ALL); random.Random(f"cycle-{cyc}-{code}").shuffle(c); cyc += 1
         tail = set(Q[-N:]); c = [x for x in c if x not in tail] + [x for x in c if x in tail]   # songs that just led go to the end of the cycle
         Q += c
-    for d0 in range(N, len(Q) - N, N):   # repair: a song in yesterday's slice (or twice today) is swapped with a later song that is free
+    LOOK = [{"S03_paper_boats", "S09_rainbow_puppy", "S11_puppy_bath"}, {"S04_monkey_mangoes", "S18_birds"}]   # same courtyard / same mango tree
+    mate = lambda a, b: a == b or any(a in g and b in g for g in LOOK)
+    def clash(x, d0, j): return x in Q[d0 - N:d0] or any(mate(x, y) for y in Q[d0:j])
+    for d0 in range(N, len(Q) - N, N):   # repair: a song from yesterday, twice today, or a look-alike today is swapped with a later free song
         for j in range(d0, d0 + N):
-            if Q[j] in Q[d0 - N:d0] or Q[j] in Q[d0:j]:
+            if clash(Q[j], d0, j):
                 for m in range(d0 + N, len(Q)):
-                    if Q[m] not in Q[d0 - N:d0 + N] and (m >= len(Q) - N or Q[j] not in Q[(m // N) * N - N:(m // N) * N + N]):
+                    if not clash(Q[m], d0, j) and (m >= len(Q) - N or Q[j] not in Q[(m // N) * N - N:(m // N) * N + N]):
                         Q[j], Q[m] = Q[m], Q[j]; break
     leads = Q[(DAY - 2) * N:(DAY - 2) * N + N]
     leads = list(dict.fromkeys(leads)) + [s for s in ALL if s not in leads][:max(0, N - len(set(leads)))]
-    PREV.update({s: Q[:(DAY - 2) * N].count(s) for s in leads})
+    HIST = old_window(0) + old_window(1) + (['S11_puppy_bath'] if 'S11_puppy_bath' in ALL else [])   # 6-8 Nov leads (ep0 + day 0 + day 1)
+    PREV.update({s: Q[:(DAY - 2) * N].count(s) + HIST.count(s) for s in leads})
 HOOKS = json.load(open("data/long/hooks.json", encoding="utf-8")) if os.path.exists("data/long/hooks.json") else {}
 
 
@@ -270,6 +275,9 @@ for i, lead in enumerate(leads):
     th = f"thumb_{code}_{i}.jpg"   # Zuzu style (7 Nov): a clean close-up of the lead song's characters, no text; same picture for every language
     # owner 7 Nov: the lead song's OWN attractive thumbnail in THIS language (big native text, rainbow frame, logo); rhymes: data/long/lthumbs
     pick = [p for p in (f"data/songs/{lead}/thumb_{code}.jpg", f"data/long/lthumbs/{lead}_{code}.jpg", f"data/long/thumbs/{lead}.jpg") if os.path.exists(p)]
+    # 9 Nov owner: a song that leads AGAIN gets a different picture: 1st time the designed thumbnail, then its variants v1, v2 ...
+    var = [p for p in sorted(__import__("glob").glob(f"data/long/variants/{lead}/{code}_v*.jpg"))]
+    if pick and var: pick = [([pick[0]] + var)[PREV.get(lead, 0) % (1 + len(var))]]
     if pick:
         Image.open(pick[0]).convert("RGB").resize((1280, 720)).save(th, quality=92)
     else:
