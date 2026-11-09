@@ -4,7 +4,7 @@
 # 8 uploads a day exactly 1 h apart; title "<native> | <Roman> & More Non-Stop ..." with a new title style each day; the SAME 28 tags on
 # every video (channel, generic kids words, every song name); same long description listing all songs + hashtags; no timestamps.
 # Each video is uploaded PRIVATE with publishAt (1 h gaps), so it goes public by itself. Re-runs never duplicate (exact title check).
-import datetime, json, os, random, re, subprocess, sys, unicodedata
+import datetime, json, os, random, re, subprocess, sys, unicodedata, zlib
 code = sys.argv[1]
 DAY = int(os.environ.get("DAY") or 0) if (os.environ.get("DAY") or "").strip() else (datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=5, minutes=30))).date() - datetime.date(2026, 11, 7)).days; N = int(os.environ.get("N") or 10); DRY = os.environ.get("DRY") == "1"
 S = json.load(open("data/long/sources.json", encoding="utf-8")); NAME = S["name"]; L = NAME[code].capitalize()
@@ -119,15 +119,63 @@ ALL = [s for s in FAMOUS if s in have] + [s for s in have if s not in FAMOUS]
 # (every old song leads at least once: day 0 + 1 used the old window, day 2 = the old songs not led yet), THEN the new songs lead one by one
 # (random order, same for every channel), then everything rotates.
 OLD = [s for s in ALL if not S["songs"][s].get("new")]; NEW = [s for s in ALL if S["songs"][s].get("new")]
+LASTP = {}; PREV = {}   # how many times each of today's lead songs already led on this channel (picks a different title pattern each time)
 def old_window(d): return [OLD[(d * 3 + i) % len(OLD)] for i in range(min(N, len(OLD)))]
 if DAY < 2 or not NEW:
     leads = old_window(DAY) if OLD else ALL[:N]
 else:
     led = set(old_window(0)) | set(old_window(1)); nr = NEW[:]; random.Random("new-songs-2026-11-08").shuffle(nr)
     Q = [s for s in OLD if s not in led] + nr
-    while len(Q) < (DAY - 1) * N + len(ALL): Q += [ALL[(k * 3) % len(ALL)] for k in range(len(ALL))]
+    cyc = 0   # 9 Nov owner: no song may lead again on the next day -> after the first round, every song leads once per shuffled cycle
+    while len(Q) < (DAY - 1) * N + len(ALL):
+        c = sorted(ALL); random.Random(f"cycle-{cyc}-{code}").shuffle(c); cyc += 1
+        tail = set(Q[-N:]); c = [x for x in c if x not in tail] + [x for x in c if x in tail]   # songs that just led go to the end of the cycle
+        Q += c
+    for d0 in range(N, len(Q) - N, N):   # repair: a song in yesterday's slice (or twice today) is swapped with a later song that is free
+        for j in range(d0, d0 + N):
+            if Q[j] in Q[d0 - N:d0] or Q[j] in Q[d0:j]:
+                for m in range(d0 + N, len(Q)):
+                    if Q[m] not in Q[d0 - N:d0 + N] and (m >= len(Q) - N or Q[j] not in Q[(m // N) * N - N:(m // N) * N + N]):
+                        Q[j], Q[m] = Q[m], Q[j]; break
     leads = Q[(DAY - 2) * N:(DAY - 2) * N + N]
     leads = list(dict.fromkeys(leads)) + [s for s in ALL if s not in leads][:max(0, N - len(set(leads)))]
+    PREV.update({s: Q[:(DAY - 2) * N].count(s) for s in leads})
+HOOKS = json.load(open("data/long/hooks.json", encoding="utf-8")) if os.path.exists("data/long/hooks.json") else {}
+
+
+def make_title(lead, M, nat, rom, head, tpp, st):
+    """9 Nov owner: Zuzu-style writing - every time a song leads again its title OPENS differently (famous line / name / topic /
+    kids keyword, in turn) and uses a different ending. Every title keeps the language word (7 Nov); non-English = native script first."""
+    nz = lambda x: re.sub(r"[\W_]+", "", (x or "").lower())
+    hook = (HOOKS.get(lead, {}).get(code) or "").strip()
+    if code == "en" and hook: hook = hook[:1].upper() + hook[1:]
+    nm = nat or rom
+    tpc = (TOPIC.get(lead, {}).get(code) or "").strip()                     # "बंदर का गाना" / "Monkey Song"
+    kw = (NATKW.get(code) or EXTRA.get(code) or [f"{L} Rhymes"])[0]          # "हिंदी कविता" / "English Rhymes"
+    opens = []
+    for o in (hook, nm, tpc, kw):
+        if o and nz(o) and nz(o) not in [nz(x) for x in opens]: opens.append(o)
+    ends = ["{R} & Many More Best {L} Nursery Rhymes For Kids", "{L} Nursery Rhymes | Kids Non-Stop Learning Videos",
+            "Superhit {L} Rhymes For Kids | {M} Min Non-Stop", "{R} & More {L} Kids Songs", "Kids Favourite {L} Rhymes Collection 2026",
+            "{M} Min Non-Stop {L} Kids Songs | BuBu TV", "{R} | Preschool Learning Songs in {L} For Kids", "Popular {L} Rhymes For Kids | Non-Stop"]
+    def build(parts, end, with_rom):
+        r = rom if with_rom and nz(rom) not in nz(" ".join(parts)) else ""
+        e = end.format(R=r, L=L, M=M).strip()
+        e = re.sub(r"^\| ", "", e) if not r else e
+        t = " | ".join(parts) + (" " if e.startswith("&") else " | ") + e
+        return re.sub(r"\s+", " ", t).strip()
+    n = PREV.get(lead, 0); h = zlib.crc32(lead.encode())
+    for oi in range(len(opens)):              # the opening is fixed by how often the song led; only if every ending fails, try the next one
+        op = opens[(n + h + oi) % len(opens)]
+        parts = [op] + ([nm] if nz(nm) not in nz(op) and (op in (tpc, kw) or code != "en") else [])
+        for ei in range(len(ends)):
+            end = ends[(n * 3 + h + ei) % len(ends)]
+            for t in (build(parts, end, True), build(parts, end, False), build([op], end, op not in (tpc, kw)) if op not in (tpc, kw) else ""):
+                if t and len(t) <= 100 and t not in have_t and L.lower() in t.lower():
+                    LASTP[lead] = op; return t
+    return next((t for t in [f"{head} & More {L} Rhymes For Kids", f"{head} {L} Rhymes For Kids", f"{head} {L} Rhymes"] if len(t) <= 100), f"{nat} {L} Rhymes"[:100])
+
+
 songs_roman = [roman(s) for s in ALL]
 tags, tl = [], 0
 for t in ["BuBu TV", f"BuBu TV {L}", f"{L} Rhymes", f"{L} Rhymes For Kids"] + NATKW.get(code, []) + [ "Kids Rhymes", "Nursery Rhymes", f"{L} Nursery Rhymes", "Kids Songs", f"{L} Kids Songs", "Baby Songs", "Rhymes for Kids",
@@ -213,8 +261,7 @@ for i, lead in enumerate(leads):
     tp = TOPIC.get(lead, {}).get("en", "")   # 7 Nov owner: say what the song is ABOUT, as people search it ("Rain Song", "Bath Song")
     if tp and tp.split()[0].lower() in rom.lower(): tp = ""
     tpp = f"| {tp} " if tp else ""
-    title = next((t for t in [f"{head} {tpp}{st}", f"{head} {tpp}& More {L} Rhymes For Kids", f"{head} {tpp}| {L} Rhymes For Kids", f"{head} {st}",
-                              f"{head} & More {L} Rhymes For Kids", f"{head} {L} Rhymes For Kids", f"{head} {L} Rhymes"] if len(t) <= 100), f"{nat} {L} Rhymes"[:100])
+    title = make_title(lead, M, nat, rom, head, tpp, st)
     vt = [x for x in [f"{L} {TOPIC.get(lead, {}).get('en', '')}", TOPIC.get(lead, {}).get("en", ""), TOPIC.get(lead, {}).get(code, "")] if x.strip() and x not in tags]
     vt = list(dict.fromkeys(vt))
     vtags, vl = [], 0
