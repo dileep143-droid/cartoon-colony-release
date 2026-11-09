@@ -28,9 +28,14 @@ pid = None
 for part in path.strip("/").split("/"): pid = folder(part, pid)
 res = {}
 for f in files:
-    if dr.files().list(q=f"name='{f}' and '{pid}' in parents and trashed=false", fields="files(id)").execute().get("files"):
+    ex = dr.files().list(q=f"name='{f}' and '{pid}' in parents and trashed=false", fields="files(id)").execute().get("files")
+    media = MediaFileUpload(os.path.join("dl", f), chunksize=64 * 1024 * 1024, resumable=True)
+    if ex and os.environ.get("REPLACE") == "1":   # 9 Nov: a newer build of the same song -> replace the file content (same Drive id, nothing deleted)
+        up = dr.files().update(fileId=ex[0]["id"], media_body=media, fields="id,size"); print(f, "replacing older copy in Drive", flush=True)
+    elif ex:
         res[f] = "already there"; print(f, "already in Drive", flush=True); continue
-    up = dr.files().create(body={"name": f, "parents": [pid]}, media_body=MediaFileUpload(os.path.join("dl", f), chunksize=64 * 1024 * 1024, resumable=True), fields="id,size")
+    else:
+        up = dr.files().create(body={"name": f, "parents": [pid]}, media_body=media, fields="id,size")
     resp = None
     tries = 0   # 4 Nov: GitHub runners sometimes get SSL EOF during big Drive uploads -> resume the same upload (resumable) up to 8 times
     while resp is None:
