@@ -5291,6 +5291,155 @@
     "ur": "The Magic Tiffin Box"
    },
    "new": "2026-11-09"
+  },
+  "S70_red_fire_engine": {
+   "src": {
+    "te": {
+     "kernel": "musthafadudekula/s70-song-1",
+     "key": 13,
+     "file": "S70_telugu.mp4"
+    },
+    "as": {
+     "kernel": "musthafadudekula/s70-song-1",
+     "key": 13,
+     "file": "S70_assamese.mp4"
+    },
+    "bn": {
+     "kernel": "musthafadudekula/s70-song-1",
+     "key": 13,
+     "file": "S70_bengali.mp4"
+    },
+    "bho": {
+     "kernel": "musthafadudekula/s70-song-1",
+     "key": 13,
+     "file": "S70_bhojpuri.mp4"
+    },
+    "en": {
+     "kernel": "musthafadudekula/s70-song-1",
+     "key": 13,
+     "file": "S70_english.mp4"
+    },
+    "gu": {
+     "kernel": "musthafadudekula/s70-song-1",
+     "key": 13,
+     "file": "S70_gujarati.mp4"
+    },
+    "hry": {
+     "kernel": "musthafadudekula/s70-song-1",
+     "key": 13,
+     "file": "S70_haryanvi.mp4"
+    },
+    "hi": {
+     "kernel": "musthafadudekula/s70-song-1",
+     "key": 13,
+     "file": "S70_hindi.mp4"
+    },
+    "kn": {
+     "kernel": "musthafadudekula/s70-song-1",
+     "key": 13,
+     "file": "S70_kannada.mp4"
+    },
+    "ks": {
+     "kernel": "musthafadudekula/s70-song-1",
+     "key": 13,
+     "file": "S70_kashmiri.mp4"
+    },
+    "mai": {
+     "kernel": "musthafadudekula/s70-song-1",
+     "key": 13,
+     "file": "S70_maithili.mp4"
+    },
+    "ml": {
+     "kernel": "musthafadudekula/s70-song-1",
+     "key": 13,
+     "file": "S70_malayalam.mp4"
+    },
+    "mni": {
+     "kernel": "musthafadudekula/s70-song-1",
+     "key": 13,
+     "file": "S70_manipuri.mp4"
+    },
+    "mr": {
+     "kernel": "musthafadudekula/s70-song-1",
+     "key": 13,
+     "file": "S70_marathi.mp4"
+    },
+    "ne": {
+     "kernel": "musthafadudekula/s70-song-1",
+     "key": 13,
+     "file": "S70_nepali.mp4"
+    },
+    "or": {
+     "kernel": "musthafadudekula/s70-song-1",
+     "key": 13,
+     "file": "S70_odia.mp4"
+    },
+    "pa": {
+     "kernel": "musthafadudekula/s70-song-1",
+     "key": 13,
+     "file": "S70_punjabi.mp4"
+    },
+    "sd": {
+     "kernel": "musthafadudekula/s70-song-1",
+     "key": 13,
+     "file": "S70_sindhi.mp4"
+    },
+    "ta": {
+     "kernel": "musthafadudekula/s70-song-1",
+     "key": 13,
+     "file": "S70_tamil.mp4"
+    },
+    "ur": {
+     "kernel": "musthafadudekula/s70-song-1",
+     "key": 13,
+     "file": "S70_urdu.mp4"
+    }
+   },
+   "title": {
+    "te": "ఎర్ర ఫైర్ ఇంజిన్, వీ ఊ, వీ ఊ",
+    "as": "ৰঙা ফায়াৰ ইঞ্জিন, ৱী ঊ, ৱী ঊ",
+    "bn": "লাল দমকল গাড়ি, বী ঊ, বী ঊ",
+    "bho": "लाल फायर इंजन, वी ऊ, वी ऊ",
+    "en": "Red fire engine, wee oo, wee oo",
+    "gu": "લાલ ફાયર એન્જિન, વી ઊ, વી ઊ",
+    "hry": "लाल फायर इंजन, वी ऊ, वी ऊ",
+    "hi": "लाल फायर इंजन, वी ऊ, वी ऊ",
+    "kn": "ಕೆಂಪು ಫೈರ್ ಇಂಜಿನ್, ವೀ ಊ, ವೀ ಊ",
+    "ks": "لول فائر انجن، وی اوٗ، وی اوٗ",
+    "mai": "लाल फायर इंजन, वी ऊ, वी ऊ",
+    "ml": "ചുവന്ന ഫയർ എഞ്ചിൻ, വീ ഊ, വീ ഊ",
+    "mni": "অঙানব ফায়র ইনজিন, ৱি উু, ৱি উু",
+    "mr": "लाल फायर इंजिन, वी ऊ, वी ऊ",
+    "ne": "रातो फायर इन्जिन, वी ऊ, वी ऊ",
+    "or": "ଲାଲ ଫାୟାର ଇଞ୍ଜିନ, ୱି ଓ, ୱି ଓ",
+    "pa": "ਲਾਲ ਫਾਇਰ ਇੰਜਣ, ਵੀ ਊ, ਵੀ ਊ",
+    "sd": "ڳاڙهو فائر انجن، وي اوو، وي اوو",
+    "ta": "சிவப்பு ஃபயர் இன்ஜின், வீ ஊ, வீ ஊ",
+    "ur": "لال فائر انجن، وی اوو، وی اوو"
+   },
+   "roman": {
+    "te": "Red Fire Engine Wee Oo",
+    "as": "Red Fire Engine Wee Oo",
+    "bn": "Red Fire Engine Wee Oo",
+    "bho": "Red Fire Engine Wee Oo",
+    "en": "Red Fire Engine Wee Oo",
+    "gu": "Red Fire Engine Wee Oo",
+    "hry": "Red Fire Engine Wee Oo",
+    "hi": "Red Fire Engine Wee Oo",
+    "kn": "Red Fire Engine Wee Oo",
+    "ks": "Red Fire Engine Wee Oo",
+    "mai": "Red Fire Engine Wee Oo",
+    "ml": "Red Fire Engine Wee Oo",
+    "mni": "Red Fire Engine Wee Oo",
+    "mr": "Red Fire Engine Wee Oo",
+    "ne": "Red Fire Engine Wee Oo",
+    "or": "Red Fire Engine Wee Oo",
+    "pa": "Red Fire Engine Wee Oo",
+    "sd": "Red Fire Engine Wee Oo",
+    "ta": "Red Fire Engine Wee Oo",
+    "ur": "Red Fire Engine Wee Oo"
+   },
+   "new": "2026-11-10"
   }
  }
 }
