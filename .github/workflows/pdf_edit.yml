@@ -23,7 +23,19 @@ jobs:
         if: steps.inbox.outputs.has_work == 'true'
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-core > /dev/null
-          pip install -q pymupdf
+          pip install -q pymupdf huggingface_hub
+          pip install -q llama-cpp-python --prefer-binary --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu
+      - name: private AI model (Qwen2.5 3B from Hugging Face, kept between runs)
+        if: steps.inbox.outputs.has_work == 'true'
+        uses: actions/cache@v4
+        with:
+          path: /tmp/model.gguf
+          key: qwen25-3b-instruct-q4km
+      - name: download the model if needed
+        if: steps.inbox.outputs.has_work == 'true'
+        run: |
+          [ -s /tmp/model.gguf ] || python -c "from huggingface_hub import hf_hub_download; import shutil; shutil.copy(hf_hub_download('Qwen/Qwen2.5-3B-Instruct-GGUF','qwen2.5-3b-instruct-q4_k_m.gguf'),'/tmp/model.gguf')"
+          ls -la /tmp/model.gguf | awk '{print "model size", $5}'
       - name: edit
         if: steps.inbox.outputs.has_work == 'true'
         env:
