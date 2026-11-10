@@ -89,14 +89,17 @@ for n, f in enumerate(pdfs, 1):
                     if sum(abs(real[i] / 255 - bg[i]) for i in range(3)) > 0.3: ink = tuple(v / 255 for v in real)   # real text colour (scans keep the picture's colour)
                 jobs.append((hit, new, size, bold, bg, ink, sp[0].y1 if sp else hit.y1))
         if not jobs: continue
+        PAD = (0.2, -0.6, -0.2, 0.6)   # a little taller than the letters, never wider (keeps the spaces next to it)
         for hit, new, size, bold, bg, ink, base_y in jobs:
-            pg.add_redact_annot(hit + (-0.5, -0.5, 0.5, 0.5), fill=bg)
+            pg.add_redact_annot(hit + PAD, fill=bg)
         pg.apply_redactions(images=fitz.PDF_REDACT_IMAGE_PIXELS, graphics=fitz.PDF_REDACT_LINE_ART_NONE)
         for hit, new, size, bold, bg, ink, base_y in jobs:
-            pg.draw_rect(hit + (-0.5, -0.5, 0.5, 0.5), color=None, fill=bg, overlay=True)   # covers the letters on scanned pictures too
+            pg.draw_rect(hit + PAD, color=None, fill=bg, overlay=True)   # covers the letters on scanned pictures too
             if not new: continue
             if all(ord(ch) < 256 for ch in new):
-                pg.insert_text((hit.x0, hit.y1 - size * 0.22), new, fontsize=size, fontname="hebo" if bold else "helv", color=ink)
+                fn = "hebo" if bold else "helv"; w = fitz.get_text_length(new, fontname=fn, fontsize=size)
+                if w > hit.width * 1.03: size = max(size * 0.72, size * hit.width / w)   # longer words shrink a little to fit the old space
+                pg.insert_text((hit.x0, hit.y1 - size * 0.22 - (hit.height * 0.78 - size) * 0.5 * 0), new, fontsize=size, fontname=fn, color=ink)
             else:   # Indian scripts: shaped properly with the matching Noto font
                 fam = next((nm for lo, hi, nm in SCRIPTS if any(lo <= ord(ch) <= hi for ch in new)), "NotoSans")
                 css = f"@font-face {{font-family: ind; src: url({fam}-Regular.ttf);}} * {{font-family: ind; font-size: {size}px; color: rgb({int(ink[0]*255)},{int(ink[1]*255)},{int(ink[2]*255)}); font-weight: {'bold' if bold else 'normal'}; margin: 0}}"
