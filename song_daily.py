@@ -7,7 +7,11 @@ from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload, MediaIoBaseDownload
-code = sys.argv[1]; PER_DAY = int(os.environ.get("SONGS_PER_DAY") or 5); SHORTS_PER_DAY = 0; SLOTS_IST = [7, 10, 13, 16, 19]   # owner 6 Nov 2026: Shorts STOPPED (long videos only). 4 Nov: catch-up runs can set songs/shorts (upload quota is shared by all 20 channels)
+code = sys.argv[1]; SHORTS_PER_DAY = 0
+# 10 Nov owner: 2-minute songs again. 8 verified channels (long videos + own thumbnails): 2 a day. 12 others (no long videos): 4 a day. No Shorts. 100 uploads/day shared.
+VERIFIED = {"hi", "te", "ta", "kn", "mr", "bn", "en", "ur"}
+PER_DAY = int(os.environ.get("SONGS_PER_DAY") or (2 if code in VERIFIED else 4)); SLOTS_IST = [14, 18] if code in VERIFIED else [10, 13, 16, 19]   # away from the long videos (06:00 + hourly)
+PER_DAY = min(PER_DAY, len(SLOTS_IST))
 NAME = {"hi": "hindi", "te": "telugu", "ta": "tamil", "kn": "kannada", "ml": "malayalam", "mr": "marathi", "bn": "bengali", "gu": "gujarati", "pa": "punjabi", "or": "odia",
         "as": "assamese", "en": "english", "ne": "nepali", "ur": "urdu", "sd": "sindhi", "mai": "maithili", "hry": "haryanvi", "ks": "kashmiri", "mni": "manipuri", "bho": "bhojpuri"}
 NEW = {"ne", "ur", "sd", "mai", "hry", "ks", "mni", "bho"}; YT_LANG = {"ne": "ne", "ur": "ur"}
@@ -62,6 +66,15 @@ for slug in queue:
         subprocess.run(["kaggle", "kernels", "output", src["kernel"], "-p", "dl", "--file-pattern", "^" + _re.escape(src["file"]) + "$"], env=env, capture_output=True, text=True)
         if not os.path.exists(os.path.join("dl", src["file"])): print(f"RESULT {code} {slug} NOT_IN_DRIVE_OR_KAGGLE"); continue
         os.replace(os.path.join("dl", src["file"]), path); print(f"{slug} {code} taken from Kaggle (Drive copy missing)", flush=True)
+    FONT = "data/long/fonts/LilitaOne-Regular.ttf"   # relative: the workflow runs in the repo folder (a Windows C: path breaks drawtext)
+    if os.path.exists(FONT):   # 9/10 Nov owner: see-through "BUBU TV" travelling slowly across the screen, like the long videos
+        import subprocess
+        ph = sum(map(ord, slug + code)) * 97 % 3000; ph2 = sum(map(ord, slug + code)) * 53 % 1800
+        vf = (f"drawtext=fontfile={FONT}:text='BUBU TV':fontcolor=white@0.5:fontsize=h*0.05:"
+              f"x='abs(mod(t*61+{ph}\\,2*(w-tw-40))-(w-tw-40))+20':y='abs(mod(t*37+{ph2}\\,2*(h-th-40))-(h-th-40))+20':shadowcolor=black@0.3:shadowx=2:shadowy=2")
+        w = subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", path, "-vf", vf, "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", "-c:a", "copy", "wm_" + path], capture_output=True, text=True)
+        if w.returncode == 0 and os.path.getsize("wm_" + path) > 500_000: os.replace("wm_" + path, path); print(f"{slug} {code} channel name added", flush=True)
+        else: print(f"{slug} {code} WATERMARK FAILED {w.stderr[-200:]} - uploading without", flush=True)
     if os.environ.get("DRY") == "1":   # test mode: everything except the upload
         print(f"RESULT {code} {slug} DRY would schedule at {slots[done].astimezone(ist):%H:%M} IST, file {os.path.getsize(path)//1_000_000} MB", flush=True); done += 1; have.add(title); os.remove(path); continue
     pub = slots[done].astimezone(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -75,9 +88,12 @@ for slug in queue:
     except Exception as e:
         print(f"RESULT {code} {slug} STOPPED {str(e)[-200:]}"); break             # quota or upload limit -> continue tomorrow
     vid = res["id"]; done += 1; have.add(title); os.remove(path)
-    th = os.path.join(D, slug, f"thumb_{code}.jpg")
-    try: yt.thumbnails().set(videoId=vid, media_body=MediaFileUpload(th, mimetype="image/jpeg")).execute(); t = "thumb ok"
-    except Exception as e: t = "thumb FAILED"
+    # 9 Nov owner: each song its own picture; 2-minute singles use the 2nd picture set (variants v1). Unverified channels cannot set thumbnails.
+    th = next((x for x in (os.path.join(os.path.dirname(D), "long", "variants", slug, f"{code}_v1.jpg"), os.path.join(D, slug, f"thumb_{code}.jpg")) if os.path.exists(x)), None)
+    if code not in VERIFIED or not th: t = "no custom thumbnail (channel not verified)" if code not in VERIFIED else "no thumbnail file"
+    else:
+        try: yt.thumbnails().set(videoId=vid, media_body=MediaFileUpload(th, mimetype="image/jpeg")).execute(); t = "thumb ok " + os.path.basename(th)
+        except Exception as e: t = "thumb FAILED " + str(e)[-80:]
     print(f"RESULT {code} {slug} SCHEDULED {vid} public {pub} | {t}", flush=True)
 print(f"RESULT {code} done today: {done}")
 
