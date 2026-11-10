@@ -6022,6 +6022,141 @@
     "ur": "Rocket Five Four Three"
    },
    "new": "2026-11-10"
+  },
+  "S54_zebra_zara_zigzag": {
+   "src": {
+    "te": {
+     "kernel": "musthafadudekula/s54-song-1",
+     "key": 13,
+     "file": "S54_telugu.mp4"
+    },
+    "as": {
+     "kernel": "musthafadudekula/s54-song-1",
+     "key": 13,
+     "file": "S54_assamese.mp4"
+    },
+    "bn": {
+     "kernel": "musthafadudekula/s54-song-1",
+     "key": 13,
+     "file": "S54_bengali.mp4"
+    },
+    "en": {
+     "kernel": "musthafadudekula/s54-song-1",
+     "key": 13,
+     "file": "S54_english.mp4"
+    },
+    "gu": {
+     "kernel": "musthafadudekula/s54-song-1",
+     "key": 13,
+     "file": "S54_gujarati.mp4"
+    },
+    "hi": {
+     "kernel": "musthafadudekula/s54-song-1",
+     "key": 13,
+     "file": "S54_hindi.mp4"
+    },
+    "kn": {
+     "kernel": "musthafadudekula/s54-song-1",
+     "key": 13,
+     "file": "S54_kannada.mp4"
+    },
+    "ks": {
+     "kernel": "musthafadudekula/s54-song-1",
+     "key": 13,
+     "file": "S54_kashmiri.mp4"
+    },
+    "mai": {
+     "kernel": "musthafadudekula/s54-song-1",
+     "key": 13,
+     "file": "S54_maithili.mp4"
+    },
+    "ml": {
+     "kernel": "musthafadudekula/s54-song-1",
+     "key": 13,
+     "file": "S54_malayalam.mp4"
+    },
+    "mni": {
+     "kernel": "musthafadudekula/s54-song-1",
+     "key": 13,
+     "file": "S54_manipuri.mp4"
+    },
+    "mr": {
+     "kernel": "musthafadudekula/s54-song-1",
+     "key": 13,
+     "file": "S54_marathi.mp4"
+    },
+    "ne": {
+     "kernel": "musthafadudekula/s54-song-1",
+     "key": 13,
+     "file": "S54_nepali.mp4"
+    },
+    "or": {
+     "kernel": "musthafadudekula/s54-song-1",
+     "key": 13,
+     "file": "S54_odia.mp4"
+    },
+    "pa": {
+     "kernel": "musthafadudekula/s54-song-1",
+     "key": 13,
+     "file": "S54_punjabi.mp4"
+    },
+    "sd": {
+     "kernel": "musthafadudekula/s54-song-1",
+     "key": 13,
+     "file": "S54_sindhi.mp4"
+    },
+    "ta": {
+     "kernel": "musthafadudekula/s54-song-1",
+     "key": 13,
+     "file": "S54_tamil.mp4"
+    },
+    "ur": {
+     "kernel": "musthafadudekula/s54-song-1",
+     "key": 13,
+     "file": "S54_urdu.mp4"
+    }
+   },
+   "title": {
+    "te": "జిగ్ జాగ్, జిగ్ జాగ్, నన్ను చూడు",
+    "as": "জিগ জেগ, জিগ জেগ, মোক চোৱা",
+    "bn": "জিগ জ্যাগ, জিগ জ্যাগ, আমায় দেখো",
+    "en": "Zig zag, zig zag, look at me",
+    "gu": "ઝિગ ઝેગ, ઝિગ ઝેગ, મને જુઓ",
+    "hi": "ज़िग ज़ैग, ज़िग ज़ैग, मुझको देखो",
+    "kn": "ಜಿಗ್ ಜಾಗ್, ಜಿಗ್ ಜಾಗ್, ನನ್ನ ನೋಡು",
+    "ks": "زِگ زاگ، زِگ زاگ، مےٚ وُچھ",
+    "mai": "जिग् जाग, जिग् जाग, हमरा देखू",
+    "ml": "സിഗ് സാഗ്, സിഗ് സാഗ്, എന്നെ നോക്കൂ",
+    "mni": "জিগ জাগ, জিগ জাগ, ঐনুং য়েংঙু",
+    "mr": "झिग झॅग, झिग झॅग, मला बघा",
+    "ne": "जिग् जाग, जिग् जाग, मलाई हेर",
+    "or": "ଜିଗ୍ ଜାଗ୍, ଜିଗ୍ ଜାଗ୍, ମୋତେ ଦେଖ",
+    "pa": "ਜ਼ਿਗ ਜ਼ੈਗ, ਜ਼ਿਗ ਜ਼ੈਗ, ਮੈਨੂੰ ਵੇਖੋ",
+    "sd": "زگ زيگ، زگ زيگ، مون کي ڏسو",
+    "ta": "ஜிக் ஜாக், ஜிக் ஜாக், என்னைப் பாரு",
+    "ur": "زِگ زیگ، زِگ زیگ، مجھ کو دیکھو"
+   },
+   "roman": {
+    "te": "Zara Zebra Zig Zag Stripes",
+    "as": "Zara Zebra Zig Zag Stripes",
+    "bn": "Zara Zebra Zig Zag Stripes",
+    "en": "Zara Zebra Zig Zag Stripes",
+    "gu": "Zara Zebra Zig Zag Stripes",
+    "hi": "Zara Zebra Zig Zag Stripes",
+    "kn": "Zara Zebra Zig Zag Stripes",
+    "ks": "Zara Zebra Zig Zag Stripes",
+    "mai": "Zara Zebra Zig Zag Stripes",
+    "ml": "Zara Zebra Zig Zag Stripes",
+    "mni": "Zara Zebra Zig Zag Stripes",
+    "mr": "Zara Zebra Zig Zag Stripes",
+    "ne": "Zara Zebra Zig Zag Stripes",
+    "or": "Zara Zebra Zig Zag Stripes",
+    "pa": "Zara Zebra Zig Zag Stripes",
+    "sd": "Zara Zebra Zig Zag Stripes",
+    "ta": "Zara Zebra Zig Zag Stripes",
+    "ur": "Zara Zebra Zig Zag Stripes"
+   },
+   "new": "2026-11-10"
   }
  }
 }
