@@ -70,12 +70,18 @@ for n, f in enumerate(pdfs, 1):
     doc = fitz.open(stream=get(f["id"]), filetype="pdf"); changed, pages_hit = 0, set()
     for pg in doc:
         zoom = 3; pix = pg.get_pixmap(matrix=fitz.Matrix(zoom, zoom), alpha=False); jobs = []
+        chars = [(fitz.Rect(ch["bbox"]), ch["c"]) for b in pg.get_text("rawdict")["blocks"] for l in b.get("lines", []) for s in l["spans"] for ch in s["chars"]]
+        def neighbour(hit, side):   # the letter touching the match on the left or right (same line), "" if none
+            h = hit.height; best, gap = "", h * 0.6
+            for r, ch in chars:
+                if abs((r.y0 + r.y1) / 2 - (hit.y0 + hit.y1) / 2) > h * 0.5: continue
+                d = (hit.x0 - r.x1) if side == "L" else (r.x0 - hit.x1)
+                if -h * 0.15 <= d < gap and not (side == "L" and r.x1 > hit.x0 + h * 0.3) and not (side == "R" and r.x0 < hit.x1 - h * 0.3): best, gap = ch, d
+            return best
         for old, new in rules:
             for hit in pg.search_for(old):
                 # whole words only: the letters right before/after must not be part of a longer word
-                h = hit.height; left = pg.get_textbox(fitz.Rect(hit.x0 - h * 0.6, hit.y0, hit.x0 - 0.5, hit.y1)).strip()[-1:]
-                right = pg.get_textbox(fitz.Rect(hit.x1 + 0.5, hit.y0, hit.x1 + h * 0.6, hit.y1)).strip()[:1]
-                if is_word(left) or is_word(right): continue
+                if is_word(neighbour(hit, "L")) or is_word(neighbour(hit, "R")): continue
                 sp = span_at(pg, hit); size = sp[1]["size"] if sp else h * 0.8; bold = bool(sp and ("bold" in sp[1]["font"].lower() or sp[1]["flags"] & 16))
                 bg, ink = bg_and_ink(pix, hit, zoom)
                 if sp:
