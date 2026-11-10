@@ -1,0 +1,31 @@
+name: pdf-edit
+# 10 Nov owner: "blind" PDF editing. Drive "PDF Tools/Edit Inbox": PDF + changes.txt (old => new per line) -> "PDF Tools/Edit Done".
+# The log shows only counts - never file names or text. Every 5 minutes or by hand.
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+concurrency: { group: pdf-edit, cancel-in-progress: false }
+jobs:
+  edit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: anything to edit?
+        id: inbox
+        env:
+          DRIVE_TOKEN: ${{ secrets.DRIVE_TOKEN }}
+        run: |
+          pip install -q google-api-python-client google-auth
+          python pdf_edit.py check
+      - name: tools
+        if: steps.inbox.outputs.has_work == 'true'
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-core > /dev/null
+          pip install -q pymupdf
+      - name: edit
+        if: steps.inbox.outputs.has_work == 'true'
+        env:
+          DRIVE_TOKEN: ${{ secrets.DRIVE_TOKEN }}
+        run: python pdf_edit.py run
