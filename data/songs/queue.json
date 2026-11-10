@@ -1,5 +1,5 @@
 {
- "note": "only songs Claude checked; order = release order. Timer skips a song on a channel when the same title already exists there or the file is not in Drive yet. 10 Nov: S19-S38 added (2-minute songs: 4/day on the 12 unverified channels, 2/day on the 8 verified).",
+ "note": "only songs Claude checked; order = release order. Timer skips a song on a channel when the same title already exists there or the file is not in Drive yet. 10 Nov: S19-S38 added (2-minute songs: 4/day on the 12 unverified channels, 2/day on the 8 verified). | 10 Nov: S14-S18 theme rhymes added before S19.",
  "songs": [
   "S04_monkey_mangoes",
   "S13_hen_chicks",
@@ -12,6 +12,11 @@
   "S07_bedtime_owl",
   "S08_goat_market",
   "S05_brush_teeth",
+  "S14_moon",
+  "S15_rain",
+  "S16_elephant",
+  "S17_crow",
+  "S18_birds",
   "S19_idli_dance",
   "S20_carrot_crunch",
   "S21_wash_hands_pop",
