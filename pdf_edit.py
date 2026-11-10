@@ -119,7 +119,8 @@ for n, f in enumerate(pdfs, 1):
                 # exact box of the matched letters only (search boxes can reach into the space or the next letter)
                 inside = [r for r, ch in chars if ch.strip() and hit.contains(fitz.Point((r.x0 + r.x1) / 2, (r.y0 + r.y1) / 2))]
                 if inside: hit = fitz.Rect(min(r.x0 for r in inside), hit.y0, max(r.x1 for r in inside), hit.y1)
-                sp = span_at(pg, hit); size = hit.height * 0.78;   # scans: match the height of the letters in the picture bold = bool(sp and ("bold" in sp[1]["font"].lower() or sp[1]["flags"] & 16))
+                sp = span_at(pg, hit); size = hit.height * 0.78   # scans: match the height of the letters in the picture
+                bold = bool(sp and ("bold" in sp[1]["font"].lower() or sp[1]["flags"] & 16))
                 bg, ink = bg_and_ink(pix, hit, zoom)
                 if sp:
                     col = sp[1]["color"]; real = ((col >> 16) & 255, (col >> 8) & 255, col & 255)
