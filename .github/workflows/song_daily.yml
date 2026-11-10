@@ -1,6 +1,6 @@
 name: song-daily
 
-# BuBu TV timer: 2-minute songs from Google Drive. 10 Nov owner: 8 verified channels 2 a day (14/18 IST), 12 other channels 4 a day (10/13/16/19 IST), no Shorts.
+# BuBu TV timer: 2-minute songs from Google Drive. 10 Nov owner: 8 verified channels 2 a day (14/18 IST), 12 other channels 4 a day (10/13/16/19 IST). Long videos stopped 10 Nov -> verified channels get 3 Shorts a day instead (08:30/11:30/14:30 IST).
 
 # Starts 00:30 UTC (06:00 IST); GitHub timers can be late - the script never schedules in the past.
 
@@ -18,7 +18,7 @@ on:
 
       dry:   { description: '1 = test, no upload', required: false, default: '0' }
       songs: { description: 'songs per channel (empty = 2 verified / 4 others)', required: false, default: '' }
-      shorts: { description: 'not used (Shorts stopped 6 Nov)', required: false, default: '0' }
+      shorts: { description: 'Shorts per channel (empty = 3 on the 8 verified channels, 0 on others)', required: false, default: '' }
 
 jobs:
 
