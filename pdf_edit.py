@@ -64,6 +64,8 @@ def ai_rules(request, pdf_bytes):
         a, b = o.split(" "), nw.split(" ")
         while len(a) > 1 and len(b) > 1 and a[0] == b[0]: a, b = a[1:], b[1:]
         while len(a) > 1 and len(b) > 1 and a[-1] == b[-1]: a, b = a[:-1], b[:-1]
+        extra = a[len(b):]   # words the AI dropped that the request never mentioned are kept ("Rs 4,000 per month" -> "Rs 5,500 per month")
+        if extra and not any(w.lower().strip(".,") in request.lower() for w in extra): b = b + extra
         return " ".join(a), " ".join(b)
     good = []
     for c in pairs:
@@ -72,6 +74,10 @@ def ai_rules(request, pdf_bytes):
             nw = as_date(o) or nw
         o, nw = core(o, nw)
         if o and o != nw and re.sub(r"\s+", " ", o) in flat and (o, nw) not in good: good.append((o, nw))
+    if re.search(r"\b(dates|both dates|all dates|every date|each date)\b", request, re.I) and re.search(r"\btoday\b", request, re.I):   # "all dates to today": catch any the AI missed
+        for m in re.finditer(r"\b\d{1,2}([./-])\d{1,2}\1\d{2,4}\b|\b\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]{3,9}\.?,?\s+\d{4}\b|\b[A-Za-z]{3,9}\.?\s+\d{1,2},?\s+\d{4}\b", flat):
+            nd = as_date(m.group(0))
+            if nd and nd != m.group(0) and not any(o == m.group(0) for o, _ in good): good.append((m.group(0), nd))
     return good
 def rules_from(raw):
     out = []
