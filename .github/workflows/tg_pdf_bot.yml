@@ -1,0 +1,40 @@
+name: tg-pdf-bot
+# 10 Nov owner: private Telegram bot for PDF edits from the phone. Checks for new messages every 5 minutes (GitHub timers can be late) or by hand.
+# Needs the repository secret TG_BOT_TOKEN (from @BotFather). The log shows only counts.
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+concurrency: { group: tg-pdf-bot, cancel-in-progress: false }
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: any new messages?
+        id: inbox
+        env:
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+        run: python tg_pdf_bot.py check
+      - name: tools
+        if: steps.inbox.outputs.has_work == 'true'
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-core > /dev/null
+          pip install -q pymupdf huggingface_hub google-api-python-client google-auth
+          pip install -q llama-cpp-python --prefer-binary --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu
+      - name: private AI model (Qwen2.5 3B from Hugging Face, kept between runs)
+        if: steps.inbox.outputs.has_work == 'true'
+        uses: actions/cache@v4
+        with:
+          path: /tmp/model.gguf
+          key: qwen25-3b-instruct-q4km
+      - name: download the model if needed
+        if: steps.inbox.outputs.has_work == 'true'
+        run: '[ -s /tmp/model.gguf ] || python -c "from huggingface_hub import hf_hub_download; import shutil; shutil.copy(hf_hub_download(''Qwen/Qwen2.5-3B-Instruct-GGUF'',''qwen2.5-3b-instruct-q4_k_m.gguf''),''/tmp/model.gguf'')"'
+      - name: answer the messages
+        if: steps.inbox.outputs.has_work == 'true'
+        env:
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          DRIVE_TOKEN: ${{ secrets.DRIVE_TOKEN }}
+        run: python tg_pdf_bot.py run
