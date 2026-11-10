@@ -1,6 +1,7 @@
 # 10 Nov owner: "blind" PDF editing on GitHub - nobody (not Claude, not this public log) sees the document.
 # Google Drive "PDF Tools/Edit Inbox":
-#   your PDF(s) + a text file "changes.txt" (one change per line:  old words => new words)
+#   your PDF(s) + a text file "changes.txt": EITHER one change per line (old words => new words)
+#   OR a request in plain words ("change the date to today and the amount to 5,500") -> a private AI (Qwen2.5 from Hugging Face, running on GitHub) writes the changes
 #   (a file "<pdf name>.txt" is used for that one PDF instead of changes.txt)
 # GitHub: finds every place on every page, removes the old words (text AND the picture of them on scans, filled with the paper colour around them),
 #   writes the new words in the same size and colour -> "PDF Tools/Edit Done/<name> - edited.pdf"; the original + change files -> "PDF Tools/Edit Originals".
@@ -29,6 +30,26 @@ def get(fid):
     b = io.BytesIO(); dl = MediaIoBaseDownload(b, dr.files().get_media(fileId=fid)); ok = False
     while not ok: _, ok = dl.next_chunk()
     return b.getvalue()
+MODEL = os.environ.get("AI_MODEL_FILE", "/tmp/model.gguf")
+def ai_rules(request, pdf_bytes):
+    """Plain-words request -> exact 'old => new' pairs. Qwen2.5 (open model from Hugging Face) runs here on the GitHub machine; nothing goes to an AI company.
+    Every pair is checked: the old words must really be in the PDF. Nothing is printed."""
+    import datetime, pymupdf as fz
+    from llama_cpp import Llama
+    text = "\n".join(p.get_text() for p in fz.open(stream=pdf_bytes, filetype="pdf"))[:12000]
+    today = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=5, minutes=30))).date()
+    llm = Llama(model_path=MODEL, n_ctx=8192, n_threads=4, verbose=False)
+    msg = [{"role": "system", "content": "You edit documents. Given a document's text and a request, output ONLY JSON: {\"changes\": [{\"old\": \"exact text copied from the document\", \"new\": \"replacement\"}]}. "
+            "Copy 'old' exactly as written in the document (same spacing, punctuation and date format). Write 'new' in the same style and date format as 'old'. Include every place the request applies to. No explanations."},
+           {"role": "user", "content": f"Today's date is {today:%d %B %Y} ({today:%d/%m/%Y}).\nREQUEST: {request.strip()}\n\nDOCUMENT TEXT:\n{text}"}]
+    out = llm.create_chat_completion(messages=msg, temperature=0, max_tokens=800, response_format={"type": "json_object"})["choices"][0]["message"]["content"]
+    pairs = json.loads(out).get("changes", [])
+    flat = re.sub(r"\s+", " ", text)
+    good = []
+    for c in pairs:
+        o, nw = str(c.get("old", "")).strip(), str(c.get("new", "")).strip()
+        if o and o != nw and re.sub(r"\s+", " ", o) in flat and (o, nw) not in good: good.append((o, nw))
+    return good
 def rules_from(raw):
     out = []
     for line in raw.decode("utf-8-sig", "ignore").splitlines():
@@ -66,8 +87,12 @@ for n, f in enumerate(pdfs, 1):
     base = f["name"][:-4] if f["name"].lower().endswith(".pdf") else f["name"]
     cf = txts.get(base + ".txt") or txts.get("changes.txt") or (list(txts.values())[0] if len(txts) == 1 else None)
     if not cf: print(f"RESULT file {n}: no change list found (add changes.txt)"); continue
-    rules = rules_from(get(cf["id"]))
-    doc = fitz.open(stream=get(f["id"]), filetype="pdf"); changed, pages_hit = 0, set()
+    raw = get(cf["id"]); rules = rules_from(raw); pdf_bytes = get(f["id"])
+    if not rules and raw.strip():   # a request in plain words -> the private AI (Qwen, from Hugging Face, running on this GitHub machine) writes the exact changes
+        try: rules = ai_rules(raw.decode("utf-8-sig", "ignore"), pdf_bytes); print(f"RESULT file {n}: AI planned {len(rules)} change(s)")
+        except Exception as e: print(f"RESULT file {n}: AI step failed ({type(e).__name__})"); rules = []
+    if not rules: print(f"RESULT file {n}: nothing to change"); continue
+    doc = fitz.open(stream=pdf_bytes, filetype="pdf"); changed, pages_hit = 0, set()
     pats = [(re.compile(r"(?<!\w)" + re.escape(o) + r"(?!\w)", re.I), nw) for o, nw in rules]
     def sub_all(t):
         k = 0
