@@ -10,10 +10,11 @@ from googleapiclient.http import MediaFileUpload, MediaIoBaseDownload
 code = sys.argv[1]
 # 10 Nov owner: 2-minute songs again. 8 verified channels (long videos + own thumbnails): 2 a day. 12 others (no long videos): 4 a day. No Shorts. 100 uploads/day shared.
 VERIFIED = {"hi", "te", "ta", "kn", "mr", "bn", "en", "ur"}
-PER_DAY = int(os.environ.get("SONGS_PER_DAY") or (2 if code in VERIFIED else 4)); SLOTS_IST = [14, 18] if code in VERIFIED else [10, 13, 16, 19]   # away from the long videos (06:00 + hourly)
+PER_DAY = int(os.environ.get("SONGS_PER_DAY") or (5 if code in VERIFIED else 4)); SLOTS_IST = [8, 11, 14, 16, 18] if code in VERIFIED else [10, 13, 16, 19]
+if os.environ.get("SLOTS"): SLOTS_IST = [int(h) for h in os.environ["SLOTS"].split(",")]   # hand runs: own hours (e.g. extra songs later the same day)
 PER_DAY = min(PER_DAY, len(SLOTS_IST))
-# 10 Nov owner: "Don't add long videos ... instead in that place add shorts only" -> long videos stopped; the 8 verified channels get 3 Shorts a day in their place.
-SHORTS_PER_DAY = int(os.environ.get("SHORTS_PER_DAY") or (3 if code in VERIFIED else 0))
+# 10 Nov owner: long videos stopped; "I'm talking about 2 min songs" -> the 8 verified channels get 3 more 2-minute songs in their place (5 a day). No Shorts.
+SHORTS_PER_DAY = 0
 NAME = {"hi": "hindi", "te": "telugu", "ta": "tamil", "kn": "kannada", "ml": "malayalam", "mr": "marathi", "bn": "bengali", "gu": "gujarati", "pa": "punjabi", "or": "odia",
         "as": "assamese", "en": "english", "ne": "nepali", "ur": "urdu", "sd": "sindhi", "mai": "maithili", "hry": "haryanvi", "ks": "kashmiri", "mni": "manipuri", "bho": "bhojpuri"}
 NEW = {"ne", "ur", "sd", "mai", "hry", "ks", "mni", "bho"}; YT_LANG = {"ne": "ne", "ur": "ur"}
