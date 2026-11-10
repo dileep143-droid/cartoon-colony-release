@@ -1,0 +1,18 @@
+name: r2-to-drive
+# 10 Nov owner: copy the old R2 files (s2work/) to Google Drive "BuBu TV Archive/R2". The list is encrypted; nothing private is printed.
+on:
+  workflow_dispatch:
+    inputs:
+      list: { description: 'encrypted list file in the repo', required: true, default: 'data/r2move.enc' }
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - name: tools
+        run: pip install -q google-api-python-client google-auth cryptography
+      - name: copy R2 files to Drive
+        env:
+          DRIVE_TOKEN: ${{ secrets.DRIVE_TOKEN }}
+        run: python r2_to_drive.py "${{ inputs.list }}"
