@@ -6157,6 +6157,155 @@
     "ur": "Zara Zebra Zig Zag Stripes"
    },
    "new": "2026-11-10"
+  },
+  "S42_coconut_tok_tok": {
+   "src": {
+    "te": {
+     "kernel": "musthafadudekula/s42-song-1",
+     "key": 13,
+     "file": "S42_telugu.mp4"
+    },
+    "as": {
+     "kernel": "musthafadudekula/s42-song-1",
+     "key": 13,
+     "file": "S42_assamese.mp4"
+    },
+    "bn": {
+     "kernel": "musthafadudekula/s42-song-1",
+     "key": 13,
+     "file": "S42_bengali.mp4"
+    },
+    "bho": {
+     "kernel": "musthafadudekula/s42-song-1",
+     "key": 13,
+     "file": "S42_bhojpuri.mp4"
+    },
+    "en": {
+     "kernel": "musthafadudekula/s42-song-1",
+     "key": 13,
+     "file": "S42_english.mp4"
+    },
+    "gu": {
+     "kernel": "musthafadudekula/s42-song-1",
+     "key": 13,
+     "file": "S42_gujarati.mp4"
+    },
+    "hry": {
+     "kernel": "musthafadudekula/s42-song-1",
+     "key": 13,
+     "file": "S42_haryanvi.mp4"
+    },
+    "hi": {
+     "kernel": "musthafadudekula/s42-song-1",
+     "key": 13,
+     "file": "S42_hindi.mp4"
+    },
+    "kn": {
+     "kernel": "musthafadudekula/s42-song-1",
+     "key": 13,
+     "file": "S42_kannada.mp4"
+    },
+    "ks": {
+     "kernel": "musthafadudekula/s42-song-1",
+     "key": 13,
+     "file": "S42_kashmiri.mp4"
+    },
+    "mai": {
+     "kernel": "musthafadudekula/s42-song-1",
+     "key": 13,
+     "file": "S42_maithili.mp4"
+    },
+    "ml": {
+     "kernel": "musthafadudekula/s42-song-1",
+     "key": 13,
+     "file": "S42_malayalam.mp4"
+    },
+    "mni": {
+     "kernel": "musthafadudekula/s42-song-1",
+     "key": 13,
+     "file": "S42_manipuri.mp4"
+    },
+    "mr": {
+     "kernel": "musthafadudekula/s42-song-1",
+     "key": 13,
+     "file": "S42_marathi.mp4"
+    },
+    "ne": {
+     "kernel": "musthafadudekula/s42-song-1",
+     "key": 13,
+     "file": "S42_nepali.mp4"
+    },
+    "or": {
+     "kernel": "musthafadudekula/s42-song-1",
+     "key": 13,
+     "file": "S42_odia.mp4"
+    },
+    "pa": {
+     "kernel": "musthafadudekula/s42-song-1",
+     "key": 13,
+     "file": "S42_punjabi.mp4"
+    },
+    "sd": {
+     "kernel": "musthafadudekula/s42-song-1",
+     "key": 13,
+     "file": "S42_sindhi.mp4"
+    },
+    "ta": {
+     "kernel": "musthafadudekula/s42-song-1",
+     "key": 13,
+     "file": "S42_tamil.mp4"
+    },
+    "ur": {
+     "kernel": "musthafadudekula/s42-song-1",
+     "key": 13,
+     "file": "S42_urdu.mp4"
+    }
+   },
+   "title": {
+    "te": "టక్ టక్, కొబ్బరి, టక్ టక్ టక్",
+    "as": "টক টক, নাৰিকল, টক টক টক",
+    "bn": "টক টক, নারকেল, টক টক টক",
+    "bho": "टक टक, नरियर, टक टक टक",
+    "en": "Tok tok, coconut, tok tok, tok",
+    "gu": "ટક ટક, નારિયેળ, ટક ટક ટક",
+    "hry": "टक टक, नारियल, टक टक टक",
+    "hi": "टक टक, नारियल, टक टक टक",
+    "kn": "ಟಕ್ ಟಕ್, ತೆಂಗು, ಟಕ್ ಟಕ್ ಟಕ್",
+    "ks": "ٹَک ٹَک، ناریل، ٹَک ٹَک ٹَک",
+    "mai": "टक टक, नरिअर, टक टक टक",
+    "ml": "ടക് ടക്, തേങ്ങ, ടക് ടക് ടക്",
+    "mni": "টক্ টক্, উন, টক্ টক্ টক্",
+    "mr": "टक टक, नारळा, टक टक टक",
+    "ne": "टक टक, नरिवल, टक टक टक",
+    "or": "ଟକ୍ ଟକ୍, ନଡ଼ିଆ, ଟକ୍ ଟକ୍ ଟକ୍",
+    "pa": "ਟਕ ਟਕ, ਨਾਰੀਅਲ, ਟਕ ਟਕ ਟਕ",
+    "sd": "ٽڪ ٽڪ، ناريل، ٽڪ ٽڪ ٽڪ",
+    "ta": "டக் டக், தேங்கா, டக் டக் டக்",
+    "ur": "ٹک ٹک، ناریل، ٹک ٹک ٹک"
+   },
+   "roman": {
+    "te": "Coconut Says Tok Tok",
+    "as": "Coconut Says Tok Tok",
+    "bn": "Coconut Says Tok Tok",
+    "bho": "Coconut Says Tok Tok",
+    "en": "Coconut Says Tok Tok",
+    "gu": "Coconut Says Tok Tok",
+    "hry": "Coconut Says Tok Tok",
+    "hi": "Coconut Says Tok Tok",
+    "kn": "Coconut Says Tok Tok",
+    "ks": "Coconut Says Tok Tok",
+    "mai": "Coconut Says Tok Tok",
+    "ml": "Coconut Says Tok Tok",
+    "mni": "Coconut Says Tok Tok",
+    "mr": "Coconut Says Tok Tok",
+    "ne": "Coconut Says Tok Tok",
+    "or": "Coconut Says Tok Tok",
+    "pa": "Coconut Says Tok Tok",
+    "sd": "Coconut Says Tok Tok",
+    "ta": "Coconut Says Tok Tok",
+    "ur": "Coconut Says Tok Tok"
+   },
+   "new": "2026-11-10"
   }
  }
 }
