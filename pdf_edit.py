@@ -68,8 +68,42 @@ for n, f in enumerate(pdfs, 1):
     if not cf: print(f"RESULT file {n}: no change list found (add changes.txt)"); continue
     rules = rules_from(get(cf["id"]))
     doc = fitz.open(stream=get(f["id"]), filetype="pdf"); changed, pages_hit = 0, set()
+    pats = [(re.compile(r"(?<!\w)" + re.escape(o) + r"(?!\w)", re.I), nw) for o, nw in rules]
+    def sub_all(t):
+        k = 0
+        for p, nw in pats: t, c2 = p.subn(lambda m: nw, t); k += c2
+        return t, k
     for pg in doc:
         zoom = 3; pix = pg.get_pixmap(matrix=fitz.Matrix(zoom, zoom), alpha=False); jobs = []
+        area = abs(pg.rect)
+        is_scan = any(abs(pg.get_image_bbox(im) & pg.rect) > area * 0.6 for im in pg.get_images(full=True) if not pg.get_image_bbox(im).is_infinite)
+        if not is_scan:
+            # typed PDF: rewrite each changed piece of text (span) in its exact original place, so nothing else on the line moves
+            todo = []
+            for b in pg.get_text("dict")["blocks"]:
+                for l in b.get("lines", []):
+                    if tuple(round(v, 2) for v in l["dir"]) != (1.0, 0.0): continue
+                    for s in l["spans"]:
+                        t2, k = sub_all(s["text"])
+                        if k: todo.append((s, t2, k))
+            if not todo: continue
+            for s, t2, k in todo:
+                r = fitz.Rect(s["bbox"]); bg, _ = bg_and_ink(pix, r, zoom); pg.add_redact_annot(r + (0, -0.3, 0, 0.3), fill=bg)
+            pg.apply_redactions(images=fitz.PDF_REDACT_IMAGE_NONE, graphics=fitz.PDF_REDACT_LINE_ART_NONE)
+            for s, t2, k in todo:
+                r = fitz.Rect(s["bbox"]); size = s["size"]; col = s["color"]; ink = (((col >> 16) & 255) / 255, ((col >> 8) & 255) / 255, (col & 255) / 255)
+                bold = "bold" in s["font"].lower() or bool(s["flags"] & 16); ox, oy = s["origin"]
+                if t2.strip() and all(ord(ch) < 256 for ch in t2):
+                    fn = "hebo" if bold else "helv"; w = fitz.get_text_length(t2, fontname=fn, fontsize=size)
+                    if w > r.width * 1.03: size = max(size * 0.72, size * r.width / w)   # longer text shrinks a little to keep its old space
+                    pg.insert_text((ox, oy), t2, fontsize=size, fontname=fn, color=ink)
+                elif t2.strip():
+                    fam = next((nm for lo, hi, nm in SCRIPTS if any(lo <= ord(ch) <= hi for ch in t2)), "NotoSans")
+                    css = f"@font-face {{font-family: ind; src: url({fam}-Regular.ttf);}} * {{font-family: ind; font-size: {size}px; color: rgb({int(ink[0]*255)},{int(ink[1]*255)},{int(ink[2]*255)}); margin: 0}}"
+                    pg.insert_htmlbox(fitz.Rect(r.x0, r.y0 - size * 0.3, r.x0 + max(r.width * 2, size * len(t2)), r.y1 + size * 0.5), t2, css=css, archive=fitz.Archive(FONTDIR))
+                changed += k; pages_hit.add(pg.number)
+            continue
+        # scanned page (picture + OCR words): erase the picture of the old words, write the new ones
         chars = [(fitz.Rect(ch["bbox"]), ch["c"]) for b in pg.get_text("rawdict")["blocks"] for l in b.get("lines", []) for s in l["spans"] for ch in s["chars"]]
         def neighbour(hit, side):   # the letter touching the match on the left or right (same line), "" if none
             h = hit.height; best, gap = "", h * 0.6
@@ -82,14 +116,17 @@ for n, f in enumerate(pdfs, 1):
             for hit in pg.search_for(old):
                 # whole words only: the letters right before/after must not be part of a longer word
                 if is_word(neighbour(hit, "L")) or is_word(neighbour(hit, "R")): continue
-                sp = span_at(pg, hit); size = sp[1]["size"] if sp else h * 0.8; bold = bool(sp and ("bold" in sp[1]["font"].lower() or sp[1]["flags"] & 16))
+                # exact box of the matched letters only (search boxes can reach into the space or the next letter)
+                inside = [r for r, ch in chars if ch.strip() and hit.contains(fitz.Point((r.x0 + r.x1) / 2, (r.y0 + r.y1) / 2))]
+                if inside: hit = fitz.Rect(min(r.x0 for r in inside), hit.y0, max(r.x1 for r in inside), hit.y1)
+                sp = span_at(pg, hit); size = hit.height * 0.78;   # scans: match the height of the letters in the picture bold = bool(sp and ("bold" in sp[1]["font"].lower() or sp[1]["flags"] & 16))
                 bg, ink = bg_and_ink(pix, hit, zoom)
                 if sp:
                     col = sp[1]["color"]; real = ((col >> 16) & 255, (col >> 8) & 255, col & 255)
                     if sum(abs(real[i] / 255 - bg[i]) for i in range(3)) > 0.3: ink = tuple(v / 255 for v in real)   # real text colour (scans keep the picture's colour)
                 jobs.append((hit, new, size, bold, bg, ink, sp[0].y1 if sp else hit.y1))
         if not jobs: continue
-        PAD = (0.2, -0.6, -0.2, 0.6)   # a little taller than the letters, never wider (keeps the spaces next to it)
+        PAD = (0.35, -0.6, -0.35, 0.6)   # a little taller than the letters, a hair narrower (never touches the next letter)
         for hit, new, size, bold, bg, ink, base_y in jobs:
             pg.add_redact_annot(hit + PAD, fill=bg)
         pg.apply_redactions(images=fitz.PDF_REDACT_IMAGE_PIXELS, graphics=fitz.PDF_REDACT_LINE_ART_NONE)
@@ -99,7 +136,7 @@ for n, f in enumerate(pdfs, 1):
             if all(ord(ch) < 256 for ch in new):
                 fn = "hebo" if bold else "helv"; w = fitz.get_text_length(new, fontname=fn, fontsize=size)
                 if w > hit.width * 1.03: size = max(size * 0.72, size * hit.width / w)   # longer words shrink a little to fit the old space
-                pg.insert_text((hit.x0, hit.y1 - size * 0.22 - (hit.height * 0.78 - size) * 0.5 * 0), new, fontsize=size, fontname=fn, color=ink)
+                pg.insert_text((hit.x0, hit.y1 - hit.height * 0.2), new, fontsize=size, fontname=fn, color=ink)
             else:   # Indian scripts: shaped properly with the matching Noto font
                 fam = next((nm for lo, hi, nm in SCRIPTS if any(lo <= ord(ch) <= hi for ch in new)), "NotoSans")
                 css = f"@font-face {{font-family: ind; src: url({fam}-Regular.ttf);}} * {{font-family: ind; font-size: {size}px; color: rgb({int(ink[0]*255)},{int(ink[1]*255)},{int(ink[2]*255)}); font-weight: {'bold' if bold else 'normal'}; margin: 0}}"
