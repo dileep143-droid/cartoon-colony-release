@@ -1,2 +1,36 @@
-{"note": "only songs Claude checked; order = release order. Timer skips a song on a channel when the same title already exists there or the file is not in Drive yet.",
- "songs": ["S04_monkey_mangoes", "S13_hen_chicks", "S03_paper_boats", "S09_rainbow_puppy", "S12_school_bag_squirrel", "S10_counting_bananas", "S11_puppy_bath", "S06_kite_crow", "S07_bedtime_owl", "S08_goat_market", "S05_brush_teeth"]}
+{
+ "note": "only songs Claude checked; order = release order. Timer skips a song on a channel when the same title already exists there or the file is not in Drive yet. 10 Nov: S19-S38 added (2-minute songs: 4/day on the 12 unverified channels, 2/day on the 8 verified).",
+ "songs": [
+  "S04_monkey_mangoes",
+  "S13_hen_chicks",
+  "S03_paper_boats",
+  "S09_rainbow_puppy",
+  "S12_school_bag_squirrel",
+  "S10_counting_bananas",
+  "S11_puppy_bath",
+  "S06_kite_crow",
+  "S07_bedtime_owl",
+  "S08_goat_market",
+  "S05_brush_teeth",
+  "S19_idli_dance",
+  "S20_carrot_crunch",
+  "S21_wash_hands_pop",
+  "S22_milk_mustache",
+  "S23_lion_soft_roar",
+  "S24_kitty_tiptoe",
+  "S25_ant_march",
+  "S26_donkey_helper",
+  "S27_tortoise_hare",
+  "S28_bear_honey",
+  "S29_bundle_of_sticks",
+  "S30_magic_tiffin",
+  "S31_auto_tuk_tuk",
+  "S32_train_chuk_chuk",
+  "S33_tractor_farm",
+  "S34_diwali_diya",
+  "S35_dadi_glasses",
+  "S36_papa_snore",
+  "S37_school_morning",
+  "S38_shapes_dance"
+ ]
+}
