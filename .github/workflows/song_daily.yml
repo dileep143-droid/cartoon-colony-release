@@ -1,6 +1,6 @@
 name: song-daily
 
-# BuBu TV timer (owner 3 Nov 2026): every day 5 new songs per language channel from Google Drive, public at 07/10/13/16/19 IST.
+# BuBu TV timer: 2-minute songs from Google Drive. 10 Nov owner: 8 verified channels 2 a day (14/18 IST), 12 other channels 4 a day (10/13/16/19 IST), no Shorts.
 
 # Starts 00:30 UTC (06:00 IST); GitHub timers can be late - the script never schedules in the past.
 
@@ -17,8 +17,8 @@ on:
       langs: { description: 'JSON list of channel codes (default all 20)', required: false, default: '' }
 
       dry:   { description: '1 = test, no upload', required: false, default: '0' }
-      songs: { description: 'songs per channel (default 5)', required: false, default: '5' }
-      shorts: { description: 'shorts per channel (default 5; 0 = none - saves the shared upload quota)', required: false, default: '5' }
+      songs: { description: 'songs per channel (empty = 2 verified / 4 others)', required: false, default: '' }
+      shorts: { description: 'not used (Shorts stopped 6 Nov)', required: false, default: '0' }
 
 jobs:
 
@@ -44,7 +44,9 @@ jobs:
 
       - name: tools
 
-        run: pip install -q google-api-python-client google-auth kaggle
+        run: |
+          pip install -q google-api-python-client google-auth kaggle
+          which ffmpeg || (sudo apt-get update -q && sudo apt-get install -y -q ffmpeg)
 
       - name: daily songs ${{ matrix.lang }}
 
