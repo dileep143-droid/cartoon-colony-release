@@ -45,9 +45,32 @@ def ai_rules(request, pdf_bytes):
     out = llm.create_chat_completion(messages=msg, temperature=0, max_tokens=800, response_format={"type": "json_object"})["choices"][0]["message"]["content"]
     pairs = json.loads(out).get("changes", [])
     flat = re.sub(r"\s+", " ", text)
+    def as_date(old):   # today written in the SAME style as the old date
+        M = "January February March April May June July August September October November December".split()
+        m = re.search(r"\b(\d{1,2})([./-])(\d{1,2})\2(\d{2,4})\b", old)
+        if m: return old[:m.start()] + f"{today.day:02d}{m.group(2)}{today.month:02d}{m.group(2)}{today.year if len(m.group(4)) == 4 else str(today.year)[2:]}" + old[m.end():]
+        m = re.search(r"\b(\d{4})([./-])(\d{1,2})\2(\d{1,2})\b", old)
+        if m: return old[:m.start()] + f"{today.year}{m.group(2)}{today.month:02d}{m.group(2)}{today.day:02d}" + old[m.end():]
+        m = re.search(r"\b(\d{1,2})(st|nd|rd|th)?\s+([A-Za-z]+)\.?,?\s+(\d{4})\b", old)
+        if m and m.group(3)[:3].lower() in [x[:3].lower() for x in M]:
+            mon = M[today.month - 1] if len(m.group(3)) > 3 else M[today.month - 1][:3]
+            return old[:m.start()] + f"{today.day} {mon} {today.year}" + old[m.end():]
+        m = re.search(r"\b([A-Za-z]+)\.?\s+(\d{1,2}),?\s+(\d{4})\b", old)
+        if m and m.group(1)[:3].lower() in [x[:3].lower() for x in M]:
+            mon = M[today.month - 1] if len(m.group(1)) > 3 else M[today.month - 1][:3]
+            return old[:m.start()] + f"{mon} {today.day}, {today.year}" + old[m.end():]
+        return None
+    def core(o, nw):   # keep only the part that really changes ("Name: Ravi Kumar" -> "Ravi Kumar"), so it is changed everywhere it appears
+        a, b = o.split(" "), nw.split(" ")
+        while len(a) > 1 and len(b) > 1 and a[0] == b[0]: a, b = a[1:], b[1:]
+        while len(a) > 1 and len(b) > 1 and a[-1] == b[-1]: a, b = a[:-1], b[:-1]
+        return " ".join(a), " ".join(b)
     good = []
     for c in pairs:
         o, nw = str(c.get("old", "")).strip(), str(c.get("new", "")).strip()
+        if re.search(r"\btoday\b", nw, re.I) or (re.search(r"\btoday\b", request, re.I) and re.search(r"\d", o) and as_date(o) and not re.search(r"\d", nw)):
+            nw = as_date(o) or nw
+        o, nw = core(o, nw)
         if o and o != nw and re.sub(r"\s+", " ", o) in flat and (o, nw) not in good: good.append((o, nw))
     return good
 def rules_from(raw):
