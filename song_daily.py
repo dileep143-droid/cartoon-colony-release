@@ -83,7 +83,9 @@ for slug in queue:
         fh.close()
     else:   # 4 Nov: owner's Drive is full (15 GB) -> fall back to the song's Kaggle output (release.json says which kernel/key)
         import subprocess, re as _re
-        src = json.load(open(os.path.join(D, slug, "release.json"), encoding="utf-8"))["files"].get(code)
+        rp = os.path.join(D, slug, "release.json")   # 11 Nov: a song missing in Drive with no Kaggle record is SKIPPED (it crashed the whole Tamil run before)
+        if not os.path.exists(rp): print(f"RESULT {code} {slug} NOT_IN_DRIVE - skipped, next song", flush=True); continue
+        src = json.load(open(rp, encoding="utf-8"))["files"].get(code)
         if not src: print(f"RESULT {code} {slug} NO_SOURCE"); continue
         env = dict(os.environ, KAGGLE_API_TOKEN=os.environ.get(f"KAGGLE_KEY{src['key']}", ""), PYTHONUTF8="1"); os.makedirs("dl", exist_ok=True)
         subprocess.run(["kaggle", "kernels", "output", src["kernel"], "-p", "dl", "--file-pattern", "^" + _re.escape(src["file"]) + "$"], env=env, capture_output=True, text=True)
