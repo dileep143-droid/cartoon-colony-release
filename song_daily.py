@@ -11,11 +11,12 @@ code = sys.argv[1]
 # 10 Nov owner: 2-minute songs again. 8 verified channels (long videos + own thumbnails): 2 a day. 12 others (no long videos): 4 a day. No Shorts. 100 uploads/day shared.
 VERIFIED = {"hi", "te", "ta", "kn", "mr", "bn", "en", "ur"}
 # 11 Nov owner: "1 to 2 videos without repetitive content" -> 2 new songs a day on every channel
-PER_DAY = int(os.environ.get("SONGS_PER_DAY") or 2); SLOTS_IST = [11, 18] if code in VERIFIED else [12, 19]
+# 11 Nov owner (later): "one song everyday and remaining 2 to 3 or 4 should be shorts in all languages" -> 1 song + 3 Shorts per channel
+PER_DAY = int(os.environ.get("SONGS_PER_DAY") or 1); SLOTS_IST = [18] if code in VERIFIED else [19]
 if os.environ.get("SLOTS"): SLOTS_IST = [int(h) for h in os.environ["SLOTS"].split(",")]   # hand runs: own hours (e.g. extra songs later the same day)
 PER_DAY = min(PER_DAY, len(SLOTS_IST))
 # 10 Nov owner: long videos stopped; "I'm talking about 2 min songs" -> the 8 verified channels get 3 more 2-minute songs in their place (5 a day). No Shorts.
-SHORTS_PER_DAY = 0
+SHORTS_PER_DAY = int(os.environ.get("SHORTS_PER_DAY") or 3)   # 11 Nov owner: 3 Shorts a day, made here from the full song (2 different parts per song)
 NAME = {"hi": "hindi", "te": "telugu", "ta": "tamil", "kn": "kannada", "ml": "malayalam", "mr": "marathi", "bn": "bengali", "gu": "gujarati", "pa": "punjabi", "or": "odia",
         "as": "assamese", "en": "english", "ne": "nepali", "ur": "urdu", "sd": "sindhi", "mai": "maithili", "hry": "haryanvi", "ks": "kashmiri", "mni": "manipuri", "bho": "bhojpuri"}
 NEW = {"ne", "ur", "sd", "mai", "hry", "ks", "mni", "bho"}; YT_LANG = {"ne": "ne", "ur": "ur"}
@@ -119,36 +120,63 @@ for slug in queue:
     print(f"RESULT {code} {slug} SCHEDULED {vid} public {pub} | {t}", flush=True)
 print(f"RESULT {code} done today: {done}")
 
-# ---- Shorts (owner 4 Nov): 5 per channel per day from Drive "BuBu TV Shorts/<slug>", public 08:30 11:30 14:30 17:30 20:30 IST ----
-SHORT_SLOTS = [datetime.datetime(today.year, today.month, today.day, h, 30, tzinfo=ist) for h in (8, 11, 14, 17, 20)]
+# ---- Shorts (11 Nov owner): 3 per channel per day, cut HERE from the full 2-minute song in Drive (no ready-made file needed).
+# Each song gives 2 different Shorts (Part 1 = first half, Part 2 = second half). A Short is never repeated (its exact title is checked).
+import subprocess
+SHORT_SLOTS = [datetime.datetime(today.year, today.month, today.day, h, m, tzinfo=ist) for h, m in ((9, 30), (13, 30), (21, 0))]
 SHORT_SLOTS = [max(s, now + datetime.timedelta(minutes=40)) for s in SHORT_SLOTS]
 sdone = 0
-for slug in queue:
-    if sdone >= SHORTS_PER_DAY: break
-    mp = os.path.join(D, slug, f"meta_{code}.json")
-    if not os.path.exists(mp): continue
-    meta = json.load(open(mp, encoding="utf-8"))
-    hook = str(meta.get("thumb_text", "")).strip(); song = meta["title"].split("|")[0].strip()
-    title = (f"{hook} | {song} #shorts" if hook else f"{song} #shorts")[:100].strip()
-    if title in have: continue
-    fid = drive_file(slug, f"{slug[:3]}_{NAME[code]}_short.mp4")
-    if not fid: print(f"RESULT {code} {slug} SHORT_NOT_IN_DRIVE"); continue
-    path = f"{slug}_{code}_short.mp4"; fh = io.FileIO(path, "wb"); dl = MediaIoBaseDownload(fh, dr.files().get_media(fileId=fid), chunksize=32 * 2**20); ok = False
-    while not ok: _, ok = dl.next_chunk()
-    fh.close()
-    if os.environ.get("DRY") == "1":
-        print(f"RESULT {code} {slug} SHORT DRY '{title}' at {SHORT_SLOTS[sdone].astimezone(ist):%H:%M} IST", flush=True); sdone += 1; have.add(title); os.remove(path); continue
-    desc = (meta["description"].split("\n\n")[0] + "\n\nFull song on our channel - BuBu TV.\n#shorts #kidssongs #rhymes")[:5000]
-    sn = {"title": title, "description": desc, "tags": meta["tags"][:20] + ["shorts"], "categoryId": "27"}
-    yl = code if code not in NEW else YT_LANG.get(code)
-    if yl: sn.update({"defaultLanguage": yl, "defaultAudioLanguage": yl})
-    pub = SHORT_SLOTS[sdone].astimezone(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    body = {"snippet": sn, "status": {"privacyStatus": "private", "publishAt": pub, "selfDeclaredMadeForKids": True, "embeddable": True, "containsSyntheticMedia": True}}
-    try:
-        req = yt.videos().insert(part="snippet,status", body=body, media_body=MediaFileUpload(path, chunksize=16 * 2**20, resumable=True)); res = None
-        while res is None: _, res = req.next_chunk()
-    except Exception as e:
-        print(f"RESULT {code} {slug} SHORT STOPPED {str(e)[-200:]}"); break
-    sdone += 1; have.add(title); os.remove(path)
-    print(f"RESULT {code} {slug} SHORT SCHEDULED {res['id']} public {pub}", flush=True)
+def _on(sl):      # Shorts first for songs whose full video is already on this channel (so 'Full song on our channel' is true)
+    mp = os.path.join(D, sl, f"meta_{code}.json")
+    if not os.path.exists(mp): return 2
+    t = json.load(open(mp, encoding="utf-8"))["title"][:100].strip(); return 0 if (t in have or _core(t) in on_names) else 1
+squeue = sorted(queue, key=_on)
+for part in (1, 2):
+    for slug in squeue:
+        if sdone >= SHORTS_PER_DAY: break
+        mp = os.path.join(D, slug, f"meta_{code}.json")
+        if not os.path.exists(mp): continue
+        meta = json.load(open(mp, encoding="utf-8")); song = meta["title"].split("|")[0].strip(); hook = str(meta.get("thumb_text", "")).strip()
+        title = ((f"{hook} | {song} #shorts" if hook else f"{song} #shorts") if part == 1 else f"{song} | Part 2 #shorts")[:100].strip()
+        if title in have: continue
+        fid = drive_file(slug, f"{slug[:3]}_{NAME[code]}.mp4")
+        if not fid: continue
+        full = f"{slug}_{code}_full.mp4"; fh = io.FileIO(full, "wb"); dl = MediaIoBaseDownload(fh, dr.files().get_media(fileId=fid), chunksize=32 * 2**20); ok = False
+        while not ok: _, ok = dl.next_chunk()
+        fh.close()
+        try: dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", full], capture_output=True, text=True).stdout.strip())
+        except Exception: dur = 120.0
+        L = min(42.0, max(20.0, dur / 2 - 4)); st = 6.0 if part == 1 else max(6.0, dur / 2)
+        if st + L > dur - 1: L = max(15.0, dur - 1 - st)
+        path = f"{slug}_{code}_p{part}_short.mp4"
+        # 11 Nov owner: "full screen even in vertical shorts ... zoom in to the video" -> fill 1080x1920 by zooming into the centre (no blurred bars)
+        # + "our transparent name and logo too": logo top-right + see-through "BUBU TV" travelling slowly, same as the songs and long videos
+        FONT = "data/long/fonts/LilitaOne-Regular.ttf"; LOGO = "data/long/logo.png"
+        ph = sum(map(ord, slug + code + str(part))) * 97 % 3000; ph2 = sum(map(ord, slug + code + str(part))) * 53 % 1800
+        name = (f",drawtext=fontfile={FONT}:text='BUBU TV':fontcolor=white@0.5:fontsize=h*0.035:x='abs(mod(t*61+{ph}\\,2*(w-tw-40))-(w-tw-40))+20'"
+                f":y='abs(mod(t*37+{ph2}\\,2*(h-th-40))-(h-th-40))+20':shadowcolor=black@0.3:shadowx=2:shadowy=2") if os.path.exists(FONT) else ""
+        fade = f"fade=t=in:st=0:d=0.3,fade=t=out:st={L - 0.6:.2f}:d=0.6"
+        if os.path.exists(LOGO):
+            ins = ["-i", full, "-i", LOGO]; vf = (f"[0:v]scale=-2:1920,crop=1080:1920,setsar=1{name}[z];[1:v]scale=170:170,format=rgba,colorchannelmixer=aa=0.92[l];"
+                                                 f"[z][l]overlay=W-w-40:60,{fade},format=yuv420p[v]")
+        else:
+            ins = ["-i", full]; vf = f"[0:v]scale=-2:1920,crop=1080:1920,setsar=1{name},{fade},format=yuv420p[v]"
+        r = subprocess.run(["ffmpeg", "-y", "-v", "error", "-ss", f"{st:.2f}", "-t", f"{L:.2f}"] + ins + ["-filter_complex", vf, "-map", "[v]", "-map", "0:a",
+                            "-af", f"afade=t=in:st=0:d=0.3,afade=t=out:st={L - 0.6:.2f}:d=0.6", "-c:v", "libx264", "-crf", "20", "-preset", "veryfast", "-c:a", "aac", "-b:a", "160k", path], capture_output=True, text=True)
+        os.remove(full)
+        if r.returncode or not os.path.exists(path): print(f"RESULT {code} {slug} SHORT CUT FAILED {r.stderr[-200:]}"); continue
+        if os.environ.get("DRY") == "1":
+            print(f"RESULT {code} {slug} SHORT DRY '{title}' {st:.0f}-{st + L:.0f}s at {SHORT_SLOTS[sdone].astimezone(ist):%H:%M} IST", flush=True); sdone += 1; have.add(title); os.remove(path); continue
+        desc = (meta["description"].split("\n\n")[0] + "\n\nFull song on our channel - BuBu TV.\n#shorts #kidssongs #rhymes")[:5000]
+        sn = {"title": title, "description": desc, "tags": meta["tags"][:20] + ["shorts"], "categoryId": "27"}
+        if code in YT_LANG: sn.update(defaultLanguage=YT_LANG[code], defaultAudioLanguage=YT_LANG[code])
+        pub = SHORT_SLOTS[sdone].astimezone(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        body = {"snippet": sn, "status": {"privacyStatus": "private", "publishAt": pub, "selfDeclaredMadeForKids": True, "embeddable": True, "containsSyntheticMedia": True}}
+        try:
+            req = yt.videos().insert(part="snippet,status", body=body, media_body=MediaFileUpload(path, chunksize=16 * 2**20, resumable=True)); res = None
+            while res is None: _, res = req.next_chunk()
+        except Exception as e:
+            print(f"RESULT {code} {slug} SHORT STOPPED {str(e)[-200:]}"); os.remove(path); break
+        os.remove(path); sdone += 1; have.add(title)
+        print(f"RESULT {code} {slug} SHORT SCHEDULED {res['id']} public {pub}", flush=True)
 print(f"RESULT {code} shorts today: {sdone}")
