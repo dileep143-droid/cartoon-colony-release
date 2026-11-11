@@ -10,7 +10,8 @@ from googleapiclient.http import MediaFileUpload, MediaIoBaseDownload
 code = sys.argv[1]
 # 10 Nov owner: 2-minute songs again. 8 verified channels (long videos + own thumbnails): 2 a day. 12 others (no long videos): 4 a day. No Shorts. 100 uploads/day shared.
 VERIFIED = {"hi", "te", "ta", "kn", "mr", "bn", "en", "ur"}
-PER_DAY = int(os.environ.get("SONGS_PER_DAY") or (5 if code in VERIFIED else 4)); SLOTS_IST = [8, 11, 14, 16, 18] if code in VERIFIED else [10, 13, 16, 19]
+# 11 Nov owner: "1 to 2 videos without repetitive content" -> 2 new songs a day on every channel
+PER_DAY = int(os.environ.get("SONGS_PER_DAY") or 2); SLOTS_IST = [11, 18] if code in VERIFIED else [12, 19]
 if os.environ.get("SLOTS"): SLOTS_IST = [int(h) for h in os.environ["SLOTS"].split(",")]   # hand runs: own hours (e.g. extra songs later the same day)
 PER_DAY = min(PER_DAY, len(SLOTS_IST))
 # 10 Nov owner: long videos stopped; "I'm talking about 2 min songs" -> the 8 verified channels get 3 more 2-minute songs in their place (5 a day). No Shorts.
@@ -38,6 +39,21 @@ while True:                                               # every title already 
     r = retry(lambda: yt.playlistItems().list(part="snippet", playlistId=up, maxResults=50, pageToken=tok).execute())
     have |= {i["snippet"]["title"].strip() for i in r["items"]}; tok = r.get("nextPageToken")
     if not tok or len(have) > 400: break
+# 11 Nov: titles were changed later, so a song is ALSO recognised by its NAME (the part before the first '|') on any 1-4 minute video -> never upload the same song twice
+import re as _re
+def _secs(d):
+    m = _re.match(r"P(?:\d+D)?T?(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?", d or "")
+    return sum(int(x or 0) * k for x, k in zip(m.groups(), (3600, 60, 1))) if m else 0
+on_names, ids, tok = set(), [], None
+def _core(t): return _re.sub(r"[^\w]+", " ", t.split("|")[0].split("&")[0].split("#")[0]).strip().lower()
+while True:
+    r = retry(lambda: yt.playlistItems().list(part="contentDetails", playlistId=up, maxResults=50, pageToken=tok).execute())
+    ids += [i["contentDetails"]["videoId"] for i in r["items"]]; tok = r.get("nextPageToken")
+    if not tok: break
+for k in range(0, len(ids), 50):
+    for v in retry(lambda: yt.videos().list(part="snippet,contentDetails", id=",".join(ids[k:k + 50])).execute())["items"]:
+        if 61 <= _secs(v["contentDetails"].get("duration")) <= 240: on_names.add(_core(v["snippet"]["title"]))
+print(f"RESULT {code} channel has {len(ids)} videos, {len(on_names)} song names", flush=True)
 now = datetime.datetime.now(datetime.timezone.utc); ist = datetime.timezone(datetime.timedelta(hours=5, minutes=30))
 today = now.astimezone(ist).date()
 slots = [datetime.datetime(today.year, today.month, today.day, h, 0, tzinfo=ist) for h in SLOTS_IST]
@@ -57,6 +73,9 @@ for slug in queue:
     if title in have: continue
     fname = f"{slug[:3]}_{NAME[code]}.mp4"; path = f"{slug}_{code}.mp4"
     fid = drive_file(slug, fname)
+    if fid:
+        if _core(title) in on_names:
+            print(f"RESULT {code} {slug} SKIP already on channel (same song name, other title)", flush=True); continue
     if fid:
         fh = io.FileIO(path, "wb"); dl = MediaIoBaseDownload(fh, dr.files().get_media(fileId=fid), chunksize=64 * 2**20); ok = False
         while not ok: _, ok = dl.next_chunk()
