@@ -6604,6 +6604,155 @@
     "ur": "Bhalu Bear Wakes Up to Clap"
    },
    "new": "2026-11-11"
+  },
+  "S52_tiger_tippu_hide": {
+   "src": {
+    "te": {
+     "kernel": "musthafadudekula/s52-song-1",
+     "key": 13,
+     "file": "S52_telugu.mp4"
+    },
+    "as": {
+     "kernel": "musthafadudekula/s52-song-1",
+     "key": 13,
+     "file": "S52_assamese.mp4"
+    },
+    "bn": {
+     "kernel": "musthafadudekula/s52-song-1",
+     "key": 13,
+     "file": "S52_bengali.mp4"
+    },
+    "bho": {
+     "kernel": "musthafadudekula/s52-song-1",
+     "key": 13,
+     "file": "S52_bhojpuri.mp4"
+    },
+    "en": {
+     "kernel": "musthafadudekula/s52-song-1",
+     "key": 13,
+     "file": "S52_english.mp4"
+    },
+    "gu": {
+     "kernel": "musthafadudekula/s52-song-1",
+     "key": 13,
+     "file": "S52_gujarati.mp4"
+    },
+    "hry": {
+     "kernel": "musthafadudekula/s52-song-1",
+     "key": 13,
+     "file": "S52_haryanvi.mp4"
+    },
+    "hi": {
+     "kernel": "musthafadudekula/s52-song-1",
+     "key": 13,
+     "file": "S52_hindi.mp4"
+    },
+    "kn": {
+     "kernel": "musthafadudekula/s52-song-1",
+     "key": 13,
+     "file": "S52_kannada.mp4"
+    },
+    "ks": {
+     "kernel": "musthafadudekula/s52-song-1",
+     "key": 13,
+     "file": "S52_kashmiri.mp4"
+    },
+    "mai": {
+     "kernel": "musthafadudekula/s52-song-1",
+     "key": 13,
+     "file": "S52_maithili.mp4"
+    },
+    "ml": {
+     "kernel": "musthafadudekula/s52-song-1",
+     "key": 13,
+     "file": "S52_malayalam.mp4"
+    },
+    "mni": {
+     "kernel": "musthafadudekula/s52-song-1",
+     "key": 13,
+     "file": "S52_manipuri.mp4"
+    },
+    "mr": {
+     "kernel": "musthafadudekula/s52-song-1",
+     "key": 13,
+     "file": "S52_marathi.mp4"
+    },
+    "ne": {
+     "kernel": "musthafadudekula/s52-song-1",
+     "key": 13,
+     "file": "S52_nepali.mp4"
+    },
+    "or": {
+     "kernel": "musthafadudekula/s52-song-1",
+     "key": 13,
+     "file": "S52_odia.mp4"
+    },
+    "pa": {
+     "kernel": "musthafadudekula/s52-song-1",
+     "key": 13,
+     "file": "S52_punjabi.mp4"
+    },
+    "sd": {
+     "kernel": "musthafadudekula/s52-song-1",
+     "key": 13,
+     "file": "S52_sindhi.mp4"
+    },
+    "ta": {
+     "kernel": "musthafadudekula/s52-song-1",
+     "key": 13,
+     "file": "S52_tamil.mp4"
+    },
+    "ur": {
+     "kernel": "musthafadudekula/s52-song-1",
+     "key": 13,
+     "file": "S52_urdu.mp4"
+    }
+   },
+   "title": {
+    "te": "అహా! టిప్పు దాక్కుంటాడు",
+    "as": "আহা! টিপ্পু লুকাই থাকে",
+    "bn": "আহা! টিপ্পু লুকিয়ে যায়",
+    "bho": "अहा! टिप्पू लुका जाला",
+    "en": "Aha! Tippu hides",
+    "gu": "અહા! ટિપ્પુ સંતાઈ જાય",
+    "hry": "अहा! टिप्पू छुप जाता है",
+    "hi": "अहा! टिप्पू छुप जाता है",
+    "kn": "ಅಹಾ! ಟಿಪ್ಪು ಅಡಗಿಕೊಂಡ",
+    "ks": "اَہا! تِپُو چھُ لُکان",
+    "mai": "अहा! टिप्पू नुका जाइत अछि",
+    "ml": "അഹാ! ടിപ്പു ഒളിക്കുന്നു",
+    "mni": "অহা! তিপু লুপতুনে",
+    "mr": "अहा! टिप्पू लपतो",
+    "ne": "अहा! टिप्पु लुक्छ",
+    "or": "ଆହା! ଟିପୁ ଲୁଚିଯାଏ",
+    "pa": "ਅਹਾ! ਟਿੱਪੂ ਲੁਕਦਾ ਏ",
+    "sd": "آها! ٽِپُّو لڪي ٿو",
+    "ta": "ஆஹா! டிப்பு ஒளிஞ்சுக்கும்",
+    "ur": "آہا! ٹپو چھپ جاتا ہے"
+   },
+   "roman": {
+    "te": "Hide and Seek with Tippu Tiger",
+    "as": "Hide and Seek with Tippu Tiger",
+    "bn": "Hide and Seek with Tippu Tiger",
+    "bho": "Hide and Seek with Tippu Tiger",
+    "en": "Hide and Seek with Tippu Tiger",
+    "gu": "Hide and Seek with Tippu Tiger",
+    "hry": "Hide and Seek with Tippu Tiger",
+    "hi": "Hide and Seek with Tippu Tiger",
+    "kn": "Hide and Seek with Tippu Tiger",
+    "ks": "Hide and Seek with Tippu Tiger",
+    "mai": "Hide and Seek with Tippu Tiger",
+    "ml": "Hide and Seek with Tippu Tiger",
+    "mni": "Hide and Seek with Tippu Tiger",
+    "mr": "Hide and Seek with Tippu Tiger",
+    "ne": "Hide and Seek with Tippu Tiger",
+    "or": "Hide and Seek with Tippu Tiger",
+    "pa": "Hide and Seek with Tippu Tiger",
+    "sd": "Hide and Seek with Tippu Tiger",
+    "ta": "Hide and Seek with Tippu Tiger",
+    "ur": "Hide and Seek with Tippu Tiger"
+   },
+   "new": "2026-11-11"
   }
  }
 }
