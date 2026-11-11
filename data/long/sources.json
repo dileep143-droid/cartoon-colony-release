@@ -6306,6 +6306,304 @@
     "ur": "Coconut Says Tok Tok"
    },
    "new": "2026-11-10"
+  },
+  "S39_laddu_gol_gol": {
+   "src": {
+    "te": {
+     "kernel": "musthafadudekula/s39-song-1",
+     "key": 13,
+     "file": "S39_telugu.mp4"
+    },
+    "as": {
+     "kernel": "musthafadudekula/s39-song-1",
+     "key": 13,
+     "file": "S39_assamese.mp4"
+    },
+    "bn": {
+     "kernel": "musthafadudekula/s39-song-1",
+     "key": 13,
+     "file": "S39_bengali.mp4"
+    },
+    "bho": {
+     "kernel": "musthafadudekula/s39-song-1",
+     "key": 13,
+     "file": "S39_bhojpuri.mp4"
+    },
+    "en": {
+     "kernel": "musthafadudekula/s39-song-1",
+     "key": 13,
+     "file": "S39_english.mp4"
+    },
+    "gu": {
+     "kernel": "musthafadudekula/s39-song-1",
+     "key": 13,
+     "file": "S39_gujarati.mp4"
+    },
+    "hry": {
+     "kernel": "musthafadudekula/s39-song-1",
+     "key": 13,
+     "file": "S39_haryanvi.mp4"
+    },
+    "hi": {
+     "kernel": "musthafadudekula/s39-song-1",
+     "key": 13,
+     "file": "S39_hindi.mp4"
+    },
+    "kn": {
+     "kernel": "musthafadudekula/s39-song-1",
+     "key": 13,
+     "file": "S39_kannada.mp4"
+    },
+    "ks": {
+     "kernel": "musthafadudekula/s39-song-1",
+     "key": 13,
+     "file": "S39_kashmiri.mp4"
+    },
+    "mai": {
+     "kernel": "musthafadudekula/s39-song-1",
+     "key": 13,
+     "file": "S39_maithili.mp4"
+    },
+    "ml": {
+     "kernel": "musthafadudekula/s39-song-1",
+     "key": 13,
+     "file": "S39_malayalam.mp4"
+    },
+    "mni": {
+     "kernel": "musthafadudekula/s39-song-1",
+     "key": 13,
+     "file": "S39_manipuri.mp4"
+    },
+    "mr": {
+     "kernel": "musthafadudekula/s39-song-1",
+     "key": 13,
+     "file": "S39_marathi.mp4"
+    },
+    "ne": {
+     "kernel": "musthafadudekula/s39-song-1",
+     "key": 13,
+     "file": "S39_nepali.mp4"
+    },
+    "or": {
+     "kernel": "musthafadudekula/s39-song-1",
+     "key": 13,
+     "file": "S39_odia.mp4"
+    },
+    "pa": {
+     "kernel": "musthafadudekula/s39-song-1",
+     "key": 13,
+     "file": "S39_punjabi.mp4"
+    },
+    "sd": {
+     "kernel": "musthafadudekula/s39-song-1",
+     "key": 13,
+     "file": "S39_sindhi.mp4"
+    },
+    "ta": {
+     "kernel": "musthafadudekula/s39-song-1",
+     "key": 13,
+     "file": "S39_tamil.mp4"
+    },
+    "ur": {
+     "kernel": "musthafadudekula/s39-song-1",
+     "key": 13,
+     "file": "S39_urdu.mp4"
+    }
+   },
+   "title": {
+    "te": "గోల్ గోల్ లడ్డూ, నాతో దొర్లు",
+    "as": "গোল গোল লাড্ডু, মোৰ লগত গড়ি আহ",
+    "bn": "গোল গোল লাড্ডু, আমার সাথে গড়াও",
+    "bho": "गोल गोल लड्डू, हमरा संग लुढ़क",
+    "en": "Gol gol laddu, come roll with me",
+    "gu": "ગોલ ગોલ લાડુ, મારી સાથે ગડ",
+    "hry": "गोल गोल लड्डू, मेरे संग लुढ़क",
+    "hi": "गोल गोल लड्डू, मेरे संग लुढ़क",
+    "kn": "ಗೋಲ್ ಗೋಲ್ ಲಡ್ಡು, ನನ್ನ ಜೊತೆ ದೊರ್ಲು",
+    "ks": "گول گول لَڈوٗ، مےٚ سۭتۍ لُرو",
+    "mai": "गोल गोल लड्डू, हमरा संग लोटऽ",
+    "ml": "ഗോൾ ഗോൾ ലഡ്ഡു, കൂടെ ഉരുളൂ",
+    "mni": "গোল গোল লদ্দু, ঐগা কোইরো",
+    "mr": "गोल गोल लाडू, माझ्यासोबत गडगड",
+    "ne": "गोल गोल लड्डू, मसँग लडी आऊ",
+    "or": "ଗୋଲ୍ ଗୋଲ୍ ଲଡ୍ଡୁ, ସାଙ୍ଗରେ ଗଡ଼ ନା",
+    "pa": "ਗੋਲ ਗੋਲ ਲੱਡੂ, ਮੇਰੇ ਨਾਲ ਲੁੜ੍ਹ",
+    "sd": "گول گول لڈو، مون سان لڙهه",
+    "ta": "கோல் கோல் லட்டு, என்னோடு உருளு",
+    "ur": "گول گول لڈو، میرے ساتھ لڑھک"
+   },
+   "roman": {
+    "te": "Laddu Rolls Away",
+    "as": "Laddu Rolls Away",
+    "bn": "Laddu Rolls Away",
+    "bho": "Laddu Rolls Away",
+    "en": "Laddu Rolls Away",
+    "gu": "Laddu Rolls Away",
+    "hry": "Laddu Rolls Away",
+    "hi": "Laddu Rolls Away",
+    "kn": "Laddu Rolls Away",
+    "ks": "Laddu Rolls Away",
+    "mai": "Laddu Rolls Away",
+    "ml": "Laddu Rolls Away",
+    "mni": "Laddu Rolls Away",
+    "mr": "Laddu Rolls Away",
+    "ne": "Laddu Rolls Away",
+    "or": "Laddu Rolls Away",
+    "pa": "Laddu Rolls Away",
+    "sd": "Laddu Rolls Away",
+    "ta": "Laddu Rolls Away",
+    "ur": "Laddu Rolls Away"
+   },
+   "new": "2026-11-11"
+  },
+  "S56_bear_bhalu_clap": {
+   "src": {
+    "te": {
+     "kernel": "ramu24/s56-song-1",
+     "key": 14,
+     "file": "S56_telugu.mp4"
+    },
+    "as": {
+     "kernel": "ramu24/s56-song-1",
+     "key": 14,
+     "file": "S56_assamese.mp4"
+    },
+    "bn": {
+     "kernel": "ramu24/s56-song-1",
+     "key": 14,
+     "file": "S56_bengali.mp4"
+    },
+    "bho": {
+     "kernel": "ramu24/s56-song-1",
+     "key": 14,
+     "file": "S56_bhojpuri.mp4"
+    },
+    "en": {
+     "kernel": "ramu24/s56-song-1",
+     "key": 14,
+     "file": "S56_english.mp4"
+    },
+    "gu": {
+     "kernel": "ramu24/s56-song-1",
+     "key": 14,
+     "file": "S56_gujarati.mp4"
+    },
+    "hry": {
+     "kernel": "ramu24/s56-song-1",
+     "key": 14,
+     "file": "S56_haryanvi.mp4"
+    },
+    "hi": {
+     "kernel": "ramu24/s56-song-1",
+     "key": 14,
+     "file": "S56_hindi.mp4"
+    },
+    "kn": {
+     "kernel": "ramu24/s56-song-1",
+     "key": 14,
+     "file": "S56_kannada.mp4"
+    },
+    "ks": {
+     "kernel": "ramu24/s56-song-1",
+     "key": 14,
+     "file": "S56_kashmiri.mp4"
+    },
+    "mai": {
+     "kernel": "ramu24/s56-song-1",
+     "key": 14,
+     "file": "S56_maithili.mp4"
+    },
+    "ml": {
+     "kernel": "ramu24/s56-song-1",
+     "key": 14,
+     "file": "S56_malayalam.mp4"
+    },
+    "mni": {
+     "kernel": "ramu24/s56-song-1",
+     "key": 14,
+     "file": "S56_manipuri.mp4"
+    },
+    "mr": {
+     "kernel": "ramu24/s56-song-1",
+     "key": 14,
+     "file": "S56_marathi.mp4"
+    },
+    "ne": {
+     "kernel": "ramu24/s56-song-1",
+     "key": 14,
+     "file": "S56_nepali.mp4"
+    },
+    "or": {
+     "kernel": "ramu24/s56-song-1",
+     "key": 14,
+     "file": "S56_odia.mp4"
+    },
+    "pa": {
+     "kernel": "ramu24/s56-song-1",
+     "key": 14,
+     "file": "S56_punjabi.mp4"
+    },
+    "sd": {
+     "kernel": "ramu24/s56-song-1",
+     "key": 14,
+     "file": "S56_sindhi.mp4"
+    },
+    "ta": {
+     "kernel": "ramu24/s56-song-1",
+     "key": 14,
+     "file": "S56_tamil.mp4"
+    },
+    "ur": {
+     "kernel": "ramu24/s56-song-1",
+     "key": 14,
+     "file": "S56_urdu.mp4"
+    }
+   },
+   "title": {
+    "te": "చప్పట్లు కొట్టు, భాలు లేవరా",
+    "as": "হাত তালি মাৰ, ভালু সাৰ পা",
+    "bn": "তালি বাজাও, ভালু ওঠো না",
+    "bho": "ताली बजाव, भालू उठ ना",
+    "en": "Clap your hands, Bhalu, wake up now",
+    "gu": "તાળી પાડો, ભાલુ ઊઠ ને",
+    "hry": "ताली बजाओ, भालू उठ जा",
+    "hi": "ताली बजाओ, भालू जी उठो ना",
+    "kn": "ಚಪ್ಪಾಳೆ ತಟ್ಟು, ಭಾಲು ಏಳೋ",
+    "ks": "تالی لایو، بالو ووٹھ",
+    "mai": "ताली बजाउ, भालू उठू ने",
+    "ml": "കൈ കൊട്ടൂ, ഭാലൂ എഴുന്നേൽക്കൂ",
+    "mni": "তালি তাউ, ভালু থোকউ",
+    "mr": "टाळ्या वाजवा, भालू उठ ना",
+    "ne": "ताली बजाऊ, भालु उठ न",
+    "or": "ତାଳି ବଜା, ଭାଲୁ ଉଠ ନା",
+    "pa": "ਤਾੜੀਆਂ ਮਾਰ, ਭਾਲੂ ਉੱਠ ਜਾ",
+    "sd": "تاڙيون وڄاءِ، ڀالو اٿ",
+    "ta": "கைதட்டு, பாலு எழுந்திருடா",
+    "ur": "تالی بجاؤ، بھالو جاگو"
+   },
+   "roman": {
+    "te": "Bhalu Bear Wakes Up to Clap",
+    "as": "Bhalu Bear Wakes Up to Clap",
+    "bn": "Bhalu Bear Wakes Up to Clap",
+    "bho": "Bhalu Bear Wakes Up to Clap",
+    "en": "Bhalu Bear Wakes Up to Clap",
+    "gu": "Bhalu Bear Wakes Up to Clap",
+    "hry": "Bhalu Bear Wakes Up to Clap",
+    "hi": "Bhalu Bear Wakes Up to Clap",
+    "kn": "Bhalu Bear Wakes Up to Clap",
+    "ks": "Bhalu Bear Wakes Up to Clap",
+    "mai": "Bhalu Bear Wakes Up to Clap",
+    "ml": "Bhalu Bear Wakes Up to Clap",
+    "mni": "Bhalu Bear Wakes Up to Clap",
+    "mr": "Bhalu Bear Wakes Up to Clap",
+    "ne": "Bhalu Bear Wakes Up to Clap",
+    "or": "Bhalu Bear Wakes Up to Clap",
+    "pa": "Bhalu Bear Wakes Up to Clap",
+    "sd": "Bhalu Bear Wakes Up to Clap",
+    "ta": "Bhalu Bear Wakes Up to Clap",
+    "ur": "Bhalu Bear Wakes Up to Clap"
+   },
+   "new": "2026-11-11"
   }
  }
 }
