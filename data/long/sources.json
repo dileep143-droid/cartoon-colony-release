@@ -6753,6 +6753,78 @@
     "ur": "Hide and Seek with Tippu Tiger"
    },
    "new": "2026-11-11"
+  },
+  "S59_butterfly_colours": {
+   "src": {
+    "te": {
+     "kernel": "musthafadudekula/s59-song-1",
+     "key": 13,
+     "file": "S59_telugu.mp4"
+    },
+    "bn": {
+     "kernel": "musthafadudekula/s59-song-1",
+     "key": 13,
+     "file": "S59_bengali.mp4"
+    },
+    "gu": {
+     "kernel": "musthafadudekula/s59-song-1",
+     "key": 13,
+     "file": "S59_gujarati.mp4"
+    },
+    "kn": {
+     "kernel": "musthafadudekula/s59-song-1",
+     "key": 13,
+     "file": "S59_kannada.mp4"
+    },
+    "ml": {
+     "kernel": "musthafadudekula/s59-song-1",
+     "key": 13,
+     "file": "S59_malayalam.mp4"
+    },
+    "mni": {
+     "kernel": "musthafadudekula/s59-song-1",
+     "key": 13,
+     "file": "S59_manipuri.mp4"
+    },
+    "mr": {
+     "kernel": "musthafadudekula/s59-song-1",
+     "key": 13,
+     "file": "S59_marathi.mp4"
+    },
+    "or": {
+     "kernel": "musthafadudekula/s59-song-1",
+     "key": 13,
+     "file": "S59_odia.mp4"
+    },
+    "ur": {
+     "kernel": "musthafadudekula/s59-song-1",
+     "key": 13,
+     "file": "S59_urdu.mp4"
+    }
+   },
+   "title": {
+    "te": "ఎగిరే ఎగిరే సీతాకోకా",
+    "bn": "ওড়ো ওড়ো প্রজাপতি",
+    "gu": "ઊડતી ઊડતી પતંગિયા",
+    "kn": "ಹಾರೋ ಹಾರೋ ಚಿಟ್ಟೆ ರಂಗಿನ ಚಿಟ್ಟೆ",
+    "ml": "പറക്ക് പറക്ക് ചിത്രശലഭമേ",
+    "mni": "পাইরি পাইরি থরাংলেবি",
+    "mr": "उडणारी उडणारी फुलपाखरू",
+    "or": "ଉଡ଼ୁ ଉଡ଼ୁ ପ୍ରଜାପତି",
+    "ur": "اُڑتی اُڑتی تتلی رنگ دکھا"
+   },
+   "roman": {
+    "te": "Flutter Butterfly Colours",
+    "bn": "Flutter Butterfly Colours",
+    "gu": "Flutter Butterfly Colours",
+    "kn": "Flutter Butterfly Colours",
+    "ml": "Flutter Butterfly Colours",
+    "mni": "Flutter Butterfly Colours",
+    "mr": "Flutter Butterfly Colours",
+    "or": "Flutter Butterfly Colours",
+    "ur": "Flutter Butterfly Colours"
+   },
+   "new": "2026-11-11"
   }
  }
 }
