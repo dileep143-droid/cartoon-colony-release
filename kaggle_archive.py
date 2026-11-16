@@ -3,7 +3,7 @@ python kaggle_archive.py <key number> [cutoff date, default 2026-11-15]
 - only notebooks whose last run is BEFORE the cutoff (current Mahabharatam jobs are never touched); ls-env is always kept
 - one zip per notebook -> Drive "Kaggle_Notebooks_Archive_2026-11-16/<kaggle user>/<slug>.zip"
 - a notebook is deleted only after Drive reports the same file size as the local zip"""
-import json, os, re, shutil, subprocess, sys, zipfile
+import csv, json, os, re, shutil, subprocess, sys, zipfile
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
@@ -17,7 +17,7 @@ rows = []
 for page in range(1, 11):
     rc, out = kg("kernels", "list", "--mine", "--page-size", "100", "-p", str(page), "--csv")
     if rc: print("list failed:", out[-200:]); sys.exit(0)
-    rr = [l.split(",") for l in out.splitlines()[1:] if l.count(",") >= 3]
+    rr = [r for r in csv.reader(out.splitlines()[1:]) if len(r) >= 4 and re.fullmatch(r"[\w.-]+/[\w.-]+", r[0])]   # 16 Nov: titles with commas broke split(",")
     rows += rr
     if len(rr) < 100: break
 todo = [r[0] for r in rows if r[3][:10] < cutoff and not re.search(r"/ls-env", r[0])]
