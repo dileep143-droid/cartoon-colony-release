@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       cutoff: { description: 'archive notebooks last run BEFORE this date', required: true, default: '2026-11-15' }
+      keys: { description: 'JSON list of account keys', required: true, default: '[1, 2, 3, 4, 5, 6, 8, 10, 11, 12, 13, 14, 15, 17, 18, 19, 20, 21]' }
 jobs:
   archive:
     runs-on: ubuntu-latest
@@ -12,7 +13,7 @@ jobs:
       fail-fast: false
       max-parallel: 6
       matrix:
-        key: [1, 2, 3, 4, 5, 6, 8, 10, 11, 12, 13, 14, 15, 17, 18, 19, 20, 21]
+        key: ${{ fromJSON(inputs.keys) }}
     steps:
       - uses: actions/checkout@v4
       - run: pip install -q kaggle google-api-python-client google-auth
