@@ -1,0 +1,23 @@
+name: kaggle-archive
+# Owner 16 Nov 2026: old Kaggle notebooks -> zip -> Google Drive (5 TB account) -> delete from Kaggle (only after Drive size check).
+on:
+  workflow_dispatch:
+    inputs:
+      cutoff: { description: 'archive notebooks last run BEFORE this date', required: true, default: '2026-11-15' }
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        key: [1, 2, 3, 4, 5, 6, 8, 10, 11, 12, 13, 14, 15, 17, 18, 19, 20, 21]
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q kaggle google-api-python-client google-auth
+      - name: archive key ${{ matrix.key }}
+        env:
+          DRIVE_TOKEN_5TB: ${{ secrets.DRIVE_TOKEN_5TB }}
+          KAGGLE_ONE: ${{ secrets[format('KAGGLE_KEY{0}', matrix.key)] }}
+        run: python kaggle_archive.py "${{ matrix.key }}" "${{ inputs.cutoff }}"
