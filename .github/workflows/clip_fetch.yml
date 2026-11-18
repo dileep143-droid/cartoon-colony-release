@@ -1,0 +1,18 @@
+name: clip-fetch
+# 18 Nov owner: the Meta clip collector runs here (public repo, free minutes) instead of Kaggle. List is encrypted; only counts are printed.
+on:
+  workflow_dispatch:
+    inputs:
+      list: { description: 'encrypted list file in the repo', required: true, default: 'data/clipfetch.enc' }
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: tools
+        run: pip install -q cryptography
+      - name: download Meta videos into R2
+        env:
+          DRIVE_TOKEN: ${{ secrets.DRIVE_TOKEN }}
+        run: python clip_fetch.py "${{ inputs.list }}"
