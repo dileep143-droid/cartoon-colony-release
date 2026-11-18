@@ -11,8 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: tools
-        run: pip install -q cryptography
-      - name: download Meta videos into R2
+        run: pip install -q cryptography google-api-python-client google-auth
+      - name: download Meta videos into Google Drive
         env:
           DRIVE_TOKEN: ${{ secrets.DRIVE_TOKEN }}
         run: python clip_fetch.py "${{ inputs.list }}"
