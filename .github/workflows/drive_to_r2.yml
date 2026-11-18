@@ -1,0 +1,18 @@
+name: drive-to-r2
+# 18 Nov owner: corrected Mahabharatam clips Drive -> R2 for the episode build (laptop downloads nothing). List is encrypted; only counts printed.
+on:
+  workflow_dispatch:
+    inputs:
+      list: { description: 'encrypted list file in the repo', required: true, default: 'data/drive2r2.enc' }
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: tools
+        run: pip install -q cryptography google-api-python-client google-auth
+      - name: copy Drive files into R2
+        env:
+          DRIVE_TOKEN: ${{ secrets.DRIVE_TOKEN }}
+        run: python drive_to_r2.py "${{ inputs.list }}"
