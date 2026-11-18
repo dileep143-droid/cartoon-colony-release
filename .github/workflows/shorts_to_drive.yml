@@ -1,0 +1,21 @@
+name: shorts-to-drive
+# 18 Nov 2026 owner: remake song Shorts (same cut as song_daily.py) and save them to Google Drive "BuBu TV Shorts/<Language>". No YouTube upload.
+on:
+  workflow_dispatch:
+    inputs:
+      lang:  { description: 'channel code', required: true, default: 'hi' }
+      items: { description: 'slug:part,slug:part,...', required: true }
+jobs:
+  cut:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: tools
+        run: |
+          pip install -q google-api-python-client google-auth
+          which ffmpeg || (sudo apt-get update -q && sudo apt-get install -y -q ffmpeg)
+      - name: cut and save
+        env:
+          DRIVE_TOKEN: ${{ secrets.DRIVE_TOKEN }}
+        run: python shorts_to_drive.py "${{ inputs.lang }}" "${{ inputs.items }}"
