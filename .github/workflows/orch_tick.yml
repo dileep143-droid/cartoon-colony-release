@@ -11,14 +11,17 @@ concurrency:
 jobs:
   tick:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 350
+    permissions:
+      actions: write
+      contents: read
     steps:
       - uses: actions/checkout@v4
       - name: tools
         run: pip install -q "kaggle==2.2.5" boto3 google-api-python-client google-auth
       - name: tick
         env:
-          TICK_MINUTES: '30'
+          TICK_MINUTES: '8'
           CF_R2_ENDPOINT: ${{ secrets.CF_R2_ENDPOINT }}
           CF_R2_ACCESS_KEY_ID: ${{ secrets.CF_R2_ACCESS_KEY_ID }}
           CF_R2_SECRET_ACCESS_KEY: ${{ secrets.CF_R2_SECRET_ACCESS_KEY }}
@@ -40,4 +43,16 @@ jobs:
           KAGGLE_KEY19: ${{ secrets.KAGGLE_KEY19 }}
           KAGGLE_KEY20: ${{ secrets.KAGGLE_KEY20 }}
           KAGGLE_KEY21: ${{ secrets.KAGGLE_KEY21 }}
-        run: python orch_tick.py
+        run: |
+          # GitHub schedules can lag for hours, so one run keeps ticking every 10 min for ~5.5 h, then starts the next run itself.
+          for i in $(seq 1 32); do
+            set +e; python orch_tick.py; rc=$?; set -e
+            if [ $rc -eq 3 ]; then echo "queue empty or paused - stopping"; echo "AGAIN=0" >> $GITHUB_ENV; exit 0; fi
+            sleep 540
+          done
+          echo "AGAIN=1" >> $GITHUB_ENV
+      - name: start the next run
+        if: env.AGAIN == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run orch_tick.yml --ref main
