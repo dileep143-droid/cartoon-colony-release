@@ -141,8 +141,8 @@ def step_clean(ep, all_keys):
 
 # ---------- main ----------
 st = r2_json(SKEY, None)
-if not st: log("no state yet"); sys.exit(0)
-if st.get("paused"): log("paused"); sys.exit(0)
+if not st: log("no state yet"); sys.exit(3)
+if st.get("paused"): log("paused"); sys.exit(3)
 KEYS = {k: [int(x) for x in v] for k, v in st["keys"].items()}; ALL = sorted({k for v in KEYS.values() for k in v} | {15})
 eps = [e for e in st["queue"] if e.get("phase") not in ("done", "failed")]
 lip_now = {}
@@ -163,3 +163,4 @@ for e in eps:
         log(e["id"], "step error", type(x).__name__, str(x)[:120].replace(os.environ.get("CF_R2_ENDPOINT", "#"), "R2"))
     r2_put_json(SKEY, st)                                     # save after every episode, so a crash loses nothing
 log("tick done:", ", ".join(f"{e['id']}={e['phase']}" for e in st["queue"]))
+sys.exit(0 if any(e.get("phase") not in ("done", "failed") for e in st["queue"]) else 3)   # 3 = nothing left to do
