@@ -161,6 +161,9 @@ for e in eps:
         elif e["phase"] == "clean": step_clean(e, ALL)
     except Exception as x:
         log(e["id"], "step error", type(x).__name__, str(x)[:120].replace(os.environ.get("CF_R2_ENDPOINT", "#"), "R2"))
+    cur = r2_json(SKEY, st)                                   # keep episodes the laptop added while this tick ran (and a pause it set)
+    have = {x["id"] for x in st["queue"]}; st["queue"] += [x for x in cur.get("queue", []) if x["id"] not in have]
+    st["paused"] = cur.get("paused", False)
     r2_put_json(SKEY, st)                                     # save after every episode, so a crash loses nothing
 log("tick done:", ", ".join(f"{e['id']}={e['phase']}" for e in st["queue"]))
 sys.exit(0 if any(e.get("phase") not in ("done", "failed") for e in st["queue"]) else 3)   # 3 = nothing left to do
