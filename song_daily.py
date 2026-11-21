@@ -16,7 +16,7 @@ PER_DAY = int(os.environ.get("SONGS_PER_DAY") or 1); SLOTS_IST = [18] if code in
 if os.environ.get("SLOTS"): SLOTS_IST = [int(h) for h in os.environ["SLOTS"].split(",")]   # hand runs: own hours (e.g. extra songs later the same day)
 PER_DAY = min(PER_DAY, len(SLOTS_IST))
 # 10 Nov owner: long videos stopped; "I'm talking about 2 min songs" -> the 8 verified channels get 3 more 2-minute songs in their place (5 a day). No Shorts.
-SHORTS_PER_DAY = int(os.environ.get("SHORTS_PER_DAY") or 3)   # 11 Nov owner: 3 Shorts a day, made here from the full song (2 different parts per song)
+SHORTS_PER_DAY = 0   # 21 Nov owner: "stop shorts completely and upload only the songs" (Shorts repeated the songs; reach collapsed). Was 3 since 11 Nov.
 NAME = {"hi": "hindi", "te": "telugu", "ta": "tamil", "kn": "kannada", "ml": "malayalam", "mr": "marathi", "bn": "bengali", "gu": "gujarati", "pa": "punjabi", "or": "odia",
         "as": "assamese", "en": "english", "ne": "nepali", "ur": "urdu", "sd": "sindhi", "mai": "maithili", "hry": "haryanvi", "ks": "kashmiri", "mni": "manipuri", "bho": "bhojpuri"}
 NEW = {"ne", "ur", "sd", "mai", "hry", "ks", "mni", "bho"}; YT_LANG = {"ne": "ne", "ur": "ur"}
