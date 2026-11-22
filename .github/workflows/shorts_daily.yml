@@ -44,7 +44,9 @@ jobs:
 
       - name: tools
 
-        run: pip install -q google-api-python-client google-auth boto3
+        run: |
+          pip install -q google-api-python-client google-auth boto3
+          which ffmpeg || (sudo apt-get update -q && sudo apt-get install -y -q ffmpeg)
 
       - name: daily Shorts ${{ matrix.lang }}
 
