@@ -3,6 +3,8 @@
 # The list (video links) arrives ENCRYPTED (data/clipfetch.enc); the key comes from the DRIVE_TOKEN secret, so no link shows in this public
 # repo or its logs. Only counts are printed. The laptop deletes data/clipfetch.enc after each run. Files already in Drive are skipped.
 #   python clip_fetch.py data/clipfetch.enc
+# 22 Nov (Shorts cloud collection): a list entry that carries "put" (a presigned R2 PUT link made on the laptop, 6 h) is uploaded to R2
+# instead of Drive -> no R2 secret lives in GitHub. Entries without "put" keep the Drive path unchanged. Still only counts are printed.
 import base64, hashlib, io, json, os, sys, time, urllib.request, threading
 from concurrent.futures import ThreadPoolExecutor
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
@@ -29,7 +31,20 @@ def fid(sub):
         if "root" not in FOLD: FOLD["root"] = folder("Mahabharatam Clips", "root")
         if sub not in FOLD: FOLD[sub] = folder(sub, FOLD["root"])
         return FOLD[sub]
+def to_r2(x):
+    err = ""
+    for t in range(3):
+        try:
+            b = urllib.request.urlopen(urllib.request.Request(x["url"], headers={"User-Agent": "Mozilla/5.0"}), timeout=120).read()
+            if len(b) < 50000: raise Exception("too small")
+            urllib.request.urlopen(urllib.request.Request(x["put"], data=b, method="PUT", headers={"Content-Type": "video/mp4"}), timeout=180).read()
+            return "ok"
+        except Exception as e: err = type(e).__name__; time.sleep(5)
+    return "fail " + err
 def one(x):
+    try: return to_r2(x) if "put" in x else drive(x)
+    except Exception as e: return "fail " + type(e).__name__   # never let an error (which may carry a link) reach the log
+def drive(x):
     err = ""; par = fid(x["f"]); name = f'{x["i"]}_1.mp4'
     if dr().files().list(q=f"name='{name}' and '{par}' in parents and trashed=false", fields="files(id)").execute().get("files"): return "ok"
     for t in range(3):
