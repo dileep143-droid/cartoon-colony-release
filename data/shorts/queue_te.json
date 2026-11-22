@@ -18,7 +18,8 @@
     "telugunews",
     "telugu"
    ],
-   "comment": "మీరు ఎప్పుడైనా ఎవరినైనా సాగనంపడానికి ట్రైన్ లోపలికి ఎక్కారా? Comment లో చెప్పండి!"
+   "comment": "మీరు ఎప్పుడైనా ఎవరినైనా సాగనంపడానికి ట్రైన్ లోపలికి ఎక్కారా? Comment లో చెప్పండి!",
+   "trim_end": 1.0
   },
   {
    "id": "loktak_te",
@@ -36,7 +37,8 @@
     "wildlife",
     "telugu"
    ],
-   "comment": "India లో మీరు చూడాలనుకునే ఒక అద్భుతమైన చోటు ఏది? Comment లో చెప్పండి!"
+   "comment": "India లో మీరు చూడాలనుకునే ఒక అద్భుతమైన చోటు ఏది? Comment లో చెప్పండి!",
+   "trim_end": 1.0
   },
   {
    "id": "vb2_te",
@@ -54,7 +56,8 @@
     "telugunews",
     "telugu"
    ],
-   "comment": "మీరు ఎప్పుడైనా వందే భారత్ లో ప్రయాణించారా? మీ అనుభవం Comment లో చెప్పండి!"
+   "comment": "మీరు ఎప్పుడైనా వందే భారత్ లో ప్రయాణించారా? మీ అనుభవం Comment లో చెప్పండి!",
+   "trim_end": 1.0
   },
   {
    "id": "nocost_emi_te",
@@ -72,7 +75,8 @@
     "money",
     "telugu"
    ],
-   "comment": "మీరు చివరిగా No Cost EMI లో ఏం కొన్నారు? Comment లో చెప్పండి!"
+   "comment": "మీరు చివరిగా No Cost EMI లో ఏం కొన్నారు? Comment లో చెప్పండి!",
+   "trim_end": 1.0
   },
   {
    "id": "vb3_te",
@@ -90,7 +94,8 @@
     "indianrailways",
     "telugu"
    ],
-   "comment": "మీరు వందే భారత్ స్లీపర్ ఎక్కుతారా? Comment లో చెప్పండి!"
+   "comment": "మీరు వందే భారత్ స్లీపర్ ఎక్కుతారా? Comment లో చెప్పండి!",
+   "trim_end": 1.0
   },
   {
    "id": "dth_rain_te",
@@ -108,7 +113,8 @@
     "cricket",
     "telugu"
    ],
-   "comment": "మీ ఇంట్లో వర్షం పడితే TV ఎంతసేపు ఆగిపోతుంది? Comment లో చెప్పండి!"
+   "comment": "మీ ఇంట్లో వర్షం పడితే TV ఎంతసేపు ఆగిపోతుంది? Comment లో చెప్పండి!",
+   "trim_end": 1.0
   },
   {
    "id": "bowling_15deg_te",
@@ -126,7 +132,8 @@
     "ICC",
     "telugu"
    ],
-   "comment": "మీ దృష్టిలో అత్యంత అందమైన bowling action ఎవరిది? Comment లో చెప్పండి!"
+   "comment": "మీ దృష్టిలో అత్యంత అందమైన bowling action ఎవరిది? Comment లో చెప్పండి!",
+   "trim_end": 1.0
   },
   {
    "id": "matka_te",
@@ -144,7 +151,8 @@
     "summer",
     "telugu"
    ],
-   "comment": "మీ ఇంట్లో ఇప్పటికీ మట్టి కుండ వాడుతున్నారా? Comment లో చెప్పండి!"
+   "comment": "మీ ఇంట్లో ఇప్పటికీ మట్టి కుండ వాడుతున్నారా? Comment లో చెప్పండి!",
+   "trim_end": 1.0
   },
   {
    "id": "note_lines_te",
@@ -162,7 +170,8 @@
     "currency",
     "telugu"
    ],
-   "comment": "మీ నోటు అంచున ఈ గీతలు ఇంతకు ముందు గమనించారా? Comment లో చెప్పండి!"
+   "comment": "మీ నోటు అంచున ఈ గీతలు ఇంతకు ముందు గమనించారా? Comment లో చెప్పండి!",
+   "trim_end": 1.0
   }
  ]
 }
