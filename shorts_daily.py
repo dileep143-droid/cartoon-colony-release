@@ -98,6 +98,16 @@ for day in range(DAYS):
         try: S3.download_file(BUCKET, key, path)
         except Exception as e: print(f"RESULT {code} {q['id']} R2 DOWNLOAD FAILED {clean(e)}"); continue
         if os.path.getsize(path) < 1_000_000: print(f"RESULT {code} {q['id']} FILE TOO SMALL - skipped"); os.remove(path); continue
+        trim = float(q.get("trim_end", 1.0))   # owner 22 Nov: glitch sound in the last second of renders made before the editor fix -> cut it HERE, on GitHub
+        if trim > 0:
+            import subprocess
+            dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path], capture_output=True, text=True).stdout or 0)
+            if dur > trim + 5:
+                end = dur - trim; tp = "t_" + path
+                r = subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", path, "-t", f"{end:.2f}", "-af", f"afade=t=out:st={end - 0.35:.2f}:d=0.35", "-c:v", "libx264", "-preset", "medium",
+                                    "-crf", "17", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", tp])
+                if r.returncode == 0 and os.path.getsize(tp) > 500_000: os.replace(tp, path)
+                else: print(f"RESULT {code} {q['id']} trim failed - uploading untrimmed", flush=True)
         pub = slots[done].astimezone(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
         sn = {"title": title, "description": q["description"][:5000], "tags": q["tags"][:30], "categoryId": "27",
               "defaultLanguage": code, "defaultAudioLanguage": code}
