@@ -18,7 +18,8 @@
     "cricket",
     "english"
    ],
-   "comment": "How long does your TV stay off when it rains? Tell us below!"
+   "comment": "How long does your TV stay off when it rains? Tell us below!",
+   "trim_end": 1.0
   },
   {
    "id": "bowling_15deg_en",
@@ -36,7 +37,8 @@
     "ICC",
     "english"
    ],
-   "comment": "Whose bowling action do you think is the most beautiful? Tell us below!"
+   "comment": "Whose bowling action do you think is the most beautiful? Tell us below!",
+   "trim_end": 1.0
   },
   {
    "id": "loktak_en",
@@ -54,7 +56,8 @@
     "wildlife",
     "english"
    ],
-   "comment": "Which wonder of India do you most want to see? Tell us below!"
+   "comment": "Which wonder of India do you most want to see? Tell us below!",
+   "trim_end": 1.0
   },
   {
    "id": "matka_en",
@@ -72,7 +75,8 @@
     "summer",
     "english"
    ],
-   "comment": "Does your home still keep a clay matka in summer? Tell us in the comments!"
+   "comment": "Does your home still keep a clay matka in summer? Tell us in the comments!",
+   "trim_end": 1.0
   },
   {
    "id": "note_lines_en",
@@ -90,7 +94,8 @@
     "currency",
     "english"
    ],
-   "comment": "Had you ever noticed these lines on your notes before? Tell us below!"
+   "comment": "Had you ever noticed these lines on your notes before? Tell us below!",
+   "trim_end": 1.0
   },
   {
    "id": "dubai_oil_en",
@@ -108,7 +113,8 @@
     "gulf",
     "english"
    ],
-   "comment": "Does someone in your family work in the Gulf? Tell us below!"
+   "comment": "Does someone in your family work in the Gulf? Tell us below!",
+   "trim_end": 1.0
   }
  ]
 }
