@@ -18,7 +18,8 @@
     "ICC",
     "hindi"
    ],
-   "comment": "आपकी नज़र में सबसे खूबसूरत bowling action किसका है? Comment में बताइए!"
+   "comment": "आपकी नज़र में सबसे खूबसूरत bowling action किसका है? Comment में बताइए!",
+   "trim_end": 1.0
   },
   {
    "id": "vb1_hi",
@@ -36,7 +37,8 @@
     "hindinews",
     "hindi"
    ],
-   "comment": "क्या आप कभी किसी को छोड़ने ट्रेन के अंदर चढ़े हैं? Comment में बताइए!"
+   "comment": "क्या आप कभी किसी को छोड़ने ट्रेन के अंदर चढ़े हैं? Comment में बताइए!",
+   "trim_end": 1.0
   },
   {
    "id": "loktak_hi",
@@ -54,7 +56,8 @@
     "wildlife",
     "hindi"
    ],
-   "comment": "India की कौन सी अनोखी जगह आप ज़िंदगी में एक बार ज़रूर देखना चाहते हैं? Comment में बताइए!"
+   "comment": "India की कौन सी अनोखी जगह आप ज़िंदगी में एक बार ज़रूर देखना चाहते हैं? Comment में बताइए!",
+   "trim_end": 1.0
   },
   {
    "id": "vb2_hi",
@@ -72,7 +75,8 @@
     "hindinews",
     "hindi"
    ],
-   "comment": "आपने कभी Vande Bharat में सफर किया है? अपना अनुभव Comment में बताइए!"
+   "comment": "आपने कभी Vande Bharat में सफर किया है? अपना अनुभव Comment में बताइए!",
+   "trim_end": 1.0
   },
   {
    "id": "nocost_emi_hi",
@@ -90,7 +94,8 @@
     "money",
     "hindi"
    ],
-   "comment": "आपने आखिरी बार No Cost EMI पर क्या खरीदा? Comment में बताइए!"
+   "comment": "आपने आखिरी बार No Cost EMI पर क्या खरीदा? Comment में बताइए!",
+   "trim_end": 1.0
   },
   {
    "id": "vb3_hi",
@@ -108,7 +113,8 @@
     "indianrailways",
     "hindi"
    ],
-   "comment": "आप इस ट्रेन में बैठेंगे? Comment में बताइए!"
+   "comment": "आप इस ट्रेन में बैठेंगे? Comment में बताइए!",
+   "trim_end": 1.0
   },
   {
    "id": "dth_rain_hi",
@@ -126,7 +132,8 @@
     "cricket",
     "hindi"
    ],
-   "comment": "आपके घर बारिश में TV कितनी देर बंद रहता है? Comment में बताइए!"
+   "comment": "आपके घर बारिश में TV कितनी देर बंद रहता है? Comment में बताइए!",
+   "trim_end": 1.0
   },
   {
    "id": "matka_hi",
@@ -144,7 +151,8 @@
     "summer",
     "hindi"
    ],
-   "comment": "आपके घर में आज भी मटका है या सिर्फ fridge? Comment में बताइए!"
+   "comment": "आपके घर में आज भी मटका है या सिर्फ fridge? Comment में बताइए!",
+   "trim_end": 1.0
   },
   {
    "id": "note_lines_hi",
@@ -162,7 +170,8 @@
     "currency",
     "hindi"
    ],
-   "comment": "क्या आपने नोट की ये लाइनें पहले कभी नोटिस की थीं? Comment में बताइए!"
+   "comment": "क्या आपने नोट की ये लाइनें पहले कभी नोटिस की थीं? Comment में बताइए!",
+   "trim_end": 1.0
   },
   {
    "id": "dubai_oil_hi",
@@ -180,7 +189,8 @@
     "gulf",
     "hindi"
    ],
-   "comment": "आपके परिवार में कोई Gulf में काम करता है? Comment में बताइए!"
+   "comment": "आपके परिवार में कोई Gulf में काम करता है? Comment में बताइए!",
+   "trim_end": 1.0
   }
  ]
 }
