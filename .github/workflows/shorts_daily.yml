@@ -1,0 +1,72 @@
+name: shorts-daily
+
+# Dileep Explains timer (22 Nov 2026, same design as song-daily): finished Shorts from R2 -> 5 channels (te hi ta en bn), N a day each,
+# scheduled at 18:30 IST (2 a day: 12:30 + 18:30). Queue = data/shorts/queue_<lang>.json (laptop: E:/mb_builds/shorts_v1/queue_shorts.py).
+# Exact title already on the channel -> skipped (never duplicates). Quota error -> that channel stops for today, next run continues.
+
+on:
+
+  # ---- OFF until the owner approves real uploads (22 Nov 2026). To turn on: remove the two '#' below (06:45 IST daily). ----
+  # schedule:
+  #   - cron: "15 1 * * *"
+
+  workflow_dispatch:
+
+    inputs:
+
+      langs:   { description: 'JSON list of channel codes (default all 5)', required: false, default: '' }
+      dry:     { description: '1 = test (no upload, no comment); 0 = REAL uploads', required: false, default: '1' }
+      per_day: { description: 'Shorts per channel per day (1 = 18:30 IST, 2 = 12:30 + 18:30)', required: false, default: '1' }
+      slots:   { description: 'own IST times, e.g. 12:30,18:30 (empty = normal)', required: false, default: '' }
+      days:    { description: 'dry only: show the schedule for this many days', required: false, default: '1' }
+
+jobs:
+
+  daily:
+
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 90
+
+    strategy:
+
+      fail-fast: false
+
+      max-parallel: 5
+
+      matrix:
+
+        lang: ${{ fromJSON(inputs.langs != '' && inputs.langs || '["te","hi","ta","en","bn"]') }}
+
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - name: tools
+
+        run: pip install -q google-api-python-client google-auth boto3
+
+      - name: daily Shorts ${{ matrix.lang }}
+
+        env:
+
+          FX_TE: ${{ secrets.FX_TE }}
+          FX_HI: ${{ secrets.FX_HI }}
+          FX_TA: ${{ secrets.FX_TA }}
+          FX_EN: ${{ secrets.FX_EN }}
+          FX_BN: ${{ secrets.FX_BN }}
+          CF_R2_ENDPOINT: ${{ secrets.CF_R2_ENDPOINT }}
+          CF_R2_ACCESS_KEY_ID: ${{ secrets.CF_R2_ACCESS_KEY_ID }}
+          CF_R2_SECRET_ACCESS_KEY: ${{ secrets.CF_R2_SECRET_ACCESS_KEY }}
+          # a timer run (no inputs) uses: real uploads, 1 a day
+          DRY: ${{ github.event_name == 'schedule' && '0' || inputs.dry }}
+          PER_DAY: ${{ inputs.per_day }}
+          SLOTS: ${{ inputs.slots }}
+          DAYS: ${{ inputs.days }}
+
+        run: |
+          case "${{ matrix.lang }}" in te) V=FX_TE;; hi) V=FX_HI;; ta) V=FX_TA;; en) V=FX_EN;; bn) V=FX_BN;; *) echo "unknown channel"; exit 1;; esac
+          export YT_TOKEN="${!V}"
+          if [ -z "$YT_TOKEN" ]; then echo "RESULT ${{ matrix.lang }} NO_SECRET $V"; exit 0; fi
+          unset FX_TE FX_HI FX_TA FX_EN FX_BN
+          python shorts_daily.py "${{ matrix.lang }}"
