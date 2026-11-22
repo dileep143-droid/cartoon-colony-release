@@ -3,6 +3,42 @@
  "updated": "2026-11-22 14:33",
  "items": [
   {
+   "id": "bowling_15deg_ta",
+   "topic": "bowling_15deg",
+   "part": 0,
+   "group": "cricket",
+   "r2": "s2work/shorts1/out/sh_bowling_15deg_ta.mp4",
+   "size": 45047358,
+   "title": "Bowler கை வளைந்தால் Throw-ஆ? 15° Rule",
+   "description": "Bowler கை கொஞ்சம் வளைந்தால் throw இல்லை. ICC பதினைந்து degree வரை ஏன் அனுமதிக்கிறது, அதை எப்படி அளக்கிறார்கள், நம் Chennai lab பற்றியும் இதில்.\nSources: ESPN, the 15-degree rule https://www.espn.co.uk/cricket/story/_/id/22428519/15-degree-rule\nICC, Chennai accredited 2014 https://www.icc-cricket.com/news/brisbane-and-chennai-become-icc-accredited-testing-centres-for-suspected-bowling-actions\n\n#shorts #tamilfacts #cricket #ICC #tamil",
+   "tags": [
+    "shorts",
+    "tamilfacts",
+    "cricket",
+    "ICC",
+    "tamil"
+   ],
+   "comment": "உங்கள் பார்வையில் மிக அழகான bowling action யாருடையது? Comment-இல் சொல்லுங்கள்!"
+  },
+  {
+   "id": "note_lines_ta",
+   "topic": "note_lines",
+   "part": 0,
+   "group": "money",
+   "r2": "s2work/shorts1/out/sh_note_lines_ta.mp4",
+   "size": 49713091,
+   "title": "₹500 நோட்டின் ஓரத்தில் இந்தக் கோடுகள் ஏன்?",
+   "description": "ஐநூறு, நூறு ரூபாய் நோட்டின் ஓரத்தில் உள்ள சாய்வுக் கோடுகள் பார்வை இல்லாதவர்களுக்கான குறிகள். RBI-யின் இலவச MANI app பற்றியும் இதில்.\nSources: RBI press release (₹500 features) https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=35042\nRBI MANI app launch https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=49022\n\n#shorts #tamilfacts #RBI #currency #tamil",
+   "tags": [
+    "shorts",
+    "tamilfacts",
+    "RBI",
+    "currency",
+    "tamil"
+   ],
+   "comment": "உங்கள் நோட்டில் இந்தக் கோடுகளை இதற்கு முன் கவனித்தீர்களா? Comment-இல் சொல்லுங்கள்!"
+  },
+  {
    "id": "loktak_ta",
    "topic": "loktak",
    "part": 0,
@@ -55,42 +91,6 @@
     "tamil"
    ],
    "comment": "உங்கள் வீட்டில் மழை பெய்தால் TV எவ்வளவு நேரம் நிற்கும்? Comment-இல் சொல்லுங்கள்!"
-  },
-  {
-   "id": "bowling_15deg_ta",
-   "topic": "bowling_15deg",
-   "part": 0,
-   "group": "cricket",
-   "r2": "s2work/shorts1/out/sh_bowling_15deg_ta.mp4",
-   "size": 45047358,
-   "title": "Bowler கை வளைந்தால் Throw-ஆ? 15° Rule",
-   "description": "Bowler கை கொஞ்சம் வளைந்தால் throw இல்லை. ICC பதினைந்து degree வரை ஏன் அனுமதிக்கிறது, அதை எப்படி அளக்கிறார்கள், நம் Chennai lab பற்றியும் இதில்.\nSources: ESPN, the 15-degree rule https://www.espn.co.uk/cricket/story/_/id/22428519/15-degree-rule\nICC, Chennai accredited 2014 https://www.icc-cricket.com/news/brisbane-and-chennai-become-icc-accredited-testing-centres-for-suspected-bowling-actions\n\n#shorts #tamilfacts #cricket #ICC #tamil",
-   "tags": [
-    "shorts",
-    "tamilfacts",
-    "cricket",
-    "ICC",
-    "tamil"
-   ],
-   "comment": "உங்கள் பார்வையில் மிக அழகான bowling action யாருடையது? Comment-இல் சொல்லுங்கள்!"
-  },
-  {
-   "id": "note_lines_ta",
-   "topic": "note_lines",
-   "part": 0,
-   "group": "money",
-   "r2": "s2work/shorts1/out/sh_note_lines_ta.mp4",
-   "size": 49713091,
-   "title": "₹500 நோட்டின் ஓரத்தில் இந்தக் கோடுகள் ஏன்?",
-   "description": "ஐநூறு, நூறு ரூபாய் நோட்டின் ஓரத்தில் உள்ள சாய்வுக் கோடுகள் பார்வை இல்லாதவர்களுக்கான குறிகள். RBI-யின் இலவச MANI app பற்றியும் இதில்.\nSources: RBI press release (₹500 features) https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=35042\nRBI MANI app launch https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=49022\n\n#shorts #tamilfacts #RBI #currency #tamil",
-   "tags": [
-    "shorts",
-    "tamilfacts",
-    "RBI",
-    "currency",
-    "tamil"
-   ],
-   "comment": "உங்கள் நோட்டில் இந்தக் கோடுகளை இதற்கு முன் கவனித்தீர்களா? Comment-இல் சொல்லுங்கள்!"
   },
   {
    "id": "dubai_oil_ta",
