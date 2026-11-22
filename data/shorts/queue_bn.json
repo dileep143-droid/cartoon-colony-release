@@ -18,7 +18,8 @@
     "cricket",
     "bengali"
    ],
-   "comment": "আপনার বাড়িতে বৃষ্টি হলে TV কতক্ষণ বন্ধ থাকে? Comment-এ লিখুন!"
+   "comment": "আপনার বাড়িতে বৃষ্টি হলে TV কতক্ষণ বন্ধ থাকে? Comment-এ লিখুন!",
+   "trim_end": 1.0
   },
   {
    "id": "bowling_15deg_bn",
@@ -36,7 +37,8 @@
     "ICC",
     "bengali"
    ],
-   "comment": "আপনার চোখে সবচেয়ে সুন্দর bowling action কার? Comment-এ লিখুন!"
+   "comment": "আপনার চোখে সবচেয়ে সুন্দর bowling action কার? Comment-এ লিখুন!",
+   "trim_end": 1.0
   },
   {
    "id": "note_lines_bn",
@@ -54,7 +56,8 @@
     "currency",
     "bengali"
    ],
-   "comment": "নোটের এই দাগগুলো আগে কখনো খেয়াল করেছিলেন? Comment-এ লিখুন!"
+   "comment": "নোটের এই দাগগুলো আগে কখনো খেয়াল করেছিলেন? Comment-এ লিখুন!",
+   "trim_end": 1.0
   },
   {
    "id": "loktak_bn",
@@ -72,7 +75,8 @@
     "wildlife",
     "bengali"
    ],
-   "comment": "India-র কোন আশ্চর্য জায়গা আপনি দেখতে চান? Comment-এ লিখুন!"
+   "comment": "India-র কোন আশ্চর্য জায়গা আপনি দেখতে চান? Comment-এ লিখুন!",
+   "trim_end": 1.0
   },
   {
    "id": "nocost_emi_bn",
@@ -90,7 +94,8 @@
     "money",
     "bengali"
    ],
-   "comment": "শেষবার No Cost EMI-তে কী কিনেছিলেন? Comment-এ লিখুন!"
+   "comment": "শেষবার No Cost EMI-তে কী কিনেছিলেন? Comment-এ লিখুন!",
+   "trim_end": 1.0
   },
   {
    "id": "matka_bn",
@@ -108,7 +113,8 @@
     "summer",
     "bengali"
    ],
-   "comment": "আপনার বাড়িতে এখনও মাটির কলসি আছে, নাকি শুধু fridge? Comment-এ লিখুন!"
+   "comment": "আপনার বাড়িতে এখনও মাটির কলসি আছে, নাকি শুধু fridge? Comment-এ লিখুন!",
+   "trim_end": 1.0
   }
  ]
 }
