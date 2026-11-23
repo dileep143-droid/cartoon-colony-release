@@ -15,6 +15,9 @@ def user_of(key):
 def kstate(key, kid):
     s = kaggle(key, "kernels", "status", kid)[1]
     return "run" if ("RUNNING" in s or "QUEUED" in s) else "done" if "COMPLETE" in s else "err" if ("ERROR" in s or "CANCEL" in s) else "none"
+def kstate2(key, kid):   # v2 race: tells QUEUED from RUNNING
+    s = kaggle(key, "kernels", "status", kid)[1]
+    return "running" if "RUNNING" in s else "queued" if "QUEUED" in s else "done" if "COMPLETE" in s else "err" if ("ERROR" in s or "CANCEL" in s) else "none"
 def kernels_of(key):
     _, o = kaggle(key, "kernels", "list", "--mine", "--page-size", "100", "--csv")
     return [l.split(",")[0] for l in o.strip().splitlines()[1:] if "/" in l.split(",")[0]]
