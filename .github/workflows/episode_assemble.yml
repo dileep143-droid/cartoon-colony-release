@@ -1,0 +1,59 @@
+name: episode-assemble
+run-name: assemble ${{ inputs.id }}
+# 23 Nov 2026 owner: Mahabharatam v2 - Kaggle only lip-syncs the face; ALL assembly runs here (public repo, CPU runners).
+# Dispatched by orch_tick.py (phase "assemble") once every face window of an episode is in R2. One matrix job per timeline segment
+# (story shots + face circle + logo + watermark), then one mux job (voice -14 LUFS + music beds) -> master + preview in R2.
+# Inputs come from R2 with the secrets below; nothing private is printed and nothing is uploaded as an artifact.
+on:
+  workflow_dispatch:
+    inputs:
+      id: { description: 'episode id, e.g. ep10 | ta01', required: true }
+concurrency:
+  group: episode-assemble-${{ inputs.id }}
+  cancel-in-progress: false
+env:
+  CF_R2_ENDPOINT: ${{ secrets.CF_R2_ENDPOINT }}
+  CF_R2_ACCESS_KEY_ID: ${{ secrets.CF_R2_ACCESS_KEY_ID }}
+  CF_R2_SECRET_ACCESS_KEY: ${{ secrets.CF_R2_SECRET_ACCESS_KEY }}
+  EID: ${{ inputs.id }}
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      segs: ${{ steps.p.outputs.segs }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: case "$EID" in [a-z][a-z][0-9][0-9]) ;; *) echo "bad id"; exit 1;; esac
+      - run: pip install -q boto3
+      - id: p
+        run: python episode_assemble.py segs "$EID"
+  seg:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        seg: ${{ fromJson(needs.plan.outputs.segs) }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: tools
+        run: |
+          sudo apt-get update -q && sudo apt-get install -y -q ffmpeg > /dev/null
+          pip install -q boto3 pillow numpy==1.26.4 opencv-python-headless==4.9.0.80
+      - name: segment ${{ matrix.seg }}
+        run: python episode_assemble.py seg "$EID" "${{ matrix.seg }}"
+  mux:
+    needs: seg
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - name: tools
+        run: |
+          sudo apt-get update -q && sudo apt-get install -y -q ffmpeg > /dev/null
+          pip install -q boto3 numpy==1.26.4 soundfile pyloudnorm
+      - name: join + sound
+        run: python episode_assemble.py mux "$EID"
