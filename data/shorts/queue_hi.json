@@ -1,6 +1,6 @@
 {
  "lang": "hi",
- "updated": "2026-11-22 18:53",
+ "updated": "2026-11-23 05:47",
  "items": [
   {
    "id": "bowling_15deg_hi",
@@ -360,6 +360,36 @@
     "जान बचाने के उपाय"
    ],
    "comment": "क्या आप कभी मेले या स्टेशन की भीड़ में फँसे हैं? Comment में बताइए।"
+  },
+  {
+   "id": "s400_hi",
+   "topic": "s400",
+   "part": 0,
+   "group": "defence",
+   "r2": "s2work/shorts1/out/sh_s400_hi.mp4",
+   "size": 69025592,
+   "trim_end": 0,
+   "title": "S-400 कितनी दूर तक देखता है? एक Missile नहीं!",
+   "description": "S-400 एक missile नहीं, radar, command post और launchers की पूरी team है। इसका radar करीब छह सौ किलोमीटर तक देखता है, ऐसा बताया जाता है।\nSources: CSIS Missile Threat (S-400) https://missilethreat.csis.org/defsys/s-400/\nArms Control Association (2018 India deal) https://www.armscontrol.org/act/2018-11/news/india-closes-russian-missile-system-deal\n\n#dileepexplains #S400 #indianairforce #defence #airdefence #sudarshanchakra #defencefacts #factsinhindi",
+   "tags": [
+    "s400 missile system explained",
+    "how far can s400 see",
+    "s400 range",
+    "s400 radar range",
+    "s400 sudarshan chakra",
+    "s400 india russia deal",
+    "s400 triumf",
+    "s400 explained",
+    "s400 how it works",
+    "s400 kya hai",
+    "s400 kitni door tak dekh sakta hai",
+    "एस 400 मिसाइल सिस्टम",
+    "सुदर्शन चक्र एस 400",
+    "s400 kaise kaam karta hai",
+    "वायु रक्षा प्रणाली",
+    "डिफेंस तथ्य"
+   ],
+   "comment": "Defence के किस system के बारे में आप अगला video चाहते हैं? Comment में बताइए!"
   }
  ]
 }
