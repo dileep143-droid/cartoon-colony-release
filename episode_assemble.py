@@ -41,6 +41,8 @@ if mode == "segs":
     ids = list(range(len(plan["segs_lip"])))
     todo = [i for i in ids if not (exists(f"{PRE}seg/seg_{i}_gh.mp4") and json.loads(S3.get_object(Bucket=BUCKET, Key=f"{PRE}seg/seg_{i}_gh.json")["Body"].read()).get("since") == ASM["since"]
                                    if exists(f"{PRE}seg/seg_{i}_gh.json") else False)]
+    if os.environ.get("ONLY", "").strip():   # pilot: one segment, no join
+        todo = [int(os.environ["ONLY"])]; assert todo[0] in ids
     log("segments", len(ids), "to render", todo)
     with open(os.environ.get("GITHUB_OUTPUT", "/dev/null"), "a") as f: f.write("segs=" + json.dumps(todo or [-1]) + "\n")
     sys.exit(0)
