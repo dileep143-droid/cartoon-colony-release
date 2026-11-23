@@ -1,5 +1,5 @@
 name: episode-assemble
-run-name: assemble ${{ inputs.id }}
+run-name: assemble ${{ inputs.id }}${{ inputs.only != '' && format(' seg {0}', inputs.only) || '' }}
 # 23 Nov 2026 owner: Mahabharatam v2 - Kaggle only lip-syncs the face; ALL assembly runs here (public repo, CPU runners).
 # Dispatched by orch_tick.py (phase "assemble") once every face window of an episode is in R2. One matrix job per timeline segment
 # (story shots + face circle + logo + watermark), then one mux job (voice -14 LUFS + music beds) -> master + preview in R2.
@@ -8,6 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       id: { description: 'episode id, e.g. ep10 | ta01', required: true }
+      only: { description: 'pilot: render just this segment number (no join)', required: false, default: '' }
 concurrency:
   group: episode-assemble-${{ inputs.id }}
   cancel-in-progress: false
@@ -16,6 +17,7 @@ env:
   CF_R2_ACCESS_KEY_ID: ${{ secrets.CF_R2_ACCESS_KEY_ID }}
   CF_R2_SECRET_ACCESS_KEY: ${{ secrets.CF_R2_SECRET_ACCESS_KEY }}
   EID: ${{ inputs.id }}
+  ONLY: ${{ inputs.only }}
 jobs:
   plan:
     runs-on: ubuntu-latest
@@ -47,6 +49,7 @@ jobs:
         run: python episode_assemble.py seg "$EID" "${{ matrix.seg }}"
   mux:
     needs: seg
+    if: inputs.only == ''
     runs-on: ubuntu-latest
     timeout-minutes: 180
     steps:
