@@ -22,6 +22,7 @@ jobs:
       - name: tick
         env:
           TICK_MINUTES: '8'
+          GH_TOKEN: ${{ github.token }}   # v2: dispatches episode_assemble.yml and reads its run status
           CF_R2_ENDPOINT: ${{ secrets.CF_R2_ENDPOINT }}
           CF_R2_ACCESS_KEY_ID: ${{ secrets.CF_R2_ACCESS_KEY_ID }}
           CF_R2_SECRET_ACCESS_KEY: ${{ secrets.CF_R2_SECRET_ACCESS_KEY }}
