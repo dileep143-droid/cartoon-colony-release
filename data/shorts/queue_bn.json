@@ -1,7 +1,36 @@
 {
  "lang": "bn",
- "updated": "2026-11-24 00:05",
+ "updated": "2026-11-24 15:23",
  "items": [
+  {
+   "id": "supermoon_tonight_bn",
+   "topic": "supermoon_tonight",
+   "part": 0,
+   "group": "space",
+   "r2": "s2work/shorts1/out/sh_supermoon_tonight_bn.mp4",
+   "size": 47688209,
+   "trim_end": 0,
+   "title": "আজ রাতে সুপারমুন: চাঁদ এত বড় দেখায় কেন?",
+   "description": "আজ রাতে (24 Nov 2026, কার্তিক পূর্ণিমা) চাঁদ supermoon, প্রায় 3,60,768 km দূরে, পূর্ণিমার আসল মুহূর্ত রাত 8:23 (IST)। সত্যিই একটু কাছে, একটু উজ্জ্বল, কিন্তু ওঠার সময় যে বিশাল চাঁদ দেখি, সেটা আমাদের brain-এর কারসাজি।\nSources: Star Walk 12 Nov 2026 https://starwalk.space/en/news/full-moon-november-2022\nSpace.com 2026 supermoon guide https://www.space.com/supermoon-what-is-it-2026\nWikipedia 'Moon illusion' https://en.wikipedia.org/wiki/Moon_illusion\n\n#dileepexplains #supermoon #KartikPurnima #fullmoon #moon #banglafacts #shorts",
+   "tags": [
+    "supermoon",
+    "supermoon tonight",
+    "supermoon 2026",
+    "supermoon india",
+    "kartik purnima supermoon",
+    "beaver moon 2026",
+    "full moon tonight",
+    "moon illusion",
+    "why moon looks big",
+    "moon near horizon",
+    "সুপারমুন",
+    "আজকের চাঁদ",
+    "কার্তিক পূর্ণিমা চাঁদ",
+    "চাঁদ বড় দেখায় কেন",
+    "পূর্ণিমার চাঁদ"
+   ],
+   "comment": "আপনার শহরে আজ চাঁদ কত বড় দেখাল? Comment-এ জানান"
+  },
   {
    "id": "dth_rain_bn",
    "topic": "dth_rain",

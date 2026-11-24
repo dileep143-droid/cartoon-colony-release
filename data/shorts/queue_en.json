@@ -1,7 +1,36 @@
 {
  "lang": "en",
- "updated": "2026-11-24 00:05",
+ "updated": "2026-11-24 15:23",
  "items": [
+  {
+   "id": "supermoon_tonight_en",
+   "topic": "supermoon_tonight",
+   "part": 0,
+   "group": "space",
+   "r2": "s2work/shorts1/out/sh_supermoon_tonight_en.mp4",
+   "size": 48096279,
+   "trim_end": 0,
+   "title": "Tonight's supermoon: why the moon looks so big",
+   "description": "Tonight (24 Nov 2026, Kartik Purnima) the full moon is a supermoon, about 360,768 km away, exact full moon at 8:23 pm IST. It really is a little closer and brighter, but the giant look near the horizon is a trick of our brain.\nSources: Star Walk 12 Nov 2026 https://starwalk.space/en/news/full-moon-november-2022\nSpace.com 2026 supermoon guide https://www.space.com/supermoon-what-is-it-2026\nWikipedia 'Moon illusion' https://en.wikipedia.org/wiki/Moon_illusion\n\n#dileepexplains #supermoon #KartikPurnima #fullmoon #moonillusion #space #shorts",
+   "tags": [
+    "supermoon",
+    "supermoon tonight",
+    "supermoon 2026",
+    "supermoon india time",
+    "kartik purnima supermoon",
+    "beaver moon 2026",
+    "full moon tonight india",
+    "moon illusion",
+    "why does the moon look bigger",
+    "moon near horizon",
+    "moon distance tonight",
+    "supermoon explained",
+    "full moon 8:23 pm",
+    "supermoon november 2026",
+    "moon facts"
+   ],
+   "comment": "How big did the moon look from your city tonight? Tell us in the comments"
+  },
   {
    "id": "dth_rain_en",
    "topic": "dth_rain",
