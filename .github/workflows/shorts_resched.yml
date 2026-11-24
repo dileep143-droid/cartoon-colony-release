@@ -1,0 +1,36 @@
+name: shorts-resched
+
+# Owner 24 Nov 2026: move already-scheduled Dileep Explains Shorts from one IST slot today to another time (manual only).
+on:
+  workflow_dispatch:
+    inputs:
+      langs:     { description: 'JSON list of channel codes', required: false, default: '["te","hi","ta","en","bn"]' }
+      from_slot: { description: 'IST slot today, e.g. 18:30', required: true }
+      to:        { description: 'new IST time YYYY-MM-DDTHH:MM', required: true }
+      dry:       { description: '1 = only show, 0 = really move', required: false, default: '1' }
+
+jobs:
+  resched:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        lang: ${{ fromJSON(inputs.langs) }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q google-api-python-client google-auth
+      - name: resched ${{ matrix.lang }}
+        env:
+          FX_TE: ${{ secrets.FX_TE }}
+          FX_HI: ${{ secrets.FX_HI }}
+          FX_TA: ${{ secrets.FX_TA }}
+          FX_EN: ${{ secrets.FX_EN }}
+          FX_BN: ${{ secrets.FX_BN }}
+          FROM_SLOT: ${{ inputs.from_slot }}
+          TO: ${{ inputs.to }}
+          DRY: ${{ inputs.dry }}
+        run: |
+          case "${{ matrix.lang }}" in te) V=FX_TE;; hi) V=FX_HI;; ta) V=FX_TA;; en) V=FX_EN;; bn) V=FX_BN;; *) exit 1;; esac
+          export YT_TOKEN="${!V}"; unset FX_TE FX_HI FX_TA FX_EN FX_BN
+          python shorts_resched.py "${{ matrix.lang }}"
