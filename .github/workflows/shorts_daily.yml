@@ -6,9 +6,9 @@ name: shorts-daily
 
 on:
 
-  # ---- OFF until the owner approves real uploads (22 Nov 2026). To turn on: remove the two '#' below (06:45 IST daily). ----
-  # schedule:
-  #   - cron: "15 1 * * *"
+  # ---- ON (owner approved 26 Nov 2026): daily 06:45 IST, 5 Shorts a day each on te / hi / en (ta, bn on hold) ----
+  schedule:
+    - cron: "15 1 * * *"
 
   workflow_dispatch:
 
@@ -36,7 +36,7 @@ jobs:
 
       matrix:
 
-        lang: ${{ fromJSON(inputs.langs != '' && inputs.langs || '["te","hi","ta","en","bn"]') }}
+        lang: ${{ fromJSON(inputs.langs != '' && inputs.langs || '["te","hi","en"]') }}
 
     steps:
 
@@ -60,10 +60,10 @@ jobs:
           CF_R2_ENDPOINT: ${{ secrets.CF_R2_ENDPOINT }}
           CF_R2_ACCESS_KEY_ID: ${{ secrets.CF_R2_ACCESS_KEY_ID }}
           CF_R2_SECRET_ACCESS_KEY: ${{ secrets.CF_R2_SECRET_ACCESS_KEY }}
-          # a timer run (no inputs) uses: real uploads, 1 a day
+          # a timer run (no inputs) uses: real uploads, 5 a day (08:00 12:30 15:30 18:30 21:00 IST), te/hi/en
           DRY: ${{ github.event_name == 'schedule' && '0' || inputs.dry }}
-          PER_DAY: ${{ inputs.per_day }}
-          SLOTS: ${{ inputs.slots }}
+          PER_DAY: ${{ inputs.per_day || '5' }}
+          SLOTS: ${{ inputs.slots || '08:00,12:30,15:30,18:30,21:00' }}
           DAYS: ${{ inputs.days }}
 
         run: |
