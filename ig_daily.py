@@ -8,7 +8,9 @@ import json, os, sys, time, urllib.parse, urllib.request, urllib.error
 import boto3
 from botocore.config import Config
 lang = sys.argv[1]; TOK = os.environ["IG_TOKEN"]; DRY = os.environ.get("DRY", "1") != "0"
-PER_RUN = max(1, int(os.environ.get("PER_RUN") or 1)); G = "https://graph.instagram.com/v21.0"
+PER_RUN = max(1, int(os.environ.get("PER_RUN") or 1)); G = "https://graph.facebook.com/v21.0"
+# 26 Nov: Unified-login system-user tokens (EAA...) work on graph.facebook.com with the Instagram user id (never expire)
+IGID = {"te": "17841480380999841", "hi": "17841471261573957", "en": "17841455959333714"}[lang]
 S3 = boto3.client("s3", endpoint_url=os.environ["CF_R2_ENDPOINT"], aws_access_key_id=os.environ["CF_R2_ACCESS_KEY_ID"],
                   aws_secret_access_key=os.environ["CF_R2_SECRET_ACCESS_KEY"], region_name="auto", config=Config(signature_version="s3v4"))
 def log(*a): print("RESULT", lang, *a, flush=True)
@@ -23,10 +25,10 @@ def call(method, path, params=None):
         try: msg = json.loads(msg)["error"].get("message", msg)
         except Exception: pass
         raise RuntimeError(f"HTTP {e.code}: {str(msg)[:160]}") from None
-me = call("GET", "/me", {"fields": "username,account_type"}); log("account", me.get("username"), me.get("account_type"))
+me = call("GET", f"/{IGID}", {"fields": "username,media_count"}); log("account", me.get("username"), "posts", me.get("media_count"))
 posted = set(); nxt = {"fields": "caption", "limit": 100}
 for _ in range(5):
-    r = call("GET", "/me/media", nxt)
+    r = call("GET", f"/{IGID}/media", nxt)
     for m in r.get("data", []): posted.add((m.get("caption") or "").split("\n")[0].strip())
     cur = r.get("paging", {}).get("cursors", {}).get("after")
     if not cur or not r.get("paging", {}).get("next"): break
@@ -41,13 +43,13 @@ for it in todo:
     if DRY: log("DRY would post |", first, "|", it["r2"].split("/")[-1]); done += 1; continue
     url = S3.generate_presigned_url("get_object", Params={"Bucket": "eduorbex-media", "Key": it["r2"]}, ExpiresIn=6 * 3600)
     try:
-        c = call("POST", "/me/media", {"media_type": "REELS", "video_url": url, "caption": it["caption"], "share_to_feed": "true"})
+        c = call("POST", f"/{IGID}/media", {"media_type": "REELS", "video_url": url, "caption": it["caption"], "share_to_feed": "true"})
         cid = c["id"]; st = ""
         for _ in range(60):                                  # Instagram downloads + processes the video (usually 1-3 min)
             time.sleep(15); st = call("GET", f"/{cid}", {"fields": "status_code,status"}).get("status_code", "")
             if st in ("FINISHED", "ERROR", "EXPIRED"): break
         if st != "FINISHED": log("NOT POSTED", first, "| container status", st); continue
-        p = call("POST", "/me/media_publish", {"creation_id": cid})
+        p = call("POST", f"/{IGID}/media_publish", {"creation_id": cid})
         log("POSTED", first, "| media", p.get("id")); done += 1
     except Exception as e:
         log("ERROR", first, "|", str(e)[:200])
