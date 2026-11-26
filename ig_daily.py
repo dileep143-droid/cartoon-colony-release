@@ -43,7 +43,11 @@ for it in todo:
     if DRY: log("DRY would post |", first, "|", it["r2"].split("/")[-1]); done += 1; continue
     url = S3.generate_presigned_url("get_object", Params={"Bucket": "eduorbex-media", "Key": it["r2"]}, ExpiresIn=6 * 3600)
     try:
-        c = call("POST", f"/{IGID}/media", {"media_type": "REELS", "video_url": url, "caption": it["caption"], "share_to_feed": "true"})
+        body = {"media_type": "REELS", "video_url": url, "caption": it["caption"], "share_to_feed": "true", "is_ai_generated": "true"}   # 26 Nov: AI-content label (owner rule: disclose AI voice)
+        try: c = call("POST", f"/{IGID}/media", body)
+        except RuntimeError as e:
+            if "is_ai_generated" not in str(e) and "param" not in str(e).lower(): raise
+            body.pop("is_ai_generated"); log("AI label not accepted by the API, posting without it |", str(e)[:100]); c = call("POST", f"/{IGID}/media", body)
         cid = c["id"]; st = ""
         for _ in range(60):                                  # Instagram downloads + processes the video (usually 1-3 min)
             time.sleep(15); st = call("GET", f"/{cid}", {"fields": "status_code,status"}).get("status_code", "")
