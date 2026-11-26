@@ -1,9 +1,15 @@
 name: ig-daily
 
 # Dileep Explains -> Instagram Reels (26 Nov 2026), same design as shorts-daily (YouTube).
-# Manual runs only for now; a daily timer is added after the owner approves it.
+# Daily timer ON (owner approved 26 Nov 2026): 1 Reel per account at 08:00, 12:30, 15:30, 18:30, 21:00 IST = 5 a day each.
 
 on:
+  schedule:
+    - cron: "30 2 * * *"
+    - cron: "0 7 * * *"
+    - cron: "0 10 * * *"
+    - cron: "0 13 * * *"
+    - cron: "30 15 * * *"
   workflow_dispatch:
     inputs:
       langs:   { description: 'JSON list of accounts', required: false, default: '["te","hi","en"]' }
@@ -17,7 +23,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        lang: ${{ fromJSON(inputs.langs) }}
+        lang: ${{ fromJSON(inputs.langs != '' && inputs.langs || '["te","hi","en"]') }}
     steps:
       - uses: actions/checkout@v4
       - run: pip install -q boto3
@@ -29,8 +35,8 @@ jobs:
           CF_R2_ENDPOINT: ${{ secrets.CF_R2_ENDPOINT }}
           CF_R2_ACCESS_KEY_ID: ${{ secrets.CF_R2_ACCESS_KEY_ID }}
           CF_R2_SECRET_ACCESS_KEY: ${{ secrets.CF_R2_SECRET_ACCESS_KEY }}
-          DRY: ${{ inputs.dry }}
-          PER_RUN: ${{ inputs.per_run }}
+          DRY: ${{ github.event_name == 'schedule' && '0' || inputs.dry }}
+          PER_RUN: ${{ inputs.per_run || '1' }}
         run: |
           case "${{ matrix.lang }}" in te) V=IG_TE;; hi) V=IG_HI;; en) V=IG_EN;; *) echo "unknown"; exit 1;; esac
           if [ -z "${!V}" ]; then echo "RESULT ${{ matrix.lang }} no token yet (secret $V empty) - skipped"; exit 0; fi
