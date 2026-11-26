@@ -1,0 +1,37 @@
+name: ig-daily
+
+# Dileep Explains -> Instagram Reels (26 Nov 2026), same design as shorts-daily (YouTube).
+# Manual runs only for now; a daily timer is added after the owner approves it.
+
+on:
+  workflow_dispatch:
+    inputs:
+      langs:   { description: 'JSON list of accounts', required: false, default: '["te","hi","en"]' }
+      dry:     { description: '1 = test (no posting); 0 = REAL posting', required: false, default: '1' }
+      per_run: { description: 'Reels to post per account in this run', required: false, default: '1' }
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        lang: ${{ fromJSON(inputs.langs) }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q boto3
+      - name: Instagram ${{ matrix.lang }}
+        env:
+          IG_TE: ${{ secrets.IG_TE }}
+          IG_HI: ${{ secrets.IG_HI }}
+          IG_EN: ${{ secrets.IG_EN }}
+          CF_R2_ENDPOINT: ${{ secrets.CF_R2_ENDPOINT }}
+          CF_R2_ACCESS_KEY_ID: ${{ secrets.CF_R2_ACCESS_KEY_ID }}
+          CF_R2_SECRET_ACCESS_KEY: ${{ secrets.CF_R2_SECRET_ACCESS_KEY }}
+          DRY: ${{ inputs.dry }}
+          PER_RUN: ${{ inputs.per_run }}
+        run: |
+          case "${{ matrix.lang }}" in te) V=IG_TE;; hi) V=IG_HI;; en) V=IG_EN;; *) echo "unknown"; exit 1;; esac
+          if [ -z "${!V}" ]; then echo "RESULT ${{ matrix.lang }} no token yet (secret $V empty) - skipped"; exit 0; fi
+          IG_TOKEN="${!V}" python ig_daily.py ${{ matrix.lang }}
