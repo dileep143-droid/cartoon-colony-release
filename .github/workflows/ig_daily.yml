@@ -1,15 +1,15 @@
 name: ig-daily
 
 # Dileep Explains -> Instagram Reels (26 Nov 2026), same design as shorts-daily (YouTube).
-# Daily timer ON (owner approved 26 Nov 2026): 1 Reel per account at 08:00, 12:30, 15:30, 18:30, 21:00 IST = 5 a day each.
+# Daily timer ON (owner approved 26 Nov 2026): 1 Reel per account at ~08:07, 12:37, 15:37, 18:37, 21:07 IST = 5 a day each (off the top of the hour: GitHub drops busy-minute schedules).
 
 on:
   schedule:
-    - cron: "30 2 * * *"
-    - cron: "0 7 * * *"
-    - cron: "0 10 * * *"
-    - cron: "0 13 * * *"
-    - cron: "30 15 * * *"
+    - cron: "37 2 * * *"
+    - cron: "7 7 * * *"
+    - cron: "7 10 * * *"
+    - cron: "7 13 * * *"
+    - cron: "37 15 * * *"
   workflow_dispatch:
     inputs:
       langs:   { description: 'JSON list of accounts', required: false, default: '["te","hi","en"]' }
