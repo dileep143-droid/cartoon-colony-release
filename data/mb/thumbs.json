@@ -308,5 +308,37 @@
   "badge": "MB 01",
   "l1": "ஏழு குழந்தைகள்… நதியில்!",
   "l2": "ஏன் <span>அம்மா?</span>"
+ },
+ {
+  "name": "te_MB17",
+  "bg": "s2work/tmp_mbup1127/cand/ep18_s036.jpg",
+  "pos": "50% 50%/cover",
+  "badge": "MB 17",
+  "l1": "భీముడు కదపలేని తోక!",
+  "l2": "<span>హనుమంతుడు</span>"
+ },
+ {
+  "name": "te_MB18",
+  "bg": "s2work/tmp_mbup1127/cand/ep19_s051.jpg",
+  "pos": "50% 50%/cover",
+  "badge": "MB 18",
+  "l1": "కవచాన్ని కోసి ఇచ్చిన వీరుడు!",
+  "l2": "<span>యక్ష ప్రశ్నలు</span>"
+ },
+ {
+  "name": "te_MB19",
+  "bg": "s2work/tmp_mbup1127/cand/ep20_s001.jpg",
+  "pos": "50% 50%/cover",
+  "badge": "MB 19",
+  "l1": "ఒక్కరు గుర్తుపట్టినా మళ్ళీ అడవి!",
+  "l2": "<span>అజ్ఞాతవాసం</span>"
+ },
+ {
+  "name": "hi_MB17",
+  "bg": "s2work/tmp_mbup1127/cand/ep18_s036.jpg",
+  "pos": "50% 50%/cover",
+  "badge": "MB 17",
+  "l1": "भीम भी नहीं हिला पाए!",
+  "l2": "<span>हनुमान</span>"
  }
 ]
