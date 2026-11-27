@@ -236,5 +236,77 @@
   "badge": "MB 16",
   "l1": "शिकारी से अर्जुन का युद्ध!",
   "l2": "वो शिकारी <span>कौन?</span>"
+ },
+ {
+  "name": "en_MB01",
+  "bg": "s2work/tmp_mbup1127/assets/bg_mb01.jpg",
+  "pos": "-230px 0%/1560px auto",
+  "badge": "MB 01",
+  "l1": "Seven babies… into the river!",
+  "l2": "Why, <span>mother?</span>"
+ },
+ {
+  "name": "en_MB02",
+  "bg": "s2work/tmp_mbup1127/assets/bg_mb02.jpg",
+  "pos": "20% 25%/cover",
+  "badge": "MB 02",
+  "l1": "“I will never marry!”",
+  "l2": "Bhishma's <span>vow</span>"
+ },
+ {
+  "name": "en_MB03",
+  "bg": "s2work/tmp_mbup1127/assets/bg_mb03.jpg",
+  "pos": "30% 40%/cover",
+  "badge": "MB 03",
+  "l1": "Revenge across two births!",
+  "l2": "Amba's <span>vow</span>"
+ },
+ {
+  "name": "en_MB04",
+  "bg": "s2work/tmp_mbup1127/assets/bg_mb04.jpg",
+  "pos": "0% 30%/cover",
+  "badge": "MB 04",
+  "l1": "One night… three rooms!",
+  "l2": "Three <span>sons</span>"
+ },
+ {
+  "name": "en_MB05",
+  "bg": "s2work/tmp_mbup1127/assets/bg_mb05.jpg",
+  "pos": "0% 40%/cover",
+  "badge": "MB 05",
+  "l1": "Born in armour… into the river!",
+  "l2": "Kunti's <span>secret</span>"
+ },
+ {
+  "name": "en_MB06",
+  "bg": "s2work/tmp_mbup1127/cand/ep07_s001.jpg",
+  "pos": "50% 50%/cover",
+  "badge": "MB 06",
+  "l1": "Poison at the feast!",
+  "l2": "Drona's <span>fee</span>"
+ },
+ {
+  "name": "en_MB07",
+  "bg": "s2work/tmp_mbup1127/cand/ep08_s042.jpg",
+  "pos": "50% 50%/cover",
+  "badge": "MB 07",
+  "l1": "The guru who asked for a thumb!",
+  "l2": "Whose <span>son?</span>"
+ },
+ {
+  "name": "en_MB08",
+  "bg": "s2work/tmp_mbup1127/cand/ep09_s001.jpg",
+  "pos": "50% 50%/cover",
+  "badge": "MB 08",
+  "l1": "One spark is enough!",
+  "l2": "House of <span>lac</span>"
+ },
+ {
+  "name": "ta_MB01",
+  "bg": "s2work/tmp_mbup1127/assets/bg_mb01.jpg",
+  "pos": "-230px 0%/1560px auto",
+  "badge": "MB 01",
+  "l1": "ஏழு குழந்தைகள்… நதியில்!",
+  "l2": "ஏன் <span>அம்மா?</span>"
  }
 ]
