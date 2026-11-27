@@ -20,9 +20,11 @@ on:
       slots:   { description: 'own IST times, e.g. 12:30,18:30 (empty = normal)', required: false, default: '' }
       days:    { description: 'dry only: show the schedule for this many days', required: false, default: '1' }
 
-jobs:
+permissions:
+  contents: read
+  actions: read
 
-  daily:
+jobs:  daily:
 
     runs-on: ubuntu-latest
 
@@ -75,7 +77,7 @@ jobs:
           # 27 Nov: a late timer run must not schedule a 2nd set if today's run already happened (manual or timer)
           if [ "${{ github.event_name }}" = "schedule" ]; then
             SINCE=$(date -u -d "$(TZ=Asia/Kolkata date +%F) 00:00 +0530" +%Y-%m-%dT%H:%M:%SZ)
-            N=$(gh run list -R "${{ github.repository }}" -w shorts_daily.yml --created ">=$SINCE" --json databaseId --jq length)
+            N=$(gh run list -R "${{ github.repository }}" -w shorts_daily.yml --created ">=$SINCE" --json databaseId --jq length 2>/dev/null || echo 0)
             if [ "$N" -gt 1 ]; then echo "RESULT ${{ matrix.lang }} today's schedule already done - skip"; exit 0; fi
           fi
           python shorts_daily.py "${{ matrix.lang }}"
