@@ -50,7 +50,7 @@ only = [x for x in (os.environ.get("ONLY") or "").split(",") if x]
 for t in T:
     if only and t["name"] not in only: continue
     bgf = os.path.join(A, os.path.basename(t["bg"])); S3.download_file(B, t["bg"], bgf)
-    html = (f'<!doctype html><html><head><meta charset="utf-8"><style>{CSS}.bg{{background:url({os.path.basename(bgf)}) {t["pos"]} no-repeat;}}</style></head><body>'
+    html = (f'<!doctype html><html><head><meta charset="utf-8"><style>{CSS}.bg{{background:url({os.path.basename(bgf)}) {t["pos"]} no-repeat;{"transform:scaleX(-1);" if t.get("flip") else ""}}}</style></head><body>'
             f'<div class="bg"></div><div class="shade"></div><img class="me" src="me_big.png"><div class="badge">{t["badge"]}</div><img class="logo" src="dk_logo_circle.png">'
             f'<div class="t t1">{t["l1"]}</div><div class="t t2">{t["l2"]}</div>{FIT}</body></html>')
     hp = os.path.join(A, t["name"] + ".html"); open(hp, "w", encoding="utf-8").write(html)
