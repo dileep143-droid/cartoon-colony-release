@@ -1,0 +1,33 @@
+name: mb-thumbs
+
+# Mahabharatam episode thumbnails (27 Nov 2026): cand = story-clip frames + contact sheets; make = render data/mb/thumbs.json (headless Chrome, Noto fonts).
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode: { description: 'cand or make', required: true, default: 'make' }
+      only: { description: 'make: comma list of thumb names (empty = all)', required: false, default: '' }
+
+jobs:
+  thumbs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: tools
+        run: |
+          sudo apt-get update -q && sudo apt-get install -y -q ffmpeg fonts-noto-core fonts-dejavu-core > /dev/null
+          pip install -q boto3 pillow
+          fc-list | grep -ciE "telugu|devanagari|tamil"
+      - name: run
+        env:
+          CF_R2_ENDPOINT: ${{ secrets.CF_R2_ENDPOINT }}
+          CF_R2_ACCESS_KEY_ID: ${{ secrets.CF_R2_ACCESS_KEY_ID }}
+          CF_R2_SECRET_ACCESS_KEY: ${{ secrets.CF_R2_SECRET_ACCESS_KEY }}
+          ONLY: ${{ inputs.only }}
+        run: python mb_thumbs.py "${{ inputs.mode }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mb-thumbs-${{ inputs.mode }}
+          path: out/*.jpg
+          retention-days: 3
