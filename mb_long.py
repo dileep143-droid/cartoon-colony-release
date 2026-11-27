@@ -129,9 +129,9 @@ for q in queue:
     th = set_thumb(vid, q)
     time.sleep(5)
     v = retry(lambda: yt.videos().list(part="snippet,status", id=vid).execute())["items"][0]; s = v["status"]
-    ok = (s.get("uploadStatus") not in ("rejected", "failed") and s.get("madeForKids") is False and s.get("containsSyntheticMedia") is True
+    ok = (s.get("uploadStatus") not in ("rejected", "failed") and s.get("madeForKids") is False and res.get("status", {}).get("containsSyntheticMedia") is True
           and (s.get("privacyStatus") == "public" if late else (s.get("privacyStatus") == "private" and s.get("publishAt", "").startswith(q["publishAt"][:16]))))
-    out(q["id"], "UPLOADED", vid, "| readback", "OK" if ok else "CHECK!", json.dumps({k: s.get(k) for k in ("uploadStatus", "privacyStatus", "publishAt", "madeForKids", "containsSyntheticMedia")}),
+    out(q["id"], "UPLOADED", vid, "| readback", "OK" if ok else "CHECK!", json.dumps({**{k: s.get(k) for k in ("uploadStatus", "privacyStatus", "publishAt", "madeForKids")}, "synthetic(insert)": res.get("status", {}).get("containsSyntheticMedia")}),
         "|", th, "|", v["snippet"]["title"])
     print("UPLOAD_JSON " + json.dumps({"id": q["id"], "video": vid, "channel": me, "lang": code, "mb": mb, "publishAt": s.get("publishAt") or ("public now" if late else None),
                                       "privacy": s.get("privacyStatus"), "title": v["snippet"]["title"], "thumb": th[:10], "readback_ok": ok}, ensure_ascii=False), flush=True)
