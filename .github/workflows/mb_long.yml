@@ -1,0 +1,54 @@
+name: mb-long
+
+# Mahabharatam long episodes (27 Nov 2026): R2/Drive master -> Dileep Explains te/hi/en/ta, private + publishAt 19:00 IST, series order, never twice.
+# Queue = data/mb/queue_<lang>.json (laptop: build_queue.py). Timer runs 07:30 IST (after the Shorts timer, before the 13:30 IST quota reset).
+
+on:
+  schedule:
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+    inputs:
+      langs:       { description: 'JSON list of channels', required: false, default: '["te","hi","en","ta"]' }
+      dry:         { description: '1 = test only (download + checks, no upload)', required: false, default: '1' }
+      max:         { description: 'uploads per channel this run', required: false, default: '1' }
+      only:        { description: 'comma list of queue ids (e.g. te_MB03), empty = next in order', required: false, default: '' }
+      thumbs_only: { description: '1 = only (re)set thumbnails of uploaded items', required: false, default: '0' }
+
+concurrency: { group: mb-long, cancel-in-progress: false }
+
+jobs:
+  up:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        lang: ${{ fromJSON(inputs.langs || '["te","hi","en","ta"]') }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: tools
+        run: |
+          pip install -q google-api-python-client google-auth boto3
+          which ffprobe || (sudo apt-get update -q && sudo apt-get install -y -q ffmpeg)
+      - name: upload ${{ matrix.lang }}
+        env:
+          FX_TE: ${{ secrets.FX_TE }}
+          FX_HI: ${{ secrets.FX_HI }}
+          FX_TA: ${{ secrets.FX_TA }}
+          FX_EN: ${{ secrets.FX_EN }}
+          DRIVE_TOKEN: ${{ secrets.DRIVE_TOKEN }}
+          DRIVE_TOKEN_5TB: ${{ secrets.DRIVE_TOKEN_5TB }}
+          CF_R2_ENDPOINT: ${{ secrets.CF_R2_ENDPOINT }}
+          CF_R2_ACCESS_KEY_ID: ${{ secrets.CF_R2_ACCESS_KEY_ID }}
+          CF_R2_SECRET_ACCESS_KEY: ${{ secrets.CF_R2_SECRET_ACCESS_KEY }}
+          DRY: ${{ github.event_name == 'schedule' && '0' || inputs.dry }}
+          MAX: ${{ github.event_name == 'schedule' && '3' || inputs.max }}
+          ONLY: ${{ inputs.only }}
+          THUMBS_ONLY: ${{ inputs.thumbs_only }}
+        run: |
+          case "${{ matrix.lang }}" in te) V=FX_TE;; hi) V=FX_HI;; ta) V=FX_TA;; en) V=FX_EN;; *) echo "unknown"; exit 1;; esac
+          export YT_TOKEN="${!V}"
+          if [ -z "$YT_TOKEN" ]; then echo "RESULT ${{ matrix.lang }} NO_SECRET $V"; exit 1; fi
+          unset FX_TE FX_HI FX_TA FX_EN
+          python mb_long.py "${{ matrix.lang }}"
