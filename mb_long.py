@@ -1,9 +1,11 @@
 # Mahabharatam long episodes -> Dileep Explains channels (27 Nov 2026; built from shorts_daily.py).
 #   python mb_long.py <lang>     queue = data/mb/queue_<lang>.json (built on the laptop by build_queue.py)
 # Rules: series order only (MB N goes up only when MB N-1 is already on the channel), never twice (an "| MB NN" long title already on the channel = done),
-# private + publishAt (19:00 IST slot from the queue); if that slot has already passed -> uploaded PUBLIC (goes live as soon as processing ends).
+# private + publishAt = the queue's 19:00 IST slot; if that is before max(now+30 min, MB N-1's publish time + 20 h) it moves to the next 19:00 IST
+# after that (never two on one day, never before MB N-1).
 # Master comes from R2 (or Google Drive for the 24 Nov Drive-only fixed masters); ffprobe duration must match the build timing (+-8 s) or it stops.
-# Thumbnail must exist in R2 before upload; thumbnails.set failure (unverified channel) is reported THUMB_FAIL and retried by later runs (THUMBS_ONLY=1).
+# Thumbnail must exist in R2 before upload; thumbnails.set failure (unverified channel) is reported THUMB_FAIL - NOT retried automatically:
+# dispatch mb-long with thumbs_only=1 after the channel is verified.
 # Every upload is read back (privacy, publishAt, madeForKids, synthetic media, upload status). Quota / upload-limit error -> channel stops, loud RESULT line.
 # Nothing secret is printed.
 import datetime, io, json, os, re, subprocess, sys, time
@@ -86,6 +88,18 @@ if THUMBS_ONLY:
         if q["mb"] in have and (not ONLY or q["id"] in ONLY): out(q["id"], have[q["mb"]], set_thumb(have[q["mb"]], q))
     sys.exit(0)
 
+IST = datetime.timezone(datetime.timedelta(hours=5, minutes=30))
+def _p(t): return datetime.datetime.strptime(t[:19], "%Y-%m-%dT%H:%M:%S").replace(tzinfo=datetime.timezone.utc)
+def slot_for(planned, prev_t, now):
+    """planned slot unless it is before floor = max(now + 30 min, MB N-1 publish + 20 h); then the next 19:00 IST at/after floor."""
+    floor = now + datetime.timedelta(minutes=30)
+    if prev_t: floor = max(floor, _p(prev_t) + datetime.timedelta(hours=20))
+    pl = _p(planned)
+    if pl >= floor: return planned
+    d0 = floor.astimezone(IST); c = datetime.datetime(d0.year, d0.month, d0.day, 19, 0, tzinfo=IST)
+    if c < floor: c += datetime.timedelta(days=1)
+    return c.astimezone(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+dry_pub = {}
 now = datetime.datetime.now(datetime.timezone.utc); n_up = 0
 for q in queue:
     if ONLY and q["id"] not in ONLY: continue
@@ -98,26 +112,17 @@ for q in queue:
     except Exception: out(q["id"], "WAIT - thumbnail not in R2 yet"); break
     if q["expect_dur"] > 900 and longok != "allowed":
         out(q["id"], f"BLOCKED - {q['expect_dur'] / 60:.1f} min > 15 min and channel longUploadsStatus={longok} (owner must verify the channel by phone)"); break
-    pub = datetime.datetime.strptime(q["publishAt"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=datetime.timezone.utc)
-    late = False
-    if pub < now + datetime.timedelta(minutes=30):
-        IST = datetime.timezone(datetime.timedelta(hours=5, minutes=30))
-        if pub.astimezone(IST).date() == now.astimezone(IST).date(): late = True          # today's slot missed -> public as soon as processed
-        else:                                                                              # older slot -> next free 19:00 IST, never 2 on one day
-            prev = None
-            pv = done_here.get(mb - 1) or have.get(mb - 1)
-            if pv and pv != "dry":
-                try: prev = retry(lambda: yt.videos().list(part="status,snippet", id=pv).execute())["items"][0]
-                except Exception: prev = None
-            floor = now + datetime.timedelta(minutes=30)
-            if prev:
-                pp = prev["status"].get("publishAt") or prev["snippet"]["publishedAt"]
-                floor = max(floor, datetime.datetime.strptime(pp[:19], "%Y-%m-%dT%H:%M:%S").replace(tzinfo=datetime.timezone.utc) + datetime.timedelta(hours=20))
-            d0 = floor.astimezone(IST)
-            cand = datetime.datetime(d0.year, d0.month, d0.day, 19, 0, tzinfo=IST)
-            if cand < floor: cand += datetime.timedelta(days=1)
-            q = dict(q, publishAt=cand.astimezone(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
-            out(q["id"], "slot passed -> moved to", q["publishAt"])
+    prev_t = None                                           # publish time of MB N-1 on this channel
+    pv = done_here.get(mb - 1) or have.get(mb - 1)
+    if pv and pv != "dry":
+        try:
+            pvv = retry(lambda: yt.videos().list(part="status,snippet", id=pv).execute())["items"][0]
+            prev_t = pvv["status"].get("publishAt") or pvv["snippet"]["publishedAt"]
+        except Exception: prev_t = None
+    elif pv == "dry": prev_t = dry_pub.get(mb - 1)
+    newpub = slot_for(q["publishAt"], prev_t, now)
+    if newpub != q["publishAt"]: out(q["id"], "slot", q["publishAt"], "-> moved to", newpub, "(one per day, after MB N-1)")
+    q = dict(q, publishAt=newpub); dry_pub[mb] = newpub; late = False
     path = "ep.mp4"
     try:
         if q.get("r2"): r2_get(q["r2"], path)
