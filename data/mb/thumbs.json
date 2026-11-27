@@ -38,5 +38,203 @@
   "badge": "MB 05",
   "l1": "कवच के साथ जन्मा बच्चा… नदी में!",
   "l2": "कुंती का <span>रहस्य</span>"
+ },
+ {
+  "name": "te_MB06",
+  "bg": "s2work/tmp_mbup1127/cand/ep07_s001.jpg",
+  "pos": "50% 50%/cover",
+  "flip": false,
+  "badge": "MB 06",
+  "l1": "విందులో విషం… గంగలో భీముడు!",
+  "l2": "ద్రోణుడి <span>గురుదక్షిణ</span>"
+ },
+ {
+  "name": "hi_MB06",
+  "bg": "s2work/tmp_mbup1127/cand/ep07_s001.jpg",
+  "pos": "50% 50%/cover",
+  "flip": false,
+  "badge": "MB 06",
+  "l1": "दावत में ज़हर… गंगा में भीम!",
+  "l2": "द्रोण की <span>गुरुदक्षिणा</span>"
+ },
+ {
+  "name": "te_MB07",
+  "bg": "s2work/tmp_mbup1127/cand/ep08_s042.jpg",
+  "pos": "50% 50%/cover",
+  "flip": false,
+  "badge": "MB 07",
+  "l1": "బొటనవేలు అడిగిన గురువు!",
+  "l2": "ఎవరి <span>కొడుకువు?</span>"
+ },
+ {
+  "name": "hi_MB07",
+  "bg": "s2work/tmp_mbup1127/cand/ep08_s042.jpg",
+  "pos": "50% 50%/cover",
+  "flip": false,
+  "badge": "MB 07",
+  "l1": "अँगूठा माँगने वाले गुरु!",
+  "l2": "किसका <span>बेटा?</span>"
+ },
+ {
+  "name": "te_MB08",
+  "bg": "s2work/tmp_mbup1127/cand/ep09_s001.jpg",
+  "pos": "50% 50%/cover",
+  "flip": false,
+  "badge": "MB 08",
+  "l1": "ఒక్క నిప్పు రవ్వ చాలు!",
+  "l2": "లక్క <span>ఇల్లు</span>"
+ },
+ {
+  "name": "hi_MB08",
+  "bg": "s2work/tmp_mbup1127/cand/ep09_s001.jpg",
+  "pos": "50% 50%/cover",
+  "flip": false,
+  "badge": "MB 08",
+  "l1": "बस एक चिंगारी काफ़ी है!",
+  "l2": "लाख का <span>भवन</span>"
+ },
+ {
+  "name": "te_MB09",
+  "bg": "s2work/tmp_mbup1127/cand/ep10_s019.jpg",
+  "pos": "50% 50%/cover",
+  "flip": false,
+  "badge": "MB 09",
+  "l1": "తల్లి అన్న ఒక్క మాట!",
+  "l2": "ద్రౌపది <span>స్వయంవరం</span>"
+ },
+ {
+  "name": "hi_MB09",
+  "bg": "s2work/tmp_mbup1127/cand/ep10_s019.jpg",
+  "pos": "50% 50%/cover",
+  "flip": false,
+  "badge": "MB 09",
+  "l1": "माँ का एक शब्द!",
+  "l2": "द्रौपदी <span>स्वयंवर</span>"
+ },
+ {
+  "name": "te_MB10",
+  "bg": "s2work/tmp_mbup1127/cand/ep11_s001.jpg",
+  "pos": "50% 50%/cover",
+  "flip": false,
+  "badge": "MB 10",
+  "l1": "ఒక్క నియమం… పన్నెండేళ్ళు దూరం!",
+  "l2": "ఖాండవ <span>దహనం</span>"
+ },
+ {
+  "name": "hi_MB10",
+  "bg": "s2work/tmp_mbup1127/cand/ep11_s001.jpg",
+  "pos": "50% 50%/cover",
+  "flip": false,
+  "badge": "MB 10",
+  "l1": "एक नियम… बारह साल दूर!",
+  "l2": "खांडव <span>दहन</span>"
+ },
+ {
+  "name": "te_MB11",
+  "bg": "s2work/tmp_mbup1127/cand/ep12_s060.jpg",
+  "pos": "50% 50%/cover",
+  "flip": false,
+  "badge": "MB 11",
+  "l1": "ఒక యజ్ఞం… రెండు చావులు!",
+  "l2": "<span>రాజసూయం</span>"
+ },
+ {
+  "name": "hi_MB11",
+  "bg": "s2work/tmp_mbup1127/cand/ep12_s060.jpg",
+  "pos": "50% 50%/cover",
+  "flip": false,
+  "badge": "MB 11",
+  "l1": "एक यज्ञ… दो मौतें!",
+  "l2": "<span>राजसूय</span>"
+ },
+ {
+  "name": "te_MB12",
+  "bg": "s2work/tmp_mbup1127/cand/ep13_s021.jpg",
+  "pos": "50% 50%/cover",
+  "flip": true,
+  "badge": "MB 12",
+  "l1": "ఒక చిన్న నవ్వు… పెద్ద పన్నాగం!",
+  "l2": "<span>మయసభ</span>"
+ },
+ {
+  "name": "hi_MB12",
+  "bg": "s2work/tmp_mbup1127/cand/ep13_s021.jpg",
+  "pos": "50% 50%/cover",
+  "flip": true,
+  "badge": "MB 12",
+  "l1": "एक छोटी सी हँसी… बड़ी साज़िश!",
+  "l2": "<span>मयसभा</span>"
+ },
+ {
+  "name": "te_MB13",
+  "bg": "s2work/tmp_mbup1127/cand/ep14_s014.jpg",
+  "pos": "50% 50%/cover",
+  "flip": false,
+  "badge": "MB 13",
+  "l1": "కొన్ని పాచికలు… సర్వస్వం పోయింది!",
+  "l2": "శకుని <span>జూదం</span>"
+ },
+ {
+  "name": "hi_MB13",
+  "bg": "s2work/tmp_mbup1127/cand/ep14_s014.jpg",
+  "pos": "50% 50%/cover",
+  "flip": false,
+  "badge": "MB 13",
+  "l1": "कुछ पासे… सब कुछ हार गए!",
+  "l2": "शकुनि का <span>जुआ</span>"
+ },
+ {
+  "name": "te_MB14",
+  "bg": "s2work/tmp_mbup1127/cand/ep15_s028.jpg",
+  "pos": "50% 50%/cover",
+  "flip": false,
+  "badge": "MB 14",
+  "l1": "ఒకే ప్రశ్న… సభ మొత్తం మౌనం!",
+  "l2": "ద్రౌపది <span>ప్రశ్న</span>"
+ },
+ {
+  "name": "hi_MB14",
+  "bg": "s2work/tmp_mbup1127/cand/ep15_s028.jpg",
+  "pos": "50% 50%/cover",
+  "flip": false,
+  "badge": "MB 14",
+  "l1": "एक सवाल… पूरी सभा चुप!",
+  "l2": "द्रौपदी का <span>सवाल</span>"
+ },
+ {
+  "name": "te_MB15",
+  "bg": "s2work/tmp_mbup1127/cand/ep16_s037.jpg",
+  "pos": "50% 50%/cover",
+  "flip": false,
+  "badge": "MB 15",
+  "l1": "ఒక్క పిలుపు… పదమూడేళ్ళ చీకటి!",
+  "l2": "<span>వనవాసం</span>"
+ },
+ {
+  "name": "hi_MB15",
+  "bg": "s2work/tmp_mbup1127/cand/ep16_s037.jpg",
+  "pos": "50% 50%/cover",
+  "flip": false,
+  "badge": "MB 15",
+  "l1": "एक बुलावा… तेरह साल का अँधेरा!",
+  "l2": "<span>वनवास</span>"
+ },
+ {
+  "name": "te_MB16",
+  "bg": "s2work/tmp_mbup1127/cand/ep17_s028.jpg",
+  "pos": "50% 50%/cover",
+  "flip": false,
+  "badge": "MB 16",
+  "l1": "వేటగాడితో అర్జునుడి యుద్ధం!",
+  "l2": "ఆ వేటగాడు <span>ఎవరు?</span>"
+ },
+ {
+  "name": "hi_MB16",
+  "bg": "s2work/tmp_mbup1127/cand/ep17_s028.jpg",
+  "pos": "50% 50%/cover",
+  "flip": false,
+  "badge": "MB 16",
+  "l1": "शिकारी से अर्जुन का युद्ध!",
+  "l2": "वो शिकारी <span>कौन?</span>"
  }
 ]
