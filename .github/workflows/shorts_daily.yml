@@ -52,6 +52,7 @@ jobs:
 
         env:
 
+          GH_TOKEN: ${{ github.token }}
           FX_TE: ${{ secrets.FX_TE }}
           FX_HI: ${{ secrets.FX_HI }}
           FX_TA: ${{ secrets.FX_TA }}
@@ -71,4 +72,10 @@ jobs:
           export YT_TOKEN="${!V}"
           if [ -z "$YT_TOKEN" ]; then echo "RESULT ${{ matrix.lang }} NO_SECRET $V"; exit 0; fi
           unset FX_TE FX_HI FX_TA FX_EN FX_BN
+          # 27 Nov: a late timer run must not schedule a 2nd set if today's run already happened (manual or timer)
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            SINCE=$(date -u -d "$(TZ=Asia/Kolkata date +%F) 00:00 +0530" +%Y-%m-%dT%H:%M:%SZ)
+            N=$(gh run list -R "${{ github.repository }}" -w shorts_daily.yml --created ">=$SINCE" --json databaseId --jq length)
+            if [ "$N" -gt 1 ]; then echo "RESULT ${{ matrix.lang }} today's schedule already done - skip"; exit 0; fi
+          fi
           python shorts_daily.py "${{ matrix.lang }}"
