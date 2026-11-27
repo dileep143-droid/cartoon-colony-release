@@ -99,7 +99,25 @@ for q in queue:
     if q["expect_dur"] > 900 and longok != "allowed":
         out(q["id"], f"BLOCKED - {q['expect_dur'] / 60:.1f} min > 15 min and channel longUploadsStatus={longok} (owner must verify the channel by phone)"); break
     pub = datetime.datetime.strptime(q["publishAt"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=datetime.timezone.utc)
-    late = pub < now + datetime.timedelta(minutes=20)
+    late = False
+    if pub < now + datetime.timedelta(minutes=30):
+        IST = datetime.timezone(datetime.timedelta(hours=5, minutes=30))
+        if pub.astimezone(IST).date() == now.astimezone(IST).date(): late = True          # today's slot missed -> public as soon as processed
+        else:                                                                              # older slot -> next free 19:00 IST, never 2 on one day
+            prev = None
+            pv = done_here.get(mb - 1) or have.get(mb - 1)
+            if pv and pv != "dry":
+                try: prev = retry(lambda: yt.videos().list(part="status,snippet", id=pv).execute())["items"][0]
+                except Exception: prev = None
+            floor = now + datetime.timedelta(minutes=30)
+            if prev:
+                pp = prev["status"].get("publishAt") or prev["snippet"]["publishedAt"]
+                floor = max(floor, datetime.datetime.strptime(pp[:19], "%Y-%m-%dT%H:%M:%S").replace(tzinfo=datetime.timezone.utc) + datetime.timedelta(hours=20))
+            d0 = floor.astimezone(IST)
+            cand = datetime.datetime(d0.year, d0.month, d0.day, 19, 0, tzinfo=IST)
+            if cand < floor: cand += datetime.timedelta(days=1)
+            q = dict(q, publishAt=cand.astimezone(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
+            out(q["id"], "slot passed -> moved to", q["publishAt"])
     path = "ep.mp4"
     try:
         if q.get("r2"): r2_get(q["r2"], path)
