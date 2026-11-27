@@ -24,7 +24,9 @@ permissions:
   contents: read
   actions: read
 
-jobs:  daily:
+jobs:
+
+  daily:
 
     runs-on: ubuntu-latest
 
