@@ -1,0 +1,42 @@
+[
+ {
+  "name": "en_MB00",
+  "bg": "s2work/tmp_mbup1127/assets/bg_mb00.jpg",
+  "pos": "-440px 22%/1720px auto",
+  "badge": "MB 00",
+  "l1": "Duryodhana in heaven…",
+  "l2": "Pandavas <span>in hell?</span>"
+ },
+ {
+  "name": "ta_MB00",
+  "bg": "s2work/tmp_mbup1127/assets/bg_mb00.jpg",
+  "pos": "-440px 22%/1720px auto",
+  "badge": "MB 00",
+  "l1": "சொர்க்கத்தில் துரியோதனன்…",
+  "l2": "பாண்டவர்கள் <span>நரகத்தில்?</span>"
+ },
+ {
+  "name": "hi_MB03",
+  "bg": "s2work/tmp_mbup1127/assets/bg_mb03.jpg",
+  "pos": "30% 40%/cover",
+  "badge": "MB 03",
+  "l1": "दो जन्मों का बदला!",
+  "l2": "अंबा की <span>शपथ</span>"
+ },
+ {
+  "name": "hi_MB04",
+  "bg": "s2work/tmp_mbup1127/assets/bg_mb04.jpg",
+  "pos": "0% 30%/cover",
+  "badge": "MB 04",
+  "l1": "एक ही रात… तीन कमरे!",
+  "l2": "तीन <span>बेटे</span>"
+ },
+ {
+  "name": "hi_MB05",
+  "bg": "s2work/tmp_mbup1127/assets/bg_mb05.jpg",
+  "pos": "0% 40%/cover",
+  "badge": "MB 05",
+  "l1": "कवच के साथ जन्मा बच्चा… नदी में!",
+  "l2": "कुंती का <span>रहस्य</span>"
+ }
+]
